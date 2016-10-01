@@ -1,12 +1,24 @@
 import React from 'react'
 
-export default function Layout ({ children }) {
+import Hits from '../Hits'
+import InputSearch from '../InputSearch'
+import NavBar from '../NavBar'
+
+export default function Layout ({children}) {
   return (
-    <article className='mw5 mw7-ns mt6 center bg-light-gray pa3 ph5-ns'>
-      <section className='f5 tc lh-copy'>
-        <h1>Hello, world!</h1>
-        {children}
-      </section>
+    <article className='cf'>
+      <div className='fl w-100 w-25-l bg-near-white tc' />
+
+      <NavBar>
+        <InputSearch />
+      </NavBar >
+
+      <div className='fl w-100 w-25-l bg-near-white tc vh-100'>
+        <h2>Filters</h2>
+      </div>
+      <div className='fl w-100 w-75-l bg-light-gray tc'>
+        <Hits />
+      </div>
     </article>
   )
 }
