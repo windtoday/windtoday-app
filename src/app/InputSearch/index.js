@@ -1,13 +1,18 @@
 import React from 'react'
 
-export default function InputSearch () {
+import {SearchBox} from 'react-instantsearch'
+
+function InputSearch (props) {
+  const onChange = (e) => props.refine(e.target.value)
+
   return (
-    <form className='pa3'>
-      <fieldset className='cf bn ma0 pa0'>
-        <div className='cf'>
-          <input className='fl f6 f5-l input-reset bn black-80 bg-white fl pa3 lh-solid w-100 br2-ns br--left-ns' placeholder='Your Email Address' type='text' name='Email_Adress' value='' id='Email_Adress' />
-        </div>
-      </fieldset>
-    </form>
+    <input
+      className='w-80 w-70-l f6 f5-l input-reset bn black-80 bg-white pa2 lh-solid br2-ns br--left-ns'
+      type='text'
+      value={props.query}
+      onChange={onChange}
+    />
   )
 }
+
+export default SearchBox.connect(InputSearch)

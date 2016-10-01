@@ -1,9 +1,11 @@
 import React from 'react'
 
+import InputSearch from '../InputSearch'
+
 export default function NavBar ({children}) {
   return (
-    <div className='bg-silver h3'>
-      {children}
-    </div>
+    <nav className='bg-light-silver w-100 center pv3 flex justify-center'>
+      <InputSearch />
+    </nav>
   )
 }
