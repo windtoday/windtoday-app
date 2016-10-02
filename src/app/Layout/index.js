@@ -2,7 +2,7 @@ import React from 'react'
 import {InstantSearch} from 'react-instantsearch'
 
 import Header from '../Header'
-import Hits from '../Hits'
+import Results from '../Results'
 
 function Layout ({children}) {
   return (
@@ -17,7 +17,7 @@ function Layout ({children}) {
         </aside>
 
         <article className='fl w-100 w-75-l bg-light-gray'>
-          <Hits />
+          <Results />
         </article>
 
       </main>

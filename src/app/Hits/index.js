@@ -3,7 +3,7 @@ import {Hits} from 'react-instantsearch'
 
 import Pagination from '../Pagination'
 
-const Hit = ({item}) => {
+function Hit ({item}) {
   return (
     <section>
       <a className='link dt w-100 bb b--black-10 pb2 mt2 dim blue' href='#0'>
