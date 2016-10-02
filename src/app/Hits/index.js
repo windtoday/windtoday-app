@@ -1,6 +1,8 @@
 import React from 'react'
 import {Hits} from 'react-instantsearch'
 
+import Pagination from '../Pagination'
+
 const Hit = ({item}) => {
   return (
     <section>
@@ -29,6 +31,7 @@ function CustomHits ({hits}) {
   return (
     <div className='ph3 ph7-l'>
       {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
+      <Pagination />
     </div>
   )
 }

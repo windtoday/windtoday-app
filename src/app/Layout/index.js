@@ -1,7 +1,6 @@
 import React from 'react'
 import {InstantSearch} from 'react-instantsearch'
 
-import Pagination from '../Pagination'
 import Header from '../Header'
 import Hits from '../Hits'
 
@@ -19,7 +18,6 @@ function Layout ({children}) {
 
         <article className='fl w-100 w-75-l bg-light-gray'>
           <Hits />
-          <Pagination />
         </article>
 
       </main>
