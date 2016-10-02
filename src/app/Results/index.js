@@ -12,7 +12,7 @@ const Results = createConnector({
     return {query: state.q, noResults}
   }
 })(({noResults, query}) => {
-  return (noResults ? <NoResults query={query} /> : <Hits />)
+  return (noResults ? <NoResults query={query} /> : <Hits hitsPerPage={10} />)
 })
 
 export default Results
