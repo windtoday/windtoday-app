@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {SearchBox} from 'react-instantsearch'
 
 function InputSearch (props) {
