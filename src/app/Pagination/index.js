@@ -1,5 +1,6 @@
 import React from 'react'
 import {Pagination} from 'react-instantsearch'
+
 import './style'
 
 function MyPagination (props) {
