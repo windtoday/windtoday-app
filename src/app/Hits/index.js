@@ -2,6 +2,7 @@ import React from 'react'
 import {Hits} from 'react-instantsearch'
 
 import Pagination from '../Pagination'
+import Stats from '../Stats'
 
 function Hit ({item}) {
   return (
@@ -30,6 +31,7 @@ function Hit ({item}) {
 function CustomHits ({hits}) {
   return (
     <div className='ph3 ph7-l'>
+      <Stats />
       {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
       <Pagination />
     </div>
