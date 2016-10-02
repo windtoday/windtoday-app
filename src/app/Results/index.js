@@ -12,7 +12,14 @@ const Results = createConnector({
     return {query: state.q, noResults}
   }
 })(({noResults, query}) => {
-  return (noResults ? <NoResults query={query} /> : <Hits hitsPerPage={10} />)
+  return (
+    <article className='fl w-100 w-75-l bg-light-gray'>
+      {noResults
+        ? <NoResults query={query} />
+        : <Hits hitsPerPage={10} />
+      }
+    </article>
+  )
 })
 
 export default Results
