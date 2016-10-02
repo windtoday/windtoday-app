@@ -1,0 +1,15 @@
+@import 'tachyons/src/tachyons';
+
+.Pagination__item--disabled > span,
+.Pagination__item--selected > a {
+  @extend .black-20;
+  @extend .b--black-20;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.Pagination__item--first {
+  display: none;
+}
