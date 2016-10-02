@@ -2,7 +2,6 @@ import React from 'react'
 import {Hits} from 'react-instantsearch'
 
 const Hit = ({item}) => {
-  console.log(item)
   return (
     <section>
       <a className='link dt w-100 bb b--black-10 pb2 mt2 dim blue' href='#0'>
@@ -28,7 +27,7 @@ const Hit = ({item}) => {
 
 function CustomHits ({hits}) {
   return (
-    <div className='ph7'>
+    <div className='ph3 ph7-l'>
       {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
     </div>
   )
