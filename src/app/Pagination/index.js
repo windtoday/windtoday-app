@@ -30,7 +30,7 @@ function MyPagination (props) {
   }
 
   return (
-    <Pagination theme={theme} translations={translations} />
+    <Pagination theme={theme} translations={translations} showFirst={false} pagesPadding={2} />
   )
 }
 
