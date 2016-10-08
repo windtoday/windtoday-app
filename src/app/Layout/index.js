@@ -1,5 +1,4 @@
 import React from 'react'
-import {InstantSearch} from 'react-instantsearch'
 
 import Header from '../Header'
 import Results from '../Results'
