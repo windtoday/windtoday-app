@@ -3,6 +3,7 @@ import IconMenu from 'react-icons/lib/md/menu'
 import IconFilter from 'react-icons/lib/md/filter-list'
 
 import InputSearch from '../InputSearch'
+import './style.scss'
 
 function Header ({children}) {
   return (

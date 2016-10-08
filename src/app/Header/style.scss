@@ -1,0 +1,16 @@
+@import '../style';
+
+header {
+  border-bottom: 1px solid #e8e8e8;
+
+  input[type=text],
+  textarea {
+    outline: none;
+    transition: all .30s ease-in-out;
+    border: 1.5px solid #ddd;
+
+    &:focus {
+      border-color: $blue;
+    }
+  }
+}

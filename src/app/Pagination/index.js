@@ -27,7 +27,7 @@ function MyPagination (props) {
     itemPage: 'Pagination__item--page',
     itemSelected: 'Pagination__item--selected',
     itemDisabled: 'Pagination__item--disabled',
-    itemLink: 'f6 f5-ns b db pa2 link dark-gray ba dim'
+    itemLink: 'f6 f5-ns b db pa2 link blue ba dim'
   }
 
   return (

@@ -6,7 +6,7 @@ import Facets from '../Facets'
 
 function Layout ({children}) {
   return (
-    <main className='cf'>
+    <main className='cf helvetica'>
       <Header />
       <Facets />
       <Results />
