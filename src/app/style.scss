@@ -1,3 +1,22 @@
-$blue: red;
+$blue: #19B5FE;
 
 @import '~tachyons-sass/tachyons';
+
+input[type=text], textarea {
+  outline: none;
+  transition: all .30s ease-in-out;
+  border: 1.5px solid #ddd;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+header {
+  box-shadow: 0 2px 5px rgba(0,0,0,.26)
+}
+
+aside,
+article {
+  margin-top: 10px;
+}

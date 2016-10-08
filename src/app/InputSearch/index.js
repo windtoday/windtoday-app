@@ -6,10 +6,11 @@ function InputSearch (props) {
 
   return (
     <input
-      className='w-80 w-70-l f6 f5-l input-reset bn black-80 bg-white pa2 lh-solid br2-ns br--left-ns'
+      className='w-80 w-70-l f6 f5-l input-reset black-80 bg-near-white pa2 lh-solid br2 ba'
       type='text'
       value={props.query}
       onChange={onChange}
+      autoFocus
     />
   )
 }

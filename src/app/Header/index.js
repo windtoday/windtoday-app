@@ -6,7 +6,7 @@ import InputSearch from '../InputSearch'
 
 function Header ({children}) {
   return (
-    <header className='bg-light-silver w-100 center pv3 flex justify-around items-center'>
+    <header className='bg-white w-100 center pv3 flex justify-around items-center'>
       <IconMenu />
       <InputSearch />
       <IconFilter />
