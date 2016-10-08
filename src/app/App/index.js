@@ -10,12 +10,18 @@ import Layout from '../Layout'
 // You can ignore this warning. For details, see:
 // https://github.com/reactjs/react-router/issues/2182
 
-export default class App extends Component {
+class App extends Component {
   render () {
     return (
-      <InstantSearch className='cf' appId='latency' apiKey='6be0576ff61c053d5f9a3225e2a90f76' indexName='ikea'>
+      <InstantSearch className='cf'
+        appId='PDZK7H6PD0'
+        apiKey='911167d1e62d76e16e9cd746c0b1a684'
+        indexName='sails'
+      >
         <Layout />
       </ InstantSearch>
     )
   }
 }
+
+export default App
