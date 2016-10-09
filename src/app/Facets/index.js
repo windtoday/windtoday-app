@@ -30,6 +30,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='category'
+              key='category'
               operator='or'
               limitMin={10}
             />
@@ -41,6 +42,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='provider'
+              key='provider'
               operator='or'
               limitMin={10}
             />
@@ -52,6 +54,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='type'
+              key='type'
               operator='or'
               limitMin={10}
             />
@@ -63,6 +66,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='brand'
+              key='brand'
               operator='or'
               limitMin={10}
             />
@@ -74,6 +78,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='model'
+              key='model'
               operator='or'
               limitMin={10}
             />
@@ -85,6 +90,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='size'
+              key='size'
               operator='or'
               limitMin={10}
             />
@@ -96,6 +102,7 @@ function Facets ({children}) {
           items={[
             <RefinementList
               attributeName='litres'
+              key='litres'
               operator='or'
               limitMin={10}
             />
