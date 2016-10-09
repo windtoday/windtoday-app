@@ -3,6 +3,7 @@ import {Hits} from 'react-instantsearch'
 
 import Pagination from '../Pagination'
 import Stats from '../Stats'
+import './style.scss'
 
 function price (item) {
   if (item.price) {

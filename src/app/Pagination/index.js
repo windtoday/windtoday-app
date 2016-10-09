@@ -1,5 +1,5 @@
 import React from 'react'
-import {Pagination} from 'react-instantsearch'
+import {ScrollTo, Pagination} from 'react-instantsearch'
 
 import './style'
 

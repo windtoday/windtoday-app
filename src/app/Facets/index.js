@@ -1,5 +1,5 @@
 import React from 'react'
-import { CurrentFilters, RefinementList } from 'react-instantsearch'
+import {RefinementList} from 'react-instantsearch'
 import './style.scss'
 
 const SideBarSection = ({title, items}) =>
@@ -12,19 +12,6 @@ function Facets ({children}) {
   return (
     <aside className='fl w-100 w-25-l' >
       <div>
-        <CurrentFilters
-          theme={{
-            root: 'CurrentFilters',
-            // filters: {
-            //   display: 'none'
-            // },
-            clearAll: 'CurrentFilters__clearAll btn'
-          }}
-          translations={{
-            clearAll: 'Clear all filters'
-          }}
-        />
-
         <SideBarSection
           title='category'
           items={[

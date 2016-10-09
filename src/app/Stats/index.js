@@ -1,13 +1,18 @@
 import React from 'react'
 import {Stats} from 'react-instantsearch'
 
+import CurrentFilters from '../CurrentFilters'
+
 const theme = {
-  root: 'db pt4 pb2 pl3 pl5-ns silver'
+  root: 'dib pt3 pt4-l'
 }
 
 function CustomStats () {
   return (
-    <Stats theme={theme} />
+    <header className='db pt4 pb2 ph3 ph5-ns silver'>
+      <CurrentFilters />
+      <Stats theme={theme} />
+    </header>
   )
 }
 
