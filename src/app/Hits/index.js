@@ -41,7 +41,7 @@ function date (item) {
 function Hit ({item}) {
   return (
     <section>
-      <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.link}>
+      <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.link} target='_blank'>
 
         {image(item)}
 
