@@ -61,10 +61,12 @@ function Hit ({item}) {
 
 function CustomHits ({hits}) {
   return (
-    <div className='ph3 ph7-l'>
+    <div>
       <Stats />
-      {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
-      <Pagination />
+      <div className='pa3 pa4-l'>
+        {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
+        <Pagination />
+      </div>
     </div>
   )
 }
