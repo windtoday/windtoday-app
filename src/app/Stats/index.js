@@ -2,7 +2,7 @@ import React from 'react'
 import {Stats} from 'react-instantsearch'
 
 const theme = {
-  root: 'fr db pa3 silver'
+  root: 'db pt4 pb2 pl3 pl5-ns silver'
 }
 
 function CustomStats () {

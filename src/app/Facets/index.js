@@ -3,7 +3,7 @@ import { CurrentFilters, RefinementList } from 'react-instantsearch'
 import './style.scss'
 
 const SideBarSection = ({title, items}) =>
-  <section className='pa2 pa3-ns'>
+  <section className='pa3 pa4-ns'>
     <div className='f6 fw6 ttu tracked pb2 bb b--black-10 black-70'>{title}</div>
     {items.map(i => i)}
   </section>
