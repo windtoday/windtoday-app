@@ -1,7 +1,5 @@
 @import '../style';
 
-$aside-color: rgba(244, 244, 244, 0.37);
-
 aside {
   background-color: $aside-color;
 
@@ -20,7 +18,7 @@ aside {
 
   .ais-RefinementList__itemLabel {
     padding-right: .5em;
-    @extend .mid-gray;
+    @extend .ttc, .lh-title, .f5, .mid-gray;
   }
 
   .ais-RefinementList__item {
