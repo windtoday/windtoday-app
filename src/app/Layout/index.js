@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Header from '../Header'
 import Results from '../Results'
+import AppBar from '../AppBar'
 import Facets from '../Facets'
 
 function Layout ({children}) {
   return (
     <main className='cf helvetica'>
-      <Header />
+      <AppBar />
       <Facets />
       <Results />
     </main>
