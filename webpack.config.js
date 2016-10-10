@@ -3,6 +3,7 @@
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -22,6 +23,10 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      VERSION: JSON.stringify(pkg.version)
+    }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: require('html-webpack-template'),
       alwaysWriteToDisk: true,
@@ -47,16 +52,16 @@ module.exports = {
     })),
     new HtmlWebpackHarddiskPlugin(),
     new ExtractTextPlugin('assets/css/bundle.css', { allChunks: true }),
+    new PurifyCSSWebpackPlugin({
+      basePath: path.resolve('src/www'),
+      paths: ['*.html']
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'assets/js/vendor.bundle.js',
       minChunks: Infinity
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-      VERSION: JSON.stringify(pkg.version)
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
