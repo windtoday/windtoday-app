@@ -6,6 +6,7 @@
 [![Dependency status](http://img.shields.io/david/windtoday/windtoday-app.svg?style=flat-square)](https://david-dm.org/windtoday/windtoday-app)
 [![Dev Dependencies Status](http://img.shields.io/david/dev/windtoday/windtoday-app.svg?style=flat-square)](https://david-dm.org/windtoday/windtoday-app#info=devDependencies)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
+
 ## License
 
 MIT © [Kiko Beats](https://github.com/kikobeats).
