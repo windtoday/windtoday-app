@@ -6,9 +6,9 @@ env:
   global:
     - GIT_NAME: Travis CI
     - GIT_EMAIL: nobody@nobody.org
-    - GITHUB_REPO: windtoday/windtoday-app
+    - GITHUB_REPO: windtoday/windtoday.github.io
     - GIT_SOURCE: src/www
-    - GIT_BRANCH: gh-pages
+    - GIT_BRANCH: master
 
 after_script:
   - |
