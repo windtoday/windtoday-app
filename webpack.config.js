@@ -54,7 +54,11 @@ module.exports = {
     new ExtractTextPlugin('assets/css/bundle.css', { allChunks: true }),
     new PurifyCSSWebpackPlugin({
       basePath: path.resolve('src/www'),
-      paths: ['*.html']
+      paths: ['*.html'],
+      purifyOptions: {
+        minify: true,
+        rejected: true
+      }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
