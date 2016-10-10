@@ -3,7 +3,6 @@
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const autoprefixer = require('autoprefixer')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -26,8 +25,8 @@ module.exports = {
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: require('html-webpack-template'),
       alwaysWriteToDisk: true,
+      inject: false,
       hash: true,
-      inject: true,
       minify: {
         collapseWhitespace: true,
         decodeEntities: true,
@@ -72,7 +71,7 @@ module.exports = {
       include: path.resolve('src/app')
     }, {
       test: /(\.scss|\.css)$/,
-      loader: ExtractTextPlugin.extract('style', 'css?minimize&sourceMap!postcss')
+      loader: ExtractTextPlugin.extract('style', 'css?minimize&sourceMap!sass!postcss')
     }, {
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]'
@@ -97,9 +96,7 @@ module.exports = {
     }]
   },
   postcss: [
-    require('postcss-import'),
     require('postcss-focus'),
-    require('precss'),
     require('autoprefixer')
   ]
 }
