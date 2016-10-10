@@ -1,35 +1,11 @@
-# react-boilerplatinum
+# windtoday-app
 
-![Last version](https://img.shields.io/github/tag/Kikobeats/react-boilerplatinum.svg?style=flat-square)
-[![Dependency status](https://img.shields.io/david/Kikobeats/react-boilerplatinum.svg?style=flat-square)](https://david-dm.org/Kikobeats/react-boilerplatinum)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/react-boilerplatinum.svg?style=flat-square)](https://david-dm.org/Kikobeats/react-boilerplatinum#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/react-boilerplatinum.svg?style=flat-square)](https://www.npmjs.org/package/react-boilerplatinum)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
-
-> A Platinum React Boilerplate.
-
-The premise of this scaffold is provide the best production build possible, but also the best development experience.
-
-In **development**:
-
-- Use [standard](https://github.com/feross/standard) as linter.
-- Devices synchronization with [BrowserSync](https://www.browsersync.io).
-- Transpiling JavaScript using [Babel](https://babeljs.io) and latest preset.
-- Transpiling stylesheet using [PostCSS](http://postcss.org).
-- Ability to load `node_modules` as CSS `@imports`.
-- Live editing using HMR for JS & CSS.
-- Full screen console error feedback.
-- Autogenerate HTML main file.
-
-But also, in **production**:
-
-- Split final build into `vendor` and `main`.
-- Autoprefix vendor CSS.
-- Extract fonts or images that size is `>10kb`.
-- Minify JS, CSS & HTML.
-
-It's inspired in [react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate).
-
+![Last version](https://img.shields.io/github/tag/windtoday/windtoday-app.svg?style=flat-square)
+[![Build Status](http://img.shields.io/travis/windtoday/windtoday-app/master.svg?style=flat-square)](https://travis-ci.org/windtoday/windtoday-app)
+[![Coverage Status](https://img.shields.io/coveralls/windtoday/windtoday-app.svg?style=flat-square)](https://coveralls.io/github/windtoday/windtoday-app)
+[![Dependency status](http://img.shields.io/david/windtoday/windtoday-app.svg?style=flat-square)](https://david-dm.org/windtoday/windtoday-app)
+[![Dev Dependencies Status](http://img.shields.io/david/dev/windtoday/windtoday-app.svg?style=flat-square)](https://david-dm.org/windtoday/windtoday-app#info=devDependencies)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
 ## License
 
 MIT © [Kiko Beats](https://github.com/kikobeats).
