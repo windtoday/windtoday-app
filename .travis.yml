@@ -18,6 +18,6 @@ after_script:
       exitCode=$?
       # -- [2] -------------------------------------------------------
       if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" -a $exitCode -eq 0 ]; then
-        npm install docpress git-update-ghpages
+        npm install git-update-ghpages
         npm run build && ./node_modules/.bin/git-update-ghpages -e
       fi
