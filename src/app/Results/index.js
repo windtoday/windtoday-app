@@ -13,7 +13,7 @@ const Results = createConnector({
   }
 })(({noResults, query}) => {
   return (
-    <article className='fl w-100 w-75-l bg-white'>
+    <article className='fl w-100 w-75-l bg-white mt5-ns'>
       {noResults
         ? <NoResults query={query} />
         : <Hits hitsPerPage={10} />
