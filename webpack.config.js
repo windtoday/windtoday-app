@@ -1,10 +1,10 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const config = require('yaml-parser').safeLoad(require('./config.yaml'))
+const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
-const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
 const path = require('path')
@@ -28,7 +28,7 @@ module.exports = {
       VERSION: JSON.stringify(pkg.version)
     }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
-      template: require('html-webpack-template'),
+      template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
       inject: false,
       hash: true,

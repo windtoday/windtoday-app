@@ -17,7 +17,7 @@ function price (item) {
 }
 
 function image (item) {
-  const link = `/assets/img/${item.provider}.jpeg`
+  const link = `/assets/img/provider/${item.provider}.jpeg`
   return (
     <div className='dtc w3'>
       <img src={link} className='db w-100 br2' />

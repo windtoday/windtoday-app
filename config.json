@@ -1,3 +1,6 @@
 {
-  "appMountId": "app"
+  "appMountId": "app",
+  "title": "Windtoday | Intelligent windsurfing marketplace",
+  "baseHref": "https://windtoday.github.io",
+  "description": "Pokemon"
 }
