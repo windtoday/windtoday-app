@@ -56,10 +56,6 @@
     <% for (key in htmlWebpackPlugin.files.css) { %>
     <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet">
     <% } %>
-
-    <% if (process.env.NODE_ENV === 'production' && htmlWebpackPlugin.options.baseHref) { %>
-    <base href="<%= htmlWebpackPlugin.options.baseHref %>">
-    <% } %>
   </head>
   <body>
     <% if (htmlWebpackPlugin.options.unsupportedBrowser) { %>
