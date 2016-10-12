@@ -68,7 +68,7 @@
     "node": ">= 6"
   },
   "scripts": {
-    "build": "webpack --progress --debug --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "standard",
     "start": "node bin/server",
     "test": "echo 'not yet implemented, wanna help?'"
