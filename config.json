@@ -2,5 +2,8 @@
   "appMountId": "app",
   "title": "Windtoday",
   "baseHref": "https://windtoday.co",
-  "description": "Intelligent windsurfing marketplace"
+  "description": "Intelligent windsurfing marketplace",
+  "googleAnalytics": {
+    "trackingId": "UA-85604345-1"
+  }
 }
