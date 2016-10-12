@@ -8,7 +8,6 @@ aside {
   }
 
   input[type=checkbox] {
-    margin-right: .4em;
     @extend .pointer;
   }
 
@@ -18,6 +17,7 @@ aside {
 
   .ais-RefinementList__itemLabel {
     padding-right: .5em;
+    padding-left: .5em;
     @extend .ttc, .lh-title, .f5, .mid-gray;
   }
 
