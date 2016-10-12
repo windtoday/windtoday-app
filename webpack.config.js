@@ -1,10 +1,10 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const config = require('yaml-parser').safeLoad(require('./config.yaml'))
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
 const path = require('path')
