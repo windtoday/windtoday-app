@@ -1,12 +1,15 @@
 import React from 'react'
-import {RefinementList} from 'react-instantsearch'
+import {Range, RefinementList} from 'react-instantsearch'
 import './style.scss'
 
-const SideBarSection = ({title, items}) =>
-  <section className='pa3 pa4-ns'>
-    <div className='f6 fw6 ttu tracked pb2 bb b--black-10 black-70'>{title}</div>
-    {items.map(i => i)}
-  </section>
+function SideBarSection ({title, item}) {
+  return (
+    <section className='pa3 pa4-ns'>
+      <div className='f6 fw6 ttu tracked pb2 bb b--black-10 black-70'>{title}</div>
+      {item}
+    </section>
+  )
+}
 
 function Facets ({children}) {
   return (
@@ -14,86 +17,92 @@ function Facets ({children}) {
       <div>
         <SideBarSection
           title='category'
-          items={[
+          item={
             <RefinementList
               attributeName='category'
               key='category'
               operator='or'
               limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='provider'
-          items={[
+          item={
             <RefinementList
               attributeName='provider'
               key='provider'
               operator='or'
               limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='type'
-          items={[
+          item={
             <RefinementList
               attributeName='type'
               key='type'
               operator='or'
               limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='brand'
-          items={[
+          item={
             <RefinementList
               attributeName='brand'
               key='brand'
               operator='or'
               limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='model'
-          items={[
+          item={
             <RefinementList
               attributeName='model'
               key='model'
               operator='or'
               limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='size'
-          items={[
-            <RefinementList
+          item={
+            <Range
               attributeName='size'
               key='size'
-              operator='or'
-              limitMin={10}
             />
-          ]}
+          }
         />
 
         <SideBarSection
           title='litres'
-          items={[
-            <RefinementList
+          item={
+            <Range
               attributeName='litres'
               key='litres'
-              operator='or'
-              limitMin={10}
             />
-          ]}
+          }
+        />
+
+        <SideBarSection
+          title='price'
+          item={
+            <Range
+              attributeName='price'
+              key='price'
+            />
+          }
         />
       </div>
     </aside>
