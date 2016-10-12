@@ -48,3 +48,16 @@ aside {
     @extend .fr, .light-silver;
   }
 }
+
+
+.Range__price div:after {
+  content: '€';
+}
+
+.Range__litres div:after {
+  content: 'l';
+}
+
+.Range__size div:after {
+  content: 'm';
+}

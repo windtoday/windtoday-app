@@ -81,6 +81,10 @@ function Facets ({children}) {
             <Range
               attributeName='size'
               key='size'
+              theme={Object.assign({}, Range.defaultTheme, {
+                boundMin: 'ais-Range__bound ais-Range__boundMin Range__size',
+                boundMax: 'ais-Range__bound ais-Range__boundMax Range__size'
+              })}
             />
           }
         />
@@ -91,6 +95,10 @@ function Facets ({children}) {
             <Range
               attributeName='litres'
               key='litres'
+              theme={Object.assign({}, Range.defaultTheme, {
+                boundMin: 'ais-Range__bound ais-Range__boundMin Range__litres',
+                boundMax: 'ais-Range__bound ais-Range__boundMax Range__litres'
+              })}
             />
           }
         />
@@ -101,6 +109,10 @@ function Facets ({children}) {
             <Range
               attributeName='price'
               key='price'
+              theme={Object.assign({}, Range.defaultTheme, {
+                boundMin: 'ais-Range__bound ais-Range__boundMin Range__price',
+                boundMax: 'ais-Range__bound ais-Range__boundMax Range__price'
+              })}
             />
           }
         />
