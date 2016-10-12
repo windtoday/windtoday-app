@@ -3,3 +3,9 @@ $divider-color: #ddd;
 $aside-color: #FBFBFB;
 
 @import '~tachyons-sass/tachyons';
+
+em {
+  background-color: $yellow;
+  padding: .05em .1em;
+  font-style: normal;
+}
