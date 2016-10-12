@@ -32,13 +32,13 @@
     <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>"/>
     <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>"/>
     <meta property="og:url" content="<%= htmlWebpackPlugin.options.baseHref %>"/>
-    <meta property="og:image" content="assets/img/android-chrome-192x192"/>
+    <meta property="og:image" content="assets/img/android-chrome-192x192.png"/>
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>"/>
     <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>"/>
     <meta name="twitter:url" content="<%= htmlWebpackPlugin.options.baseHref %>"/>
-    <meta name="twitter:image" content="assets/img/android-chrome-192x192"/>
+    <meta name="twitter:image" content="assets/img/android-chrome-192x192.png"/>
 
     <title><%= htmlWebpackPlugin.options.title %></title>
     <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
@@ -52,7 +52,7 @@
     <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet">
     <% } %>
 
-    <% if (htmlWebpackPlugin.options.baseHref) { %>
+    <% if (process.env.NODE_ENV === 'production' && htmlWebpackPlugin.options.baseHref) { %>
     <base href="<%= htmlWebpackPlugin.options.baseHref %>">
     <% } %>
   </head>
