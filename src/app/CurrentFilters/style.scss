@@ -1,13 +1,5 @@
 @import '../style';
 
-.ais-CurrentFilters__filter {
-  @extend .dib, .br4, .pa1, .mv2, .mr2, .bg-near-white;
-}
-
-.ais-CurrentFilters__clearAll {
-  display: none;
-}
-
 .ais-CurrentFilters__filterClear {
   background: none;
   border: none;
@@ -17,8 +9,4 @@
     @extend .br-100, .pa1, .white, .f6, .dim;
     background-color: $divider-color;
   }
-}
-
-.ais-CurrentFilters__filterLabel {
-  @extend .pl2, .v-mid;
 }

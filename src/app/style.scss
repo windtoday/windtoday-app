@@ -9,3 +9,18 @@ em {
   padding: .05em .1em;
   font-style: normal;
 }
+
+input[type=text],
+textarea {
+  outline: none;
+  transition: all .30s ease-in-out;
+  border: 1.5px solid $divider-color;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+input[type=checkbox] {
+  @extend .pointer;
+}
