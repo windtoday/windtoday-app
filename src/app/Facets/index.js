@@ -20,7 +20,7 @@ function Facets ({children}) {
           item={
             <RefinementList
               attributeName='category'
-              key='category'
+              id='c'
               operator='or'
               limitMin={10}
             />
@@ -32,7 +32,7 @@ function Facets ({children}) {
           item={
             <RefinementList
               attributeName='provider'
-              key='provider'
+              id='p'
               operator='or'
               limitMin={10}
             />
@@ -44,7 +44,7 @@ function Facets ({children}) {
           item={
             <RefinementList
               attributeName='type'
-              key='type'
+              id='t'
               operator='or'
               limitMin={10}
             />
@@ -56,7 +56,7 @@ function Facets ({children}) {
           item={
             <RefinementList
               attributeName='brand'
-              key='brand'
+              id='b'
               operator='or'
               limitMin={10}
             />
@@ -68,7 +68,7 @@ function Facets ({children}) {
           item={
             <RefinementList
               attributeName='model'
-              key='model'
+              id='m'
               operator='or'
               limitMin={10}
             />
@@ -80,7 +80,7 @@ function Facets ({children}) {
           item={
             <Range
               attributeName='size'
-              key='size'
+              id='s'
               theme={Object.assign({}, Range.defaultTheme, {
                 boundMin: 'ais-Range__bound ais-Range__boundMin Range__size',
                 boundMax: 'ais-Range__bound ais-Range__boundMax Range__size'
@@ -94,7 +94,7 @@ function Facets ({children}) {
           item={
             <Range
               attributeName='litres'
-              key='litres'
+              id='l'
               theme={Object.assign({}, Range.defaultTheme, {
                 boundMin: 'ais-Range__bound ais-Range__boundMin Range__litres',
                 boundMax: 'ais-Range__bound ais-Range__boundMax Range__litres'
@@ -108,7 +108,7 @@ function Facets ({children}) {
           item={
             <Range
               attributeName='price'
-              key='price'
+              id='e'
               theme={Object.assign({}, Range.defaultTheme, {
                 boundMin: 'ais-Range__bound ais-Range__boundMin Range__price',
                 boundMax: 'ais-Range__bound ais-Range__boundMax Range__price'
