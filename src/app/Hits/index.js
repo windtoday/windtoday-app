@@ -17,10 +17,10 @@ function price (item) {
 }
 
 function image (item) {
-  const link = `/assets/img/provider/${item.provider}.jpeg`
+  const imageURL = `/assets/img/provider/${item.provider}.jpeg`
   return (
     <div className='dtc w3'>
-      <img src={link} className='db w-100 br2' />
+      <img src={imageURL} className='db w-100 br2' />
     </div>
   )
 }
@@ -41,7 +41,7 @@ function date (item) {
 function Hit ({item}) {
   return (
     <section>
-      <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.link} target='_blank'>
+      <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.shortenURL} target='_blank'>
 
         {image(item)}
 
