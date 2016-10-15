@@ -1,5 +1,5 @@
 import React from 'react'
-import {ScrollTo, Pagination} from 'react-instantsearch'
+import {Pagination} from 'react-instantsearch'
 
 import './style'
 
@@ -31,7 +31,9 @@ function MyPagination (props) {
   }
 
   return (
-    <Pagination theme={theme} translations={translations} showFirst={false} pagesPadding={2} />
+    <div data-app='pagination'>
+      <Pagination theme={theme} translations={translations} showFirst={false} pagesPadding={2} />
+    </div>
   )
 }
 

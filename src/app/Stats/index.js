@@ -9,7 +9,7 @@ const theme = {
 
 function CustomStats () {
   return (
-    <header className='db pt4 pb2 ph3 ph5-l silver'>
+    <header data-app='stats' className='db pt4 pb2 ph3 ph5-l silver'>
       <CurrentFilters />
       <Stats theme={theme} />
     </header>

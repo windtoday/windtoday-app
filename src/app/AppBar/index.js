@@ -7,7 +7,7 @@ import './style.scss'
 
 function AppBar ({children}) {
   return (
-    <header className='bg-white w-100 center pv3 flex justify-around items-center fixed z-1'>
+    <header data-app='app-bar' className='bg-white w-100 center pv3 flex justify-around items-center fixed z-1'>
       <IconMenu />
       <InputSearch />
       <IconFilter />

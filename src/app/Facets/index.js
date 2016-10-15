@@ -2,20 +2,20 @@ import React from 'react'
 import {Range, RefinementList} from 'react-instantsearch'
 import './style.scss'
 
-function SideBarSection ({title, item}) {
+function SideBararticle ({title, item}) {
   return (
-    <section className='pa3 pa4-ns'>
+    <article className='pa3 pa4-ns'>
       <div className='f6 fw6 ttu tracked pb2 bb b--black-10 black-70'>{title}</div>
       {item}
-    </section>
+    </article>
   )
 }
 
 function Facets ({children}) {
   return (
-    <article className='fl w-100 w-25-l' >
+    <aside data-app='facets' className='fl w-100 w-25-l' >
       <div>
-        <SideBarSection
+        <SideBararticle
           title='category'
           item={
             <RefinementList
@@ -27,7 +27,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='provider'
           item={
             <RefinementList
@@ -39,7 +39,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='type'
           item={
             <RefinementList
@@ -51,7 +51,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='brand'
           item={
             <RefinementList
@@ -63,7 +63,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='model'
           item={
             <RefinementList
@@ -75,7 +75,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='size'
           item={
             <Range
@@ -89,7 +89,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='litres'
           item={
             <Range
@@ -103,7 +103,7 @@ function Facets ({children}) {
           }
         />
 
-        <SideBarSection
+        <SideBararticle
           title='price'
           item={
             <Range
@@ -117,7 +117,7 @@ function Facets ({children}) {
           }
         />
       </div>
-    </article>
+    </aside>
   )
 }
 

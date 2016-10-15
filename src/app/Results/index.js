@@ -13,12 +13,12 @@ const Results = createConnector({
   }
 })(({noResults, query}) => {
   return (
-    <aside className='fl w-100 w-75-l bg-white'>
+    <section data-app='results' className='fl w-100 w-75-l bg-white'>
       {noResults
         ? <NoResults query={query} />
         : <Hits hitsPerPage={10} />
       }
-    </aside>
+    </section>
   )
 })
 

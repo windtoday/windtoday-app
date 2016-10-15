@@ -40,7 +40,7 @@ function date (item) {
 
 function Hit ({item}) {
   return (
-    <section>
+    <article data-app='hit'>
       <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.shortenURL} target='_blank'>
 
         {image(item)}
@@ -58,13 +58,13 @@ function Hit ({item}) {
           {price(item)}
         </div>
       </a>
-    </section>
+    </article>
   )
 }
 
 function CustomHits ({hits}) {
   return (
-    <div>
+    <div data-app='hits'>
       <Stats />
       <div className='pv3 pv4-l ph3 ph5-l'>
         {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
