@@ -3,3 +3,12 @@
 [data-app='facets'] {
   background-color: $aside-color;
 }
+
+.facetsOpen {
+}
+
+.facets-close {
+  position: absolute;
+  top: 0;
+  left: -25%;
+}

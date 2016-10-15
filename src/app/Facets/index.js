@@ -1,11 +1,21 @@
 import React from 'react'
+import classnames from 'classnames'
+
 import FacetsWrapper from '../FacetsWrapper'
 import './style.scss'
 
-function Facets () {
+const theme = 'fl w-100 w-25-l'
+
+function Facets (props) {
+  const {toggle, get } = props
+
+  const style = classnames(theme, {
+    'facets-close': get('facetsOpen')
+  })
+
   return (
-    <aside data-app='facets' className='fl w-100 w-25-l' >
-      <FacetsWrapper />
+    <aside data-app='facets' className={style} >
+      <FacetsWrapper {...props} />
     </aside>
   )
 }
