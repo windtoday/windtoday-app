@@ -13,7 +13,7 @@ function SideBarSection ({title, item}) {
 
 function Facets ({children}) {
   return (
-    <aside className='fl w-100 w-25-l' >
+    <article className='fl w-100 w-25-l' >
       <div>
         <SideBarSection
           title='category'
@@ -117,7 +117,7 @@ function Facets ({children}) {
           }
         />
       </div>
-    </aside>
+    </article>
   )
 }
 

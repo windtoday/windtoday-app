@@ -1,7 +1,7 @@
 @import '../style';
 
-aside {
-  background-color: $aside-color;
+article {
+  background-color: $article-color;
 
   > div {
     border-right: 1px solid $divider-color;
@@ -23,7 +23,7 @@ aside {
   }
 
   span {
-    background-color: $aside-color;
+    background-color: $article-color;
   }
 }
 
