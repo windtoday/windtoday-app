@@ -6,7 +6,7 @@ import './style.scss'
 
 function CustomCurrentFilters () {
   return (
-    <div data-app='current-filters'>
+    <div data-app='current-filters' className='pt4'>
       <CurrentFilters
         translations={{
           clearFilter: <IconClose />
