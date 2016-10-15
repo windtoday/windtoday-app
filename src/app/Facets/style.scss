@@ -6,6 +6,7 @@
   transition-timing-function: $aside-transition-timing;
   transition-duration: $aside-transition-duration;
   transition-property: transform;
+  -webkit-overflow-scrolling: touch;
 }
 
 .facets-collapse {

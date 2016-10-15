@@ -4,6 +4,7 @@
   transition-timing-function: $aside-transition-timing;
   transition-duration: $aside-transition-duration;
   transition-property: padding-left;
+  -webkit-overflow-scrolling: touch;
 }
 
 .results-expand {
