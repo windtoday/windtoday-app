@@ -3,11 +3,11 @@ import React from 'react'
 import AppBar from '../AppBar'
 import AppWrapper from '../AppWrapper'
 
-function Layout () {
+function Layout (props) {
   return (
     <main data-app='layout' className='cf helvetica'>
-      <AppBar />
-      <AppWrapper />
+      <AppBar {...props} />
+      <AppWrapper {...props} />
     </main>
   )
 }

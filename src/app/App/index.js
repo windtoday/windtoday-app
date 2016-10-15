@@ -11,6 +11,28 @@ import Layout from '../Layout'
 // https://github.com/reactjs/react-router/issues/2182
 
 class App extends Component {
+
+  constructor () {
+    super()
+
+    this.state = {
+      facetsOpen: true
+    }
+    this.toggle = this.toggle.bind(this)
+    this.get = this.get.bind(this)
+  }
+
+  toggle (key) {
+    return (e) => {
+      const val = !this.state[key]
+      this.setState({ [key]: val })
+    }
+  }
+
+  get (key) {
+    return this.state[key]
+  }
+
   render () {
     return (
       <InstantSearch className='cf'
@@ -18,7 +40,7 @@ class App extends Component {
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='sails'
       >
-        <Layout />
+        <Layout toggle={this.toggle} get={this.get} />
       </ InstantSearch>
     )
   }

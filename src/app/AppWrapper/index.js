@@ -1,15 +1,15 @@
 import React from 'react'
 
-import Facets from '../Facets'
+import FacetsWrapper from '../Facets'
 import Results from '../Results'
 
 import './style.scss'
 
-function AppWrapper () {
+function AppWrapper (props) {
   return (
     <div data-app='app-wrapper'>
-      <Facets />
-      <Results />
+      <FacetsWrapper {...props} />
+      <Results {...props} />
     </div>
   )
 }
