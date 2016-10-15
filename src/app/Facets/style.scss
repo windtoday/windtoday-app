@@ -1,58 +1,5 @@
 @import '../style';
 
-aside {
+[data-app='facets'] {
   background-color: $aside-color;
-
-  > div {
-    border-right: 1px solid $divider-color;
-  }
-}
-
-.ais-RefinementList__item {
-  margin-bottom: .4em;
-  background: url("https://www.algolia.com/assets/flat2/helpers/bg-leaders-ac1212ea9947e1dc04a314b087843ef3.png") repeat-x 0 13px;
-
-  > label {
-    @extend .db, .pointer;
-
-    &:hover {
-      > span {
-        @extend .blue;
-      }
-    }
-  }
-
-  span {
-    background-color: $aside-color;
-  }
-}
-
-.ais-RefinementList__root {
-  @extend .pt3;
-}
-
-.ais-RefinementList__itemLabel {
-  padding: 0 .5rem;
-  @extend .ttc, .lh-title, .f5, .mid-gray;
-}
-
-.ais-RefinementList__itemSelected span {
-  @extend .blue, .b;
-}
-
-.ais-RefinementList__itemCount {
-  padding-left: .5em;
-  @extend .fr, .light-silver;
-}
-
-.Range__price div:after {
-  content: '€';
-}
-
-.Range__litres div:after {
-  content: 'l';
-}
-
-.Range__size div:after {
-  content: 'm';
 }
