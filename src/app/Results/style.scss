@@ -1,0 +1,11 @@
+@import '../style';
+
+[data-app='results'] {
+  transition-timing-function: $aside-transition-timing;
+  transition-duration: $aside-transition-duration;
+  transition-property: padding-left;
+}
+
+.results-expand {
+  padding-left: 25%;
+}

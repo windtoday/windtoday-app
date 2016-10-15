@@ -1,14 +1,13 @@
 @import '../style';
 
 [data-app='facets'] {
+  position:absolute;
   background-color: $aside-color;
+  transition-timing-function: $aside-transition-timing;
+  transition-duration: $aside-transition-duration;
+  transition-property: transform;
 }
 
-.facetsOpen {
-}
-
-.facets-close {
-  position: absolute;
-  top: 0;
-  left: -25%;
+.facets-collapse {
+  transform: translate3d(-100%, 0, 0);
 }

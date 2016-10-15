@@ -10,13 +10,15 @@ import Layout from '../Layout'
 // You can ignore this warning. For details, see:
 // https://github.com/reactjs/react-router/issues/2182
 
+const isDektop = window.innerWidth > 960
+
 class App extends Component {
 
   constructor () {
     super()
 
     this.state = {
-      facetsOpen: true
+      facetsOpen: isDektop
     }
     this.toggle = this.toggle.bind(this)
     this.get = this.get.bind(this)

@@ -7,10 +7,10 @@ import './style.scss'
 const theme = 'fl w-100 w-25-l'
 
 function Facets (props) {
-  const {toggle, get } = props
+  const { toggle, get } = props
 
   const style = classnames(theme, {
-    'facets-close': get('facetsOpen')
+    'facets-collapse': !get('facetsOpen')
   })
 
   return (

@@ -1,19 +1,30 @@
 import React from 'react'
 import { createConnector } from 'react-instantsearch'
+import classnames from 'classnames'
 
 import Hits from '../Hits'
 import NoResults from '../NoResults'
 
-const Results = createConnector({
+import './style.scss'
+
+const ResultsConnector = createConnector({
   displayName: 'Results',
 
   getProps (props, state, search) {
+    const { toggle, get } = props
     const noResults = search.results ? search.results.nbHits === 0 : false
-    return {query: state.q, noResults}
+
+    const theme = 'fl w-100 bg-white'
+
+    const style = classnames(theme, {
+      'results-expand': get('facetsOpen')
+    })
+
+    return {query: state.q, noResults, style}
   }
-})(({noResults, query}) => {
+})(({noResults, query, style}) => {
   return (
-    <section data-app='results' className='fl w-100 w-75-l bg-white'>
+    <section data-app='results' className={style}>
       {noResults
         ? <NoResults query={query} />
         : <Hits hitsPerPage={10} />
@@ -22,4 +33,4 @@ const Results = createConnector({
   )
 })
 
-export default Results
+export default ResultsConnector
