@@ -41,14 +41,38 @@
   @extend .fr, .light-silver;
 }
 
-.Range__price div:after {
-  content: '€';
+[data-app='facet-size'] {
+  .ais-Range__bound div:after{
+    content: 'm';
+  }
 }
 
-.Range__litres div:after {
-  content: 'l';
+[data-app='facet-price'] {
+  .ais-Range__bound div:after{
+    content: '€';
+  }
 }
 
-.Range__size div:after {
-  content: 'm';
+[data-app='facet-litres'] {
+  .ais-Range__bound div:after{
+    content: 'l';
+  }
+}
+
+.ais-Range__trackSelected {
+  @extend .bg-blue;
+}
+
+.ais-Range__handleDot {
+  border: 3px solid $blue;
+  background: $white;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  @extend .pointer;
+}
+
+.ais-Range__bound {
+  @extend .mt3;
 }
