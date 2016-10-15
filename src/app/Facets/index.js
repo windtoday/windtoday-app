@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import FacetsWrapper from '../FacetsWrapper'
 import './style.scss'
 
-const theme = 'fl w-100 w-25-l'
+const theme = 'fl w-100 w-25-l vh-100 overflow-y-scroll'
 
 function Facets (props) {
   const { toggle, get } = props
