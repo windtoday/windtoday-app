@@ -18,7 +18,7 @@ function MyPagination (props) {
   }
 
   const theme = {
-    root: 'list tc ph3 ph5-ns pv5',
+    root: 'list tc ph3 ph5-ns pv5-ns pv4 mt0 mb3',
     item: 'dib mr1 mb2',
     itemFirst: 'Pagination__item--first',
     itemLast: 'Pagination__item--last',
