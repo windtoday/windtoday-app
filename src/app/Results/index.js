@@ -14,7 +14,7 @@ const ResultsConnector = createConnector({
     const { toggle, get } = props
     const noResults = search.results ? search.results.nbHits === 0 : false
 
-    const theme = 'fl w-100 bg-white vh-100 overflow-y-scroll'
+    const theme = 'fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
       'results-expand': get('facetsOpen')

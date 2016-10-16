@@ -27,3 +27,7 @@ textarea {
 input[type=checkbox] {
   @extend .pointer;
 }
+
+body {
+  @extend .overflow-y-hidden;
+}

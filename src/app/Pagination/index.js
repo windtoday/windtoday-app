@@ -18,7 +18,7 @@ function MyPagination (props) {
   }
 
   const theme = {
-    root: 'list tc ph3 ph5-ns pv4',
+    root: 'list tc ph3 ph5-ns pv5',
     item: 'dib mr1 mb2',
     itemFirst: 'Pagination__item--first',
     itemLast: 'Pagination__item--last',
@@ -31,7 +31,7 @@ function MyPagination (props) {
   }
 
   return (
-    <div data-app='pagination'>
+    <div data-app='pagination' className='pb4'>
       <Pagination theme={theme} translations={translations} showFirst={false} pagesPadding={2} />
     </div>
   )
