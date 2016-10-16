@@ -1,5 +1,10 @@
 @import '../style';
 
 [data-app="app-wrapper"] {
-  margin-top: $aside-height;
+
+  margin-top: $aside-height-ns;
+
+  @include break(large) {
+    margin-top: $aside-height;
+  }
 }

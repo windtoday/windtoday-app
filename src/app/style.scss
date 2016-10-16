@@ -11,10 +11,12 @@ $divider-color: #ddd;
 
 $aside-color: #FBFBFB;
 $aside-height: 86px;
+$aside-height-ns: 70px;
 $aside-transition-timing: cubic-bezier(.4,0,.2,1);
 $aside-transition-duration: .35s;
 
 @import '~tachyons-sass/tachyons';
+@import '~tachyons-queries/queries';
 
 /* global */
 
