@@ -1,5 +1,9 @@
 @import '../style';
 
+[data-app='facets-wrapper'] {
+  padding-bottom: $aside-height;
+}
+
 .ais-RefinementList__item {
   margin-bottom: .4em;
   background: url("https://www.algolia.com/assets/flat2/helpers/bg-leaders-ac1212ea9947e1dc04a314b087843ef3.png") repeat-x 0 13px;
