@@ -6,7 +6,7 @@ import './style.scss'
 
 function CustomCurrentFilters () {
   return (
-    <div data-app='current-filters' className='pt4'>
+    <div data-app='current-filters' >
       <CurrentFilters
         translations={{
           clearFilter: <IconClose />
@@ -14,7 +14,7 @@ function CustomCurrentFilters () {
 
         theme={{
           clearAll: 'dn',
-          filter: 'grow dib br4 pa1 mv2 mr2 bg-near-white',
+          filter: 'grow dib br4 pa1 mb2 mr2 mt4-l mt2 bg-near-white',
           filterLabel: 'pl2 v-mid',
           filterClear: 'ais-CurrentFilters__filterClear'
         }}
