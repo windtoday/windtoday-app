@@ -26,13 +26,6 @@
     "edit",
     "webpack"
   ],
-  "dependencies": {
-    "react": "~15.3.1",
-    "react-dom": "~15.3.1",
-    "react-icons": "~2.2.1",
-    "react-instantsearch": "latest",
-    "tachyons-sass": "~4.5.3"
-  },
   "devDependencies": {
     "autoprefixer": "~6.5.0",
     "babel-core": "~6.17.0",
@@ -55,12 +48,17 @@
     "postcss-focus": "~1.0.0",
     "postcss-loader": "~1.0.0",
     "purifycss-webpack-plugin": "~2.0.3",
+    "react": "~15.3.1",
+    "react-dom": "~15.3.1",
     "react-hot-loader": "~3.0.0-beta.1",
+    "react-icons": "~2.2.1",
+    "react-instantsearch": "latest",
     "sass-loader": "~4.0.2",
     "shorthand-loader": "~1.0.0",
     "standard": "~8.4.0",
     "style-loader": "~0.13.1",
     "tachyons-queries": "~0.3.1",
+    "tachyons-sass": "~4.5.3",
     "travis-after-all": "~1.4.4",
     "url-loader": "~0.5.7",
     "webpack": "~1.13.2",
