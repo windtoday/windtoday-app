@@ -10,8 +10,8 @@ $divider-color: #ddd;
 /* aside */
 
 $aside-color: #FBFBFB;
-$aside-height: 86px;
-$aside-height-ns: 70px;
+$aside-height: 83px;
+$aside-height-ns: 63px;
 $aside-transition-timing: cubic-bezier(.4,0,.2,1);
 $aside-transition-duration: .35s;
 
@@ -29,10 +29,12 @@ em {
 input[type=text],
 textarea {
   outline: none;
-  transition: all .30s ease-in-out;
+  transition: all .5s ease-in-out;
   border: 1.5px solid $divider-color;
 
+  &:hover,
   &:focus {
+    box-shadow: 0 0 2px $blue;
     border-color: $blue;
   }
 }

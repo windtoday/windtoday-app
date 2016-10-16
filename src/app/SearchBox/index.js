@@ -9,7 +9,7 @@ function CustomSearchBox (props) {
 
   return (
     <div data-app='searchbox' className='w-80 w-70-l pa2'>
-      <IconSearch className='absolute pa2 f4 dark-gray' />
+      <IconSearch className='absolute pa2 f4 silver' />
       <input
         className='w-100 f6 f5-l input-reset black-80 bg-near-white pt2 pr2 pb2 pl4 lh-solid br2 ba'
         type='text'
