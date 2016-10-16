@@ -2,4 +2,33 @@
 
 [data-app='searchbox'] {
 
+  > input {
+    padding-left : 90px;
+
+    &:focus {
+    }
+  }
+
+  > svg {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    border-width: 1.5px;
+    border-style: solid;
+    height: 32px;
+
+    @include break(large) {
+      height: 34px;
+    }
+
+    &.focus {
+      @extend .white, .bg-blue;
+      border-color: $blue;
+    }
+
+    &.blur {
+      color: $light-silver;
+      background-color: #f8f8f8;
+      border-color: $divider-color;
+    }
+  }
 }

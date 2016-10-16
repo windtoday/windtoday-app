@@ -27,8 +27,8 @@ function getDeviceState () {
 
 class App extends Component {
 
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     const device = getDeviceState()
 

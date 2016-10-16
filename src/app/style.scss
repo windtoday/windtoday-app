@@ -20,6 +20,11 @@ $aside-transition-duration: .35s;
 
 /* global */
 
+
+body {
+  @extend .overflow-y-hidden;
+}
+
 em {
   background-color: $yellow;
   padding: .05em .1em;
@@ -29,20 +34,13 @@ em {
 input[type=text],
 textarea {
   outline: none;
-  transition: all .5s ease-in-out;
   border: 1.5px solid $divider-color;
 
-  &:hover,
   &:focus {
-    box-shadow: 0 0 2px $blue;
     border-color: $blue;
   }
 }
 
 input[type=checkbox] {
   @extend .pointer;
-}
-
-body {
-  @extend .overflow-y-hidden;
 }
