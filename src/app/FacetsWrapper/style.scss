@@ -2,6 +2,10 @@
 
 [data-app='facets-wrapper'] {
   padding-bottom: $aside-height;
+
+  > article:first-of-type {
+    @extend .pt4, .mt2;
+  }
 }
 
 .ais-RefinementList__item {
