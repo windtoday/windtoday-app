@@ -31,7 +31,7 @@ function Facets () {
       item={
           <RefinementList
             attributeName='provider'
-            id='p'
+            id='pr'
             operator='or'
             limitMin={10}
           />
