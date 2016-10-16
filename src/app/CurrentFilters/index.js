@@ -14,7 +14,7 @@ function CustomCurrentFilters () {
 
         theme={{
           clearAll: 'dn',
-          filter: 'grow dib br4 pa1 mb2 mr2 mt4-l mt2 bg-near-white',
+          filter: 'grow dib br4 pa1 mb2 mr2 mt4-l mt2 bg-light-blue near-white',
           filterLabel: 'pl2 v-mid',
           filterClear: 'ais-CurrentFilters__filterClear'
         }}
