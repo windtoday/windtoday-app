@@ -1,9 +1,20 @@
 import React from 'react'
 
-function Logo () {
+function Logo ({toggle, get}) {
+  let image
+  let style
+
+  if (get('isDesktop')) {
+    image = 'logo'
+    style = { width: '12rem' }
+  } else {
+    image = 'logo-tiny'
+    style = {width: '2rem'}
+  }
+
   return (
-    <a style={{width: '12rem'}}>
-      <img src='/assets/img/logo.png' />
+    <a style={style}>
+      <img src={`/assets/img/${image}.png`} />
     </a>
   )
 }

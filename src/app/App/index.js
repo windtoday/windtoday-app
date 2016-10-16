@@ -10,18 +10,42 @@ import Layout from '../Layout'
 // You can ignore this warning. For details, see:
 // https://github.com/reactjs/react-router/issues/2182
 
-const isDektop = window.innerWidth > 960
+function getDevice () {
+  if (window.innerWidth > 960) return 'desktop'
+  return 'mobile'
+}
+
+function getDeviceState () {
+  const device = getDevice()
+  const isDesktop = device === 'desktop'
+
+  return {
+    isDesktop: isDesktop,
+    isMobile: !isDesktop
+  }
+}
 
 class App extends Component {
 
   constructor () {
     super()
 
-    this.state = {
-      facetsOpen: isDektop
-    }
+    const device = getDeviceState()
+
+    this.state = Object.assign({}, device, {
+      facetsOpen: device.isDesktop
+    })
+
     this.toggle = this.toggle.bind(this)
     this.get = this.get.bind(this)
+  }
+
+  componentDidMount () {
+    window.addEventListener('resize', this.handleResize.bind(this))
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.handleResize.bind(this))
   }
 
   toggle (key) {
@@ -33,6 +57,10 @@ class App extends Component {
 
   get (key) {
     return this.state[key]
+  }
+
+  handleResize (e) {
+    this.setState(getDeviceState())
   }
 
   render () {

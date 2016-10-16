@@ -7,12 +7,14 @@ import './style.scss'
 
 const iconStyle = 'dim pointer blue'
 
-function AppBar ({toggle, get}) {
+function AppBar (props) {
+  const {toggle} = props
+
   return (
-    <header data-app='app-bar' className='bg-white w-100 center pv3-l pv2 flex justify-around items-center fixed z-2 pa2'>
+    <header data-app='app-bar' className='bg-white w-100 center pv3-l pv2 ph1 flex justify-around items-center fixed z-2'>
       <IconMenu className={iconStyle} onClick={toggle('facetsOpen')} />
-      <Logo />
-      <SearchBox />
+      <Logo {...props} />
+      <SearchBox {...props} />
     </header>
   )
 }
