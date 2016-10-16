@@ -31,7 +31,7 @@ class CustomSearchBox extends Component {
 
   render () {
     const isFocus = this.state.focus
-    const theme = 'absolute ph4 f4'
+    const theme = 'absolute ph4-l ph3 f4'
 
     const style = classnames(theme, {
       'focus': isFocus,
