@@ -1,12 +1,13 @@
 @import '../style';
 
 [data-app='facets'] {
-  position:absolute;
+  position: absolute;
   background-color: $aside-color;
   transition-timing-function: $aside-transition-timing;
   transition-duration: $aside-transition-duration;
   transition-property: transform;
   -webkit-overflow-scrolling: touch;
+  border-right: 1px solid $divider-color;
 }
 
 .facets-collapse {
