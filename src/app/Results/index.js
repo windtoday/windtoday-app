@@ -13,21 +13,19 @@ const ResultsConnector = createConnector({
   getProps (props, state, search) {
     const { toggle, get } = props
     const noResults = search.results ? search.results.nbHits === 0 : false
-
     const theme = 'fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
-
+    const nbPages = search.results && search.results.nbPages || 0
     const style = classnames(theme, {
       'results-expand': get('facetsOpen')
     })
-
-    return {query: state.q, noResults, style}
+    return {query: state.q, noResults, nbPages, style, toggle, get}
   }
-})(({noResults, query, style}) => {
+})(({noResults, query, style, nbPages, toggle, get}) => {
   return (
     <section data-app='results' className={style}>
       {noResults
         ? <NoResults query={query} />
-        : <Hits hitsPerPage={10} />
+      : <Hits toggle={toggle} get={get} nbPages={nbPages} hitsPerPage={10} />
       }
     </section>
   )
