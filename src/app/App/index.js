@@ -49,10 +49,8 @@ class App extends Component {
   }
 
   toggle (key) {
-    return (e) => {
-      const val = !this.state[key]
-      this.setState({ [key]: val })
-    }
+    const val = !this.state[key]
+    this.setState({ [key]: val })
   }
 
   get (key) {

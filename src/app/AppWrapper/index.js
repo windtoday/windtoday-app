@@ -7,10 +7,21 @@ import Results from '../Results'
 import './style.scss'
 
 function AppWrapper (props) {
+  const { toggle, get } = props
+
+  function onSwipedRight () {
+    get('facetsOpen') || toggle('facetsOpen')
+  }
+
+  function onSwipedLeft () {
+    get('facetsOpen') && toggle('facetsOpen')
+  }
+
   return (
     <Swipeable
-      onSwipedRight={props.toggle('facetsOpen')}
-      onSwipedLeft={props.toggle('facetsOpen')}
+      stopPropagation
+      onSwipedRight={onSwipedRight}
+      onSwipedLeft={onSwipedLeft}
       data-app='app-wrapper'>
       <FacetsWrapper {...props} />
       <Results {...props} />
