@@ -1,12 +1,14 @@
 @import '../style';
 
+$input-size: 65px;
+
 [data-app='searchbox'] {
 
   > input {
-    padding-left : 65px;
+    padding-left : $input-size;
 
     @include break(large) {
-      padding-left : 95px;
+      padding-left : $input-size * 1.5;
     }
   }
 
@@ -15,7 +17,7 @@
     border-bottom-left-radius: .25rem;
     border-width: 1.5px;
     border-style: solid;
-    height: 32px;
+    height: 32.25px;
 
     @include break(large) {
       height: 34px;
