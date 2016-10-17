@@ -2,8 +2,8 @@
 
 $input-size: 65px;
 
-[data-app='searchbox'] {
 
+[data-app='searchbox'] {
   > input {
     padding-left : $input-size;
 
@@ -13,25 +13,20 @@ $input-size: 65px;
   }
 
   > svg {
+    height: 34px;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
-    border-width: 1.5px;
+    border-width: $searchbox-border-width;
     border-style: solid;
-    height: 32.25px;
-
-    @include break(large) {
-      height: 34px;
-    }
 
     &.focus {
-      @extend .white, .bg-blue;
-      border-color: $blue;
+      @extend .white, .b--blue, .bg-blue;
     }
 
     &.blur {
-      color: $light-silver;
       background-color: $aside-color;
       border-color: $divider-color;
+      @extend .light-silver;
     }
   }
 }
