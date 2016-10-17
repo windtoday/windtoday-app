@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import './style.scss'
 
@@ -35,9 +36,11 @@ function date (item) {
   return (new Date(timestamp)).toLocaleString(locale, opts)
 }
 
-function Hit ({item}) {
+function Hit ({item, toggle, get}) {
+  const theme = 'link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l blue'
+
   return (
-    <article data-app='hit' className='grow'>
+    <article data-app='hit' className={get('isDesktop') && 'grow'}>
       <a className='link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l dim blue' href={item.shortenURL} target='_blank'>
 
         {image(item)}

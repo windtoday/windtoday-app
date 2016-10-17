@@ -10,7 +10,7 @@ function CustomHits ({hits, hitsPerPage, nbPages, toggle, get}) {
     <div data-app='hits'>
       <Stats />
       <div className='pv3 pv4-l ph3 ph5-l'>
-        {hits.map((hit, idx) => <Hit item={hit} key={idx} />)}
+        {hits.map((hit, idx) => <Hit item={hit} key={idx} toggle={toggle} get={get} />)}
         {nbPages > 1 && <Pagination /> }
       </div>
     </div>
