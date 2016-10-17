@@ -31,7 +31,7 @@ class CustomSearchBox extends Component {
 
   render () {
     const isFocus = this.state.focus
-    const theme = 'absolute ph4-l ph3 f4'
+    const theme = 'absolute ph3-l ph2 mh2-l f4'
 
     const style = classnames(theme, {
       'focus': isFocus,
@@ -44,7 +44,7 @@ class CustomSearchBox extends Component {
           className={style}
         />
         <input
-          className='w-100 f6 f5-l input-reset black-80 bg-white pt2 pr2 pb2 lh-solid br2 ba'
+          className='w-100 f6 f5-l input-reset black-80 bg-white pt2 pr2 pb2 lh-solid br2 ba pl5-l pl4'
           type='text'
           value={this.props.query}
           onChange={this.onChange}

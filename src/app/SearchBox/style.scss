@@ -1,31 +1,29 @@
 @import '../style';
 
-$input-size: 65px;
-
+$input-height: 32px;
+$input-height-l: 36px;
 
 [data-app='searchbox'] {
   > input {
-    padding-left : $input-size;
-
+    height: $input-height;
     @include break(large) {
-      padding-left : $input-size * 1.5;
+      height: $input-height-l;
     }
   }
 
   > svg {
-    height: 34px;
+    height: $input-height;
+    @include break(large) {
+      height: $input-height-l;
+    }
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
-    border-width: $searchbox-border-width;
-    border-style: solid;
 
     &.focus {
-      @extend .white, .b--blue, .bg-blue;
+      @extend .blue;
     }
 
     &.blur {
-      background-color: $aside-color;
-      border-color: $divider-color;
       @extend .light-silver;
     }
   }
