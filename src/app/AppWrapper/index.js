@@ -1,3 +1,4 @@
+import Swipeable from 'react-swipeable'
 import React from 'react'
 
 import FacetsWrapper from '../Facets'
@@ -7,10 +8,13 @@ import './style.scss'
 
 function AppWrapper (props) {
   return (
-    <div data-app='app-wrapper'>
+    <Swipeable
+      onSwipedRight={props.toggle('facetsOpen')}
+      onSwipedLeft={props.toggle('facetsOpen')}
+      data-app='app-wrapper'>
       <FacetsWrapper {...props} />
       <Results {...props} />
-    </div>
+    </Swipeable>
   )
 }
 
