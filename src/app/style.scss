@@ -2,23 +2,25 @@
 
 $blue: #19B5FE;
 $light-blue: lighten($blue, 10%);
+$dark-blue: #25303F;
+
+@import '~tachyons-sass/tachyons';
+@import '~tachyons-queries/queries';
 
 /* other */
 
-$divider-color: #ddd;
+$divider-color: $near-white;
 
 /* aside */
 
-$aside-color: #FBFBFB;
-$aside-height: 83px;
-$aside-height-ns: 63px;
+$aside-color: $white;
+$aside-height: 60px;
 $aside-transition-timing: cubic-bezier(.4,0,.2,1);
 $aside-transition-duration: .35s;
 
 $searchbox-border-width: 1.5px;
 
-@import '~tachyons-sass/tachyons';
-@import '~tachyons-queries/queries';
+
 
 /* global */
 

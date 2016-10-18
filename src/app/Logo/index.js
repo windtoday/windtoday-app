@@ -13,7 +13,7 @@ function Logo ({toggle, get}) {
   }
 
   return (
-    <a style={style}>
+    <a href='/' style={style}>
       <img src={`/assets/img/${image}.png`} />
     </a>
   )

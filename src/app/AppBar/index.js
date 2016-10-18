@@ -11,7 +11,7 @@ function AppBar (props) {
   const {toggle} = props
 
   return (
-    <header data-app='app-bar' className='bg-white w-100 center pv3-l pv2 ph1 flex justify-around items-center fixed z-2'>
+    <header data-app='app-bar' className='bg-dark-blue w-100 center pb2 pt1 ph1 flex justify-around items-center fixed z-2'>
       <IconMenu className={iconStyle} onClick={toggle('facetsOpen')} />
       <Logo {...props} />
       <SearchBox {...props} />

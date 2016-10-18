@@ -5,7 +5,7 @@ import './style.scss'
 function SidebarSection ({title, item}) {
   return (
     <article data-app={`facet-${title}`} className='ph3 ph4-ns pb4'>
-      <div className='f6 fw6 ttu tracked pb2 bb b--black-10 black-70'>{title}</div>
+      <div className='f6 fw6 ttu tracked pb2 light-silver'>{title}</div>
       {item}
     </article>
   )

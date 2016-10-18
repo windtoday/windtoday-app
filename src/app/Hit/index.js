@@ -37,14 +37,9 @@ function date (item) {
 }
 
 function Hit ({item, toggle, get}) {
-  const theme = 'link dt w-100 bb b--black-10 pb2 pb3-l mt2 mt3-l blue'
-  const style = classnames(theme, {
-    'dim': get('isDesktop')
-  })
-
   return (
-    <article data-app='hit' className={get('isDesktop') && 'grow'}>
-      <a className={style} href={item.shortenURL} target='_blank'>
+    <article data-app='hit'>
+      <a className='link dt w-100 bb b--near-white pb2 pb3-l mt2 mt3-l blue' href={item.shortenURL} target='_blank'>
 
         {image(item)}
 
