@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {createClass} from 'react'
 import {InstantSearch} from 'react-instantsearch'
 
 import Layout from '../Layout'
@@ -25,45 +25,38 @@ function getDeviceState () {
   }
 }
 
-class App extends Component {
-
-  constructor (props) {
-    super(props)
-
+const App = createClass({
+  getInitialState: function () {
     const device = getDeviceState()
-
-    this.state = Object.assign({}, device, {
+    return Object.assign({}, device, {
       facetsOpen: device.isDesktop
     })
+  },
 
-    this.toggle = this.toggle.bind(this)
-    this.get = this.get.bind(this)
-  }
-
-  componentDidMount () {
-    window.addEventListener('resize', this.handleResize.bind(this))
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.handleResize.bind(this))
-  }
-
-  toggle (key) {
+  toggle: function (key) {
     return (e) => {
       const val = !this.state[key]
       return this.setState({ [key]: val })
     }
-  }
+  },
 
-  get (key) {
+  get: function (key) {
     return this.state[key]
-  }
+  },
 
-  handleResize (e) {
+  handleResize: function (e) {
     this.setState(getDeviceState())
-  }
+  },
 
-  render () {
+  componentDidMount: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+
+  componentWillUnmount: function () {
+    window.removeEventListener('resize', this.handleResize)
+  },
+
+  render: function () {
     return (
       <InstantSearch className='cf'
         appId='PDZK7H6PD0'
@@ -74,6 +67,6 @@ class App extends Component {
       </ InstantSearch>
     )
   }
-}
+})
 
 export default App
