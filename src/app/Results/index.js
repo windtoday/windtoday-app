@@ -3,7 +3,7 @@ import { createConnector } from 'react-instantsearch'
 import classnames from 'classnames'
 
 import Hits from '../Hits'
-import NoResults from '../NoResults'
+import NoHits from '../NoHits'
 
 import './style.scss'
 
@@ -24,7 +24,7 @@ const ResultsConnector = createConnector({
   return (
     <section data-app='results' className={style}>
       {noResults
-        ? <NoResults query={query} />
+      ? <NoHits query={query} />
       : <Hits toggle={toggle} get={get} nbPages={nbPages} hitsPerPage={10} />
       }
     </section>
