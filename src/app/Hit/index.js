@@ -44,7 +44,7 @@ function Hit ({item, toggle, get}) {
         {image(item)}
 
         <div className='dtc v-top pa2'>
-          <p className='f6 f5-ns fw6 lh-title black mv0' dangerouslySetInnerHTML={{
+          <p className='f6 f5-ns fw6 lh-title dark-blue mv0 hover-blue' dangerouslySetInnerHTML={{
             __html: item._highlightResult.title.value
           }} />
           <p className='f6 fw4 mt2 mb0 black-60' >

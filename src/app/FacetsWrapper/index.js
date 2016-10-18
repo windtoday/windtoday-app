@@ -22,6 +22,7 @@ function Facets () {
             id='c'
             operator='or'
             limitMin={10}
+            showMore
           />
         }
       />
@@ -34,6 +35,7 @@ function Facets () {
             id='pr'
             operator='or'
             limitMin={10}
+            showMore
           />
         }
       />
@@ -46,6 +48,7 @@ function Facets () {
             id='t'
             operator='or'
             limitMin={10}
+            showMore
           />
         }
       />
@@ -58,6 +61,7 @@ function Facets () {
             id='b'
             operator='or'
             limitMin={10}
+            showMore
           />
         }
       />
@@ -70,6 +74,7 @@ function Facets () {
             id='m'
             operator='or'
             limitMin={10}
+            showMore
           />
         }
       />
