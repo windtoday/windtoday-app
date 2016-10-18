@@ -2,6 +2,11 @@ import React from 'react'
 import {Range, RefinementList} from 'react-instantsearch'
 import './style.scss'
 
+const translatable = {
+  showMore: extended => extended ? 'Show less' : 'Show more',
+  count: count => count.toLocaleString()
+}
+
 function SidebarSection ({title, item}) {
   return (
     <article data-app={`facet-${title}`} className='ph3 ph4-ns pb4'>
@@ -22,6 +27,7 @@ function Facets () {
             id='c'
             operator='or'
             limitMin={10}
+            translations={translatable}
             showMore
           />
         }
@@ -35,6 +41,7 @@ function Facets () {
             id='pr'
             operator='or'
             limitMin={10}
+            translations={translatable}
             showMore
           />
         }
@@ -48,6 +55,7 @@ function Facets () {
             id='t'
             operator='or'
             limitMin={10}
+            translations={translatable}
             showMore
           />
         }
@@ -61,6 +69,7 @@ function Facets () {
             id='b'
             operator='or'
             limitMin={10}
+            translations={translatable}
             showMore
           />
         }
@@ -74,6 +83,7 @@ function Facets () {
             id='m'
             operator='or'
             limitMin={10}
+            translations={translatable}
             showMore
           />
         }

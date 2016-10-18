@@ -84,3 +84,9 @@
 .ais-Range__root {
   @extend .mh3;
 }
+
+.ais-RefinementList__showMore {
+  border: 0;
+  background: none;
+  @extend .mt2, .light-silver, .hover-light-blue, .pl0;
+}
