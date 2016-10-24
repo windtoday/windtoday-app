@@ -53,7 +53,7 @@
     "react-hot-loader": "~3.0.0-beta.1",
     "react-icons": "~2.2.1",
     "react-instantsearch": "latest",
-    "react-swipeable": "~3.6.0",
+    "react-swipeable": "~3.7.0",
     "sass-loader": "~4.0.2",
     "shorthand-loader": "~1.0.0",
     "standard": "~8.4.0",
