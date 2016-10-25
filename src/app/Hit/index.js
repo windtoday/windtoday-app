@@ -39,7 +39,7 @@ function date (item) {
 function Hit ({item, toggle, get}) {
   return (
     <article data-app='hit'>
-      <a className='link dt w-100 bb b--near-white pb2 pb3-l mt2 mt3-l blue' href={item.shortenURL} target='_blank'>
+      <a className='link dt w-100 bb b--near-white pb2 pb3-l mt2 mt3-l blue' href={item.shortenUrl} target='_blank'>
 
         {image(item)}
 
