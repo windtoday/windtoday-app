@@ -61,7 +61,7 @@ const App = createClass({
       <InstantSearch className='cf'
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
-        indexName='sails'
+        indexName='primary'
       >
         <Layout toggle={this.toggle} get={this.get} />
       </ InstantSearch>
