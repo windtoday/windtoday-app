@@ -7,7 +7,10 @@
   transition-duration: $aside-transition-duration;
   transition-property: transform;
   -webkit-overflow-scrolling: touch;
-  border-right: 1px solid $divider-color;
+
+  @include break(large) {
+    border-right: 1px solid $divider-color;
+  }
 }
 
 .facets-collapse {
