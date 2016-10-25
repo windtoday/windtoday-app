@@ -5,6 +5,8 @@ import Pagination from '../Pagination'
 import Stats from '../Stats'
 import Hit from '../Hit'
 
+import './style.scss'
+
 function CustomHits ({hits, hitsPerPage, nbPages, toggle, get}) {
   return (
     <div data-app='hits'>

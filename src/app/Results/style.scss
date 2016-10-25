@@ -8,5 +8,9 @@
 }
 
 .results-expand {
-  padding-left: 25%;
+  @include break(not-small) {
+    padding-left: 25%;
+  }
+
+  @extend .dn, .db-ns;
 }

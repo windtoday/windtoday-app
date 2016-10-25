@@ -4,8 +4,6 @@ import React from 'react'
 import FacetsWrapper from '../Facets'
 import Results from '../Results'
 
-import './style.scss'
-
 function AppWrapper (props) {
   const { toggle, get } = props
 
