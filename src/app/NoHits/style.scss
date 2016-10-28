@@ -1,0 +1,9 @@
+@import '../style';
+
+[data-app="no-hits"] {
+  margin-top: $aside-height;
+
+  @include break(large) {
+    margin-top: $aside-height-l;
+  }
+}

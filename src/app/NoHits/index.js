@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './style.scss'
+
 function NoHits ({query}) {
   return (
     <article data-app='no-hits' className='tc pa4-l pa3 vh-100'>
