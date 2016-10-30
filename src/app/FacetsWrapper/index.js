@@ -24,7 +24,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='category'
-            id='c'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -38,7 +37,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='provider'
-            id='pr'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -52,7 +50,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='type'
-            id='t'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -66,7 +63,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='brand'
-            id='br'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -80,7 +76,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='model'
-            id='m'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -94,7 +89,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='diameter'
-            id='d'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -108,7 +102,6 @@ function Facets () {
         item={
           <RefinementList
             attributeName='box'
-            id='b'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -119,32 +112,32 @@ function Facets () {
 
       <SidebarSection
         title='carbon'
-        item={<Range attributeName='carbon' id='cc' />}
+        item={<Range attributeName='carbon' />}
       />
 
       <SidebarSection
         title='price'
-        item={<Range attributeName='price' id='e' />}
+        item={<Range attributeName='price' />}
       />
 
       <SidebarSection
         title='sail size'
-        item={<Range attributeName='sail.size' id='ss' />}
+        item={<Range attributeName='sail.size' />}
       />
 
       <SidebarSection
         title='board size'
-        item={<Range attributeName='board.size' id='bs' />}
+        item={<Range attributeName='board.size' />}
       />
 
       <SidebarSection
         title='mast size'
-        item={<Range attributeName='mast.size' id='ms' />}
+        item={<Range attributeName='mast.size' />}
       />
 
       <SidebarSection
         title='fin size'
-        item={<Range attributeName='fin.size' id='fs' />}
+        item={<Range attributeName='fin.size' />}
       />
 
     </div>
