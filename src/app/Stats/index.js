@@ -4,7 +4,7 @@ import {Stats} from 'react-instantsearch'
 import CurrentFilters from '../CurrentFilters'
 
 const theme = {
-  root: 'dib pt3 pt4-l'
+  root: 'dib pt3 mt2-l'
 }
 
 function CustomStats () {

@@ -1,5 +1,9 @@
-[data-app='hit']:first-of-type {
-  > a {
-    margin-top: 0;
+@import '../style';
+
+[data-app='hit'] {
+  &:first-of-type {
+    > a {
+      padding-top: 0;
+    }
   }
 }

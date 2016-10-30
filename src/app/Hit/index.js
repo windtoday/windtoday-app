@@ -3,21 +3,20 @@ import React from 'react'
 import './style.scss'
 
 function price (item) {
-  if (item.price) {
-    return (
-      <dl className='mt2 f5 f4-ns'>
-        <dt className='clip'>Price</dt>
-        <dd className='ml0 f4'>{item.price}€</dd>
-      </dl>
-    )
-  }
+  const price = item.price ? `${item.price}€` : 'N/A'
+  return (
+    <dl className='mt0 f5 f4-ns'>
+      <dt className='clip'>Price</dt>
+      <dd className='ml0 f4'>{price}</dd>
+    </dl>
+  )
 }
 
 function image (item) {
   const imageURL = `/assets/img/provider/${item.provider}.jpg`
   return (
-    <div className='dtc w3'>
-      <img src={imageURL} className='db w-100 br3' />
+    <div className='dtc w3 v-mid'>
+      <img src={imageURL} className='db w-80 w-100-ns br3' />
     </div>
   )
 }
@@ -38,11 +37,11 @@ function date (item) {
 function Hit ({item, toggle, get}) {
   return (
     <article data-app='hit'>
-      <a className='link dt w-100 bb b--near-white pb2 pb3-l mt2 mt3-l blue' href={item.shortenUrl} target='_blank'>
+      <a className='link dt w-100 bb b--near-white pv3 blue' href={item.shortenUrl} target='_blank'>
 
         {image(item)}
 
-        <div className='dtc v-top pa2'>
+        <div className='dtc v-top pl3-ns pl1'>
           <p className='f6 f5-ns fw6 lh-title dark-blue mv0 hover-blue' dangerouslySetInnerHTML={{
             __html: item._highlightResult.title.value
           }} />
@@ -51,7 +50,7 @@ function Hit ({item, toggle, get}) {
           </p>
         </div>
 
-        <div className='dtc v-top pl2 tr'>
+        <div className='dtc v-top pl3 tr'>
           {price(item)}
         </div>
       </a>
