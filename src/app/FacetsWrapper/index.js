@@ -66,7 +66,7 @@ function Facets () {
         item={
           <RefinementList
             attributeName='brand'
-            id='b'
+            id='br'
             operator='or'
             limitMin={10}
             translations={translatable}
@@ -95,6 +95,20 @@ function Facets () {
           <RefinementList
             attributeName='diameter'
             id='d'
+            operator='or'
+            limitMin={10}
+            translations={translatable}
+            showMore
+          />
+        }
+      />
+
+      <SidebarSection
+        title='box'
+        item={
+          <RefinementList
+            attributeName='box'
+            id='b'
             operator='or'
             limitMin={10}
             translations={translatable}
