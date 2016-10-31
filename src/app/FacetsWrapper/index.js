@@ -1,19 +1,18 @@
 import React from 'react'
 import {Range, RefinementList} from 'react-instantsearch'
+import SidebarSection from '../SidebarSection'
 import './style.scss'
 
-const translatable = {
-  showMore: extended => extended ? 'Show less' : 'Show more',
-  count: count => count.toLocaleString()
-}
-
-function SidebarSection ({title, item}) {
-  return (
-    <article data-app={`facet-${title}`} className='ph3 ph4-ns pb4'>
-      <div className='f6 fw6 ttu tracked pb2 light-silver'>{title}</div>
-      {item}
-    </article>
-  )
+const CONST = {
+  RefinementList: {
+    operator: 'or',
+    limitMin: 10,
+    translations: {
+      showMore: extended => extended ? 'Show less' : 'Show more',
+      count: count => count.toLocaleString()
+    },
+    showMore: true
+  }
 }
 
 function Facets () {
@@ -21,93 +20,37 @@ function Facets () {
     <div data-app='facets-wrapper'>
       <SidebarSection
         title='category'
-        item={
-          <RefinementList
-            attributeName='category'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='category' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='provider'
-        item={
-          <RefinementList
-            attributeName='provider'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='provider' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='type'
-        item={
-          <RefinementList
-            attributeName='type'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='type' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='brand'
-        item={
-          <RefinementList
-            attributeName='brand'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='brand' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='model'
-        item={
-          <RefinementList
-            attributeName='model'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='model' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='diameter'
-        item={
-          <RefinementList
-            attributeName='diameter'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='diameter' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
         title='box'
-        item={
-          <RefinementList
-            attributeName='box'
-            operator='or'
-            limitMin={10}
-            translations={translatable}
-            showMore
-          />
-        }
+        item={<RefinementList attributeName='box' {...CONST.RefinementList} />}
       />
 
       <SidebarSection
