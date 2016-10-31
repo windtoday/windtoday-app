@@ -1,56 +1,45 @@
 import React from 'react'
-import {Range, RefinementList} from 'react-instantsearch'
+import {Range} from 'react-instantsearch'
+import RefinementList from '../RefinementList'
 import SidebarSection from '../SidebarSection'
 import './style.scss'
-
-const CONST = {
-  RefinementList: {
-    operator: 'or',
-    limitMin: 10,
-    translations: {
-      showMore: extended => extended ? 'Show less' : 'Show more',
-      count: count => count.toLocaleString()
-    },
-    showMore: true
-  }
-}
 
 function Facets () {
   return (
     <div data-app='facets-wrapper'>
       <SidebarSection
         title='category'
-        item={<RefinementList attributeName='category' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='category' />}
       />
 
       <SidebarSection
         title='provider'
-        item={<RefinementList attributeName='provider' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='provider' />}
       />
 
       <SidebarSection
         title='type'
-        item={<RefinementList attributeName='type' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='type' />}
       />
 
       <SidebarSection
         title='brand'
-        item={<RefinementList attributeName='brand' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='brand' />}
       />
 
       <SidebarSection
         title='model'
-        item={<RefinementList attributeName='model' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='model' />}
       />
 
       <SidebarSection
         title='diameter'
-        item={<RefinementList attributeName='diameter' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='diameter' />}
       />
 
       <SidebarSection
         title='box'
-        item={<RefinementList attributeName='box' {...CONST.RefinementList} />}
+        item={<RefinementList attributeName='box' />}
       />
 
       <SidebarSection
