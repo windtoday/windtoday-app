@@ -7,40 +7,13 @@ import './style.scss'
 function Facets () {
   return (
     <div data-app='facets-wrapper'>
-      <SidebarSection
-        title='category'
-        item={<RefinementList attributeName='category' />}
-      />
-
-      <SidebarSection
-        title='provider'
-        item={<RefinementList attributeName='provider' />}
-      />
-
-      <SidebarSection
-        title='type'
-        item={<RefinementList attributeName='type' />}
-      />
-
-      <SidebarSection
-        title='brand'
-        item={<RefinementList attributeName='brand' />}
-      />
-
-      <SidebarSection
-        title='model'
-        item={<RefinementList attributeName='model' />}
-      />
-
-      <SidebarSection
-        title='diameter'
-        item={<RefinementList attributeName='diameter' />}
-      />
-
-      <SidebarSection
-        title='box'
-        item={<RefinementList attributeName='box' />}
-      />
+      <RefinementList title='category' attributeName='category' />
+      <RefinementList title='provider' attributeName='provider' />
+      <RefinementList title='type' attributeName='type' />
+      <RefinementList title='brand' attributeName='brand' />
+      <RefinementList title='model' attributeName='model' />
+      <RefinementList title='diameter' attributeName='diameter' />
+      <RefinementList title='box' attributeName='box' />
 
       <SidebarSection
         title='carbon'
