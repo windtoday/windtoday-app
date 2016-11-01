@@ -1,5 +1,5 @@
 import React from 'react'
-import {Range} from 'react-instantsearch'
+import Range from '../Range'
 import RefinementList from '../RefinementList'
 import SidebarSection from '../SidebarSection'
 import './style.scss'
@@ -15,36 +15,12 @@ function Facets () {
       <RefinementList title='diameter' attributeName='diameter' />
       <RefinementList title='box' attributeName='box' />
 
-      <SidebarSection
-        title='carbon'
-        item={<Range attributeName='carbon' />}
-      />
-
-      <SidebarSection
-        title='price'
-        item={<Range attributeName='price' />}
-      />
-
-      <SidebarSection
-        title='sail size'
-        item={<Range attributeName='sail.size' />}
-      />
-
-      <SidebarSection
-        title='board size'
-        item={<Range attributeName='board.size' />}
-      />
-
-      <SidebarSection
-        title='mast size'
-        item={<Range attributeName='mast.size' />}
-      />
-
-      <SidebarSection
-        title='fin size'
-        item={<Range attributeName='fin.size' />}
-      />
-
+      <SidebarSection title='carbon' item={<Range attributeName='carbon' />} />
+      <SidebarSection title='price' item={<Range attributeName='price' />} />
+      <SidebarSection title='sail size' item={<Range attributeName='sail.size' />} />
+      <SidebarSection title='board size' item={<Range attributeName='board.size' />} />
+      <SidebarSection title='mast size' item={<Range attributeName='mast.size' />} />
+      <SidebarSection title='fin size' item={<Range attributeName='fin.size' />} />
     </div>
   )
 }
