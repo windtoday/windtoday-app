@@ -19,8 +19,8 @@ function Facets () {
       <SidebarSection title='price' item={<Range attributeName='price' />} />
       <SidebarSection title='sail size' item={<Range attributeName='sail.size' />} />
       <SidebarSection title='board size' item={<Range attributeName='board.size' />} />
-      <SidebarSection title='mast size' item={<Range attributeName='mast.size' />} />
-      <SidebarSection title='fin size' item={<Range attributeName='fin.size' />} />
+      <RefinementList title='mast size' attributeName='mast.size' />
+      <RefinementList title='fin size' attributeName='fin.size' />
     </div>
   )
 }
