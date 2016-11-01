@@ -60,7 +60,7 @@ const RefinementListFactory = createClass({
     const {title} = this.props
     return (
       <article data-app={`facet-${title}`} className='ph3 ph4-ns pb4'>
-        <div className='f6 fw6 ttu tracked pb2 light-silver'>{title}</div>
+        <header className='f6 fw6 ttu tracked pb2 light-silver'>{title}</header>
         <List
           renderItem={this.renderItem}
           {...pick(this.props, [
