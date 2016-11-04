@@ -9,18 +9,19 @@ function Facets () {
     <div data-app='facets-wrapper'>
       <RefinementList title='category' attributeName='category' />
       <RefinementList title='provider' attributeName='provider' />
-      <RefinementList title='type' attributeName='type' />
+      <RefinementList title='seller' attributeName='seller' />
       <RefinementList title='brand' attributeName='brand' />
       <RefinementList title='model' attributeName='model' />
-      <RefinementList title='diameter' attributeName='diameter' />
-      <RefinementList title='box' attributeName='box' />
+      <RefinementList title='mast type' attributeName='mast.diameter' />
+      <RefinementList title='fin box' attributeName='fin.box' />
 
-      <SidebarSection title='carbon' item={<Range attributeName='carbon' />} />
+      <SidebarSection title='mastcarbon' item={<Range attributeName='mast.carbon' />} />
       <SidebarSection title='price' item={<Range attributeName='price' />} />
       <SidebarSection title='sail size' item={<Range attributeName='sail.size' />} />
       <SidebarSection title='board size' item={<Range attributeName='board.size' />} />
       <RefinementList title='mast size' attributeName='mast.size' />
       <RefinementList title='fin size' attributeName='fin.size' />
+      <RefinementList title='boom size' attributeName='boom.size' />
     </div>
   )
 }
