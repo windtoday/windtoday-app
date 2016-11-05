@@ -21,7 +21,9 @@ function Facets () {
       <SidebarSection title='board size' item={<Range attributeName='board.size' />} />
       <RefinementList title='mast size' attributeName='mast.size' />
       <RefinementList title='fin size' attributeName='fin.size' />
+      <RefinementList title='fin type' attributeName='fin.type' />
       <RefinementList title='boom size' attributeName='boom.size' />
+      <RefinementList title='boom type' attributeName='boom.type' />
     </div>
   )
 }
