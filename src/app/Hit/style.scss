@@ -6,4 +6,11 @@
       padding-top: 0;
     }
   }
+
+  @for $i from 0 through 9 {
+    &:nth-child(#{$i}) {
+      @extend .fade-in;
+      animation-delay: 50ms*$i;
+    }
+  }
 }

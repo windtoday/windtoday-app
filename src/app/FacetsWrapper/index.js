@@ -24,6 +24,7 @@ function Facets () {
       <RefinementList title='fin type' attributeName='fin.type' />
       <RefinementList title='boom size' attributeName='boom.size' />
       <RefinementList title='boom type' attributeName='boom.type' />
+      <RefinementList title='mast type' attributeName='mast.type' />
     </div>
   )
 }

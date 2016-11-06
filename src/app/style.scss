@@ -20,6 +20,19 @@ $aside-transition-timing: cubic-bezier(.4,0,.2,1);
 $aside-transition-duration: .35s;
 $searchbox-border-width: 1.5px;
 
+/* animation */
+
+.fade-in {
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* global */
 
 body {
