@@ -1,12 +1,29 @@
 @import '../style';
 
-.ais-CurrentFilters__filterClear {
+.ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
+  @extend .dib, .br4, .mb2, .mr2, .mt3, .bg-light-blue, .near-white;
+}
+
+.ais-CurrentRefinements__itemParent > .ais-CurrentRefinements__itemLabel {
+  display: block;
+  @extend .mt3;
+}
+
+.ais-CurrentRefinements__itemLabel {
+  @extend .pa0, .pl2;
+}
+
+.ais-CurrentRefinements__itemClear {
   background: none;
   border: none;
-  @extend .pointer;
+  padding: 0.5rem 0.5rem 0.4rem 0.5rem;
+
+  @extend .v-mid, .pointer;
 
   > svg {
-    @extend .br-100, .pa1, .blue, .f6, .dim;
+    @extend .br-100, .blue, .f6, .dim;
+    padding: 2px;
     background-color: white;
+    vertical-align: baseline !important;
   }
 }

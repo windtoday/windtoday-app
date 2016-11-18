@@ -1,5 +1,5 @@
 import React from 'react'
-import {CurrentFilters} from 'react-instantsearch'
+import {CurrentRefinements} from 'react-instantsearch/dom'
 import IconClose from 'react-icons/lib/md/close'
 
 import './style.scss'
@@ -7,16 +7,9 @@ import './style.scss'
 function CustomCurrentFilters () {
   return (
     <div data-app='current-filters' >
-      <CurrentFilters
+      <CurrentRefinements
         translations={{
           clearFilter: <IconClose />
-        }}
-
-        theme={{
-          clearAll: 'dn',
-          filter: 'dib br4 pa1 mb2 mr2 mt3 bg-light-blue near-white',
-          filterLabel: 'pl2 v-mid',
-          filterClear: 'ais-CurrentFilters__filterClear'
         }}
       />
     </div>
