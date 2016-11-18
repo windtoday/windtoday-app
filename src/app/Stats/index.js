@@ -1,5 +1,5 @@
 import React from 'react'
-import {Stats} from 'react-instantsearch'
+import {Stats} from 'react-instantsearch/dom'
 
 import CurrentFilters from '../CurrentFilters'
 

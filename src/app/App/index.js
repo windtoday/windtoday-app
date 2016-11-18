@@ -1,5 +1,5 @@
 import React, {createClass} from 'react'
-import {InstantSearch} from 'react-instantsearch'
+import {InstantSearch} from 'react-instantsearch/dom'
 
 import Layout from '../Layout'
 

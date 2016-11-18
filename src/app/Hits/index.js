@@ -1,5 +1,5 @@
 import React from 'react'
-import {Hits} from 'react-instantsearch'
+import {connectHits} from 'react-instantsearch/connectors'
 
 import Pagination from '../Pagination'
 import Stats from '../Stats'
@@ -19,4 +19,4 @@ function CustomHits ({hits, hitsPerPage, nbPages, toggle, get}) {
   )
 }
 
-export default Hits.connect(CustomHits)
+export default connectHits(CustomHits)

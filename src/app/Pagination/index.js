@@ -1,5 +1,5 @@
 import React from 'react'
-import {Pagination} from 'react-instantsearch'
+import {Pagination} from 'react-instantsearch/dom'
 
 import './style'
 
@@ -37,5 +37,4 @@ function MyPagination (props) {
   )
 }
 
-// `Pagination.connect` accepts the same `id` prop as `Pagination`.
 export default MyPagination
