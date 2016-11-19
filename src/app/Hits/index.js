@@ -1,22 +1,20 @@
 import React from 'react'
-import {connectHits} from 'react-instantsearch/connectors'
-
-import Pagination from '../Pagination'
 import Stats from '../Stats'
 import Hit from '../Hit'
 
 import './style.scss'
 
-function CustomHits ({hits, hitsPerPage, nbPages, toggle, get}) {
+function CustomHits ({toggle, get, hits}) {
+  const props = { toggle, get }
+
   return (
-    <div data-app='hits'>
+    <div data-app='hits' className='ph3 ph5-l'>
       <Stats />
-      <div className='pv3 pv4-l ph3 ph5-l'>
-        {hits.map((hit, idx) => <Hit item={hit} key={idx} toggle={toggle} get={get} />)}
-        {nbPages > 1 && <Pagination /> }
+      <div className='pv3 pv4-l'>
+        {hits.map((item, key) => <Hit item={item} key={key} {...props} />)}
       </div>
     </div>
   )
 }
 
-export default connectHits(CustomHits)
+export default CustomHits
