@@ -1,7 +1,7 @@
 import React from 'react'
 import {Stats} from 'react-instantsearch/dom'
 
-import CurrentFilters from '../CurrentFilters'
+import CurrentRefinements from '../CurrentRefinements'
 
 const theme = {
   root: 'dib pt3 mt2-l'
@@ -9,8 +9,8 @@ const theme = {
 
 function CustomStats () {
   return (
-    <header data-app='stats' className='fade-in db pt2 pb2 light-silver'>
-      <CurrentFilters />
+    <header data-app='stats' className='fade-in db pt2 light-silver'>
+      <CurrentRefinements />
       <Stats theme={theme} />
     </header>
   )

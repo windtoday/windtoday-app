@@ -4,7 +4,7 @@ import IconClose from 'react-icons/lib/md/close'
 
 import './style.scss'
 
-function CustomCurrentFilters () {
+function CustomCurrentRefinements () {
   return (
     <div data-app='current-filters' >
       <CurrentRefinements
@@ -16,4 +16,4 @@ function CustomCurrentFilters () {
   )
 }
 
-export default CustomCurrentFilters
+export default CustomCurrentRefinements
