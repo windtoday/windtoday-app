@@ -35,7 +35,7 @@
     "babel-plugin-transform-react-remove-prop-types": "~0.2.9",
     "babel-preset-latest": "~6.16.0",
     "babel-preset-react": "~6.16.0",
-    "browser-sync": "~2.17.2",
+    "browser-sync": "~2.18.2",
     "browser-sync-webpack-plugin": "github:kikobeats/browser-sync-webpack-plugin",
     "bs-fullscreen-message": "~1.1.0",
     "classnames": "~2.2.5",
