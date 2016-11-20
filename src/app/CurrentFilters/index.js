@@ -9,7 +9,7 @@ function CustomCurrentFilters () {
     <div data-app='current-filters' >
       <CurrentRefinements
         translations={{
-          clearFilter: <IconClose />
+          clearFilter: <IconClose style={{verticalAlign: 'baseline'}} />
         }}
       />
     </div>
