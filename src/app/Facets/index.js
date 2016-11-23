@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-
 import FacetsWrapper from '../FacetsWrapper'
 import './style.scss'
 

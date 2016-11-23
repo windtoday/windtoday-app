@@ -22,7 +22,7 @@ function AppWrapper (props) {
       onSwipedLeft={onSwipedLeft}
       data-app='app-wrapper'>
       <FacetsWrapper {...props} />
-      <Results hitsPerPage={5} {...props} />
+      <Results hitsPerPage={6} {...props} />
     </Swipeable>
   )
 }

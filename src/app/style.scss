@@ -1,8 +1,10 @@
 /* colors */
 
-$blue: #19B5FE;
-$light-blue: lighten($blue, 10%);
-$dark-blue: #25303F;
+$light-gray : #c3c9cd;
+$blue       : #19B5FE;
+$light-blue : lighten($blue, 10%);
+$dark-blue  : darken($blue, 10%);
+$navy       : rgba(37, 48, 63, 0.93);
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
@@ -34,6 +36,10 @@ $searchbox-border-width: 1.5px;
 }
 
 /* global */
+
+html * {
+  @extend .helvetica;
+}
 
 body {
   @extend .overflow-y-hidden;

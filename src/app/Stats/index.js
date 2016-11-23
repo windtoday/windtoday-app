@@ -9,7 +9,7 @@ const theme = {
 
 function CustomStats () {
   return (
-    <header data-app='stats' className='fade-in db pt2 light-silver'>
+    <header data-app='stats' className='fade-in db pt2 light-gray'>
       <CurrentRefinements />
       <Stats theme={theme} />
     </header>
