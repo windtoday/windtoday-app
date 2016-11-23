@@ -1,0 +1,6 @@
+
+@import '../style';
+
+.ais-RefinementList__span:hover + span {
+  @extend .blue;
+}

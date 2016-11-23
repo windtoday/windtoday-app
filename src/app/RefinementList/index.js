@@ -1,88 +1,76 @@
-import translatable from 'react-instantsearch/src/core/translatable'
-import themeable from 'react-instantsearch/src/core/themeable'
-import List from 'react-instantsearch/src/components/List'
 import React, {createClass, PropTypes} from 'react'
-import {RefinementList} from 'react-instantsearch'
-import pick from 'lodash/pick'
+import classnames from 'classnames'
 
-const theme = RefinementList.defaultClassNames
+import {connectRefinementList} from 'react-instantsearch/connectors'
 
-const RefinementListFactory = createClass({
+import './style.scss'
+
+const RefinementList = createClass({
   propTypes: {
     applyTheme: PropTypes.func.isRequired,
     translate: PropTypes.func.isRequired,
     refine: PropTypes.func.isRequired,
     createURL: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      count: PropTypes.number.isRequired
+      label: PropTypes.string.isRequired,
+      value: PropTypes.arrayOf(PropTypes.string).isRequired,
+      count: PropTypes.number.isRequired,
+      isRefined: PropTypes.bool.isRequired
     })),
-    selectedItems: PropTypes.arrayOf(PropTypes.string),
     showMore: PropTypes.bool,
     limitMin: PropTypes.number,
     limitMax: PropTypes.number
   },
 
-  onItemChange: function (item, e) {
-    const {selectedItems} = this.props
-    const nextSelectedItems = selectedItems.slice()
-    const idx = nextSelectedItems.indexOf(item.value)
-    if (e.target.checked && idx === -1) {
-      nextSelectedItems.push(item.value)
-    } else if (!e.target.checked && idx !== -1) {
-      nextSelectedItems.splice(idx, 1)
-    }
-    this.props.refine(nextSelectedItems)
-  },
-
-  renderItem: function (item, selected, key) {
-    const {translate, applyTheme} = this.props
-
+  renderItem: function (item, key) {
     return (
-      <label key={key}>
-        <input
-          {...applyTheme('itemCheckbox', 'itemCheckbox', selected && 'itemCheckboxSelected')}
-          type='checkbox'
-          checked={selected}
-          onChange={this.onItemChange.bind(null, item)}
-        />
-        <span {...applyTheme('itemLabel', 'itemLabel', selected && 'itemLabelSelected')}>
-          {item.value}
-        </span>
-        {' '}
-        <span {...applyTheme('itemCount', 'itemCount', selected && 'itemCountSelected')}>
-          {translate('count', item.count)}
-        </span>
-      </label>
+      <section className='ais-RefinementList__root' key={key}>
+        <div className='mb2'>
+          <label
+            className={classnames('pointer', {
+              'ais-RefinementList__itemSelected': item.isRefined
+            })}
+            >
+            <input
+              type='checkbox'
+              className={classnames('ais-RefinementList__itemCheckbox', {
+                'ais-RefinementList__itemCheckboxSelected': item.isRefined
+              })}
+              checked={item.isRefined}
+              onChange={() => this.props.refine(item.value)
+              }
+            />
+            <span
+              className={classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {
+                'dark-blue': !item.isRefined,
+                'blue fw8': item.isRefined
+              })}>
+              {item.label}
+            </span>
+            {' '}
+            <span className={classnames('fr fw4 hover-blue', {
+              'light-gray': !item.isRefined,
+              'blue fw8': item.isRefined
+            })}>
+              {item.count}
+            </span>
+          </label>
+        </div>
+      </section>
     )
   },
+
   render: function () {
-    const {title} = this.props
+    const { renderItem } = this
+    const {title, items} = this.props
+
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
-        <header className='f6 fw6 ttu tracked pb2 light-silver'>{title}</header>
-        <List
-          renderItem={this.renderItem}
-          {...pick(this.props, [
-            'applyTheme',
-            'translate',
-            'items',
-            'selectedItems',
-            'showMore',
-            'limitMin',
-            'limitMax'
-          ])}
-        />
+        <header className='f6 fw6 ttu tracked pb3 silver'>{title}</header>
+        {items.map(renderItem)}
       </article>
     )
   }
 })
 
-const CustomRefinementList = themeable(theme)(
-  translatable({
-    showMore: extended => extended ? 'Show less' : 'Show more',
-    count: count => count.toLocaleString()
-  })(RefinementListFactory)
-)
-
-export default RefinementList.connect(CustomRefinementList)
+export default connectRefinementList(RefinementList)
