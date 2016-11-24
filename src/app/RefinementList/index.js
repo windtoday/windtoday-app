@@ -55,32 +55,22 @@ const RefinementList = createClass({
   },
 
   onShowMoreClick () {
+    const {setState} = this
     const {extended} = this.state
-
-    this.setState({
-      extended: !extended
-    })
-  },
-
-  getButtonText (size, limit) {
-    const {extended} = this.state
-    if (extended) return 'Show Less'
-    if (size > limit) return 'Show More'
-    return ''
+    setState({extended: !extended})
   },
 
   renderShowMore () {
-    const {showMore} = this.props
+    const {showMore, limitMin, items} = this.props
     const {extended} = this.state
-    const disabled = this.props.limitMin >= this.props.items.length
+    const {onShowMoreClick} = this
+    const disabled = limitMin >= items.length
 
-    if (!showMore) {
-      return null
-    }
+    if (!showMore) return
 
     return (
       <a disabled={disabled}
-        onClick={this.onShowMoreClick}
+        onClick={onShowMoreClick}
         className='pointer link dib blue pt2'
       >
         {extended ? 'Show less' : 'Show more'}
@@ -90,8 +80,8 @@ const RefinementList = createClass({
 
   render () {
     const { renderItem, renderShowMore, getLimit } = this
-    const {title, showMore} = this.props
-    let { items } = this.props
+    let {title} = this.props
+    const {items} = this.props
 
     if (!items.length) return null
 
