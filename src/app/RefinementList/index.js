@@ -1,4 +1,4 @@
-import React, {createClass, PropTypes} from 'react'
+import React, {createClass} from 'react'
 import classnames from 'classnames'
 
 import {connectRefinementList} from 'react-instantsearch/connectors'
@@ -6,23 +6,11 @@ import {connectRefinementList} from 'react-instantsearch/connectors'
 import './style.scss'
 
 const RefinementList = createClass({
-  propTypes: {
-    applyTheme: PropTypes.func.isRequired,
-    translate: PropTypes.func.isRequired,
-    refine: PropTypes.func.isRequired,
-    createURL: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.arrayOf(PropTypes.string).isRequired,
-      count: PropTypes.number.isRequired,
-      isRefined: PropTypes.bool.isRequired
-    })),
-    showMore: PropTypes.bool,
-    limitMin: PropTypes.number,
-    limitMax: PropTypes.number
+  getInitialState () {
+    return { extended: false }
   },
 
-  renderItem: function (item, key) {
+  renderItem (item, key) {
     return (
       <section className='ais-RefinementList__root' key={key}>
         <div className='mb2'>
@@ -60,14 +48,60 @@ const RefinementList = createClass({
     )
   },
 
-  render: function () {
-    const { renderItem } = this
-    const {title, items} = this.props
+  getLimit () {
+    const {limitMin, limitMax} = this.props
+    const {extended} = this.state
+    return extended ? limitMax : limitMin
+  },
+
+  onShowMoreClick () {
+    const {extended} = this.state
+
+    this.setState({
+      extended: !extended
+    })
+  },
+
+  getButtonText (size, limit) {
+    const {extended} = this.state
+    if (extended) return 'Show Less'
+    if (size > limit) return 'Show More'
+    return ''
+  },
+
+  renderShowMore () {
+    const {showMore} = this.props
+    const {extended} = this.state
+    const disabled = this.props.limitMin >= this.props.items.length
+
+    if (!showMore) {
+      return null
+    }
+
+    return (
+      <a disabled={disabled}
+        onClick={this.onShowMoreClick}
+        className='pointer link dib blue pt2'
+      >
+        {extended ? 'Show less' : 'Show more'}
+      </a>
+    )
+  },
+
+  render () {
+    const { renderItem, renderShowMore, getLimit } = this
+    const {title, showMore} = this.props
+    let { items } = this.props
+
+    if (!items.length) return null
+
+    items = items.slice(0, getLimit())
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
         <header className='f6 fw6 ttu tracked pb3 gray'>{title}</header>
         {items.map(renderItem)}
+        {renderShowMore()}
       </article>
     )
   }
