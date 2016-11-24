@@ -7,12 +7,7 @@
     }
   }
 
-  @for $i from 0 through 10 {
-    &:nth-child(#{$i}) {
-      @extend .fade-in;
-      animation-delay: 50ms*$i;
-    }
-  }
+  @extend .fade-in;
 
   [data-hit='image'] {
     width: 3rem;

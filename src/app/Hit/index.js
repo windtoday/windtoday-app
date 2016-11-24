@@ -40,10 +40,10 @@ function Hit ({item, toggle, get}) {
         </div>
 
         <div className='dtc v-mid pr5'>
-          <p data-hit='title' className='f6 f5-ns fw6 dark-blue mv0 hover-blue' dangerouslySetInnerHTML={{
+          <p data-hit='title' className='f6 f5-ns fw6 navy mv0 hover-blue' dangerouslySetInnerHTML={{
             __html: item._highlightResult.title.value
           }} />
-          <p data-hit='date' className='f6 fw4 mt2 mb0 black-60' >
+          <p data-hit='date' className='f6 fw4 mt2 mb0 light-gray' >
             {date(item)}
           </p>
         </div>
