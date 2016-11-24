@@ -1,10 +1,10 @@
 /* colors */
 
-$light-gray : #c3c9cd;
-$blue       : #19B5FE;
-$light-blue : lighten($blue, 10%);
-$dark-blue  : darken($blue, 10%);
-$navy       : rgba(37, 48, 63, 0.93);
+$light-gray   : #c3c9cd;
+$blue         : #19B5FE;
+$light-blue   : lighten($blue, 10%);
+$dark-blue    : darken($blue, 10%);
+$navy         : rgba(37, 48, 63, 0.93);
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
