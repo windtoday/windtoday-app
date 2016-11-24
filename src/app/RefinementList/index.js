@@ -42,7 +42,7 @@ const RefinementList = createClass({
             />
             <span
               className={classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {
-                'dark-blue': !item.isRefined,
+                'silver': !item.isRefined,
                 'blue fw8': item.isRefined
               })}>
               {item.label}
@@ -66,7 +66,7 @@ const RefinementList = createClass({
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
-        <header className='f6 fw6 ttu tracked pb3 silver'>{title}</header>
+        <header className='f6 fw6 ttu tracked pb3 gray'>{title}</header>
         {items.map(renderItem)}
       </article>
     )
