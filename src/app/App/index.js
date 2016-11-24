@@ -1,6 +1,7 @@
 import React, {createClass} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
-
+import {withRouter} from 'react-router'
+import qs from 'qs'
 import Layout from '../Layout'
 
 // If you use React Router, make this component
@@ -26,47 +27,76 @@ function getDeviceState () {
 }
 
 const App = createClass({
-  getInitialState: function () {
+  getInitialState () {
     const device = getDeviceState()
-    return Object.assign({}, device, {
+    const sidebar = {
       facetsOpen: device.isDesktop
-    })
+    }
+
+    const state = {...qs.parse(this.props.router.location.query)}
+
+    return {...device, ...sidebar, state}
   },
 
-  toggle: function (key) {
+  componentWillReceiveProps () {
+    this.setState({state: qs.parse(this.props.router.location.query)})
+  },
+
+  createURL (state) {
+    return `?${qs.stringify(state)}`
+  },
+
+  toggle (key) {
     return (e) => {
       const val = !this.state[key]
       return this.setState({ [key]: val })
     }
   },
 
-  get: function (key) {
+  get (key) {
     return this.state[key]
   },
 
-  handleResize: function (e) {
+  handleResize (e) {
     this.setState(getDeviceState())
   },
 
-  componentDidMount: function () {
+  componentDidMount () {
     window.addEventListener('resize', this.handleResize)
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount () {
     window.removeEventListener('resize', this.handleResize)
   },
 
-  render: function () {
+  onStateChange (nextState) {
+    const THRESHOLD = 700
+    const newPush = Date.now()
+    this.setState({lastPush: newPush, state: nextState})
+    if (this.state.lastPush && newPush - this.state.lastPush <= THRESHOLD) {
+      this.props.router.replace(nextState ? `?${qs.stringify(nextState)}` : '')
+    } else {
+      this.props.router.push(nextState ? `?${qs.stringify(nextState)}` : '')
+    }
+  },
+
+  render () {
+    const {toggle, get, onStateChange, createURL, state} = this
+    const props = {toggle, get}
+
     return (
       <InstantSearch className='cf'
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='primary'
+        state={state.state}
+        onStateChange={onStateChange}
+        createURL={createURL}
       >
-        <Layout toggle={this.toggle} get={this.get} />
+        <Layout {...props} />
       </ InstantSearch>
     )
   }
 })
 
-export default App
+export default withRouter(App)
