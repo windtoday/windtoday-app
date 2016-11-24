@@ -1,8 +1,6 @@
 import React, {createClass} from 'react'
 import classnames from 'classnames'
-
 import {connectRefinementList} from 'react-instantsearch/connectors'
-
 import './style.scss'
 
 const RefinementList = createClass({
@@ -54,23 +52,22 @@ const RefinementList = createClass({
     return extended ? limitMax : limitMin
   },
 
-  onShowMoreClick () {
-    const {setState} = this
+  onClick () {
     const {extended} = this.state
-    setState({extended: !extended})
+    this.setState({extended: !extended})
   },
 
   renderShowMore () {
     const {showMore, limitMin, items} = this.props
     const {extended} = this.state
-    const {onShowMoreClick} = this
+    const {onClick} = this
     const disabled = limitMin >= items.length
 
-    if (!showMore) return
+    if (!showMore || items.length < limitMin) return
 
     return (
       <a disabled={disabled}
-        onClick={onShowMoreClick}
+        onClick={onClick}
         className='pointer link dib blue pt2'
       >
         {extended ? 'Show less' : 'Show more'}
@@ -80,8 +77,8 @@ const RefinementList = createClass({
 
   render () {
     const { renderItem, renderShowMore, getLimit } = this
-    let {title} = this.props
-    const {items} = this.props
+    const {title} = this.props
+    let {items} = this.props
 
     if (!items.length) return null
 
