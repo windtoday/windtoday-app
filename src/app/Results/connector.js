@@ -58,9 +58,7 @@ export default createConnector({
 
   getSearchParameters (searchParameters, props, widgetsState) {
     const id = getId()
-    const currentPage = widgetsState[id] ?
-      widgetsState[id] :
-      0
+    const currentPage = widgetsState[id] ? widgetsState[id] : 0
     const isHitsPerPageDefined = typeof searchParameters.hitsPerPage !== 'undefined'
 
     return searchParameters.setQueryParameters({
@@ -71,9 +69,7 @@ export default createConnector({
 
   refine (props, widgetsState) {
     const id = getId()
-    const nextPage = widgetsState[id] ?
-      widgetsState[id] + 1 :
-      1
+    const nextPage = widgetsState[id] ? Number(widgetsState[id]) + 1 : 1
     return {
       ...widgetsState,
       [id]: nextPage
