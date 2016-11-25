@@ -1,30 +1,114 @@
 import React from 'react'
-import Range from '../Range'
 import RefinementList from '../RefinementList'
-import SidebarSection from '../SidebarSection'
+
 import './style.scss'
 
 function Facets () {
   return (
     <div data-app='facets-wrapper'>
-      <RefinementList title='category' attributeName='category' />
-      <RefinementList title='provider' attributeName='provider' />
-      <RefinementList title='seller' attributeName='seller' />
-      <RefinementList title='brand' attributeName='brand' />
-      <RefinementList title='model' attributeName='model' />
-      <RefinementList title='mast type' attributeName='mast.diameter' />
-      <RefinementList title='fin box' attributeName='fin.box' />
 
-      <SidebarSection title='mastcarbon' item={<Range attributeName='mast.carbon' />} />
-      <SidebarSection title='price' item={<Range attributeName='price' />} />
-      <SidebarSection title='sail size' item={<Range attributeName='sail.size' />} />
-      <SidebarSection title='board size' item={<Range attributeName='board.size' />} />
-      <RefinementList title='mast size' attributeName='mast.size' />
-      <RefinementList title='fin size' attributeName='fin.size' />
-      <RefinementList title='fin type' attributeName='fin.type' />
-      <RefinementList title='boom size' attributeName='boom.size' />
-      <RefinementList title='boom type' attributeName='boom.type' />
-      <RefinementList title='mast type' attributeName='mast.type' />
+      <RefinementList
+        title='price'
+        attributeName='price'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='category'
+        attributeName='category' />
+
+      <RefinementList
+        title='provider'
+        attributeName='provider' />
+
+      <RefinementList
+        title='seller'
+        attributeName='seller' />
+
+      <RefinementList
+        title='brand'
+        attributeName='brand'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='model'
+        attributeName='model'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='sail.size'
+        attributeName='sail.size'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='board.size'
+        attributeName='board.size'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='mast type'
+        limitMin={5}
+        attributeName='mast.type'
+        showMore />
+
+      <RefinementList
+        title='mast carbon'
+        limitMin={5}
+        attributeName='mast.carbon'
+        showMore />
+
+      <RefinementList
+        title='mast size'
+        attributeName='mast.size'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='fin size'
+        attributeName='fin.size'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='fin type'
+        attributeName='fin.type'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='mast type'
+        attributeName='mast.type'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='mast carbon'
+        attributeName='mast.carbon'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='mast size'
+        attributeName='mast.size'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='boom type'
+        attributeName='boom.type'
+        limitMin={5}
+        showMore />
+
+      <RefinementList
+        title='boom size'
+        attributeName='boom.size'
+        limitMin={5}
+        showMore />
+
     </div>
   )
 }

@@ -1,7 +1,7 @@
+import {connectSearchBox} from 'react-instantsearch/connectors'
+import IconSearch from 'react-icons/lib/md/search'
 import React, {createClass} from 'react'
 import classnames from 'classnames'
-import {SearchBox} from 'react-instantsearch'
-import IconSearch from 'react-icons/lib/md/search'
 
 import './style.scss'
 
@@ -48,4 +48,4 @@ const CustomSearchBox = createClass({
   }
 })
 
-export default SearchBox.connect(CustomSearchBox)
+export default connectSearchBox(CustomSearchBox)

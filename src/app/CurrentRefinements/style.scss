@@ -1,0 +1,25 @@
+@import '../style';
+
+.ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
+  @extend .dib, .br3, .mb2, .mr2, .mt3, .bg-light-blue, .near-white;
+
+  > .ais-CurrentRefinements__itemLabel {
+    @extend .pl2;
+  }
+}
+
+.ais-CurrentRefinements__itemParent > .ais-CurrentRefinements__itemLabel {
+  display: block;
+  @extend .mt3;
+}
+
+.ais-CurrentRefinements__itemClear {
+  background: none;
+  border: none;
+  padding: .4rem .4rem .3rem .4rem;
+  @extend .v-mid, .pointer;
+
+  > svg {
+    @extend .white, .f6, .b, .dim;
+  }
+}

@@ -1,34 +1,28 @@
 import React from 'react'
-import { createConnector } from 'react-instantsearch'
 import classnames from 'classnames'
 
-import Hits from '../Hits'
+import connectorResults from './connector'
+import Footer from '../Footer'
 import NoHits from '../NoHits'
+import Hits from '../Hits'
 
 import './style.scss'
 
-const ResultsConnector = createConnector({
-  displayName: 'Results',
+const theme = 'fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
-  getProps (props, state, search) {
-    const { toggle, get } = props
-    const noResults = search.results ? search.results.nbHits === 0 : false
-    const theme = 'fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
-    const nbPages = search.results && search.results.nbPages || 0
-    const style = classnames(theme, {
-      'results-expand': get('facetsOpen')
-    })
-    return {query: state.q, noResults, nbPages, style, toggle, get}
-  }
-})(({noResults, query, style, nbPages, toggle, get}) => {
+function Results ({hasResults, query, hasMore, toggle, get, refine, hits}) {
+  const props = { toggle, get, hasMore, refine, hits, query }
+
+  const style = classnames(theme, {
+    'results-expand': get('facetsOpen')
+  })
+
   return (
     <section data-app='results' className={style}>
-      {noResults
-      ? <NoHits query={query} />
-      : <Hits toggle={toggle} get={get} nbPages={nbPages} hitsPerPage={10} />
-      }
+      {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
+      <Footer />
     </section>
   )
-})
+}
 
-export default ResultsConnector
+export default connectorResults(Results)

@@ -1,3 +1,4 @@
+import {Router, Route, browserHistory} from 'react-router'
 import { AppContainer } from 'react-hot-loader'
 import ReactDOM from 'react-dom'
 import React from 'react'
@@ -6,9 +7,12 @@ import App from './App'
 import './style.scss'
 
 const el = document.getElementById('app')
+
 ReactDOM.render(
   <AppContainer>
-    <App />
+    <Router history={browserHistory}>
+      <Route path='/' component={App} />
+    </Router>
   </AppContainer>,
   el
 )
@@ -20,7 +24,9 @@ if (module.hot) {
     const NextApp = require('./App').default
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+        <Router history={browserHistory}>
+          <Route path='/' component={NextApp} />
+        </Router>
       </AppContainer>,
       el
     )

@@ -5,7 +5,7 @@ import AppWrapper from '../AppWrapper'
 
 function Layout (props) {
   return (
-    <main data-app='layout' className='cf helvetica'>
+    <main data-app='layout' className='cf'>
       <AppBar {...props} />
       <AppWrapper {...props} />
     </main>

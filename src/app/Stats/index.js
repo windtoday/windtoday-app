@@ -1,16 +1,16 @@
 import React from 'react'
-import {Stats} from 'react-instantsearch'
+import {Stats} from 'react-instantsearch/dom'
 
-import CurrentFilters from '../CurrentFilters'
+import CurrentRefinements from '../CurrentRefinements'
 
 const theme = {
-  root: 'dib pt3 mt2-l'
+  root: 'db mt3 pv3'
 }
 
 function CustomStats () {
   return (
-    <header data-app='stats' className='fade-in db pt2 pb2 ph3 ph5-l light-silver'>
-      <CurrentFilters />
+    <header data-app='stats' className='fade-in db pt2 light-gray'>
+      <CurrentRefinements />
       <Stats theme={theme} />
     </header>
   )
