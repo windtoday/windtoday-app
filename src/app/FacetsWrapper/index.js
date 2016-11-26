@@ -38,13 +38,13 @@ function Facets () {
         showMore />
 
       <RefinementList
-        title='sail.size'
+        title='sail size'
         attributeName='sail.size'
         limitMin={5}
         showMore />
 
       <RefinementList
-        title='board.size'
+        title='board size'
         attributeName='board.size'
         limitMin={5}
         showMore />
