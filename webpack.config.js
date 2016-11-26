@@ -25,7 +25,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-      VERSION: JSON.stringify(pkg.version)
+      'APP_VERSION': JSON.stringify(pkg.version)
     }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),

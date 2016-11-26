@@ -19,7 +19,7 @@ function Footer () {
 
       <small
         className='f6 db tc'>
-        © 2016 <Logo /> All Rights Reserved
+        © 2016 <Logo /> v{APP_VERSION}
       </small>
 
       <small className='f6 db tc'><PoweredBy /></small>

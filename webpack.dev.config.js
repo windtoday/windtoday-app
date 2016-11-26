@@ -24,6 +24,9 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'APP_VERSION': JSON.stringify(require('./package.json').version)
+    }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
