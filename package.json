@@ -1,8 +1,8 @@
 {
-  "name": "react-boilerplatinum",
+  "name": "windtoday-app",
   "description": "Boilerplate for ReactJS project with hot code reloading",
-  "homepage": "https://github.com/Kikobeats/react-boilerplatinum",
-  "version": "0.7.1",
+  "homepage": "https://github.com/windtoday/windtoday-app",
+  "version": "0.0.0",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -10,22 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/react-boilerplatinum.git"
+    "url": "git+https://github.com/windtoday/windtoday-app.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/react-boilerplatinum/issues"
+    "url": "https://github.com/windtoday/windtoday-app/issues"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
-    "webpack"
-  ],
   "devDependencies": {
     "autoprefixer": "~6.5.0",
     "babel-core": "~6.18.0",
@@ -77,5 +66,6 @@
     "start": "node bin/server",
     "test": "echo 'not yet implemented, wanna help?'"
   },
+  "private": true,
   "license": "MIT"
 }
