@@ -76,18 +76,16 @@ const RefinementList = createClass({
   },
 
   render () {
-    const { renderItem, renderShowMore, getLimit } = this
-    const {title} = this.props
-    let {items} = this.props
+    const {renderItem, renderShowMore, getLimit, props} = this
+    const {title, items} = props
 
     if (!items.length) return null
-
-    items = items.slice(0, getLimit())
+    const slicedItems = items.slice(0, getLimit())
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
         <header className='f6 fw6 ttu tracked pb3 gray'>{title}</header>
-        {items.map(renderItem)}
+        {slicedItems.map(renderItem)}
         {renderShowMore()}
       </article>
     )
