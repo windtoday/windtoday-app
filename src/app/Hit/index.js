@@ -30,7 +30,7 @@ function date (item) {
 
 function Hit ({item, toggle, get}) {
   return (
-    <article data-app='hit' className='bb b--near-white lh-title'>
+    <section data-app='hit' className='bb b--near-white lh-title'>
       <a data-hit='link' className='link dt w-100 pv2 pv1-ns blue' href={item.shortenUrl} target='_blank'>
 
         {image(item)}
@@ -48,7 +48,7 @@ function Hit ({item, toggle, get}) {
           </p>
         </div>
       </a>
-    </article>
+    </section>
   )
 }
 

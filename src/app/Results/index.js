@@ -18,10 +18,10 @@ function Results ({hasResults, query, hasMore, toggle, get, refine, hits}) {
   })
 
   return (
-    <section data-app='results' className={style}>
+    <article data-app='results' className={style}>
       {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
       <Footer />
-    </section>
+    </article>
   )
 }
 
