@@ -36,7 +36,10 @@ const CustomSearchBox = createClass({
         <IconSearch className={style} />
         <input
           className='w-100 f6 f5-l input-reset black-80 bg-white pt2 pr2 pb2 lh-solid br2 ba pl5-l pl4'
-          type='text'
+          type='search'
+          results={5}
+          autosave='search'
+          name='s'
           value={this.props.query}
           onChange={this.onChange}
           onFocus={this.onFocus}
