@@ -39,23 +39,29 @@ const Range = createClass({
   },
 
   render () {
-    const { min, max } = this.props
+    const { min, max, label, title } = this.props
     const { onChange, onValuesUpdated, state } = this
 
     return (
-      <div>
+      <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
+        <header className='f6 fw6 ttu tracked pb3 gray'>{title}</header>
         <Rheostat
+          className='mh3'
           min={min}
           max={max}
           values={[state.value.min, state.value.max]}
           onValuesUpdated={onValuesUpdated}
           onChange={onChange}
         />
-        <div>
-          <span>€{state.value.min}</span>
-          <span>€{state.value.max}</span>
+        <div className='cf'>
+          <div className='light-gray fl w-50 pl2 pt3 tl'>
+            <span>{state.value.min}{label}</span>
+          </div>
+          <div className='light-gray fl w-50 pt3 pr2 tr'>
+            <span>{state.value.max}{label}</span>
+          </div>
         </div>
-      </div>
+      </article>
     )
   }
 })

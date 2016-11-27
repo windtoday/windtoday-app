@@ -1,114 +1,107 @@
 import React from 'react'
 import RefinementList from '../RefinementList'
 import Range from '../Range'
-
 import './style.scss'
 
 function Facets () {
   return (
     <div data-app='facets-wrapper'>
 
-      <RefinementList
-        title='price'
+      <Range
         attributeName='price'
-        limitMin={5}
-        showMore />
+        title='price'
+        label='€'
+      />
 
       <RefinementList
+        attributeName='category'
         title='category'
-        attributeName='category' />
+      />
 
       <RefinementList
+        attributeName='provider'
         title='provider'
-        attributeName='provider' />
+      />
 
       <RefinementList
+        attributeName='seller'
         title='seller'
-        attributeName='seller' />
+      />
 
       <RefinementList
-        title='brand'
         attributeName='brand'
+        title='brand'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='model'
         attributeName='model'
+        title='model'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
-      <RefinementList
-        title='sail size'
+      <Range
         attributeName='sail.size'
-        limitMin={5}
-        showMore />
+        title='sail size'
+        label='m'
+      />
 
-      <RefinementList
-        title='board size'
+      <Range
         attributeName='board.size'
-        limitMin={5}
-        showMore />
+        title='board size'
+        label='l'
+      />
 
       <RefinementList
+        attributeName='mast.type'
         title='mast type'
         limitMin={5}
-        attributeName='mast.type'
-        showMore />
+        showMore
+      />
 
       <RefinementList
+        attributeName='mast.carbon'
         title='mast carbon'
         limitMin={5}
-        attributeName='mast.carbon'
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='mast size'
         attributeName='mast.size'
+        title='mast size'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='fin size'
         attributeName='fin.size'
+        title='fin size'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='fin type'
         attributeName='fin.type'
+        title='fin type'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='mast type'
-        attributeName='mast.type'
-        limitMin={5}
-        showMore />
-
-      <RefinementList
-        title='mast carbon'
-        attributeName='mast.carbon'
-        limitMin={5}
-        showMore />
-
-      <RefinementList
-        title='mast size'
-        attributeName='mast.size'
-        limitMin={5}
-        showMore />
-
-      <RefinementList
-        title='boom type'
         attributeName='boom.type'
+        title='boom type'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
       <RefinementList
-        title='boom size'
         attributeName='boom.size'
+        title='boom size'
         limitMin={5}
-        showMore />
+        showMore
+      />
 
     </div>
   )
