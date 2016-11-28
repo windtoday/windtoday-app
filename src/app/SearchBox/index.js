@@ -31,6 +31,9 @@ const CustomSearchBox = createClass({
       'blur': !isFocus
     })
 
+    const {props, onChange, onFocus, onBlur} = this
+    const {query} = props
+
     return (
       <div data-app='searchbox' className='w-80 w-70-l pa2'>
         <IconSearch className={style} />
@@ -38,12 +41,11 @@ const CustomSearchBox = createClass({
           className='w-100 f6 f5-l input-reset black-80 bg-white pt2 pr2 pb2 lh-solid br2 ba pl5-l pl4'
           type='search'
           results={5}
-          autosave='search'
-          name='s'
-          value={this.props.query}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
+          value={query}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          autoSave='searchbox'
           autoFocus
         />
       </div>
