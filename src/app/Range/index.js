@@ -7,8 +7,8 @@ import './style.scss'
 const Range = createClass({
   getInitialState () {
     const { props } = this
-    const { min, max } = props
-    const value = props.currentRefinement
+    const { min, max, currentRefinement } = props
+    const value = currentRefinement
     return {min, max, value}
   },
 
@@ -39,8 +39,8 @@ const Range = createClass({
   },
 
   render () {
-    const { min, max, label, title } = this.props
-    const { onChange, onValuesUpdated, state } = this
+    const { onChange, onValuesUpdated, state, props } = this
+    const { min, max, label, title, currentRefinement } = props
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-ns pb4'>
@@ -49,7 +49,7 @@ const Range = createClass({
           className='mh3'
           min={min}
           max={max}
-          values={[state.value.min, state.value.max]}
+          values={[currentRefinement.min, currentRefinement.max]}
           onValuesUpdated={onValuesUpdated}
           onChange={onChange}
         />
