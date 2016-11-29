@@ -8,27 +8,24 @@ import './style.scss'
 
 const el = document.getElementById('app')
 
-ReactDOM.render(
-  <AppContainer>
-    <Router history={browserHistory}>
-      <Route path='/' component={App} />
-    </Router>
-  </AppContainer>,
-  el
-)
+function render (component) {
+  return ReactDOM.render(
+    <AppContainer key={Math.random()}>
+      <Router history={browserHistory}>
+        <Route path='/' component={component} />
+      </Router>
+    </AppContainer>,
+    el
+  )
+}
+
+render(App)
 
 if (module.hot) {
   module.hot.accept('./App', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
     const NextApp = require('./App').default
-    ReactDOM.render(
-      <AppContainer>
-        <Router history={browserHistory}>
-          <Route path='/' component={NextApp} />
-        </Router>
-      </AppContainer>,
-      el
-    )
+    render(NextApp)
   })
 }
