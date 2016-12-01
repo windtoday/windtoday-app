@@ -39,7 +39,7 @@ function Hit ({item, toggle, get}) {
           <p data-hit='price' className='dib ph2 ph3-ns'>{price(item)}</p>
         </div>
 
-        <div className='dtc v-mid pr5'>
+        <div className='dtc v-mid pr3'>
           <p data-hit='title' className='f6 f5-ns fw6 navy mv0 hover-blue' dangerouslySetInnerHTML={{
             __html: item._highlightResult.title.value
           }} />
