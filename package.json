@@ -36,7 +36,7 @@
     "html-webpack-plugin": "~2.24.0",
     "node-sass": "~3.13.0",
     "postcss-focus": "~1.0.0",
-    "postcss-loader": "~1.1.0",
+    "postcss-loader": "~1.2.0",
     "purifycss-webpack-plugin": "~2.0.3",
     "qs": "~6.3.0",
     "react": "~15.4.1",
