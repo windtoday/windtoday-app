@@ -27,7 +27,6 @@
     "babel-preset-react": "~6.16.0",
     "browser-sync": "~2.18.2",
     "browser-sync-webpack-plugin": "github:kikobeats/browser-sync-webpack-plugin",
-    "bs-fullscreen-message": "~1.1.0",
     "classnames": "~2.2.5",
     "css-loader": "~0.26.0",
     "extract-text-webpack-plugin": "~1.0.1",
