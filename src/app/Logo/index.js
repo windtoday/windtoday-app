@@ -14,7 +14,7 @@ function Logo ({toggle, get}) {
 
   return (
     <a href='/' style={style}>
-      <img src={`/assets/img/${image}.png`} />
+      <img alt='windtoday' src={`/assets/img/${image}.png`} />
     </a>
   )
 }

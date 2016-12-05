@@ -7,10 +7,11 @@ function price (item) {
 }
 
 function image (item) {
-  const imageURL = `/assets/img/provider/${item.provider}.jpg`
+  const {provider} = item
+  const imageURL = `/assets/img/provider/${provider}.jpg`
   return (
     <div data-hit='image' className='dtc v-mid'>
-      <img src={imageURL} className='db w-100 br3' />
+      <img alt={provider} src={imageURL} className='db w-100 br3' />
     </div>
   )
 }
