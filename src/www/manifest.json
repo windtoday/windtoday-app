@@ -1,8 +1,13 @@
 {
-  "name": "Windtoday Marketplace",
-  "short_name": "Windtoday",
+  "name": "windtoday.co",
+  "short_name": "windtoday.co",
   "description": "Intelligent windsurfing marketplace",
   "icons": [
+    {
+      "src": "assets/img/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
     {
       "src": "assets/img/favicon-192x192.png",
       "sizes": "192x192",
