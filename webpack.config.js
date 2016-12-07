@@ -4,6 +4,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -71,6 +72,14 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       comments: false
+    }),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: ['vendor.bundle.js', ':externals:']
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
     })
   ],
   module: {

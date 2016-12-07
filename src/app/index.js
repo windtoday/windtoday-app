@@ -28,4 +28,6 @@ if (module.hot) {
     const NextApp = require('./App').default
     render(NextApp)
   })
+} else {
+  require('offline-plugin/runtime').install()
 }
