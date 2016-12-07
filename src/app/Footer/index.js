@@ -1,3 +1,5 @@
+/* global APP_VERSION */
+
 import React from 'react'
 import AlgoliaLogo from './AlgoliaLogo'
 
