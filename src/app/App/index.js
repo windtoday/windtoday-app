@@ -29,17 +29,13 @@ function getDeviceState () {
 const App = createClass({
   getInitialState () {
     const device = getDeviceState()
-    const sidebar = {
-      facetsOpen: device.isDesktop
-    }
-
-    const state = {...qs.parse(this.props.router.location.query)}
-
-    return {...device, ...sidebar, state}
+    const sidebar = { facetsOpen: device.isDesktop }
+    const searchState = {...qs.parse(this.props.router.location.query)}
+    return {...device, ...sidebar, searchState}
   },
 
   componentWillReceiveProps () {
-    this.setState({state: qs.parse(this.props.router.location.query)})
+    this.setState({searchState: qs.parse(this.props.router.location.query)})
   },
 
   createURL (state) {
@@ -69,14 +65,15 @@ const App = createClass({
     window.removeEventListener('resize', this.handleResize)
   },
 
-  onSearchStateChange (nextState) {
+  onSearchStateChange (nextSearchState) {
     const THRESHOLD = 700
     const newPush = Date.now()
-    this.setState({lastPush: newPush, state: nextState})
+    this.setState({lastPush: newPush, searchState: nextSearchState})
+
     if (this.state.lastPush && newPush - this.state.lastPush <= THRESHOLD) {
-      this.props.router.replace(nextState ? `?${qs.stringify(nextState)}` : '')
+      this.props.router.replace(nextSearchState ? `?${qs.stringify(nextSearchState)}` : '')
     } else {
-      this.props.router.push(nextState ? `?${qs.stringify(nextState)}` : '')
+      this.props.router.push(nextSearchState ? `?${qs.stringify(nextSearchState)}` : '')
     }
   },
 
@@ -89,7 +86,7 @@ const App = createClass({
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='primary'
-        searchState={state.state}
+        searchState={state.searchState}
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
