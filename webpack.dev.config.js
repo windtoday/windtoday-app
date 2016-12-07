@@ -5,6 +5,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = require('./config.json')
 const webpack = require('webpack')
+const {HotModuleReplacementPlugin, NoErrorsPlugin} = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -20,8 +21,8 @@ module.exports = {
     filename: 'assets/js/bundle.js'
   },
   resolve: {
-    extensions: ['', '.scss', '.css', '.js', '.json'],
-    modulesDirectories: ['node_modules']
+    extensions: ['.scss', '.css', '.js', '.json'],
+    modules: ['node_modules']
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -33,8 +34,8 @@ module.exports = {
       inject: false
     })),
     new HtmlWebpackHarddiskPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new HotModuleReplacementPlugin(),
+    new NoErrorsPlugin(),
     new BrowserSyncPlugin(
       // BrowserSync options
       {
@@ -56,18 +57,19 @@ module.exports = {
     )
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /(\.js|\.jsx)$/,
       exclude: /node_modules/,
-      loaders: ['babel'],
+      loader: ['babel-loader'],
       include: path.resolve('src/app')
     }, {
       test: /(\.scss|\.css)$/,
-      loader: 'style!css!sass!postcss'
+      loader: [
+        'style-loader',
+        'css-loader',
+        'sass-loader',
+        'postcss-loader'
+      ]
     }]
-  },
-  postcss: [
-    require('postcss-focus'),
-    require('autoprefixer')
-  ]
+  }
 }

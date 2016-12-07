@@ -1,12 +1,14 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
+const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
 const path = require('path')
 
 module.exports = {
@@ -19,14 +21,15 @@ module.exports = {
     filename: 'assets/js/bundle.js'
   },
   resolve: {
-    extensions: ['', '.scss', '.css', '.js', '.json'],
-    modulesDirectories: ['node_modules']
+    extensions: ['.scss', '.css', '.js'],
+    modules: ['node_modules']
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
+    new LodashModuleReplacementPlugin(),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
@@ -51,7 +54,10 @@ module.exports = {
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
-    new ExtractTextPlugin('assets/css/bundle.css', { allChunks: true }),
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: 'assets/css/bundle.css'
+    }),
     new PurifyCSSWebpackPlugin({
       basePath: path.resolve('src/www'),
       paths: ['*.html'],
@@ -60,52 +66,34 @@ module.exports = {
         rejected: true
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
+    new CommonsChunkPlugin({
       name: 'vendor',
       filename: 'assets/js/vendor.bundle.js',
       minChunks: Infinity
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJsPlugin({
+      sourceMap: true,
+      minimize: true,
       compress: { warnings: false },
       comments: false
     })
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /(\.js|\.jsx)$/,
       exclude: /node_modules/,
-      loaders: ['babel'],
+      loader: ['babel-loader'],
       include: path.resolve('src/app')
     }, {
       test: /(\.scss|\.css)$/,
-      loader: ExtractTextPlugin.extract('style', 'css?minimize&sourceMap!sass!postcss')
-    }, {
-      test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]'
-    }, {
-      test: /\.woff2(\?\S*)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-woff2&name=fonts/[name].[ext]'
-    }, {
-      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-tff&name=fonts/[name].[ext]'
-    }, {
-      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=fonts/[name].[ext]'
-    }, {
-      test: /\.png(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=img/[name].[ext]'
-    }, {
-      test: /\.gif(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=img/[name].[ext]'
-    }, {
-      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml&name=img/[name].[ext]'
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: [
+          'css-loader?minimize&sourceMap',
+          'sass-loader',
+          'postcss-loader'
+        ]
+      })
     }]
-  },
-  postcss: [
-    require('postcss-focus'),
-    require('autoprefixer')
-  ]
+  }
 }
