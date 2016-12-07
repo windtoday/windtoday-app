@@ -69,7 +69,7 @@ const App = createClass({
     window.removeEventListener('resize', this.handleResize)
   },
 
-  onStateChange (nextState) {
+  onSearchStateChange (nextState) {
     const THRESHOLD = 700
     const newPush = Date.now()
     this.setState({lastPush: newPush, state: nextState})
@@ -81,7 +81,7 @@ const App = createClass({
   },
 
   render () {
-    const {toggle, get, onStateChange, createURL, state} = this
+    const {toggle, get, onSearchStateChange, createURL, state} = this
     const props = {toggle, get}
 
     return (
@@ -89,8 +89,8 @@ const App = createClass({
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='primary'
-        state={state.state}
-        onStateChange={onStateChange}
+        searchState={state.state}
+        onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
         <Layout {...props} />

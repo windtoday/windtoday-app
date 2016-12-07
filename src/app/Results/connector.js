@@ -12,7 +12,7 @@ export default createConnector({
     hitsPerPage: PropTypes.number
   },
 
-  getProps (componentProps, allWidgetsState, resultsStruct) {
+  getProvidedProps (componentProps, allWidgetsState, resultsStruct) {
     const query = allWidgetsState.q
     const { toggle, get } = componentProps
     const props = {toggle, get, query}

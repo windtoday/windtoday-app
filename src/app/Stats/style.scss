@@ -1,0 +1,5 @@
+@import '../style';
+
+.ais-Stats__root {
+  @extend .db, .mt3, .pv3;
+}
