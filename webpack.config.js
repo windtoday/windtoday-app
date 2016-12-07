@@ -104,6 +104,9 @@ module.exports = {
           'postcss-loader'
         ]
       })
+    }, {
+      test: /(\.png|\.jpg|\.gif)$/,
+      loader: 'url-loader?limit=3000&name=[name].[ext]'
     }]
   }
 }
