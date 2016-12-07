@@ -35,7 +35,7 @@
     "node-sass": "~3.13.0",
     "postcss-focus": "~1.0.0",
     "postcss-loader": "~1.2.0",
-    "purifycss-webpack-plugin": "~2.0.3",
+    "purifycss-webpack-plugin": "Kikobeats/purifycss-webpack-plugin",
     "qs": "~6.3.0",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",
