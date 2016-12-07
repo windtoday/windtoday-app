@@ -33,6 +33,7 @@
     "html-webpack-plugin": "~2.24.0",
     "lodash-webpack-plugin": "~0.10.6",
     "node-sass": "~3.13.0",
+    "offline-plugin": "~4.5.3",
     "postcss-focus": "~1.0.0",
     "postcss-loader": "~1.2.0",
     "purifycss-webpack-plugin": "Kikobeats/purifycss-webpack-plugin",

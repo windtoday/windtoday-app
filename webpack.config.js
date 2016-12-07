@@ -5,6 +5,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
@@ -50,7 +51,8 @@ module.exports = {
         removeTagWhitespace: true,
         sortAttributes: true,
         sortClassName: true,
-        useShortDoctype: true
+        useShortDoctype: true,
+        minifyJS: true
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
@@ -76,6 +78,14 @@ module.exports = {
       minimize: true,
       compress: { warnings: false },
       comments: false
+    }),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: ['vendor.bundle.js', ':externals:']
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
     })
   ],
   module: {
