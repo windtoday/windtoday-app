@@ -99,7 +99,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          'css-loader?minimize&sourceMap',
+          'css-loader?minimize&sourceMap&importLoaders=2',
           'sass-loader',
           'postcss-loader'
         ]
