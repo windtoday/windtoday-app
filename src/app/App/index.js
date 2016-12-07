@@ -67,7 +67,7 @@ const App = createClass({
 
   onSearchStateChange (nextSearchState) {
     const THRESHOLD = 700
-    const newPush = Date.now()
+    const newPush = perfomance.now()
     this.setState({lastPush: newPush, searchState: nextSearchState})
 
     if (this.state.lastPush && newPush - this.state.lastPush <= THRESHOLD) {

@@ -32,7 +32,7 @@ function date (item) {
 function Hit ({item, toggle, get}) {
   return (
     <section data-app='hit' className='bb b--near-white lh-title'>
-      <a data-hit='link' className='link dt w-100 pv2 pv1-ns blue' href={item.url} target='_blank'>
+      <a data-hit='link' className='link dt w-100 pv2 pv1-ns blue' href={item.url} target='_blank' rel='noopener'>
 
         {image(item)}
 
