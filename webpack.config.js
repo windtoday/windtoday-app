@@ -47,7 +47,8 @@ module.exports = {
         removeTagWhitespace: true,
         sortAttributes: true,
         sortClassName: true,
-        useShortDoctype: true
+        useShortDoctype: true,
+        minifyJS: true
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
