@@ -6,7 +6,7 @@ import './style.scss'
 const theme = 'fl w-100 w-25-l vh-100 bg-white overflow-x-hidden overflow-y-scroll z-1'
 
 function Facets (props) {
-  const { toggle, get } = props
+  const { get } = props
 
   const style = classnames(theme, {
     'facets-collapse': !get('facetsOpen')
