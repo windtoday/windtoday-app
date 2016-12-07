@@ -18,7 +18,7 @@ const Logo = () =>
 
 function Footer () {
   return (
-    <footer className='pv4 light-gray'>
+    <footer className='pb4 pt3 light-gray'>
 
       <small
         className='f6 db tc'>
