@@ -1,3 +1,5 @@
+/* global performance */
+
 import React, {createClass} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
 import {withRouter} from 'react-router'
