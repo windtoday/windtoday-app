@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "stable"
 install:
-  - npm install --production
+  - npm install
 env:
   global:
     - GIT_NAME: Travis CI
