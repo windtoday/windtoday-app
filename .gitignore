@@ -30,6 +30,7 @@ coverage
 # Other
 ############################
 .node_history
+src/www/sw.js
 src/www/assets/css
 src/www/assets/js
 src/www/index.html
