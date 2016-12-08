@@ -34,7 +34,15 @@ module.exports = {
     // new OfflinePlugin({
     //   caches: {
     //     main: [':rest:'],
-    //     additional: ['assets/js/vendor.bundle.js', ':externals:']
+    //     additional: [
+    //       'assets/js/vendor.bundle.js',
+    //       ':externals:'
+    //     ],
+    //     externals: [
+    //       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+    //       'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
+    //       'https://www.google-analytics.com/analytics.js'
+    //     ]
     //   },
     //   safeToUseOptionalCaches: true,
     //   AppCache: false
