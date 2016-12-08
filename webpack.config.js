@@ -31,14 +31,14 @@ module.exports = {
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
     new LodashModuleReplacementPlugin(),
-    new OfflinePlugin({
-      caches: {
-        main: [':rest:'],
-        additional: ['assets/js/vendor.bundle.js', ':externals:']
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
-    }),
+    // new OfflinePlugin({
+    //   caches: {
+    //     main: [':rest:'],
+    //     additional: ['assets/js/vendor.bundle.js', ':externals:']
+    //   },
+    //   safeToUseOptionalCaches: true,
+    //   AppCache: false
+    // }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
