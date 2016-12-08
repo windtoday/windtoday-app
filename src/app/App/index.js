@@ -2,7 +2,10 @@ import React, {createClass} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
 import {withRouter} from 'react-router'
 import qs from 'qs'
-import Layout from '../Layout'
+
+import AppBar from '../AppBar'
+import AppWrapper from '../AppWrapper'
+import './style.scss'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -82,7 +85,7 @@ const App = createClass({
     const props = {toggle, get}
 
     return (
-      <InstantSearch className='cf'
+      <InstantSearch
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='primary'
@@ -90,7 +93,8 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
-        <Layout {...props} />
+        <AppBar {...props} />
+        <AppWrapper {...props} />
       </ InstantSearch>
     )
   }
