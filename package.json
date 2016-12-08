@@ -70,5 +70,8 @@
     "test": "echo 'not yet implemented, wanna help?'"
   },
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash-webpack-plugin": "~0.10.6"
+  }
 }
