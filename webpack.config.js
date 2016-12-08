@@ -30,17 +30,22 @@ module.exports = {
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
     new LodashModuleReplacementPlugin(),
-    new OfflinePlugin({
-      caches: {
-        main: [':rest:'],
-        additional: [
-          'assets/js/vendor.bundle.js',
-          ':externals:'
-        ]
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
-    }),
+    // new OfflinePlugin({
+    //   caches: {
+    //     main: [':rest:'],
+    //     additional: [
+    //       'assets/js/vendor.bundle.js',
+    //       ':externals:'
+    //     ],
+    //     externals: [
+    //       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+    //       'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
+    //       'https://www.google-analytics.com/analytics.js'
+    //     ]
+    //   },
+    //   safeToUseOptionalCaches: true,
+    //   AppCache: false
+    // }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
