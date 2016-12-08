@@ -101,23 +101,6 @@ module.exports = {
   ],
   module: {
     rules: [{
-      exclude: [
-        /\.svg$/,
-        /\.(js|jsx)$/,
-        /\.(css|scss)$/
-      ],
-      loader: 'url-loader',
-      options: {
-        limit: 30000,
-        name: 'assets/img/[name].[hash:8].[ext]'
-      }
-    }, {
-      test: /\.svg$/,
-      loader: 'file-loader',
-      options: {
-        name: 'assets/img/[name].[hash:8].[ext]'
-      }
-    }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       loader: ['babel-loader'],
