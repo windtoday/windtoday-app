@@ -30,7 +30,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
-    new LodashModuleReplacementPlugin(),
+    // new LodashModuleReplacementPlugin(),
     // new OfflinePlugin({
     //   caches: {
     //     main: [':rest:'],
@@ -91,13 +91,13 @@ module.exports = {
       name: 'vendor',
       filename: 'assets/js/vendor.bundle.js',
       minChunks: Infinity
-    }),
-    new UglifyJsPlugin({
-      sourceMap: true,
-      minimize: true,
-      compress: { warnings: false },
-      comments: false
     })
+    // new UglifyJsPlugin({
+    //   sourceMap: true,
+    //   minimize: true,
+    //   compress: { warnings: false },
+    //   comments: false
+    // })
   ],
   module: {
     rules: [{
@@ -110,7 +110,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          'css-loader?minimize&sourceMap&importLoaders=2',
+          'css-loader?minimize&sourceMap',
           'sass-loader',
           'postcss-loader'
         ]
