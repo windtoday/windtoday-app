@@ -1,4 +1,5 @@
 import React from 'react'
+import {Highlight} from 'react-instantsearch/dom'
 
 import './style.scss'
 
@@ -29,7 +30,9 @@ function date (item) {
   return (new Date(timestamp)).toLocaleString(locale, opts)
 }
 
-function Hit ({item, toggle, get}) {
+function Hit (props) {
+  const {item, toggle, get} = props
+
   return (
     <section data-app='hit' className='bb b--near-white lh-title'>
       <a data-hit='link' className='link dt w-100 pv2 pv1-ns blue' href={item.url} target='_blank' rel='noopener'>
@@ -41,9 +44,10 @@ function Hit ({item, toggle, get}) {
         </div>
 
         <div className='dtc v-mid pr3'>
-          <p data-hit='title' className='f6 f5-ns fw6 navy mv0 hover-blue' dangerouslySetInnerHTML={{
-            __html: item._highlightResult.title.value
-          }} />
+          <p data-hit='title' className='f6 f5-ns fw6 navy mv0 hover-blue'>
+            <Highlight attributeName='title' hit={item} />
+          </p>
+
           <p data-hit='date' className='f6 fw4 mt2 mb0 light-gray' >
             {date(item)}
           </p>
