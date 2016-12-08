@@ -13,7 +13,7 @@ const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
 const path = require('path')
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   entry: [
     './src/app/index.js'
   ],
@@ -31,6 +31,14 @@ module.exports = {
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
     new LodashModuleReplacementPlugin(),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: ['assets/js/vendor.bundle.js', ':externals:']
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
+    }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
@@ -52,7 +60,10 @@ module.exports = {
         sortAttributes: true,
         sortClassName: true,
         useShortDoctype: true,
-        minifyJS: true
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
@@ -62,7 +73,7 @@ module.exports = {
     }),
     new PurifyCSSWebpackPlugin({
       basePath: path.resolve('src/www'),
-      paths: ['*.html'],
+      resolveExtensions: ['.js'],
       purifyOptions: {
         minify: true,
         rejected: true
@@ -78,24 +89,33 @@ module.exports = {
       minimize: true,
       compress: { warnings: false },
       comments: false
-    }),
-    new OfflinePlugin({
-      caches: {
-        main: [':rest:'],
-        additional: ['vendor.bundle.js', ':externals:']
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
     })
   ],
   module: {
     rules: [{
-      test: /(\.js|\.jsx)$/,
+      exclude: [
+        /\.svg$/,
+        /\.(js|jsx)$/,
+        /\.(css|scss)$/
+      ],
+      loader: 'url-loader',
+      options: {
+        limit: 30000,
+        name: 'assets/img/[name].[hash:8].[ext]'
+      }
+    }, {
+      test: /\.svg$/,
+      loader: 'file-loader',
+      options: {
+        name: 'assets/img/[name].[hash:8].[ext]'
+      }
+    }, {
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       loader: ['babel-loader'],
       include: path.resolve('src/app')
     }, {
-      test: /(\.scss|\.css)$/,
+      test: /\.(css|scss)$/,
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
@@ -104,9 +124,6 @@ module.exports = {
           'postcss-loader'
         ]
       })
-    }, {
-      test: /(\.png|\.jpg|\.gif)$/,
-      loader: 'url-loader?limit=3000&name=[name].[ext]'
     }]
   }
 }
