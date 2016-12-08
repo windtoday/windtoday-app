@@ -1,7 +1,6 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -30,23 +29,22 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
-    // new LodashModuleReplacementPlugin(),
-    // new OfflinePlugin({
-    //   caches: {
-    //     main: [':rest:'],
-    //     additional: [
-    //       'assets/js/vendor.bundle.js',
-    //       ':externals:'
-    //     ],
-    //     externals: [
-    //       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-    //       'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
-    //       'https://www.google-analytics.com/analytics.js'
-    //     ]
-    //   },
-    //   safeToUseOptionalCaches: true,
-    //   AppCache: false
-    // }),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: [
+          'assets/js/vendor.bundle.js',
+          ':externals:'
+        ],
+        externals: [
+          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+          'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
+          'https://www.google-analytics.com/analytics.js'
+        ]
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
+    }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
@@ -91,13 +89,13 @@ module.exports = {
       name: 'vendor',
       filename: 'assets/js/vendor.bundle.js',
       minChunks: Infinity
+    }),
+    new UglifyJsPlugin({
+      sourceMap: true,
+      minimize: true,
+      compress: { warnings: false },
+      comments: false
     })
-    // new UglifyJsPlugin({
-    //   sourceMap: true,
-    //   minimize: true,
-    //   compress: { warnings: false },
-    //   comments: false
-    // })
   ],
   module: {
     rules: [{
@@ -110,7 +108,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          'css-loader?minimize&sourceMap',
+          'css-loader?minimize&sourceMap&importLoaders=2',
           'sass-loader',
           'postcss-loader'
         ]

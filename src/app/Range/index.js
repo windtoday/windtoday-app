@@ -25,17 +25,15 @@ const Range = createClass({
     })
   },
 
-  onChange (state) {
-    const { min, max, refine } = this.props
+  onChange (sliderState) {
+    const { refine } = this.props
 
     const value = {
-      min: state.values[0],
-      max: state.values[1]
+      min: sliderState.values[0],
+      max: sliderState.values[1]
     }
 
-    if (value.min !== min || value.max !== max) {
-      refine({min: value.min, max: value.max})
-    }
+    refine({min: value.min, max: value.max})
   },
 
   render () {
