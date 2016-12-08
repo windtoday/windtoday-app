@@ -36,7 +36,7 @@
     "offline-plugin": "~4.5.3",
     "postcss-focus": "~1.0.0",
     "postcss-loader": "~1.2.0",
-    "purifycss-webpack-plugin": "Kikobeats/purifycss-webpack-plugin",
+    "purifycss-webpack-plugin": "github:kikobeats/purifycss-webpack-plugin",
     "qs": "~6.3.0",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",
@@ -70,8 +70,5 @@
     "test": "echo 'not yet implemented, wanna help?'"
   },
   "private": true,
-  "license": "MIT",
-  "dependencies": {
-    "lodash-webpack-plugin": "~0.10.6"
-  }
+  "license": "MIT"
 }
