@@ -1,6 +1,7 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -27,6 +28,15 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
+    }),
+    new LodashModuleReplacementPlugin(),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: ['assets/js/vendor.bundle.js', ':externals:']
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
     }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
@@ -56,7 +66,7 @@ module.exports = {
     new ExtractTextPlugin('assets/css/bundle.css', { allChunks: true }),
     new PurifyCSSWebpackPlugin({
       basePath: path.resolve('src/www'),
-      paths: ['*.html'],
+      resolveExtensions: ['.js'],
       purifyOptions: {
         minify: true,
         rejected: true
@@ -72,14 +82,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       comments: false
-    }),
-    new OfflinePlugin({
-      caches: {
-        main: [':rest:'],
-        additional: ['vendor.bundle.js', ':externals:']
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
     })
   ],
   module: {
