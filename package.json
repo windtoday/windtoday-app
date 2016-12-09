@@ -19,7 +19,7 @@
     "autoprefixer": "~6.5.0",
     "babel-core": "~6.20.0",
     "babel-loader": "~6.2.7",
-    "babel-plugin-transform-object-rest-spread": "~6.19.0",
+    "babel-plugin-transform-object-rest-spread": "~6.20.2",
     "babel-plugin-transform-react-constant-elements": "~6.9.1",
     "babel-plugin-transform-react-inline-elements": "~6.8.0",
     "babel-plugin-transform-react-remove-prop-types": "~0.2.9",
