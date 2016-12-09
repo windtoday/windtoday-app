@@ -2,7 +2,9 @@ import React from 'react'
 
 import './style.scss'
 
-function NoHits ({query}) {
+function NoHits (props) {
+  const {query} = props
+
   return (
     <article data-app='no-hits' className='tc pa4-l pa3 vh-100'>
       <h1>
