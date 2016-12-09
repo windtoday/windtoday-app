@@ -29,24 +29,24 @@ function Footer () {
 
       <div className='tc'>
         <a
-          href='/language/'
-          title='Language'
+          href='mailto:kiko@windtoday.co?subject=[windtoday]%20Report%20a%20Bug'
+          title='Report a Bug'
           className='f6 dib ph2 link light-gray hover-blue'>
-          Language
+          Report a Bug
         </a>
 
         <a
-          href='/terms/'
-          title='Terms'
+          href='mailto:kiko@windtoday.co?subject=[windtoday]%20Contact'
+          title='Contact'
           className='f6 dib ph2 link light-gray hover-blue'>
-          Terms of Use
+          Contact
         </a>
 
         <a
-          href='/privacy/'
-          title='Privacy'
+          href='mailto:kiko@windtoday.co?subject=[windtoday]%20Send%20Feedback'
+          title='Send Feedback'
           className='f6 dib ph2 link light-gray hover-blue'>
-          Privacy
+          Send Feedback
         </a>
       </div>
     </footer>
