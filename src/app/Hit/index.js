@@ -35,16 +35,16 @@ function Hit (props) {
 
   return (
     <section data-app='hit' className='bb b--near-white lh-title'>
-      <a data-hit='link' className='link dt w-100 pv2 pv1-ns blue' href={item.url} target='_blank' rel='noopener'>
+      <a data-hit='link' className='link dt w-100 pv2 pv1-l blue' href={item.url} target='_blank' rel='noopener'>
 
         {image(item)}
 
         <div className='dtc f4 w3 v-mid tc'>
-          <p data-hit='price' className='dib ph2 ph3-ns'>{price(item)}</p>
+          <p data-hit='price' className='dib ph2 ph3-l'>{price(item)}</p>
         </div>
 
         <div className='dtc v-mid pr3'>
-          <p data-hit='title' className='f6 f5-ns fw6 navy mv0 hover-blue'>
+          <p data-hit='title' className='f6 f5-l fw6 navy mv0 hover-blue'>
             <Highlight attributeName='title' hit={item} />
           </p>
 
