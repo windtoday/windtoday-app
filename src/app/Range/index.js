@@ -12,28 +12,43 @@ const Range = createClass({
     return {min, max, value}
   },
 
-  onValuesUpdated (state) {
+  componentWillReceiveProps (sliderState) {
     const value = {
-      min: state.values[0],
-      max: state.values[1]
+      min: sliderState.currentRefinement.min,
+      max: sliderState.currentRefinement.max
     }
 
     this.setState({
-      min: state.min,
-      max: state.max,
+      min: sliderState.min,
+      max: sliderState.max,
+      value: value
+    })
+  },
+
+  onValuesUpdated (sliderState) {
+    const value = {
+      min: sliderState.values[0],
+      max: sliderState.values[1]
+    }
+
+    this.setState({
+      min: sliderState.min,
+      max: sliderState.max,
       value: value
     })
   },
 
   onChange (sliderState) {
-    const { refine } = this.props
+    const { refine, currentRefinement } = this.props
 
     const value = {
       min: sliderState.values[0],
       max: sliderState.values[1]
     }
 
-    refine({min: value.min, max: value.max})
+    if (currentRefinement.min !== value.min || currentRefinement.max !== value.max) {
+      refine({min: value.min, max: value.max})
+    }
   },
 
   render () {
