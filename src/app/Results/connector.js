@@ -13,7 +13,7 @@ export default createConnector({
   },
 
   getProvidedProps (componentProps, allWidgetsState, resultsStruct) {
-    const query = allWidgetsState.q
+    const query = allWidgetsState.query
     const { toggle, get } = componentProps
     const props = {toggle, get, query}
 
