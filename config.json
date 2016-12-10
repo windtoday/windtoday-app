@@ -1,7 +1,7 @@
 {
   "appMountId": "app",
-  "title": "Windtoday",
+  "title": "Windtoday, Intelligent Windsurf Marketplace",
   "baseHref": "https://windtoday.co",
-  "description": "Intelligent windsurfing marketplace",
+  "description": "Intelligent windsurf advertisements classificator for sails, boards, fins, booms, masts or accesories, by particular (second hand) or stores.",
   "googleAnalytics": "UA-85604345-1"
 }
