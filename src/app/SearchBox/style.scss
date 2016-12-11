@@ -12,6 +12,10 @@ $input-height-l: 36px;
   }
 }
 
+.searchbox-input {
+  padding-right: 35px;
+}
+
 .searchbox-icon {
   height: $input-height;
 
@@ -29,6 +33,7 @@ $input-height-l: 36px;
 }
 
 .searchbox-icon__clear {
+  margin-left: -35px;
   transition: transform .3s ease;
   transform: scale(0);
 }

@@ -2,7 +2,6 @@ import {connectSearchBox} from 'react-instantsearch/connectors'
 import IconSearch from 'react-icons/lib/md/search'
 import IconClear from 'react-icons/lib/md/clear'
 import React, {createClass} from 'react'
-import ReactDOM from 'react-dom'
 import classnames from 'classnames'
 
 import './style.scss'
@@ -36,16 +35,16 @@ const CustomSearchBox = createClass({
   render () {
     const isFocus = this.state.focus
 
-    const iconStyle = 'searchbox-icon absolute ph3-l ph2 ml2-ns mr2-ns f4'
+    const iconStyle = 'searchbox-icon absolute f4'
 
     const {props, onInputMount, onChange, onFocus, onBlur, onClear} = this
     const {currentRefinement} = props
 
-    const iconSearchStyle = classnames(iconStyle, 'searchbox-icon__search', {
+    const iconSearchStyle = classnames(iconStyle, 'searchbox-icon__search ph3-l ph2 ml2-ns mr2-ns', {
       'searchbox-icon__search-focus': isFocus,
       'searchbox-icon__search-blur': !isFocus
     })
-    const iconClearStyle = classnames(iconStyle, 'searchbox-icon__clear pointer hover-blue light-gray right-1 right-2-ns', {
+    const iconClearStyle = classnames(iconStyle, 'searchbox-icon__clear pointer hover-blue light-gray', {
       'searchbox-icon__clear-active': currentRefinement
     })
 
@@ -56,7 +55,7 @@ const CustomSearchBox = createClass({
         />
         <input
           ref={onInputMount}
-          className='w-100 f6 f5-l input-reset black-80 bg-white ph4 ph5-ns pv2 lh-solid'
+          className='searchbox-input w-100 f6 f5-l input-reset black-80 bg-white ph4 ph5-ns pv2 lh-solid'
           type='search'
           results={5}
           value={currentRefinement}
