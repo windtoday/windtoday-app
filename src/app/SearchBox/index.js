@@ -1,52 +1,75 @@
 import {connectSearchBox} from 'react-instantsearch/connectors'
 import IconSearch from 'react-icons/lib/md/search'
+import IconClear from 'react-icons/lib/md/clear'
 import React, {createClass} from 'react'
+import ReactDOM from 'react-dom'
 import classnames from 'classnames'
 
 import './style.scss'
 
 const CustomSearchBox = createClass({
-  getInitialState: function () {
+  getInitialState () {
     return { focus: false }
   },
 
-  onChange: function (e) {
+  onInputMount (input) {
+    this.input = input
+  },
+
+  onChange (e) {
     this.props.refine(e.target.value)
   },
 
-  onFocus: function (e) {
+  onClear () {
+    this.props.refine('')
+    this.input.focus()
+  },
+
+  onFocus (e) {
     this.setState({focus: true})
   },
 
-  onBlur: function (e) {
+  onBlur (e) {
     this.setState({focus: false})
   },
 
-  render: function () {
+  render () {
     const isFocus = this.state.focus
-    const theme = 'absolute ph3-l ph2 mh2-l f4'
 
-    const style = classnames(theme, {
-      'focus': isFocus,
-      'blur': !isFocus
+    const iconStyle = 'searchbox-icon absolute ph3-l ph2 ml2-ns mr2-ns f4'
+
+    const {props, onInputMount, onChange, onFocus, onBlur, onClear} = this
+    const {currentRefinement} = props
+
+    const iconSearchStyle = classnames(iconStyle, 'searchbox-icon__search', {
+      'searchbox-icon__search-focus': isFocus,
+      'searchbox-icon__search-blur': !isFocus
     })
-
-    const {props, onChange, onFocus, onBlur} = this
-    const {query} = props
+    const iconClearStyle = classnames(iconStyle, 'searchbox-icon__clear pointer hover-blue light-gray right-1 right-2-ns', {
+      'searchbox-icon__clear-active': currentRefinement
+    })
 
     return (
       <div data-app='searchbox' className='w-80 w-70-l pa2'>
-        <IconSearch className={style} />
+        <IconSearch
+          className={iconSearchStyle}
+        />
         <input
-          className='w-100 f6 f5-l input-reset black-80 bg-white pt2 pr2 pb2 lh-solid br2 ba pl5-l pl4'
+          ref={onInputMount}
+          className='w-100 f6 f5-l input-reset black-80 bg-white ph4 ph5-ns pv2 lh-solid'
           type='search'
           results={5}
-          value={query}
+          value={currentRefinement}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
           autoSave='searchbox'
+          name='s'
           autoFocus
+        />
+        <IconClear
+          onClick={onClear}
+          className={iconClearStyle}
         />
       </div>
     )

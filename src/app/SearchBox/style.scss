@@ -10,21 +10,29 @@ $input-height-l: 36px;
       height: $input-height-l;
     }
   }
+}
 
-  > svg {
-    height: $input-height;
-    @include break(large) {
-      height: $input-height-l;
-    }
-    border-top-left-radius: .25rem;
-    border-bottom-left-radius: .25rem;
+.searchbox-icon {
+  height: $input-height;
 
-    &.focus {
-      @extend .blue;
-    }
-
-    &.blur {
-      @extend .light-silver;
-    }
+  @include break(large) {
+    height: $input-height-l;
   }
+}
+
+.searchbox-icon__search-focus {
+  @extend .blue;
+}
+
+.searchbox-icon__search-blur {
+  @extend .light-silver
+}
+
+.searchbox-icon__clear {
+  transition: transform .3s ease;
+  transform: scale(0);
+}
+
+.searchbox-icon__clear-active {
+  transform: scale(1);
 }

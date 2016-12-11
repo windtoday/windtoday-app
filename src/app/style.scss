@@ -14,7 +14,7 @@ $aside-height-l           : 64px;
 $aside-height             : 60px;
 $aside-transition-timing  : cubic-bezier(.4,0,.2,1);
 $aside-transition-duration: .35s;
-$searchbox-border-width   : 1.5px;
+$searchbox-border-width   : 1.8px;
 $divider-color            : $near-white;
 
 .fade-in {
@@ -44,9 +44,11 @@ em {
   font-style: normal;
 }
 
-input[type=search],
-textarea {
-  outline: none;
+input[type=search] {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  @extend .input-reset, .br2;
   border: $searchbox-border-width solid $divider-color;
 
   &:focus {
