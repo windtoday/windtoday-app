@@ -34,10 +34,6 @@ html * {
   @extend .helvetica;
 }
 
-body {
-  @extend .overflow-y-hidden;
-}
-
 em {
   background-color: $yellow;
   padding: .05em .1em;
