@@ -1,3 +1,21 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2016-12-12)
+
+* Add searchbox clear ([0001ded](https://github.com/windtoday/windtoday-app/commit/0001ded))
+* Add toggle component ([4214fa2](https://github.com/windtoday/windtoday-app/commit/4214fa2))
+* Adjust spacing on mobile ([782cae4](https://github.com/windtoday/windtoday-app/commit/782cae4))
+* Better description ([b589122](https://github.com/windtoday/windtoday-app/commit/b589122))
+* Fix clear button position on different viewports ([bb2c68f](https://github.com/windtoday/windtoday-app/commit/bb2c68f))
+* Improve button style on mobile ([6f4b51f](https://github.com/windtoday/windtoday-app/commit/6f4b51f))
+* Improve mobile button style ([bad850e](https://github.com/windtoday/windtoday-app/commit/bad850e))
+* Improve tablet design ([21aa700](https://github.com/windtoday/windtoday-app/commit/21aa700))
+* Remove unnecesasry code ([737dfd4](https://github.com/windtoday/windtoday-app/commit/737dfd4))
+* Remove unnecessary dep ([a095e25](https://github.com/windtoday/windtoday-app/commit/a095e25))
+* WIP ([1d287a8](https://github.com/windtoday/windtoday-app/commit/1d287a8))
+* chore(package): update node-sass to version 4.0.0 ([15e02ee](https://github.com/windtoday/windtoday-app/commit/15e02ee))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2016-12-09)
 
