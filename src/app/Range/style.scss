@@ -3,7 +3,7 @@
 .rheostat {
   height: 24px;
   position: relative;
-  overflow: visible
+  overflow: visible;
 }
 
 .rheostat-background {
@@ -11,34 +11,44 @@
   height: 2px;
   position: relative;
   top: 14px;
-  width: 100%
+  width: 100%;
 }
 
 .rheostat--disabled .rheostat-progress {
-  background-color: #edefed
+  background-color: #edefed;
 }
 
 .rheostat--disabled .rheostat-handle {
-  cursor: default
+  cursor: default;
 }
 
 .rheostat-progress {
   @extend .bg-blue;
   height: 4px;
   position: absolute;
-  top: 13px
+  top: 13px;
 }
 
 .rheostat-handle {
-  border: 1px solid #aaa;
+  border: 1px solid darken($near-white, 2%);
   background: #fff;
   border-radius: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   cursor: pointer;
   height: 24px;
   margin-left: -12px;
   position: absolute;
   z-index: 2;
   width: 24px;
-  font-size: 0
+  font-size: 0;
+
+  transform: scale(1);
+  animation-timing-function: $toggle-transition-timing;
+  animation-duration: $toggle-transition-time;
+  animation-name: toggleOff;
+
+  &:hover{
+    transform: scale(1.1);
+    animation-name: toggleOn;
+  }
 }

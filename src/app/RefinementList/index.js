@@ -10,6 +10,8 @@ const RefinementList = createClass({
   },
 
   renderItem (item, key) {
+    const onChange = () => this.props.refine(item.value)
+
     return (
       <section className='ais-RefinementList__root' key={key}>
         <div className='mb2'>
@@ -19,24 +21,28 @@ const RefinementList = createClass({
             })}
             >
             <Switch
-              className={classnames('ais-RefinementList__itemCheckbox', {
-                'ais-RefinementList__itemCheckboxSelected': item.isRefined
+              className={classnames({
+                'rc-switch-checked': item.isRefined
               })}
-              onChange={() => this.props.refine(item.value)}
+              onChange={onChange}
               checked={item.isRefined}
             />
             <span
-              className={classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {
-                'silver': !item.isRefined,
-                'blue fw8': item.isRefined
-              })}>
+              onClick={onChange}
+              className={
+                classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {
+                  'silver': !item.isRefined,
+                  'blue fw8': item.isRefined
+                })}>
               {item.label}
             </span>
             {' '}
-            <span className={classnames('fr fw4 hover-blue', {
-              'light-gray': !item.isRefined,
-              'blue fw8': item.isRefined
-            })}>
+            <span
+              onClick={onChange}
+              className={classnames('fr fw4 hover-blue', {
+                'light-gray': !item.isRefined,
+                'blue fw8': item.isRefined
+              })}>
               {item.count}
             </span>
           </label>

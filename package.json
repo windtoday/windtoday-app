@@ -36,6 +36,7 @@
     "postcss-loader": "~1.2.0",
     "purifycss-webpack-plugin": "github:kikobeats/purifycss-webpack-plugin",
     "qs": "~6.3.0",
+    "rc-switch": "~1.4.2",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",
     "react-hot-loader": "3.0.0-beta.1",
