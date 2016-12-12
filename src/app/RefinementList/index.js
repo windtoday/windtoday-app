@@ -1,5 +1,6 @@
 import React, {createClass} from 'react'
 import classnames from 'classnames'
+import Switch from 'rc-switch'
 import {connectRefinementList} from 'react-instantsearch/connectors'
 import './style.scss'
 
@@ -17,14 +18,12 @@ const RefinementList = createClass({
               'ais-RefinementList__itemSelected': item.isRefined
             })}
             >
-            <input
-              type='checkbox'
+            <Switch
               className={classnames('ais-RefinementList__itemCheckbox', {
                 'ais-RefinementList__itemCheckboxSelected': item.isRefined
               })}
+              onChange={() => this.props.refine(item.value)}
               checked={item.isRefined}
-              onChange={() => this.props.refine(item.value)
-              }
             />
             <span
               className={classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {

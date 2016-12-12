@@ -54,6 +54,7 @@
   "devDependencies": {
     "browser-sync": "latest",
     "browser-sync-webpack": "~1.0.0",
+    "react-toggle": "~2.2.0",
     "standard": "latest",
     "webpack-dev-server": "2.1.0-beta.12"
   },
