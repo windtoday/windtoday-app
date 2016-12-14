@@ -36,7 +36,7 @@
     background-color: #ffffff;
     content: " ";
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    box-shadow: $toggle-box-shadow;
     transform: scale(1);
     transition: left $toggle-transition-time $toggle-transition-timing;
     animation-timing-function: $toggle-transition-timing;

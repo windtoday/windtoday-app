@@ -33,7 +33,7 @@
   border: 1px solid darken($near-white, 2%);
   background: #fff;
   border-radius: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: $toggle-box-shadow;
   cursor: pointer;
   height: 24px;
   margin-left: -12px;

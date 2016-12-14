@@ -22,6 +22,7 @@ $toggle-transition-timing : cubic-bezier(0.35, 0, 0.25, 1);
 $toggle-on-color          : $blue;
 $toggle-off-color         : #fdfdfd;
 $toggle-border-color      : darken($near-white, 2%);
+$toggle-box-shadow        : 1px 2px 2px rgba(0, 0, 0, 0.16);
 
 .fade-in {
   animation-fill-mode: both;
