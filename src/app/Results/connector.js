@@ -2,7 +2,7 @@ import {PropTypes} from 'react'
 import { createConnector } from 'react-instantsearch'
 
 function getId () {
-  return 'p'
+  return 'page'
 }
 
 export default createConnector({
@@ -12,12 +12,12 @@ export default createConnector({
     hitsPerPage: PropTypes.number
   },
 
-  getProvidedProps (componentProps, allWidgetsState, resultsStruct) {
-    const query = allWidgetsState.query
+  getProvidedProps (componentProps, searchState, searchResults) {
+    const query = searchState.query
     const { toggle, get } = componentProps
     const props = {toggle, get, query}
 
-    if (!resultsStruct.results) {
+    if (!searchResults.results) {
       this._allResults = []
       return {
         hits: this._allResults,
@@ -27,12 +27,12 @@ export default createConnector({
       }
     }
 
-    const {hits, page, nbPages, hitsPerPage, nbHits} = resultsStruct.results
+    const {hits, page, nbPages, hitsPerPage, nbHits} = searchResults.results
 
     if (page === 0) {
       this._allResults = hits
     } else {
-      const previousPage = this._allResults.length / hitsPerPage - 1
+      const previousPage = this._allResults.length - 1 / hitsPerPage
 
       if (page > previousPage) {
         this._allResults = [
@@ -56,34 +56,31 @@ export default createConnector({
     }
   },
 
-  getSearchParameters (searchParameters, props, widgetsState) {
+  getSearchParameters (searchParameters, props, searchState) {
     const id = getId()
-    const currentPage = widgetsState[id] ? widgetsState[id] : 0
-    const isHitsPerPageDefined = typeof searchParameters.hitsPerPage !== 'undefined'
-
+    const currentPage = searchState[id] ? searchState[id] : 0
     return searchParameters.setQueryParameters({
-      page: currentPage,
-      hitsPerPage: isHitsPerPageDefined ? searchParameters.hitsPerPage : props.hitsPerPage
+      page: currentPage
     })
   },
 
-  refine (props, widgetsState) {
+  refine (props, searchState) {
     const id = getId()
-    const nextPage = widgetsState[id] ? Number(widgetsState[id]) + 1 : 1
+    const nextPage = searchState[id] ? Number(searchState[id]) + 1 : 1
     return {
-      ...widgetsState,
+      ...searchState,
       [id]: nextPage
     }
   },
 
-  transitionState (props, prevState, nextState) {
+  transitionState (props, prevSearchState, nextSearchState) {
     const id = getId()
-    if (prevState[id] === nextState[id]) {
+    if (prevSearchState[id] === nextSearchState[id]) {
       return {
-        ...nextState,
+        ...nextSearchState,
         [id]: 0
       }
     }
-    return nextState
+    return nextSearchState
   }
 })
