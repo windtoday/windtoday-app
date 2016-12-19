@@ -9,8 +9,9 @@ function renderHasMore (refine) {
     <footer className='tc pv3'>
       <a
         onClick={refine}
-        className='pointer f5 f6-l link br2 ba ph3 pv2-l pv3 mb2 db dib-l blue hover-bg-blue hover-white'>
-        Load more
+        style={{fontSize: '.8rem'}}
+        className='link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal bg-animate blue hover-bg-blue hover-white'>
+        Load More
       </a>
     </footer>
   )
