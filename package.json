@@ -45,7 +45,7 @@
     "react-router": "~3.0.0",
     "react-swipeable": "~3.7.0",
     "rheostat": "~2.1.0",
-    "sass-loader": "~4.0.2",
+    "sass-loader": "~4.1.1",
     "style-loader": "~0.13.1",
     "tachyons-queries": "~0.3.1",
     "tachyons-sass": "~4.5.3",
