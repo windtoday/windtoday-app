@@ -1,7 +1,7 @@
 {
-  "name": "windtoday-app",
+  "name": "windtoday-marketplace",
   "description": "Boilerplate for ReactJS project with hot code reloading",
-  "homepage": "https://github.com/windtoday/windtoday-app",
+  "homepage": "https://github.com/windtoday/windtoday-marketplace",
   "version": "1.0.1",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/windtoday/windtoday-app.git"
+    "url": "git+https://github.com/windtoday/windtoday-marketplace.git"
   },
   "bugs": {
-    "url": "https://github.com/windtoday/windtoday-app/issues"
+    "url": "https://github.com/windtoday/windtoday-marketplace/issues"
   },
   "dependencies": {
     "autoprefixer": "~6.5.0",
