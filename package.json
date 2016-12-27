@@ -16,7 +16,7 @@
     "url": "https://github.com/windtoday/windtoday-marketplace/issues"
   },
   "dependencies": {
-    "autoprefixer": "~6.5.0",
+    "autoprefixer": "~6.6.0",
     "babel-core": "~6.21.0",
     "babel-loader": "~6.2.7",
     "babel-plugin-transform-object-rest-spread": "~6.20.2",
@@ -39,24 +39,24 @@
     "rc-switch": "~1.4.2",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",
-    "react-hot-loader": "3.0.0-beta.1",
+    "react-hot-loader": "3.0.0-beta.6",
     "react-icons": "~2.2.1",
     "react-instantsearch": "2.0.0",
     "react-router": "~3.0.0",
     "react-swipeable": "~3.7.0",
     "rheostat": "~2.1.0",
-    "sass-loader": "~4.0.2",
+    "sass-loader": "~4.1.1",
     "style-loader": "~0.13.1",
     "tachyons-queries": "~0.3.1",
     "tachyons-sass": "~4.5.3",
     "travis-after-all": "~1.4.4",
-    "webpack": "2.1.0-beta.27"
+    "webpack": "2.2.0-rc.2"
   },
   "devDependencies": {
     "browser-sync": "latest",
     "browser-sync-webpack": "~1.0.0",
     "standard": "latest",
-    "webpack-dev-server": "2.1.0-beta.12"
+    "webpack-dev-server": "2.2.0-rc.0"
   },
   "engines": {
     "node": ">= 6 <7"
