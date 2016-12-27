@@ -44,7 +44,7 @@ const CustomSearchBox = createClass({
       'searchbox-icon__search-focus': isFocus,
       'searchbox-icon__search-blur': !isFocus
     })
-    const iconClearStyle = classnames(iconStyle, 'searchbox-icon__clear pointer hover-blue light-gray', {
+    const iconClearStyle = classnames(iconStyle, 'searchbox-icon__clear nl4 pointer hover-blue light-gray', {
       'searchbox-icon__clear-active': currentRefinement
     })
 
