@@ -9,6 +9,9 @@ const {HotModuleReplacementPlugin, NoErrorsPlugin} = require('webpack')
 const path = require('path')
 
 module.exports = {
+  performance: {
+    hints: false
+  },
   devtool: 'eval',
   entry: [
     'react-hot-loader/patch',
