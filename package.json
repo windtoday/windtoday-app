@@ -29,7 +29,7 @@
     "css-loader": "~0.26.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "html-webpack-harddisk-plugin": "0.0.2",
-    "html-webpack-plugin": "~2.24.0",
+    "html-webpack-plugin": "~2.25.0",
     "node-sass": "~4.1.0",
     "offline-plugin": "~4.5.3",
     "postcss-focus": "~1.0.0",
