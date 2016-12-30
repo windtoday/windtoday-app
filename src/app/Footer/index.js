@@ -18,7 +18,7 @@ const Logo = () =>
 
 function Footer () {
   return (
-    <footer className='pb4 pt3 light-gray'>
+    <footer className='pb4 pt3 moon-gray'>
 
       <small
         className='f6 db tc'>
@@ -31,21 +31,21 @@ function Footer () {
         <a
           href='mailto:kiko@windtoday.co?subject=[windtoday]%20Report%20a%20Bug'
           title='Report a Bug'
-          className='f6 dib ph2 link light-gray hover-blue'>
+          className='f6 dib ph2 link moon-gray hover-blue'>
           Report a Bug
         </a>
 
         <a
           href='mailto:kiko@windtoday.co?subject=[windtoday]%20Contact'
           title='Contact'
-          className='f6 dib ph2 link light-gray hover-blue'>
+          className='f6 dib ph2 link moon-gray hover-blue'>
           Contact
         </a>
 
         <a
           href='mailto:kiko@windtoday.co?subject=[windtoday]%20Send%20Feedback'
           title='Send Feedback'
-          className='f6 dib ph2 link light-gray hover-blue'>
+          className='f6 dib ph2 link moon-gray hover-blue'>
           Send Feedback
         </a>
       </div>

@@ -30,8 +30,8 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                classnames('ais-RefinementList__span ph2 ttc lh-title f5 fw5 hover-blue', {
-                  'silver': !item.isRefined,
+                classnames('ais-RefinementList__span ph2 ttc lh-title helvetica f5 fw5 hover-blue', {
+                  'light-silver': !item.isRefined,
                   'blue fw8': item.isRefined
                 })}>
               {item.label}
@@ -40,7 +40,7 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={classnames('fr fw4 hover-blue', {
-                'light-gray': !item.isRefined,
+                'moon-gray': !item.isRefined,
                 'blue fw8': item.isRefined
               })}>
               {item.count}

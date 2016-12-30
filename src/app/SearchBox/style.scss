@@ -12,11 +12,11 @@ $input-height-l: 36px;
   }
 }
 
-.searchbox-input {
+.SearchBox__input {
   padding-right: 35px;
 }
 
-.searchbox-icon {
+.SearchBox__icon {
   height: $input-height;
 
   @include break(large) {
@@ -24,19 +24,19 @@ $input-height-l: 36px;
   }
 }
 
-.searchbox-icon__search-focus {
+.SearchBox__iconSearch--focus {
   @extend .blue;
 }
 
-.searchbox-icon__search-blur {
-  @extend .light-silver
+.SearchBox__iconSearch--blur {
+  @extend .light-silver;
 }
 
-.searchbox-icon__clear {
+.SearchBox__iconClear {
   transition: transform .3s ease;
   transform: scale(0);
 }
 
-.searchbox-icon__clear-active {
+.SearchBox__iconClear--active {
   transform: scale(1);
 }

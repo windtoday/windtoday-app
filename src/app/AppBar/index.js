@@ -17,8 +17,7 @@ function AppBar (props) {
   return (
     <header
       data-app='app-bar'
-      style={{borderWidth: '2.5px'}}
-      className='bb b--blue w-100 center pb2 pt1 ph1 flex justify-around items-center fixed z-max'>
+      className='w-100 center pb2 pt1 ph1 flex justify-around items-center fixed z-max'>
       {renderButton({
         className: 'dim pointer blue',
         onClick: toggle('facetsOpen')

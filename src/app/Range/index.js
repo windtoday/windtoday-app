@@ -67,10 +67,10 @@ const Range = createClass({
           onChange={onChange}
         />
         <div className='cf'>
-          <div className='light-gray fl w-50 pl2 pt3 tl'>
+          <div className='moon-gray fl w-50 pl2 pt3 tl'>
             <span>{state.value.min}{label}</span>
           </div>
-          <div className='light-gray fl w-50 pt3 pr2 tr'>
+          <div className='moon-gray fl w-50 pt3 pr2 tr'>
             <span>{state.value.max}{label}</span>
           </div>
         </div>

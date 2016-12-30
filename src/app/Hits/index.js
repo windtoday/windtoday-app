@@ -10,7 +10,7 @@ function renderHasMore (refine) {
       <a
         onClick={refine}
         style={{fontSize: '.8rem'}}
-        className='link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal bg-animate blue hover-bg-blue hover-white'>
+        className='Hits__btn link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal bg-animate blue hover-white'>
         Load More
       </a>
     </footer>

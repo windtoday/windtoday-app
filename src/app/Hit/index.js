@@ -34,7 +34,7 @@ function Hit (props) {
   const {item, toggle, get} = props
 
   return (
-    <section data-app='hit' className='bb b--near-white lh-title'>
+    <section data-app='hit' className='bb b--near-white'>
       <a data-hit='link' className='link dt w-100 pv2 pv1-l blue' href={item.url} target='_blank' rel='noopener'>
 
         {image(item)}
@@ -43,12 +43,12 @@ function Hit (props) {
           <p data-hit='price' className='dib ph2 ph3-l'>{price(item)}</p>
         </div>
 
-        <div className='dtc v-mid pr3'>
-          <p data-hit='title' className='f6 f5-l fw6 navy mv0 hover-blue'>
+        <div className='dtc v-mid pr3 lh-title'>
+          <p data-hit='title' className='f6 f5-l fw6 navy mv0 hover-blue helvetica'>
             <Highlight attributeName='title' hit={item} />
           </p>
 
-          <p data-hit='date' className='f6 fw4 mt2 mb0 light-gray' >
+          <p data-hit='date' className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
             {date(item)}
           </p>
         </div>

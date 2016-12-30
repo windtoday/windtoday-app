@@ -3,4 +3,18 @@
 [data-app='app-bar'] {
   background-color: rgba($navy, .95);
   box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
+
+  &:after {
+    background: $gradient;
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 3px;
+    left: 0;
+    top: $aside-height;
+
+    @include break(large) {
+      top: $aside-height-l;
+    }
+  }
 }

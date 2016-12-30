@@ -1,6 +1,6 @@
 /* colors */
 
-$light-gray   : #c3c9cd;
+$moon-gray    : #c3c9cd;
 $blue         : #19B5FE;
 $light-blue   : lighten($blue, 10%);
 $dark-blue    : darken($blue, 10%);
@@ -17,12 +17,21 @@ $aside-transition-duration: .35s;
 $searchbox-border-width   : 1.8px;
 $divider-color            : $near-white;
 
+$gradient                 : linear-gradient(to right, $light-blue, $blue);
 $toggle-transition-time   : .3s;
 $toggle-transition-timing : cubic-bezier(0.35, 0, 0.25, 1);
 $toggle-on-color          : $blue;
 $toggle-off-color         : #fdfdfd;
 $toggle-border-color      : darken($near-white, 2%);
 $toggle-box-shadow        : 1px 2px 2px rgba(0, 0, 0, 0.16);
+
+@function tint($color, $percent) {
+  @return mix(white, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(black, $color, $percent);
+}
 
 .fade-in {
   animation-fill-mode: both;
@@ -56,10 +65,6 @@ $toggle-box-shadow        : 1px 2px 2px rgba(0, 0, 0, 0.16);
 }
 
 /* global */
-
-html * {
-  @extend .helvetica;
-}
 
 em {
   background-color: $yellow;

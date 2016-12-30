@@ -7,3 +7,9 @@
     margin-top: $aside-height-l;
   }
 }
+
+.Hits__btn {
+  &:hover{
+    background: $gradient;
+  }
+}

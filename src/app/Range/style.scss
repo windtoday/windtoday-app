@@ -23,8 +23,8 @@
 }
 
 .rheostat-progress {
-  @extend .bg-blue;
   height: 4px;
+  background: $gradient;
   position: absolute;
   top: 13px;
 }

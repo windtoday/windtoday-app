@@ -50,13 +50,12 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px tint(#2db7f5, 80%);
+    box-shadow: 0 0 0 2px tint($blue, 80%);
     outline: none;
   }
 
   &-checked{
-    border: 1px solid $toggle-on-color;
-    background-color: $toggle-on-color;
+    background: $gradient;
 
     .rc-switch-inner {
       left:6px;
