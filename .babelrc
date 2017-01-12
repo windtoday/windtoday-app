@@ -1,9 +1,16 @@
 {
-  "presets": ["latest", "react"],
-  "plugins": ["transform-object-rest-spread", "react-hot-loader/babel"],
+  "presets": [
+    "react",
+    "latest"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "react-hot-loader/babel"
+  ],
   "env": {
     "production": {
       "plugins": [
+        "lodash",
         "transform-react-constant-elements",
         "transform-react-remove-prop-types",
         "transform-react-inline-elements"

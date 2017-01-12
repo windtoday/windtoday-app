@@ -4,12 +4,14 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
 const webpack = require('webpack')
-const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
 const path = require('path')
+
+const { OccurrenceOrderPlugin, CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
 
 module.exports = {
   devtool: 'source-map',
@@ -85,11 +87,14 @@ module.exports = {
         rejected: true
       }
     }),
+    new BabiliPlugin(),
+    // optimizations
     new CommonsChunkPlugin({
       name: 'vendor',
       filename: 'assets/js/vendor.bundle.js',
       minChunks: Infinity
     }),
+    new OccurrenceOrderPlugin(),
     new UglifyJsPlugin({
       sourceMap: true,
       minimize: true,
