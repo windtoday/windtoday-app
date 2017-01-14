@@ -9,22 +9,24 @@ import Logo from './Logo'
 
 function Footer () {
   return (
-    <footer className='pa3 moon-gray'>
+    <footer className='tc pb3-l pb4 moon-gray'>
 
-      <small
-        className='f6 db tc'>
-        © 2016 <Logo /> v{APP_VERSION}
-      </small>
-
-      <div style={{'paddingTop': '20px'}}>
-        <Social />
-      </div>
-
-      <small className='f6 db tc'>
+      <small className='f6 db'>
         <PoweredBy />
       </small>
 
-      <Links />
+      <small
+        className='pb3 f6 db'>
+        © 2016-2017 <Logo /> v{APP_VERSION}
+      </small>
+
+      <div className='pb3'>
+        <Links />
+      </div>
+
+      <div className='pt1'>
+        <Social />
+      </div>
 
     </footer>
   )

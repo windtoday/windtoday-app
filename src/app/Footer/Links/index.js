@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Links = (props) =>
-  <div className='tc'>
+  <div>
     <a
       href='mailto:kiko@windtoday.co?subject=[windtoday]%20Report%20a%20Bug'
       title='Report a Bug'

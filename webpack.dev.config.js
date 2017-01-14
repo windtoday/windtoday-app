@@ -5,7 +5,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = require('./config.json')
 const webpack = require('webpack')
-const {HotModuleReplacementPlugin, NoErrorsPlugin} = require('webpack')
+const {HotModuleReplacementPlugin, NoEmitOnErrorsPlugin} = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -38,7 +38,7 @@ module.exports = {
     })),
     new HtmlWebpackHarddiskPlugin(),
     new HotModuleReplacementPlugin(),
-    new NoErrorsPlugin(),
+    new NoEmitOnErrorsPlugin(),
     new BrowserSyncPlugin(
       // BrowserSync options
       {

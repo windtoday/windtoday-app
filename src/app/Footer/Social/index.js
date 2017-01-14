@@ -6,7 +6,7 @@ const ICON_STYLE = {height: ICON_SIZE, width: ICON_SIZE}
 const ICON_CLASSNAME = 'link dib br-100'
 
 const Social = (props) =>
-  <div data-app='footer-social' className='tc'>
+  <div>
     <a
       className={`${ICON_CLASSNAME} mr3`}
       style={ICON_STYLE}
