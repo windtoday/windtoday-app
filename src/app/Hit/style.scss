@@ -8,12 +8,20 @@
   }
 
   @extend .fade-in;
+}
 
-  [data-hit='image'] {
-    width: 3rem;
-
-    @include break(large) {
-      width: 2.5rem;
-    }
+.Hit-image-link {
+  width: 3rem;
+  @include break(large) {
+    width: 2.5rem;
   }
+}
+
+.Hit-image {
+  @include transition(opacity);
+}
+
+.Hit-title,
+.Hit-price {
+  @include transition(color);
 }

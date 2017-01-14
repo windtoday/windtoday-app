@@ -5,6 +5,7 @@ $blue         : #19B5FE;
 $light-blue   : lighten($blue, 10%);
 $dark-blue    : darken($blue, 10%);
 $navy         : #1a2f4c;
+$green        : #31d0c9;
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
@@ -18,10 +19,9 @@ $searchbox-border-width   : 1.8px;
 $divider-color            : $near-white;
 
 $gradient-one             : $light-blue;
-$gradient-two             : #31d0c9;
+$gradient-two             : $green;
 $gradient                 :  linear-gradient(90deg, $gradient-two, $gradient-one);
 $gradient-invert          :  linear-gradient(-90deg, $gradient-two, $gradient-one);
-$gradient-diagonal        :  linear-gradient(135deg, $gradient-two, $gradient-one);
 
 $toggle-transition-time   : .3s;
 $toggle-transition-timing : cubic-bezier(0.35, 0, 0.25, 1);
@@ -36,6 +36,13 @@ $toggle-box-shadow        : 1px 2px 2px rgba(0, 0, 0, 0.16);
 
 @function shade($color, $percent) {
   @return mix(black, $color, $percent);
+}
+
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in;
+  transition-delay: initial;
 }
 
 .fade-in {

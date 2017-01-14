@@ -57,7 +57,7 @@ const Range = createClass({
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-l pb4'>
-        <header className='f6 fw6 ttu tracked pb3 gray'>{title}</header>
+        <header className='f6 fw6 ttu tracked pb3 green'>{title}</header>
         <Rheostat
           className='mh3'
           min={min}

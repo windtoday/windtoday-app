@@ -1,8 +1,11 @@
-
 @import '../style';
 
-.ais-RefinementList__span:hover + span {
-  @extend .blue;
+.ais-RefinementList__span {
+  @include transition(color);
+  &:hover + span {
+    @include transition(color);
+    @extend .blue;
+  }
 }
 
 .rc-switch {
