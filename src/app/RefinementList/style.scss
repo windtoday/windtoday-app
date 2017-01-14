@@ -1,9 +1,5 @@
 @import '../style';
 
-.ais-RefinementList__span {
-  @include transition(color);
-}
-
 .ais-RefinementList__wrapper {
   &:hover {
     span {

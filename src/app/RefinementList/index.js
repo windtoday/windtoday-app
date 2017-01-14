@@ -41,7 +41,7 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                      classnames('ais-RefinementList__span ph2 ttc lh-title helvetica f5 fw5 hover-light-blue', {
+                      classnames('ais-RefinementList__span link ph2 ttc lh-title helvetica f5 fw5 hover-light-blue', {
                         'light-silver': !item.isRefined,
                         'light-blue fw8': item.isRefined
                       })}>
@@ -50,7 +50,7 @@ const RefinementList = createClass({
             {' '}
             <span
               onClick={onChange}
-              className={classnames('ais-RefinementList__span fr fw4 hover-light-blue', {
+              className={classnames('ais-RefinementList__span link fr fw4 hover-light-blue', {
                 'moon-gray': !item.isRefined,
                 'light-blue fw8': item.isRefined
               })}>

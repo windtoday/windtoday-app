@@ -21,11 +21,6 @@
   @include transition(opacity);
 }
 
-.Hit-title,
-.Hit-price {
-  @include transition(color);
-}
-
 .Hit-price {
   min-width: 91.38px;
 }

@@ -56,11 +56,11 @@ const Hit = createClass({
     const {item, toggle, get} = props
     const {isHover} = state
 
-    const titleStyle = classnames('Hit-title f6 f5-l fw6 mv0 helvetica navy', {
+    const titleStyle = classnames('link f6 f5-l fw6 mv0 helvetica navy', {
       'light-blue': isHover
     })
 
-    const priceStyle = classnames('Hit-price dib ph2 ph3-l blue', {
+    const priceStyle = classnames('Hit-price link dib ph2 ph3-l blue', {
       'light-blue': isHover
     })
 
