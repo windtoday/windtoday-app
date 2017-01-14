@@ -21,8 +21,6 @@ function image (item, isHover, onHover) {
       rel='noopener'
       target='_blank'
       data-hit='image'
-      onMouseEnter={onHover}
-      onMouseLeave={onHover}
       className='Hit-image-link dtc v-mid'
       >
       <img alt={provider} src={imageURL} className={style} />
@@ -67,7 +65,12 @@ const Hit = createClass({
     })
 
     return (
-      <section data-app='hit' className='bb b--near-white'>
+      <section
+        data-app='hit'
+        className='bb b--near-white'
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+        >
         <a
           data-hit='link'
           className='link dt w-100 pv2 pv1-l blue'
@@ -82,8 +85,6 @@ const Hit = createClass({
             <p
               data-hit='price'
               className={priceStyle}
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
               >
               {price(item)}</p>
           </div>
@@ -92,8 +93,6 @@ const Hit = createClass({
             <p
               data-hit='title'
               className={titleStyle}
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
               >
               <Highlight attributeName='title' hit={item} />
             </p>
