@@ -2,9 +2,13 @@
 
 .ais-RefinementList__span {
   @include transition(color);
-  &:hover + span {
-    @include transition(color);
-    @extend .blue;
+}
+
+.ais-RefinementList__wrapper {
+  &:hover {
+    span {
+      @extend .blue;
+    }
   }
 }
 

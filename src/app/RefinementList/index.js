@@ -14,39 +14,51 @@ const RefinementList = createClass({
 
     return (
       <section className='ais-RefinementList__root' key={key}>
-        <div className='mb2'>
-          <label
-            className={classnames('pointer', {
-              'ais-RefinementList__itemSelected': item.isRefined
-            })}
+        <label
+          className={classnames('pointer pb2', {
+            'ais-RefinementList__itemSelected': item.isRefined
+          })}
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
             >
-            <Switch
-              className={classnames({
-                'rc-switch-checked': item.isRefined
-              })}
-              onChange={onChange}
-              checked={item.isRefined}
-            />
+
+          <Switch
+            className={classnames({
+              'rc-switch-checked': item.isRefined
+            })}
+            onChange={onChange}
+            checked={item.isRefined}
+                />
+
+          <div
+            className='ais-RefinementList__wrapper'
+            style={{
+              flexGrow: '1'
+            }}
+              >
             <span
               onClick={onChange}
               className={
-                classnames('ais-RefinementList__span ph2 ttc lh-title helvetica f5 fw5 hover-light-blue', {
-                  'light-silver': !item.isRefined,
-                  'light-blue fw8': item.isRefined
-                })}>
+                      classnames('ais-RefinementList__span ph2 ttc lh-title helvetica f5 fw5 hover-light-blue', {
+                        'light-silver': !item.isRefined,
+                        'light-blue fw8': item.isRefined
+                      })}>
               {item.label}
             </span>
             {' '}
             <span
               onClick={onChange}
-              className={classnames('fr fw4 hover-light-blue', {
+              className={classnames('ais-RefinementList__span fr fw4 hover-light-blue', {
                 'moon-gray': !item.isRefined,
                 'light-blue fw8': item.isRefined
               })}>
               {item.count}
             </span>
-          </label>
-        </div>
+          </div>
+
+        </label>
       </section>
     )
   },
