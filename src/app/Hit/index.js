@@ -53,7 +53,7 @@ const Hit = createClass({
 
   render () {
     const {props, state, onHover} = this
-    const {item, toggle, get} = props
+    const {item} = props
     const {isHover} = state
 
     const titleStyle = classnames('link f6 f5-l fw6 mv0 helvetica navy', {
