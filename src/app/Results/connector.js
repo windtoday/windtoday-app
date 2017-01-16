@@ -13,9 +13,11 @@ export default createConnector({
   },
 
   getProvidedProps (componentProps, searchState, searchResults) {
-    const query = searchState.query
     const { toggle, get } = componentProps
-    const props = {toggle, get, query}
+    const {searching} = searchResults
+    const {query} = searchState
+
+    const props = {toggle, get, query, searching}
 
     if (!searchResults.results) {
       this._allResults = []

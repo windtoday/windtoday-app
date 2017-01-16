@@ -1,0 +1,9 @@
+@import '../style';
+
+.Loading {
+  @include loader01(
+    $size: 80px,
+    $color: $white,
+    $align: middle
+  );
+}

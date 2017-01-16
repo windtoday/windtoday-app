@@ -10,14 +10,12 @@
   @extend .fade-in;
 }
 
-.Hit-image-link {
+.Hit-image {
   width: 3rem;
   @include break(large) {
     width: 2.5rem;
   }
-}
 
-.Hit-image {
   @include transition(opacity);
 }
 
