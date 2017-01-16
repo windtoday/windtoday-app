@@ -94,7 +94,6 @@ const App = createClass({
         searchState={state.searchState}
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
-        searchParameters={{hitsPerPage: 15}}
       >
         <AppBar {...props} />
         <AppWrapper {...props} />
