@@ -16,9 +16,16 @@ $duration: 1.4s;
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
   transform-origin: center;
-  stroke: $white;
   animation:
     dash $duration ease-in-out infinite;
+}
+
+.Spinner-path__white {
+  stroke: $white;
+}
+
+.Spinner-path__blue {
+  stroke: $blue;
 }
 
 @keyframes dash {
