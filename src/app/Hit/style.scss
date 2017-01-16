@@ -14,9 +14,7 @@
   @include break(large) {
     width: 2.5rem;
   }
-}
 
-.Hit-image {
   @include transition(opacity);
 }
 
