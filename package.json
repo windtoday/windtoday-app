@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "browser-sync": "latest",
-    "browser-sync-webpack": "~1.0.0",
+    "browser-sync-webpack": "latest",
     "standard": "latest",
     "webpack-dev-server": "2.2.0-rc.0"
   },
