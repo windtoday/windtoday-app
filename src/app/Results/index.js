@@ -3,7 +3,7 @@ import classnames from 'classnames'
 
 import connectorResults from './connector'
 import Footer from '../Footer'
-import Loading from '../Loading'
+import Spinner from '../Spinner'
 import NoHits from '../NoHits'
 import Hits from '../Hits'
 
@@ -27,7 +27,11 @@ function renderResults (props, hasResults) {
 
 function renderLoader () {
   return (
-    <Loading />
+    <article className='z-3 fixed vh-100 dt w-100 bg-blue'>
+      <div className='dtc v-mid tc'>
+        <Spinner />
+      </div>
+    </article>
   )
 }
 

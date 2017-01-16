@@ -11,7 +11,8 @@ function renderHasMore (refine) {
         onClick={refine}
         style={{fontSize: '.8rem'}}
         className='Hits__btn link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal blue hover-white'>
-        Load More
+        Load More &nbsp;
+        <span className='loading open-circle' aria-hidden='true' />
       </a>
     </footer>
   )
