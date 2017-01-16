@@ -11,10 +11,10 @@ import './style.scss'
 
 function renderResults (props, hasResults) {
   const {get} = props
-  const theme = 'fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
+  const theme = 'Results fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
   const style = classnames(theme, {
-    'results-expand': get('facetsOpen')
+    'Results__expand': get('facetsOpen')
   })
 
   return (

@@ -9,22 +9,16 @@ function price (item) {
 }
 
 function image (item, isHover, onHover) {
-  const {provider, link} = item
+  const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
   const style = classnames('Hit-image db br3', {
     'o-50': isHover
   })
 
   return (
-    <a
-      href={link}
-      rel='noopener'
-      target='_blank'
-      data-hit='image'
-      className='Hit-image-link dtc v-mid'
-      >
+    <div className='Hit-image-wrapper dtc v-mid'>
       <img alt={provider} src={imageURL} className={style} />
-    </a>
+    </div>
   )
 }
 
@@ -67,7 +61,7 @@ const Hit = createClass({
     return (
       <section
         data-app='hit'
-        className='bb b--near-white'
+        className='Hit fade-in bb b--near-white'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >
