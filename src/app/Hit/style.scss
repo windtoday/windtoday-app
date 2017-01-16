@@ -1,16 +1,15 @@
 @import '../style';
 
-[data-app='hit'] {
+.hit {
   &:first-of-type {
     > a {
       padding-top: 0;
     }
   }
 
-  @extend .fade-in;
 }
 
-.Hit-image-link {
+.Hit-image-wrapper {
   width: 3rem;
   @include break(large) {
     width: 2.5rem;
