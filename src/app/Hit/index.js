@@ -1,5 +1,7 @@
 import classnames from 'classnames'
 import React, {createClass} from 'react'
+import TimeAgo from 'react-timeago'
+
 import {Highlight} from 'react-instantsearch/dom'
 
 import './style.scss'
@@ -23,16 +25,10 @@ function image (item, isHover, onHover) {
 }
 
 function date (item) {
-  const locale = navigator.language
-
-  const opts = {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  }
-
   const timestamp = item.updatedAt || item.createdAt
-  return (new Date(timestamp)).toLocaleString(locale, opts)
+  return (
+    <TimeAgo date={timestamp} />
+  )
 }
 
 const Hit = createClass({
