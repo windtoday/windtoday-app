@@ -22,7 +22,7 @@ function CustomHits (props) {
   const _props = { toggle, get }
 
   return (
-    <div data-app='hits' className='ph3 ph4-l'>
+    <div data-app='hits' className='Hits ph3 ph4-l'>
       <Stats />
       <div className='pv3'>
         {hits.map((item, key) => <Hit item={item} key={key} {..._props} />)}

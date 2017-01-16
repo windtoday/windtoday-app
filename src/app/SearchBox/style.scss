@@ -3,7 +3,7 @@
 $input-height: 32px;
 $input-height-l: 36px;
 
-[data-app='searchbox'] {
+.SearchBox {
   > input {
     height: $input-height;
     @include break(large) {

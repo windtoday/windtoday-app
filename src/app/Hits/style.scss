@@ -1,6 +1,6 @@
 @import '../style';
 
-[data-app="hits"] {
+.Hits {
   margin-top: $aside-height;
 
   @include break(large) {

@@ -5,7 +5,7 @@ import './style.scss'
 
 function Facets () {
   return (
-    <div data-app='facets-wrapper'>
+    <div data-app='facets-wrapper' className='Facets-wrapper'>
 
       <Range
         attributeName='price'

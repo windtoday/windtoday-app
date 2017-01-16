@@ -1,6 +1,6 @@
 @import '../style';
 
-[data-app='facets-wrapper'] {
+.Facets-wrapper {
   margin-top: $aside-height;
 
   @include break(large) {
@@ -12,19 +12,19 @@
   }
 }
 
-[data-app='facet-size'] {
+.Facet-size {
   .ais-Range__bound div:after{
     content: 'm';
   }
 }
 
-[data-app='facet-price'] {
+.Facet-price {
   .ais-Range__bound div:after{
     content: '€';
   }
 }
 
-[data-app='facet-litres'] {
+.Facet-litres {
   .ais-Range__bound div:after{
     content: 'l';
   }

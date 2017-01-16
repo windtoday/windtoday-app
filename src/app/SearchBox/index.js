@@ -49,7 +49,7 @@ const CustomSearchBox = createClass({
     })
 
     return (
-      <div data-app='searchbox' className='w-80 w-70-l pa2'>
+      <div data-app='searchbox' className='SearchBox w-80 w-70-l pa2'>
         <IconSearch
           className={iconSearchStyle}
         />
