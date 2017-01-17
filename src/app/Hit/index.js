@@ -3,11 +3,24 @@ import React, {createClass} from 'react'
 import TimeAgo from 'react-timeago'
 
 import {Highlight} from 'react-instantsearch/dom'
+import Badge from '../Badge'
 
 import './style.scss'
 
+function isRecently (timestamp) {
+  const now = Date.now()
+  const diff = now - timestamp
+  const last24hours = 1000 * 60 * 60 * 24
+  return diff < last24hours
+}
+
+function getTimestamp (item) {
+  return item.updatedAt || item.createdAt
+}
+
 function price (item) {
-  return item.price ? `€${item.price}` : 'N/A'
+  const {price} = item
+  return price ? `€${price}` : 'N/A'
 }
 
 function image (item, isHover, onHover) {
@@ -21,13 +34,6 @@ function image (item, isHover, onHover) {
     <div className='Hit-image-wrapper dtc v-mid'>
       <img alt={provider} src={imageURL} className={style} />
     </div>
-  )
-}
-
-function date (item) {
-  const timestamp = item.updatedAt || item.createdAt
-  return (
-    <TimeAgo date={timestamp} />
   )
 }
 
@@ -53,6 +59,8 @@ const Hit = createClass({
     const priceStyle = classnames('Hit-price link dib ph2 ph3-l blue', {
       'light-blue': isHover
     })
+
+    const timestamp = getTimestamp(item)
 
     return (
       <section
@@ -85,10 +93,11 @@ const Hit = createClass({
               className={titleStyle}
               >
               <Highlight attributeName='title' hit={item} />
+              {isRecently(timestamp) && <Badge isHover={isHover}>new</Badge>}
             </p>
 
             <p data-hit='date' className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
-              {date(item)}
+              <TimeAgo date={timestamp} />
             </p>
           </div>
         </a>
