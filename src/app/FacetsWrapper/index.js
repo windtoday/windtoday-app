@@ -14,6 +14,13 @@ function Facets () {
       />
 
       <RefinementList
+        attributeName='year'
+        title='year'
+        limitMin={5}
+        showMore
+      />
+
+      <RefinementList
         attributeName='category'
         title='category'
       />
