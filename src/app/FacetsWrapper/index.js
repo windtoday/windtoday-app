@@ -3,7 +3,7 @@ import RefinementList from '../RefinementList'
 import Range from '../Range'
 import './style.scss'
 
-function Facets () {
+function FacetsWrapper () {
   return (
     <div data-app='facets-wrapper' className='Facets-wrapper'>
 
@@ -114,4 +114,4 @@ function Facets () {
   )
 }
 
-export default Facets
+export default FacetsWrapper
