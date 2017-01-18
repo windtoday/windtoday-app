@@ -54,24 +54,26 @@ const Range = createClass({
   render () {
     const { onChange, onValuesUpdated, state, props } = this
     const { min, max, label, title, currentRefinement } = props
+    const values = [currentRefinement.min, currentRefinement.max].map(Math.trunc)
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-l pb4'>
         <header className='f6 fw6 ttu tracked pb3 green'>{title}</header>
         <Rheostat
           className='mh3'
-          min={min}
-          max={max}
-          values={[currentRefinement.min, currentRefinement.max]}
+          min={Math.trunc(min)}
+          max={Math.trunc(max)}
+          values={values}
           onValuesUpdated={onValuesUpdated}
           onChange={onChange}
+          snap
         />
         <div className='cf'>
           <div className='moon-gray fl w-50 pl2 pt3 tl'>
-            <span>{state.value.min}{label}</span>
+            <span>{Math.trunc(state.value.min)}{label}</span>
           </div>
           <div className='moon-gray fl w-50 pt3 pr2 tr'>
-            <span>{state.value.max}{label}</span>
+            <span>{Math.trunc(state.value.max)}{label}</span>
           </div>
         </div>
       </article>
