@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.scss'
 
 function Logo ({toggle, get}) {
   let image
@@ -6,14 +7,14 @@ function Logo ({toggle, get}) {
 
   if (get('isDesktop')) {
     image = 'logo'
-    style = { width: '12rem' }
+    style = 'Logo'
   } else {
     image = 'logo-tiny'
-    style = {width: '2rem'}
+    style = 'Logo--tiny'
   }
 
   return (
-    <a href='/' style={style}>
+    <a href='/' className={style}>
       <img alt='windtoday' src={`/assets/img/${image}.png`} />
     </a>
   )

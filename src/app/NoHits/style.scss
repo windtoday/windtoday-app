@@ -2,8 +2,4 @@
 
 .NoHits {
   margin-top: $aside-height;
-
-  @include break(large) {
-    margin-top: $aside-height-l;
-  }
 }

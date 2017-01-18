@@ -1,35 +1,36 @@
 @import '../style';
 
-$input-height: 32px;
-$input-height-l: 36px;
-
-.SearchBox {
-  > input {
-    height: $input-height;
-    @include break(large) {
-      height: $input-height-l;
-    }
-  }
-}
+$input-height: 34px;
 
 .SearchBox__input {
-  padding-right: 35px;
+  height: $input-height;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+  font-weight: lighter;
+  font-size: 85%;
+  letter-spacing: 0.03rem;
+  color: #999;
+  @include placeholder-color(#96A3B6);
+
+  &:focus {
+    color: #596981;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+    @include placeholder-color($moon-gray);
+  }
 }
 
 .SearchBox__icon {
   height: $input-height;
-
-  @include break(large) {
-    height: $input-height-l;
-  }
 }
 
 .SearchBox__iconSearch--focus {
-  @extend .blue;
+  color: $blue;
 }
 
 .SearchBox__iconSearch--blur {
-  @extend .light-silver;
+  color: #abb5c5;
 }
 
 .SearchBox__iconClear {

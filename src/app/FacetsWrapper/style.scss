@@ -3,10 +3,6 @@
 .Facets-wrapper {
   margin-top: $aside-height;
 
-  @include break(large) {
-    margin-top: $aside-height-l;
-  }
-
   > article:first-of-type {
     @extend .pt4-l, .pt3, .mt2;
   }

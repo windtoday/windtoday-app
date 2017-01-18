@@ -49,13 +49,13 @@ const CustomSearchBox = createClass({
     })
 
     return (
-      <div data-app='searchbox' className='SearchBox w-80 w-70-l pa2'>
+      <div data-app='searchbox' className='SearchBox relative w-80 w-70-l pa2'>
         <IconSearch
           className={iconSearchStyle}
         />
         <input
           ref={onInputMount}
-          className='SearchBox__input w-100 f6 f5-l input-reset black-80 bg-white ph4 ph5-ns pv2 lh-solid'
+          className='SearchBox__input w-100 input-reset bg-white ph4 ph5-ns pv2 lh-solid input-reset'
           type='search'
           results={5}
           value={currentRefinement}
@@ -64,6 +64,7 @@ const CustomSearchBox = createClass({
           onBlur={onBlur}
           autoSave='searchbox'
           name='s'
+          placeholder='brand, model, size,...'
           autoFocus
         />
         <IconClear
