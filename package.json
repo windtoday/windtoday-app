@@ -2,7 +2,7 @@
   "name": "windtoday-marketplace",
   "description": "Boilerplate for ReactJS project with hot code reloading",
   "homepage": "https://github.com/windtoday/windtoday-marketplace",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -66,8 +66,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "standard",
-    "start": "node bin/server",
     "pretest": "npm run lint",
+    "start": "node bin/server",
     "test": "echo 'not yet implemented, wanna help?'"
   },
   "private": true,
