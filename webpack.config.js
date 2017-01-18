@@ -4,7 +4,6 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BabiliPlugin = require('babili-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const config = require('./config.json')
 const pkg = require('./package.json')
@@ -87,7 +86,6 @@ module.exports = {
         rejected: true
       }
     }),
-    new BabiliPlugin(),
     // optimizations
     new CommonsChunkPlugin({
       name: 'vendor',
