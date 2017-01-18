@@ -10,7 +10,7 @@ const el = document.getElementById('app')
 
 function render (component) {
   return ReactDOM.render(
-    <AppContainer key={Math.random()}>
+    <AppContainer>
       <Router history={browserHistory}>
         <Route path='/' component={component} />
       </Router>
