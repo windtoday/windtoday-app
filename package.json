@@ -53,13 +53,13 @@
     "tachyons-queries": "~0.3.1",
     "tachyons-sass": "~4.7.0",
     "travis-after-all": "~1.4.4",
-    "webpack": "2.2.0-rc.7"
+    "webpack": "2.2.0"
   },
   "devDependencies": {
     "browser-sync": "latest",
     "browser-sync-webpack": "latest",
     "standard": "latest",
-    "webpack-dev-server": "2.2.0-rc.0"
+    "webpack-dev-server": "2.2.0"
   },
   "engines": {
     "node": ">= 6 <7"
