@@ -8,9 +8,7 @@
   transition-property: transform;
   -webkit-overflow-scrolling: touch;
 
-  @include break(large) {
-    border-right: 1px solid $divider-color;
-  }
+  border-right: 1px solid $divider-color;
 }
 
 .Facets__collapse {

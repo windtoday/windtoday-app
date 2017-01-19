@@ -6,15 +6,11 @@
       padding-top: 0;
     }
   }
-
 }
+
 
 .Hit-image-wrapper {
   width: 3rem;
-  @include break(large) {
-    width: 2.5rem;
-  }
-
   @include transition(opacity);
 }
 
