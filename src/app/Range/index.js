@@ -1,68 +1,66 @@
-import React, {createClass} from 'react'
+import React, {createClass, PropTypes} from 'react'
 import {connectRange} from 'react-instantsearch/connectors'
 import Rheostat from 'rheostat'
 
 import './style.scss'
 
 const Range = createClass({
+  propTypes: {
+    min: PropTypes.number.isRequired,
+    max: PropTypes.number.isRequired,
+    currentRefinement: PropTypes.object.isRequired,
+    refine: PropTypes.func.isRequired
+  },
+
   getInitialState () {
     const { props } = this
     const { min, max, currentRefinement } = props
-    const value = currentRefinement
-    return {min, max, value}
+    return {min, max, currentRefinement}
   },
 
   componentWillReceiveProps (sliderState) {
-    const value = {
-      min: sliderState.currentRefinement.min,
-      max: sliderState.currentRefinement.max
-    }
-
-    this.setState({
-      min: sliderState.min,
-      max: sliderState.max,
-      value: value
-    })
+    const {min, max, currentRefinement} = sliderState
+    this.setState({min, max, currentRefinement})
   },
 
   onValuesUpdated (sliderState) {
-    const value = {
-      min: sliderState.values[0],
-      max: sliderState.values[1]
-    }
+    const {getCurrentFromSlider} = this
+    const {min, max} = sliderState
+    const currentRefinement = getCurrentFromSlider(sliderState)
+    this.setState({min, max, currentRefinement})
+  },
 
-    this.setState({
-      min: sliderState.min,
-      max: sliderState.max,
-      value: value
-    })
+  getCurrentFromSlider (sliderState) {
+    return {min: sliderState.values[0], max: sliderState.values[1]}
+  },
+
+  isEqual (a, b) {
+    return Math.trunc(a) === Math.trunc(b)
   },
 
   onChange (sliderState) {
-    const { refine, currentRefinement } = this.props
-
-    const value = {
-      min: sliderState.values[0],
-      max: sliderState.values[1]
-    }
-
-    if (currentRefinement.min !== value.min || currentRefinement.max !== value.max) {
-      refine({min: value.min, max: value.max})
-    }
+    const {getCurrentFromSlider, isEqual, props} = this
+    const {refine, currentRefinement} = props
+    const currentSlider = getCurrentFromSlider(sliderState)
+    const hasMinChanged = !isEqual(currentRefinement.min, currentSlider.min)
+    const hasMaxChanged = !isEqual(currentRefinement.max, currentSlider.max)
+    const hasChanged = hasMinChanged || hasMaxChanged
+    if (hasChanged) refine(currentSlider)
   },
 
   render () {
     const { onChange, onValuesUpdated, state, props } = this
-    const { min, max, label, title, currentRefinement } = props
-    const values = [currentRefinement.min, currentRefinement.max].map(Math.trunc)
+    const { min, max, label, title } = props
+    const {currentRefinement} = state
+    const values = [currentRefinement.min, currentRefinement.max]
 
     return (
       <article data-app='facet' data-facet={title} className='ph3 ph4-l pb4'>
         <header className='f6 fw6 ttu tracked pb3 green'>{title}</header>
         <Rheostat
           className='mh3'
-          min={Math.trunc(min)}
-          max={Math.trunc(max)}
+          min={min}
+          max={max}
           values={values}
           onValuesUpdated={onValuesUpdated}
           onChange={onChange}
@@ -70,10 +68,10 @@ const Range = createClass({
         />
         <div className='cf'>
           <div className='moon-gray fl w-50 pl2 pt3 tl'>
-            <span>{Math.trunc(state.value.min)}{label}</span>
+            <span>{currentRefinement.min}{label}</span>
           </div>
           <div className='moon-gray fl w-50 pt3 pr2 tr'>
-            <span>{Math.trunc(state.value.max)}{label}</span>
+            <span>{currentRefinement.max}{label}</span>
           </div>
         </div>
       </article>
