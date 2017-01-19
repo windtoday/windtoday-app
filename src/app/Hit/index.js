@@ -26,7 +26,7 @@ function price (item) {
 function image (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('Hit-image db br3', {
+  const style = classnames('Hit-image w-100 db br3', {
     'o-50': isHover
   })
 
