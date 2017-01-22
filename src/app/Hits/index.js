@@ -13,8 +13,7 @@ function renderHasMore (refine, searching) {
         onClick={refine}
         style={{fontSize: '.8rem'}}
         className='Hits__btn link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal blue hover-white'>
-        Load More &nbsp;
-        {searching && <Spinner color='blue' size='12px' />}
+        Load More {searching && <Spinner className='ml1' color='blue' size='12px' />}
       </a>
     </footer>
   )
