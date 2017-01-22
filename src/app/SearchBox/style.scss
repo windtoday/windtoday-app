@@ -25,12 +25,8 @@ $input-height: 34px;
   height: $input-height;
 }
 
-.SearchBox__iconSearch__focus {
-  color: $blue;
-}
-
-.SearchBox__iconSearch__blur {
-  color: #abb5c5;
+.SearchBox__iconSearch {
+  @include transition(color);
 }
 
 .SearchBox__iconClear__focus {

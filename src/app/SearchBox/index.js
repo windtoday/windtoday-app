@@ -33,18 +33,18 @@ const CustomSearchBox = createClass({
   },
 
   render () {
-    const iconStyle = 'SearchBox__icon absolute f4'
+    const iconStyle = 'SearchBox__icon absolute f4 moon-gray'
     const {props, onInputMount, onChange, onFocus, onBlur, onClear, state} = this
     const {focus: isFocus} = state
     const {currentRefinement, className} = props
 
     const iconSearchStyle = classnames(iconStyle, 'SearchBox__iconSearch ph3-l ph2 ml2-ns mr2-ns', {
-      'SearchBox__iconSearch__focus': isFocus,
+      'SearchBox__iconSearch__focus blue': isFocus,
       'SearchBox__iconSearch__blur': !isFocus
     })
 
-    const iconClearStyle = classnames(iconStyle, 'SearchBox__iconClear nl4 pointer moon-gray', {
-      'SearchBox__iconClear__focus hover-blue': currentRefinement,
+    const iconClearStyle = classnames(iconStyle, 'SearchBox__iconClear nl4 pointer hover-blue', {
+      'SearchBox__iconClear__focus': currentRefinement,
       'SearchBox__iconClear__blur': !currentRefinement
     })
 
