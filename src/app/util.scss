@@ -8,8 +8,8 @@
   @return mix(black, $color, $percent);
 }
 
-@mixin transition($property) {
-  transition-property: $property;
+@mixin transition($props...) {
+  transition-property: $props;
   transition-duration: 0.15s;
   transition-timing-function: ease-in;
   transition-delay: initial;
