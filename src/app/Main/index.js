@@ -4,7 +4,7 @@ import React from 'react'
 import FacetsWrapper from '../FacetsWrapper'
 import Results from '../Results'
 
-function AppWrapper (props) {
+function Main (props) {
   const { toggle, get } = props
 
   function onSwipedRight () {
@@ -20,11 +20,11 @@ function AppWrapper (props) {
       stopPropagation
       onSwipedRight={onSwipedRight}
       onSwipedLeft={onSwipedLeft}
-      data-app='app-wrapper'>
+      data-app='app-main'>
       <FacetsWrapper {...props} />
       <Results {...props} />
     </Swipeable>
   )
 }
 
-export default AppWrapper
+export default Main

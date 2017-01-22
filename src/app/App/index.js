@@ -6,7 +6,7 @@ import {withRouter} from 'react-router'
 import qs from 'qs'
 
 import AppBar from '../AppBar'
-import AppWrapper from '../AppWrapper'
+import Main from '../Main'
 import './style.scss'
 
 // If you use React Router, make this component
@@ -96,7 +96,7 @@ const App = createClass({
         createURL={createURL}
       >
         <AppBar {...props} />
-        <AppWrapper {...props} />
+        <Main {...props} />
       </ InstantSearch>
     )
   }
