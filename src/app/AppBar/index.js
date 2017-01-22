@@ -20,18 +20,20 @@ function AppBar (props) {
   return (
     <header
       data-app='app-bar'
-      className='AppBar bg-white w-100 center pb2 pt1 ph1 flex justify-around items-center fixed z-2'>
+      className='AppBar bg-white w-100 center pb2 pt1 ph3 flex justify-around items-center fixed z-2'>
 
       {asideLeftButton({
-        className: 'dim pointer blue',
+        className: 'order-1 dim pointer blue',
         onClick: toggle('asideLeftOpen')
       })}
 
-      <Logo {...props} />
-      <SearchBox {...props} />
+      <Logo className='order-2' {...props} />
+      <SearchBox className='order-3' {...props} />
+
+      <div className='Changelog order-4 mh0-ns mh2' />
 
       {asideRightButton({
-        className: 'dim pointer blue',
+        className: 'order-5 dim pointer blue',
         onClick: toggle('asideRightOpen')
       })}
 

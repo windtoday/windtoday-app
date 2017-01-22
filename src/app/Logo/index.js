@@ -1,21 +1,19 @@
+import classnames from 'classnames'
 import React from 'react'
 import './style.scss'
 
-function Logo ({toggle, get}) {
-  let image
-  let style
+const getStyle = (isDesktop) => isDesktop ? 'Logo' : 'Logo--tiny'
+const getImage = (isDesktop) => isDesktop ? 'logo' : 'logo-tiny'
 
-  if (get('isDesktop')) {
-    image = 'logo'
-    style = 'Logo'
-  } else {
-    image = 'logo-tiny'
-    style = 'Logo--tiny'
-  }
+function Logo (props) {
+  const {get, className} = props
+  const isDesktop = get('isDesktop')
+  const image = getImage(isDesktop)
+  const style = classnames(getStyle(isDesktop), 'mh0-ns mh2', className)
 
   return (
     <a href='/' className={style}>
-      <img alt='windtoday' src={`/assets/img/${image}.png`} />
+      <img className='Logo-img' alt='windtoday' src={`/assets/img/${image}.png`} />
     </a>
   )
 }
