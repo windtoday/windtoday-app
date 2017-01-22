@@ -1,6 +1,6 @@
 @import '../style';
 
-.FacetsWrapper {
+.AsideLeft {
   position: absolute;
   background-color: $aside-color;
   transition-timing-function: $aside-transition-timing;
@@ -11,6 +11,6 @@
   border-right: 1px solid $divider-color;
 }
 
-.FacetsWrapper__collapse {
+.AsideLeft__collapse {
   transform: translate3d(-100%, 0, 0);
 }

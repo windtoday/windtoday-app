@@ -1,8 +1,9 @@
 import Swipeable from 'react-swipeable'
 import React from 'react'
 
-import FacetsWrapper from '../FacetsWrapper'
+import AsideLeft from '../AsideLeft'
 import Results from '../Results'
+import Facets from '../Facets'
 
 function Main (props) {
   const { toggle, get } = props
@@ -21,7 +22,11 @@ function Main (props) {
       onSwipedRight={onSwipedRight}
       onSwipedLeft={onSwipedLeft}
       data-app='app-main'>
-      <FacetsWrapper {...props} />
+
+      <AsideLeft {...props}>
+        <Facets {...props} />
+      </AsideLeft>
+
       <Results {...props} />
     </Swipeable>
   )
