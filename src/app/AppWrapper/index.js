@@ -1,7 +1,7 @@
 import Swipeable from 'react-swipeable'
 import React from 'react'
 
-import FacetsWrapper from '../Facets'
+import FacetsWrapper from '../FacetsWrapper'
 import Results from '../Results'
 
 function AppWrapper (props) {
