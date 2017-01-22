@@ -34,7 +34,7 @@ function getDeviceState () {
 const App = createClass({
   getInitialState () {
     const device = getDeviceState()
-    const sidebar = { facetsOpen: device.isDesktop }
+    const sidebar = { asideLeftOpen: device.isDesktop }
     const searchState = {...qs.parse(this.props.router.location.query)}
     return {...device, ...sidebar, searchState}
   },

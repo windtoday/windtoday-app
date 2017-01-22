@@ -10,7 +10,7 @@ function AsideLeft (props) {
   const { get } = props
 
   const style = classnames(theme, {
-    'AsideLeft__collapse': !get('facetsOpen')
+    'AsideLeft__collapse': !get('asideLeftOpen')
   })
 
   return (

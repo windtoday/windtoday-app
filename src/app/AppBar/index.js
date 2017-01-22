@@ -12,7 +12,7 @@ const renderCloseButton = (props) => <IconClose {...props} />
 
 function AppBar (props) {
   const {toggle, get} = props
-  const renderButton = get('facetsOpen') ? renderCloseButton : renderMenuButton
+  const renderButton = get('asideLeftOpen') ? renderCloseButton : renderMenuButton
 
   return (
     <header
@@ -20,7 +20,7 @@ function AppBar (props) {
       className='AppBar bg-white w-100 center pb2 pt1 ph1 flex justify-around items-center fixed z-2'>
       {renderButton({
         className: 'dim pointer blue',
-        onClick: toggle('facetsOpen')
+        onClick: toggle('asideLeftOpen')
       })}
 
       <Logo {...props} />

@@ -9,11 +9,11 @@ function Main (props) {
   const { toggle, get } = props
 
   function onSwipedRight () {
-    get('facetsOpen') || toggle('facetsOpen')()
+    get('asideLeftOpen') || toggle('asideLeftOpen')()
   }
 
   function onSwipedLeft () {
-    get('facetsOpen') && toggle('facetsOpen')()
+    get('asideLeftOpen') && toggle('asideLeftOpen')()
   }
 
   return (

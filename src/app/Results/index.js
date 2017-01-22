@@ -20,7 +20,7 @@ const Results = createClass({
     const theme = 'Results fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
-      'Results__expand': get('facetsOpen')
+      'Results__expand': get('asideLeftOpen')
     })
 
     return (
