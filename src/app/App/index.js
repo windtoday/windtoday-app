@@ -58,18 +58,6 @@ const App = createClass({
     return this.state[key]
   },
 
-  handleResize (e) {
-    this.setState(getDeviceState())
-  },
-
-  componentDidMount () {
-    window.addEventListener('resize', this.handleResize)
-  },
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.handleResize)
-  },
-
   onSearchStateChange (nextSearchState) {
     const THRESHOLD = 700
     const newPush = performance.now()
