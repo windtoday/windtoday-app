@@ -9,7 +9,7 @@ function AsideRight (props) {
   const { get, children } = props
 
   const style = classnames(theme, {
-    'AsideRight__collapse': !get('asideRightOpen')
+    'AsideRight__collapse fixed': !get('asideRightOpen')
   })
 
   return (
