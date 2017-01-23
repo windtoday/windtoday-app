@@ -8,44 +8,44 @@ import Facets from '../Facets'
 
 function Main (props) {
   const { toggle, get } = props
-  const width = window.innerWidth
 
-  let start
-  let finish
+  const toggleAsideLeftOpen = toggle('asideLeftOpen')
+  const toggleAsideRightOpen = toggle('asideRightOpen')
 
-  function onSwiping (evt, deltaX, deltaY, absX, absY, velocity) {
-    if (!start) start = deltaX
+  function onSwipedRight () {
+    const isAsideRightOpen = get('asideRightOpen')
+    const isAsideLeftOpen = get('asideLeftOpen')
+
+    if (isAsideLeftOpen) return
+    if (!isAsideRightOpen) return toggleAsideLeftOpen()
+    return toggleAsideRightOpen()
   }
 
-  function onSwiped (evt, deltaX, deltaY, isFlick, velocity) {
-    console.log('start:', start)
-    console.log('finish:', deltaX)
-    start = null
-  }
+  function onSwipedLeft () {
+    const isAsideRightOpen = get('asideRightOpen')
+    const isAsideLeftOpen = get('asideLeftOpen')
 
-  function isOpenAsideLeft (startX) {
-    return startX < (width / 2) * (1 / 3)
+    if (isAsideRightOpen) return
+    if (isAsideLeftOpen) return toggleAsideLeftOpen()
+    return toggleAsideRightOpen()
   }
 
   return (
     <Swipeable
-      data-app='app-main'
-      onSwiping={onSwiping}
-      onSwiped={onSwiped}
-      delta={1}
       stopPropagation
-      >
+      onSwipedRight={onSwipedRight}
+      onSwipedLeft={onSwipedLeft}
+      data-app='app-main'>
 
       <AsideLeft {...props}>
         <Facets {...props} />
       </AsideLeft>
 
-      <Results {...props} />
-
       <AsideRight {...props}>
         <Facets {...props} />
       </AsideRight>
 
+      <Results {...props} />
     </Swipeable>
   )
 }
