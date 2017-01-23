@@ -1,10 +1,8 @@
 @import '../style';
 
 .Results {
-  transition-timing-function: $aside-transition-timing;
-  transition-duration: $aside-transition-duration;
-  transition-property: padding-left;
   -webkit-overflow-scrolling: touch;
+  @include aside-transition(padding-left);
 }
 
 .Results__expand {

@@ -8,6 +8,12 @@
   @return mix(black, $color, $percent);
 }
 
+@mixin aside-transition($props...) {
+  transition-property: $props;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .35s;
+}
+
 @mixin transition($props...) {
   transition-property: $props;
   transition-duration: 0.15s;
