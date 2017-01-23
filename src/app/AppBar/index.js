@@ -30,10 +30,10 @@ function AppBar (props) {
       <Logo className='order-2' {...props} />
       <SearchBox className='order-3' {...props} />
 
-      <div className='Changelog order-4 mh0-ns mh2' />
+      <div className='Changelog order-4' />
 
       {asideRightButton({
-        className: 'order-5 dim pointer blue',
+        className: 'order-5 dim pointer blue mn0-ns ml2',
         onClick: toggle('asideRightOpen')
       })}
 

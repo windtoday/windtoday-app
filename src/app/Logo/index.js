@@ -9,7 +9,7 @@ function Logo (props) {
   const {get, className} = props
   const isDesktop = get('isDesktop')
   const image = getImage(isDesktop)
-  const style = classnames(getStyle(isDesktop), 'mh0-ns mh2', className)
+  const style = classnames(getStyle(isDesktop), 'mh0-ns ma2', className)
 
   return (
     <a href='/' className={style}>
