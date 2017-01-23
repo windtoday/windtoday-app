@@ -1,13 +1,8 @@
 @import '../style';
 
-.AsideLeft {
+.Aside {
   position: absolute;
   background-color: $aside-color;
   -webkit-overflow-scrolling: touch;
   @include aside-transition(transform);
-  border-right: 1px solid $divider-color;
-}
-
-.AsideLeft__collapse {
-  transform: translateX(-100%);
 }

@@ -1,40 +1,12 @@
 import React from 'react'
 
-import RefinementList from '../RefinementList'
-import Range from '../Range'
-import './style.scss'
+import RefinementList from '../../RefinementList'
+import Range from '../../Range'
+import '../style'
 
 function Facets () {
   return (
-    <div data-app='facets' className='Facets'>
-
-      <Range
-        attributeName='price'
-        title='price'
-        label='€'
-      />
-
-      <RefinementList
-        attributeName='year'
-        title='year'
-        limitMin={5}
-        showMore
-      />
-
-      <RefinementList
-        attributeName='category'
-        title='category'
-      />
-
-      <RefinementList
-        attributeName='provider'
-        title='provider'
-      />
-
-      <RefinementList
-        attributeName='seller'
-        title='seller'
-      />
+    <section data-app='facets-right' className='Facets'>
 
       <RefinementList
         attributeName='brand'
@@ -46,6 +18,13 @@ function Facets () {
       <RefinementList
         attributeName='model'
         title='model'
+        limitMin={5}
+        showMore
+      />
+
+      <RefinementList
+        attributeName='year'
+        title='year'
         limitMin={5}
         showMore
       />
@@ -111,7 +90,7 @@ function Facets () {
         showMore
       />
 
-    </div>
+    </section>
   )
 }
 

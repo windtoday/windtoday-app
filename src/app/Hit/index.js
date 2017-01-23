@@ -63,7 +63,7 @@ const Hit = createClass({
     const timestamp = getTimestamp(item)
 
     return (
-      <section
+      <article
         data-app='hit'
         className='Hit fade-in bb b--near-white'
         onMouseEnter={onHover}
@@ -101,7 +101,7 @@ const Hit = createClass({
             </p>
           </div>
         </a>
-      </section>
+      </article>
     )
   }
 })

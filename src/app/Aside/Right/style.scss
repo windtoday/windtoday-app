@@ -1,12 +1,9 @@
+@import '../../style';
 @import '../style';
 
 .AsideRight {
-  position: absolute;
   right: 0;
-  background-color: $aside-color;
-  -webkit-overflow-scrolling: touch;
   border-left: 1px solid $divider-color;
-  @include aside-transition(transform);
 }
 
 .AsideRight__collapse {

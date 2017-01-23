@@ -1,0 +1,10 @@
+@import '../../style';
+@import '../style';
+
+.AsideLeft {
+  border-right: 1px solid $divider-color;
+}
+
+.AsideLeft__collapse {
+  transform: translateX(-100%);
+}

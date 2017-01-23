@@ -24,10 +24,10 @@ const Results = createClass({
     })
 
     return (
-      <article data-app='results' className={style}>
+      <section data-app='results' className={style}>
         {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
         <Footer />
-      </article>
+      </section>
     )
   },
 

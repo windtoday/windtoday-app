@@ -1,10 +1,9 @@
 import Swipeable from 'react-swipeable'
 import React from 'react'
 
-import AsideLeft from '../AsideLeft'
-import AsideRight from '../AsideRight'
+import AsideRight from '../Aside/Right'
+import AsideLeft from '../Aside/Left'
 import Results from '../Results'
-import Facets from '../Facets'
 
 function Main (props) {
   const { toggle, get } = props
@@ -37,15 +36,9 @@ function Main (props) {
       onSwipedLeft={onSwipedLeft}
       data-app='app-main'>
 
-      <AsideLeft {...props}>
-        <Facets {...props} />
-      </AsideLeft>
-
-      <AsideRight {...props}>
-        <Facets {...props} />
-      </AsideRight>
-
+      <AsideLeft {...props} />
       <Results {...props} />
+      <AsideRight {...props} />
     </Swipeable>
   )
 }
