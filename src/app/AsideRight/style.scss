@@ -1,13 +1,14 @@
 @import '../style';
 
-.AsideLeft {
+.AsideRight {
   position: absolute;
+  right: 0;
   background-color: $aside-color;
   -webkit-overflow-scrolling: touch;
+  border-left: 1px solid $divider-color;
   @include aside-transition(transform);
-  border-right: 1px solid $divider-color;
 }
 
-.AsideLeft__collapse {
-  transform: translate3d(-100%, 0, 0);
+.AsideRight__collapse {
+  transform: translate3d(100%, 0, 0);
 }

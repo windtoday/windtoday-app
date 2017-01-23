@@ -17,7 +17,7 @@ const Results = createClass({
 
   renderResults (props, hasResults) {
     const {get} = props
-    const theme = 'Results fl w-100 bg-white vh-100 overflow-x-hidden overflow-y-scroll'
+    const theme = 'Results w-100 fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
       'Results__expand': get('asideLeftOpen')

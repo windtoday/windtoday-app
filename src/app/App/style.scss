@@ -1,5 +1,5 @@
 @import '../style';
 
 .ais-InstantSearch__root {
-  @extend .cf;
+  @extend .cf, .static-ns, .fixed;
 }
