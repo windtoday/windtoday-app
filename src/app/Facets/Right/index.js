@@ -4,6 +4,16 @@ import RefinementList from '../../RefinementList'
 import Range from '../../Range'
 import '../style'
 
+function createAddLabel (label) {
+  function addLabel (items) {
+    return items.map(function (item) {
+      item.label = `${item.label}${label}`
+      return item
+    })
+  }
+  return addLabel
+}
+
 function Facets () {
   return (
     <section data-app='facets-right' className='Facets'>
@@ -32,13 +42,13 @@ function Facets () {
       <Range
         attributeName='sail.size'
         title='sail size'
-        label='m'
+        label=' m²'
       />
 
       <Range
         attributeName='board.size'
         title='board size'
-        label='l'
+        label=' L'
       />
 
       <RefinementList
@@ -52,6 +62,7 @@ function Facets () {
         attributeName='mast.carbon'
         title='mast carbon'
         limitMin={5}
+        transformItems={createAddLabel('%')}
         showMore
       />
 
@@ -59,6 +70,7 @@ function Facets () {
         attributeName='mast.size'
         title='mast size'
         limitMin={5}
+        transformItems={createAddLabel(' cm')}
         showMore
       />
 
@@ -66,6 +78,7 @@ function Facets () {
         attributeName='fin.size'
         title='fin size'
         limitMin={5}
+        transformItems={createAddLabel(' cm')}
         showMore
       />
 

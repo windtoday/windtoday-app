@@ -9,7 +9,21 @@ const RefinementList = createClass({
     return { extended: false }
   },
 
+  isCapitalize () {
+    const {attributeName} = this.props
+    if (attributeName === 'mast.size') return false
+    if (attributeName === 'fin.size') return false
+    return true
+  },
+
+  isUpperCase () {
+    const {attributeName} = this.props
+    if (attributeName !== 'mast.type') return false
+    return true
+  },
+
   renderItem (item, key) {
+    const {isCapitalize, isUpperCase} = this
     const onChange = () => this.props.refine(item.value)
 
     return (
@@ -41,9 +55,11 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                      classnames('ais-RefinementList__span link ph2 ttc lh-title helvetica f5 fw5 hover-light-blue', {
+                      classnames('ais-RefinementList__span link ph2 lh-title helvetica f5 fw5 hover-light-blue', {
                         'light-silver': !item.isRefined,
-                        'light-blue fw8': item.isRefined
+                        'light-blue fw8': item.isRefined,
+                        'ttc': isCapitalize(),
+                        'ttu': isUpperCase()
                       })}>
               {item.label}
             </span>
