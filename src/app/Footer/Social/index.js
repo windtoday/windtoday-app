@@ -11,6 +11,7 @@ const Social = (props) =>
       className={`${ICON_CLASSNAME} mr3`}
       style={ICON_STYLE}
       href='https://facebook.com/windtodayco'
+      rel='noopener'
       title='windtodayco at facebook'
       target='_blank'>
       <svg
@@ -26,6 +27,7 @@ const Social = (props) =>
       className={ICON_CLASSNAME}
       style={ICON_STYLE}
       href='https://twitter.com/windtodayco'
+      rel='noopener'
       title='@windtodayco at twitter'
       target='_blank'>
       <svg
