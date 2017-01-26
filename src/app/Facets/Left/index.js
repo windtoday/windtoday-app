@@ -9,23 +9,20 @@ function Facets () {
     <section data-app='facets-left' className='Facets'>
       <Range
         attributeName='price'
-        title='price'
         label='€'
       />
 
       <RefinementList
         attributeName='category'
-        title='category'
       />
 
       <RefinementList
         attributeName='provider'
-        title='provider'
       />
 
       <RefinementList
         attributeName='seller'
-        title='seller'
+        title='condition'
       />
     </section>
   )

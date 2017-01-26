@@ -20,85 +20,73 @@ function Facets () {
 
       <RefinementList
         attributeName='brand'
-        title='brand'
         limitMin={5}
         showMore
       />
 
       <RefinementList
         attributeName='model'
-        title='model'
         limitMin={5}
         showMore
       />
 
       <RefinementList
         attributeName='year'
-        title='year'
         limitMin={5}
         showMore
       />
 
       <Range
-        attributeName='sail.size'
-        title='sail size'
+        attributeName='sail size'
         label=' m²'
       />
 
       <Range
-        attributeName='board.size'
-        title='board size'
+        attributeName='board size'
         label=' L'
       />
 
       <RefinementList
-        attributeName='mast.type'
-        title='mast type'
+        attributeName='mast type'
         limitMin={5}
         showMore
       />
 
       <RefinementList
-        attributeName='mast.carbon'
-        title='mast carbon'
+        attributeName='mast carbon'
         limitMin={5}
         transformItems={createAddLabel('%')}
         showMore
       />
 
       <RefinementList
-        attributeName='mast.size'
-        title='mast size'
+        attributeName='mast size'
         limitMin={5}
         transformItems={createAddLabel(' cm')}
         showMore
       />
 
       <RefinementList
-        attributeName='fin.size'
-        title='fin size'
+        attributeName='fin size'
         limitMin={5}
         transformItems={createAddLabel(' cm')}
         showMore
       />
 
       <RefinementList
-        attributeName='fin.type'
-        title='fin type'
+        attributeName='fin type'
         limitMin={5}
         showMore
       />
 
       <RefinementList
-        attributeName='boom.type'
-        title='boom type'
+        attributeName='boom type'
         limitMin={5}
         showMore
       />
 
       <RefinementList
-        attributeName='boom.size'
-        title='boom size'
+        attributeName='boom size'
         limitMin={5}
         showMore
       />
