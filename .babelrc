@@ -9,11 +9,11 @@
   ],
   "env": {
     "production": {
+      "presets": [
+        "react-optimize"
+      ],
       "plugins": [
-        "lodash",
-        "transform-react-constant-elements",
-        "transform-react-remove-prop-types",
-        "transform-react-inline-elements"
+        "lodash"
       ]
     }
   }
