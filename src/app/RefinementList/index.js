@@ -11,14 +11,14 @@ const RefinementList = createClass({
 
   isCapitalize () {
     const {attributeName} = this.props
-    if (attributeName === 'mast.size') return false
-    if (attributeName === 'fin.size') return false
+    if (attributeName === 'mast size') return false
+    if (attributeName === 'fin size') return false
     return true
   },
 
   isUpperCase () {
     const {attributeName} = this.props
-    if (attributeName !== 'mast.type') return false
+    if (attributeName !== 'mast type') return false
     return true
   },
 
@@ -63,7 +63,6 @@ const RefinementList = createClass({
                       })}>
               {item.label}
             </span>
-            {' '}
             <span
               onClick={onChange}
               className={classnames('ais-RefinementList__span link fr fw4 hover-light-blue', {
