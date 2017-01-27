@@ -21,8 +21,7 @@ function Facets () {
       />
 
       <RefinementList
-        attributeName='seller'
-        title='condition'
+        attributeName='condition'
       />
     </section>
   )
