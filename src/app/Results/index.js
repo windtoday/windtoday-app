@@ -24,7 +24,7 @@ const Results = createClass({
       'Results__expand': get('asideLeftOpen')
     })
 
-    const hasAsideOpen = get('asideRightOpen') || get('asideLeftOpen')
+    const hasAsideOpen = get('asideLeftOpen') || get('asideRightOpen')
     const isMobile = get('isMobile')
 
     return (
