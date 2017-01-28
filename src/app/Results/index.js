@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import connectorResults from './connector'
 import Footer from '../Footer'
 import Spinner from '../Spinner'
+import Overlay from '../Overlay'
 import NoHits from '../NoHits'
 import Hits from '../Hits'
 
@@ -23,8 +24,12 @@ const Results = createClass({
       'Results__expand': get('asideLeftOpen')
     })
 
+    const hasAsideOpen = get('asideRightOpen') || get('asideLeftOpen')
+    const isMobile = get('isMobile')
+
     return (
       <section data-app='results' className={style}>
+        {isMobile && <Overlay active={hasAsideOpen} />}
         {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
         <Footer />
       </section>
@@ -41,7 +46,7 @@ const Results = createClass({
 
   renderLoader (props) {
     return (
-      <article className='z-3 fixed vh-100 dt w-100 bg-blue'>
+      <article className='z-max fixed vh-100 dt w-100 bg-blue'>
         <div className='dtc v-mid tc'>
           <Spinner />
         </div>

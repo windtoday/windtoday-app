@@ -1,0 +1,12 @@
+@import '../style';
+
+.Overlay {
+  pointer-events: none;
+  transition-duration: .35s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.Overlay__active {
+  pointer-events: all;
+}
