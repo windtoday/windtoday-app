@@ -9,11 +9,12 @@ $dark-blue    : darken($blue, 10%);
 $navy         : #4f5d72;
 $green        : #31d0c9;
 
+.w-95 { width: 95%; }
+
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
 
-$aside-color              : $white;
-$aside-height             : 50px;
+$appbar-height            : 60px;
 $searchbox-border-width   : 1.8px;
 $divider-color            : $near-white;
 

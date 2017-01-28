@@ -1,7 +1,7 @@
 @import '../style';
 
 .Facets {
-  margin-top: $aside-height;
+  margin-top: $appbar-height;
 
   > article:first-of-type {
     @extend .pt4-l, .pt3, .mt2;
