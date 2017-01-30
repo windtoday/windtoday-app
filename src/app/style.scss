@@ -9,7 +9,14 @@ $dark-blue    : darken($blue, 10%);
 $navy         : #4f5d72;
 $green        : #31d0c9;
 
-.w-95 { width: 95%; }
+$gradient-one    : $light-blue;
+$gradient-two    : $green;
+$gradient        : linear-gradient(141deg, $gradient-one, $gradient-two);
+$gradient-invert : linear-gradient(141deg, $gradient-two, $gradient-one);
+
+.w-95 {width: 95%;}
+.bg-gradient {background:$gradient;}
+.bg-gradient-invert {background:$gradient-invert;}
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
@@ -18,11 +25,6 @@ $appbar-height            : 60px;
 $searchbox-border-width   : 1.8px;
 $searchbox-input-height   : $appbar-height * 0.7;
 $divider-color            : $near-white;
-
-$gradient-one             : $light-blue;
-$gradient-two             : $green;
-$gradient                 :  linear-gradient(90deg, $gradient-two, $gradient-one);
-$gradient-invert          :  linear-gradient(-90deg, $gradient-two, $gradient-one);
 
 $toggle-transition-time   : .3s;
 $toggle-transition-timing : cubic-bezier(0.35, 0, 0.25, 1);

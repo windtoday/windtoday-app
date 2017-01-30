@@ -6,6 +6,6 @@
 
 .Hits__btn {
   &:hover{
-    background: $gradient;
+    @extend .bg-gradient-invert;
   }
 }

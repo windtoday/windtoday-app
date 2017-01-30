@@ -25,9 +25,9 @@
 
 .rheostat-progress {
   height: 4px;
-  background: $gradient;
   position: absolute;
   top: 13px;
+  @extend .bg-gradient-invert;
 }
 
 .rheostat-handle {

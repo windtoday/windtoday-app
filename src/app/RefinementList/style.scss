@@ -58,7 +58,7 @@
   }
 
   &-checked{
-    background: $gradient;
+    @extend .bg-gradient-invert;
 
     .rc-switch-inner {
       left:6px;
