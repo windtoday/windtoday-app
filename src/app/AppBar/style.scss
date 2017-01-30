@@ -2,7 +2,7 @@
 
 .AppBar {
   height: $appbar-height;
-  @include box-shadow(2);
+  background: $gradient-invert;
 
   &:after {
     top: $appbar-height;

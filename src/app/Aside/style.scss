@@ -4,5 +4,4 @@
   position: absolute;
   -webkit-overflow-scrolling: touch;
   @include aside-transition(transform);
-  @include box-shadow(1);
 }
