@@ -9,6 +9,8 @@
   font-size: 85%;
   letter-spacing: 0.03rem;
   color: $white;
+  padding-left: 3rem;
+  padding-right: 1rem;
   @include placeholder-color(rgba($white, .6));
 }
 
@@ -26,12 +28,14 @@
   @include transition(color);
 }
 
-.SearchBox__iconClear__focus {
-  transform: scale(1);
+.SearchBox__iconClear {
+  transform: scale(0);
   @include transition(color, transform);
+  &:hover {
+    color: $white;
+  }
 }
 
-.SearchBox__iconClear__blur {
-  transform: scale(0);
-  @include transition(transform);
+.SearchBox__iconClear__active {
+  transform: scale(1);
 }

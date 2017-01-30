@@ -4,16 +4,6 @@
   height: $appbar-height;
   background: $gradient-invert;
 
-  &:after {
-    top: $appbar-height;
-    background: $gradient-invert;
-    content: '';
-    width: 100%;
-    position: absolute;
-    height: 3px;
-    left: 0;
-  }
-
   > * {
     position: relative;
     top: 3px;
