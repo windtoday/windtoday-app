@@ -2,7 +2,7 @@
 
 .Results {
   -webkit-overflow-scrolling: touch;
-  @include aside-transition(padding-left);
+  @include aside-transition(width, padding-left);
 }
 
 .Results__expand {

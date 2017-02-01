@@ -6,10 +6,13 @@ function NoHits (props) {
   const {query} = props
 
   return (
-    <article data-app='no-hits' className='NoHits tc pa4-l pa3 vh-100'>
-      <h1>
-        No hits found matching for <span className='blue'>{query}</span>.
-      </h1>
+    <article data-app='no-hits' className='NoHits tc pa4-l pa4'>
+      <img
+        className='mw4'
+        alt='windtoday'
+        src={`/assets/img/wind.png`} />
+      <h1 className='no-break blue pt2'>{query}</h1>
+      <h2 className='mid-gray'>has not been seen in the last days.</h2>
     </article>
   )
 }

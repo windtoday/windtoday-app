@@ -9,8 +9,7 @@
   font-size: 85%;
   letter-spacing: 0.03rem;
   color: $white;
-  padding-left: 3rem;
-  padding-right: 42px;
+  padding: 42px;
   @include placeholder-color(rgba($white, .6));
 }
 

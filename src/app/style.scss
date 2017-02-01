@@ -17,6 +17,18 @@ $gradient-invert : linear-gradient(141deg, $gradient-two, $gradient-one);
 .w-95 {width: 95%;}
 .bg-gradient {background:$gradient;}
 .bg-gradient-invert {background:$gradient-invert;}
+.no-break {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  hyphens: auto;
+}
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';

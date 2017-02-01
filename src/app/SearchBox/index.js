@@ -38,7 +38,7 @@ const CustomSearchBox = createClass({
     const {focus: isFocus} = state
     const {currentRefinement, className} = props
 
-    const iconSearchStyle = classnames(iconStyle, 'SearchBox__iconSearch ph3-l ph3 ph2-ns ml2-ns mr2-ns', {
+    const iconSearchStyle = classnames(iconStyle, 'SearchBox__iconSearch ph3-l ph2 ml2-ns ml1 mr2-ns', {
       'SearchBox__iconSearch__focus': isFocus,
       'SearchBox__iconSearch__blur': !isFocus
     })

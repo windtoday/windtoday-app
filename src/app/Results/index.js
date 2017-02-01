@@ -18,14 +18,19 @@ const Results = createClass({
 
   renderResults (props, hasResults) {
     const {get} = props
-    const theme = 'Results w-100 fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
+    const isAsideRightOpen = get('asideRightOpen')
+    const isAsideLeftOpen = get('asideLeftOpen')
+    const hasAsideOpen = isAsideRightOpen || isAsideRightOpen
+    const isDesktop = get('isDesktop')
+    const isMobile = get('isMobile')
+
+    const theme = 'Results fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
-      'Results__expand': get('asideLeftOpen')
+      'Results__expand': isAsideLeftOpen,
+      'w-75': isDesktop && isAsideRightOpen,
+      'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })
-
-    const hasAsideOpen = get('asideLeftOpen') || get('asideRightOpen')
-    const isMobile = get('isMobile')
 
     return (
       <section data-app='results' className={style}>
