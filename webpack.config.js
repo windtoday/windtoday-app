@@ -5,12 +5,19 @@ const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
-const config = require('./config.json')
-const pkg = require('./package.json')
 const webpack = require('webpack')
 const path = require('path')
 
-const { OccurrenceOrderPlugin, CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
+const config = require('./config.json')
+const pkg = require('./package.json')
+
+const { HashedModuleIdsPlugin } = webpack
+
+const {
+  OccurrenceOrderPlugin,
+  AggressiveMergingPlugin,
+  CommonsChunkPlugin,
+  UglifyJsPlugin } = webpack.optimize
 
 module.exports = {
   devtool: 'source-map',
@@ -58,6 +65,7 @@ module.exports = {
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
+    new AggressiveMergingPlugin(),
     new ExtractTextPlugin({
       allChunks: true,
       filename: 'assets/css/bundle.css'
@@ -70,6 +78,7 @@ module.exports = {
         rejected: true
       }
     }),
+    new HashedModuleIdsPlugin(),
     // optimizations
     new CommonsChunkPlugin({
       name: 'vendor',
@@ -113,7 +122,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          'css-loader?minimize&sourceMap&importLoaders=2',
+          'css-loader?minimize&sourceMap',
           'sass-loader',
           'postcss-loader'
         ]

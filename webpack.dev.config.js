@@ -3,10 +3,12 @@
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const config = require('./config.json')
 const webpack = require('webpack')
-const {HotModuleReplacementPlugin, NoEmitOnErrorsPlugin} = require('webpack')
 const path = require('path')
+
+const pkg = require('./package.json')
+const config = require('./config.json')
+const { HotModuleReplacementPlugin, NamedModulesPlugin} = webpack
 
 module.exports = {
   performance: {
@@ -28,8 +30,11 @@ module.exports = {
     modules: ['node_modules']
   },
   plugins: [
+    new HotModuleReplacementPlugin(),
+    new NamedModulesPlugin(),
     new webpack.DefinePlugin({
-      'APP_VERSION': JSON.stringify(require('./package.json').version)
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'APP_VERSION': JSON.stringify(pkg.version)
     }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
@@ -37,8 +42,6 @@ module.exports = {
       inject: false
     })),
     new HtmlWebpackHarddiskPlugin(),
-    new HotModuleReplacementPlugin(),
-    new NoEmitOnErrorsPlugin(),
     new BrowserSyncPlugin(
       // BrowserSync options
       {
