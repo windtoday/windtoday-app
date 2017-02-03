@@ -1,14 +1,14 @@
 @import '../../style';
 
-.SocialIcon {
+.social-icon {
   fill: $moon-gray;
-  @include transition(fill);
+  @include hover-transition(fill);
 }
 
-.SocialIcon__facebook:hover {
+.social-icon-facebook:hover {
   fill: #3b5998;
 }
 
-.SocialIcon__twitter:hover {
+.social-icon-twitter:hover {
   fill: #00aced;
 }

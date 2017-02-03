@@ -6,7 +6,7 @@ function NoHits (props) {
   const {query} = props
 
   return (
-    <article data-app='no-hits' className='NoHits tc pa4-l pa4'>
+    <article data-app='no-hits' className='no-hits tc pa4-l pa4'>
       <img
         className='mw4'
         alt='windtoday'

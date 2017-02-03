@@ -15,8 +15,8 @@
 
 .ais-CurrentRefinements__itemClear {
   background: none;
-  border: none;
-  padding: .4rem .4rem .3rem .4rem;
+  border: 0;
+  padding: .4rem .4rem .3rem;
   @extend .v-mid, .pointer;
 
   > svg {

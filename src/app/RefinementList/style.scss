@@ -16,55 +16,54 @@
   height: 22px;
   line-height: 20px;
   vertical-align: middle;
-  border-radius: 20px 20px;
-  border: 1px solid $toggle-border-color;
-  background-color: $toggle-off-color;
+  border-radius: 20px;
+  border: 1px solid darken($near-white, 2%);
+  background-color: #fdfdfd;
   cursor: pointer;
-  transition: all $toggle-transition-time $toggle-transition-timing;
+  transition: all $toggle-transition-duration $toggle-transition-timing-function;
 
   &-inner {
-    color:#fff;
+    color: #fff;
     font-size: 12px;
     position: absolute;
-    left:24px;
+    left: 24px;
   }
 
-  &:after{
+  &::after {
     position: absolute;
     width: 18px;
     height: 18px;
     left: 2px;
-    top:1px;
-    border-radius: 50% 50%;
-    background-color: #ffffff;
-    content: " ";
+    top: 1px;
+    border-radius: 50%;
+    background-color: #fff;
+    content: ' ';
     cursor: pointer;
     box-shadow: $toggle-box-shadow;
     transform: scale(1);
-    transition: left $toggle-transition-time $toggle-transition-timing;
-    animation-timing-function: $toggle-transition-timing;
-    animation-duration: $toggle-transition-time;
+    transition: left $toggle-transition-duration $toggle-transition-timing-function;
+    animation-timing-function: $toggle-transition-timing-function;
+    animation-duration: $toggle-transition-duration;
     animation-name: toggleOff;
   }
 
-  &:hover:after{
+  &:hover::after {
     transform: scale(1.1);
     animation-name: toggleOn;
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px tint($blue, 80%);
     outline: none;
   }
 
-  &-checked{
+  &-checked {
     @extend .bg-gradient-invert;
 
     .rc-switch-inner {
-      left:6px;
+      left: 6px;
     }
 
-    &:after{
+    &::after {
       left: 22px;
     }
   }

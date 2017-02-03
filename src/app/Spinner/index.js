@@ -13,7 +13,7 @@ function DEFAULT () {
 function Spinner (props) {
   props = Object.assign(DEFAULT(), props)
   const {size, className, color} = props
-  const style = classnames('Spinner', className)
+  const style = classnames('spinner', className)
 
   return (
     <svg
@@ -23,7 +23,7 @@ function Spinner (props) {
       viewBox='0 0 66 66'
       xmlns='http://www.w3.org/2000/svg'>
       <circle
-        className={`Spinner-path Spinner-path__${color}`}
+        className={`spinner__path spinner__path--${color}`}
         fill='none'
         strokeWidth='6'
         strokeLinecap='round'

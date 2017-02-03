@@ -30,7 +30,6 @@ module.exports = {
     modules: ['node_modules']
   },
   plugins: [
-    new HotModuleReplacementPlugin(),
     new NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
@@ -42,6 +41,7 @@ module.exports = {
       inject: false
     })),
     new HtmlWebpackHarddiskPlugin(),
+    new HotModuleReplacementPlugin(),
     new BrowserSyncPlugin(
       // BrowserSync options
       {

@@ -1,64 +1,41 @@
-/* util */
+@import './variables';
 
-@function tint($color, $percent) {
-  @return mix(white, $color, $percent);
-}
+$ease-in-out: cubic-bezier(.4, .0, .2, 1);
 
-@function shade($color, $percent) {
-  @return mix(black, $color, $percent);
-}
-
-@mixin aside-transition($props...) {
+@mixin lateral-transition($props...) {
   transition-property: $props;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .2s;
+  transition-timing-function: $ease-in-out;
+
+  @include break(not-small) {
+    transition-duration: .3s;
+  }
+}
+
+@mixin hover-transition($props...) {
+  transition-property: $props;
   transition-duration: .35s;
-}
-
-@mixin transition($props...) {
-  transition-property: $props;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in;
-  transition-delay: initial;
+  transition-timing-function: $ease-in-out;
 }
 
 @mixin placeholder-color($color) {
-  &::-webkit-input-placeholder { /* WebKit browsers */
+  &::-webkit-input-placeholder {
     color: $color;
   }
-  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: $color;
-  }
-  &::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: $color;
-  }
-  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+
+  &:-ms-input-placeholder {
     color: $color;
   }
 }
 
-/* animation */
+// animations
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  from {
+    opacity: 0;
+  }
 
-@keyframes toggleOn {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-@keyframes toggleOff {
-  0% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
+  to {
+    opacity: 1;
   }
 }

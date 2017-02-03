@@ -20,7 +20,7 @@ function transformItems (items) {
 
 function CustomCurrentRefinements () {
   return (
-    <div data-app='current-filters' >
+    <div data-app='current-refinements' >
       <CurrentRefinements
         transformItems={transformItems}
         translations={{

@@ -1,7 +1,7 @@
 @import '../style';
 
-.Aside {
+.aside {
   position: absolute;
   -webkit-overflow-scrolling: touch;
-  @include aside-transition(transform);
+  @include lateral-transition(transform);
 }

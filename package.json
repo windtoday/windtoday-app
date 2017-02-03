@@ -63,7 +63,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
-    "lint": "standard",
+    "lint": "standard src/app && scss-lint src/app",
     "pretest": "npm run lint",
     "start": "node bin/server",
     "test": "echo 'not yet implemented, wanna help?'"

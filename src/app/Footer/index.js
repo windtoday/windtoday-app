@@ -9,7 +9,7 @@ import Logo from './Logo'
 
 function Footer () {
   return (
-    <footer className='tc pb3-l pb4 moon-gray'>
+    <footer data-app='footer' className='tc pb3-l pb4 moon-gray'>
 
       <small className='f6 db'>
         <PoweredBy />

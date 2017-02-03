@@ -33,21 +33,21 @@ const CustomSearchBox = createClass({
   },
 
   render () {
-    const iconStyle = 'SearchBox__icon absolute f4'
+    const iconStyle = 'searchbox__icon absolute f4'
     const {props, onInputMount, onChange, onFocus, onBlur, onClear, state} = this
     const {focus: isFocus} = state
     const {currentRefinement, className} = props
 
-    const iconSearchStyle = classnames(iconStyle, 'SearchBox__iconSearch ph3-l ph2 ml2-ns ml1 mr2-ns', {
-      'SearchBox__iconSearch__focus': isFocus,
-      'SearchBox__iconSearch__blur': !isFocus
+    const iconSearchStyle = classnames(iconStyle, 'searchbox__icon-search ph3-l ph2 ml2-ns ml1 mr2-ns', {
+      'searchbox__icon-search--focus': isFocus,
+      'searchbox__icon-search--blur': !isFocus
     })
 
-    const iconClearStyle = classnames(iconStyle, 'SearchBox__iconClear nl4 pointer', {
-      'SearchBox__iconClear__active': currentRefinement
+    const iconClearStyle = classnames(iconStyle, 'searchbox__icon-clear nl4 pointer', {
+      'searchbox__icon-clear--active': currentRefinement
     })
 
-    const boxStyle = classnames('SearchBox relative w-80 w-70-l pa2-ns pt2 pb2 pl2', className)
+    const boxStyle = classnames('searchbox relative w-80 w-70-l pa2-ns pt2 pb2 pl2', className)
 
     return (
       <div data-app='searchbox' className={boxStyle}>
@@ -56,7 +56,7 @@ const CustomSearchBox = createClass({
         />
         <input
           ref={onInputMount}
-          className='SearchBox__input w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid'
+          className='searchbox__input w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid'
           type='search'
           results={5}
           value={currentRefinement}

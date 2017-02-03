@@ -1,6 +1,6 @@
 @import '../style';
 
-.Hit {
+.hit {
   &:first-of-type {
     > a {
       padding-top: 0;
@@ -9,11 +9,11 @@
 }
 
 
-.Hit-image-wrapper {
+.hit__image-wrapper {
   width: 3rem;
-  @include transition(opacity);
+  @include hover-transition(opacity);
 }
 
-.Hit-price {
+.hit__price {
   min-width: 91.38px;
 }

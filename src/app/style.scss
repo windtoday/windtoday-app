@@ -1,61 +1,10 @@
-/* colors */
-
-$gold         : #FFC107;
-$moon-gray    : #CFD7E6;
-$light-silver : hsla(216, 18%, 65%, 0.8);
-$blue         : #19B5FE;
-$light-blue   : lighten($blue, 10%);
-$dark-blue    : darken($blue, 10%);
-$navy         : #4f5d72;
-$green        : #31d0c9;
-
-$gradient-one    : $light-blue;
-$gradient-two    : $green;
-$gradient        : linear-gradient(141deg, $gradient-one, $gradient-two);
-$gradient-invert : linear-gradient(141deg, $gradient-two, $gradient-one);
-
-.w-95 {width: 95%;}
-.bg-gradient {background:$gradient;}
-.bg-gradient-invert {background:$gradient-invert;}
-.no-break {
-  /* These are technically the same, but use both */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
-  word-break: break-all;
-  /* Instead use this non-standard one: */
-  word-break: break-word;
-
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
-  hyphens: auto;
-}
-
-@import '~tachyons-sass/tachyons';
-@import '~tachyons-queries/queries';
-
-$appbar-height            : 60px;
-$searchbox-border-width   : 1.8px;
-$searchbox-input-height   : $appbar-height * 0.7;
-$divider-color            : $near-white;
-
-$toggle-transition-time   : .3s;
-$toggle-transition-timing : cubic-bezier(0.35, 0, 0.25, 1);
-$toggle-on-color          : $blue;
-$toggle-off-color         : #fdfdfd;
-$toggle-border-color      : darken($near-white, 2%);
-$toggle-box-shadow        : 1px 2px 2px rgba(0, 0, 0, 0.16);
-
+@import './variables';
 @import './util';
 
-/* global */
+// global
 
 ::selection {
-  background: #B1D7FE;
-  color: $white;
-}
-
-::-moz-selection {
-  background: #B1D7FE;
+  background: #b1d7fe;
   color: $white;
 }
 
@@ -71,13 +20,9 @@ em {
   animation-duration: 1s;
 }
 
-input[type=checkbox] {
-  @extend .pointer;
-}
-
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
-	display: none;
+  display: none;
 }

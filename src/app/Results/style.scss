@@ -1,11 +1,11 @@
 @import '../style';
 
-.Results {
+.results {
   -webkit-overflow-scrolling: touch;
-  @include aside-transition(width, padding-left);
+  @include lateral-transition(width, padding-left);
 }
 
-.Results__expand {
+.results--expand {
   @include break(not-small) {
     padding-left: 25%;
   }

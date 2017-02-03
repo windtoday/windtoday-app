@@ -15,7 +15,7 @@ const Social = (props) =>
       title='windtodayco at facebook'
       target='_blank'>
       <svg
-        className='SocialIcon SocialIcon__facebook'
+        className='social-icon social-icon-facebook'
         data-icon='facebook'
         viewBox='0 0 32 32'>
         <title>facebook icon</title>
@@ -31,7 +31,7 @@ const Social = (props) =>
       title='@windtodayco at twitter'
       target='_blank'>
       <svg
-        className='SocialIcon SocialIcon__twitter'
+        className='social-icon social-icon-twitter'
         data-icon='twitter'
         viewBox='0 0 32 32'>
         <title>twitter icon</title>

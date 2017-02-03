@@ -4,13 +4,13 @@ import FacetsRight from '../../Facets/Right'
 
 import './style.scss'
 
-const theme = 'Aside shadow-1 AsideRight fl w-25-l w-95 vh-100 bg-white overflow-x-hidden overflow-y-scroll z-4 fixed'
+const theme = 'aside aside-right shadow-1 fl w-25-l w-95 vh-100 bg-white overflow-x-hidden overflow-y-scroll z-4 fixed'
 
 function AsideRight (props) {
   const { get } = props
 
   const style = classnames(theme, {
-    'AsideRight__collapse': !get('asideRightOpen')
+    'aside-right--collapse': !get('asideRightOpen')
   })
 
   return (

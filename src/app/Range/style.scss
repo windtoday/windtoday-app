@@ -42,14 +42,37 @@
   z-index: 2;
   width: 24px;
   font-size: 0;
-
   transform: scale(1);
-  animation-timing-function: $toggle-transition-timing;
-  animation-duration: $toggle-transition-time;
+  animation-timing-function: $toggle-transition-timing-function;
+  animation-duration: .3s;
   animation-name: toggleOff;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
     animation-name: toggleOn;
+  }
+}
+
+@keyframes toggleOn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes toggleOff {
+  0% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

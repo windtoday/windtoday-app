@@ -19,8 +19,8 @@ function AppBar (props) {
 
   return (
     <header
-      data-app='app-bar'
-      className='AppBar bg-gradient shadow-2 w-100 center pb2 pt1 ph3 flex justify-around items-center fixed z-5'>
+      data-app='appbar'
+      className='appbar bg-gradient shadow-2 w-100 center pb2 pt1 ph3 flex justify-around items-center fixed z-5'>
 
       {asideLeftButton({
         className: 'order-1 dim pointer white',
@@ -30,7 +30,7 @@ function AppBar (props) {
       <Logo className='order-2' {...props} />
       <SearchBox className='order-3' {...props} />
 
-      <div className='Changelog order-4' />
+      <div className='changelog order-4' />
 
       {asideRightButton({
         className: 'order-5 dim pointer white mn0-ns ml2',
