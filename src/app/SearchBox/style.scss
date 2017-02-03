@@ -1,6 +1,6 @@
 @import '../style';
 
-.SearchBox__input {
+.searchbox__input {
   height: $searchbox-input-height;
   outline: 0;
   border: 0;
@@ -13,28 +13,28 @@
   @include placeholder-color(rgba($white, .6));
 }
 
-.SearchBox__icon {
+.searchbox__icon {
   height: $searchbox-input-height;
   color: rgba($white, .6);
-  @include transition(color);
+  @include hover-transition(color);
 }
 
-.SearchBox__iconSearch__focus {
+.searchbox__icon-search--focus {
   color: $white;
 }
 
-.SearchBox__iconSearch {
-  @include transition(color);
+.searchbox__icon-search {
+  @include hover-transition(color);
 }
 
-.SearchBox__iconClear {
+.searchbox__icon-clear {
   transform: scale(0);
-  @include transition(color, transform);
+  @include hover-transition(color, transform);
   &:hover {
     color: $white;
   }
 }
 
-.SearchBox__iconClear__active {
+.searchbox__icon-clear--active {
   transform: scale(1);
 }

@@ -16,7 +16,7 @@ function createAddLabel (label) {
 
 function Facets () {
   return (
-    <section data-app='facets-right' className='Facets'>
+    <section data-app='facets-right' className='facets facets-right'>
 
       <RefinementList
         attributeName='brand'

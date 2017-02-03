@@ -20,14 +20,14 @@ const Results = createClass({
     const {get} = props
     const isAsideRightOpen = get('asideRightOpen')
     const isAsideLeftOpen = get('asideLeftOpen')
-    const hasAsideOpen = isAsideRightOpen || isAsideRightOpen
+    const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const theme = 'Results fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
+    const theme = 'results fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
-      'Results__expand': isAsideLeftOpen,
+      'results--expand': isAsideLeftOpen,
       'w-75': isDesktop && isAsideRightOpen,
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })

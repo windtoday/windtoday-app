@@ -26,12 +26,12 @@ function price (item) {
 function image (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('Hit-image w-100 db br3', {
+  const style = classnames('w-100 db br3', {
     'o-50': isHover
   })
 
   return (
-    <div className='Hit-image-wrapper dtc v-mid'>
+    <div className='hit__image-wrapper dtc v-mid'>
       <img alt={provider} src={imageURL} className={style} />
     </div>
   )
@@ -57,7 +57,7 @@ const Hit = createClass({
       'light-blue': isHover
     })
 
-    const priceStyle = classnames('Hit-price link dib ph2 ph3-l blue', {
+    const priceStyle = classnames('hit__price link dib ph2 ph3-l blue', {
       'light-blue': isHover
     })
 
@@ -66,12 +66,12 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
-        className='Hit fade-in bb b--near-white'
+        className='hit fade-in bb b--near-white'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >
         <a
-          data-hit='link'
+          data-app='hit-link'
           className='link dt w-100 pv2 pv1-l blue'
           href={item.link}
           target='_blank'
@@ -82,7 +82,7 @@ const Hit = createClass({
 
           <div className='dtc f4 w3 v-mid tc'>
             <p
-              data-hit='price'
+              data-app='hit-price'
               className={priceStyle}
               >
               {price(item)}</p>
@@ -90,14 +90,14 @@ const Hit = createClass({
 
           <div className='dtc v-mid pr3 lh-title'>
             <p
-              data-hit='title'
+              data-app='hit-title'
               className={titleStyle}
               >
               <Highlight attributeName='title' hit={item} />
               {isRecently(timestamp) && <Badge isHover={isHover}>new</Badge>}
             </p>
 
-            <p data-hit='date' className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
+            <p data-hit='hit-date' className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
               <TimeAgo date={timestamp} />
             </p>
           </div>

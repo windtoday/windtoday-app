@@ -1,11 +1,11 @@
 @import '../style';
 
-.Hits {
+.hits {
   margin-top: $appbar-height;
 }
 
-.Hits__btn {
-  &:hover{
+.hits__button {
+  &:hover {
     @extend .bg-gradient-invert;
   }
 }

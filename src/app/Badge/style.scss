@@ -1,12 +1,12 @@
 @import '../style';
 
-.Badge {
+.badge {
   font-size: 65%;
-  padding: 1px 3px 1px 3px;
+  padding: 1px 3px;
   top: -2px;
-  @include transition(opacity);
+  @include hover-transition(opacity);
 }
 
-.Badge__hover {
-  opacity:.5
+.badge--hover {
+  opacity: .5;
 }

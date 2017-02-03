@@ -1,10 +1,10 @@
 @import '../../style';
 @import '../style';
 
-.AsideRight {
+.aside-right {
   right: 0;
 }
 
-.AsideRight__collapse {
+.aside-right--collapse {
   transform: translateX(100%);
 }
