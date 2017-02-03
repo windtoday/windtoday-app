@@ -35,7 +35,7 @@ linters:
     enabled: false
 
   SpaceAfterVariableName:
-    severity: warning
+    enabled: false
 
   QualifyingElement:
     enabled: false
