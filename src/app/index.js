@@ -22,7 +22,10 @@ function render (component) {
 render(App)
 
 if (module.hot) {
-  module.hot.accept('./App', () => render(App))
+  module.hot.accept('./App', function () {
+    const NextApp = require('./App').default
+    return render(NextApp)
+  })
 } else {
   require('offline-plugin/runtime').install()
 }

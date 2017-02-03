@@ -6,11 +6,20 @@
       padding-top: 0;
     }
   }
+
+  @include hover-transition(background-color);
+
+  &:hover {
+    background-color: rgba($near-white, .5);
+  }
 }
 
 
 .hit__image-wrapper {
   width: 3rem;
+}
+
+.hit__image {
   @include hover-transition(opacity);
 }
 

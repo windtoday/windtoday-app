@@ -6,7 +6,7 @@ import './style.scss'
 
 function CustomStats () {
   return (
-    <header data-app='stats' className='fade-in db pt2 moon-gray'>
+    <header data-app='stats' className='fade-in db pt2 moon-gray ph3 ph4-l'>
       <CurrentRefinements />
       <Stats />
     </header>

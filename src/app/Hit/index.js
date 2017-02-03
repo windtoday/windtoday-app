@@ -26,7 +26,7 @@ function price (item) {
 function image (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('w-100 db br3', {
+  const style = classnames('hit__image w-100 db br3', {
     'o-50': isHover
   })
 
@@ -66,7 +66,7 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
-        className='hit fade-in bb b--near-white'
+        className='hit fade-in bb b--near-white ph3 ph4-l'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >

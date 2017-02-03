@@ -8,7 +8,7 @@ import './style.scss'
 
 function renderHasMore (refine, searching) {
   return (
-    <footer className='tc pv3'>
+    <footer className='tc pv3 ph3 ph4-l'>
       <a
         onClick={refine}
         style={{fontSize: '.8rem'}}
@@ -24,7 +24,7 @@ function CustomHits (props) {
   const hitsProps = { toggle, get }
 
   return (
-    <div data-app='hits' className='hits ph3 ph4-l'>
+    <div data-app='hits' className='hits'>
       <Stats />
       <div className='pv3'>
         {hits.map((item, key) => <Hit item={item} key={key} {...hitsProps} />)}
