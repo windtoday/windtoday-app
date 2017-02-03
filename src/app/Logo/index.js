@@ -2,31 +2,20 @@ import classnames from 'classnames'
 import React from 'react'
 import './style.scss'
 
-import {connectSearchBox} from 'react-instantsearch/connectors'
-
-const getStyle = (isDesktop) => isDesktop ? 'Logo__desktop' : 'Logo__mobile'
+const getStyle = (isDesktop) => isDesktop ? 'Logo--big' : 'Logo--tiny'
 const getImage = (isDesktop) => isDesktop ? 'logo' : 'logo-tiny'
 
 function Logo (props) {
-  const {get, className, refine} = props
+  const {get, className} = props
   const isDesktop = get('isDesktop')
   const image = getImage(isDesktop)
-  const deviceStyle = getStyle(isDesktop)
-  const theme = 'button-reset mh0-ns ma2 pointer'
-  const style = classnames('Logo', deviceStyle, theme, className)
-
-  function onClear () {
-    refine('')
-  }
+  const style = classnames('Logo', getStyle(isDesktop), 'mh0-ns ma2', className)
 
   return (
-    <a
-      className={style}
-      onClick={onClear}
-    >
-      <img className='Logo-img' alt='windtoday' src={`/assets/img/${image}.png`} />
+    <a href='/' className={style}>
+      <img alt='windtoday' src={`/assets/img/${image}.png`} />
     </a>
   )
 }
 
-export default connectSearchBox(Logo)
+export default Logo
