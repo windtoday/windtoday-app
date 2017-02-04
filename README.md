@@ -1,5 +1,7 @@
 # windtoday-marketplace
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/windtoday/windtoday-marketplace.svg)](https://greenkeeper.io/)
+
 ![Last version](https://img.shields.io/github/tag/windtoday/windtoday-marketplace.svg?style=flat-square)
 [![Build Status](http://img.shields.io/travis/windtoday/windtoday-marketplace/master.svg?style=flat-square)](https://travis-ci.org/windtoday/windtoday-marketplace)
 [![Coverage Status](https://img.shields.io/coveralls/windtoday/windtoday-marketplace.svg?style=flat-square)](https://coveralls.io/github/windtoday/windtoday-marketplace)
