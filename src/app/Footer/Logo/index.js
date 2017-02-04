@@ -4,7 +4,7 @@ const Logo = () =>
   <img
     className='grow ph1'
     alt='windtoday'
-    src='/assets/img/logo-tiny.png'
+    src='/assets/img/logo-tiny-blue.png'
     style={{width: '34px'}}
   />
 
