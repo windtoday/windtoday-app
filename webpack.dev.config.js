@@ -1,7 +1,7 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const BrowserSyncPlugin = require('browser-sync-webpack')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
