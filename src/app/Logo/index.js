@@ -1,23 +1,12 @@
 import classnames from 'classnames'
 import React, {createClass} from 'react'
-import './style.scss'
+import {connectCurrentRefinements} from 'react-instantsearch/connectors'
 
-import {connectCurrentRefinements, connectSearchBox} from 'react-instantsearch/connectors'
+import './style.scss'
+import ClearAll from './ClearAll'
 
 const getStyle = (isDesktop) => isDesktop ? 'logo--big' : 'logo--tiny'
 const getImage = (isDesktop) => isDesktop ? 'logo' : 'logo-tiny'
-
-function LogoWrapper (props) {
-  const {refine, items, children, className} = props
-  return (
-    <a
-      className={`pointer ${className}`}
-      onClick={refine.bind(null, items)}
-      >{children}</a>
-  )
-}
-
-const ConnectedLogoWrapper = connectCurrentRefinements(LogoWrapper)
 
 const Logo = createClass({
   getInitialState () {
@@ -41,7 +30,8 @@ const Logo = createClass({
   render () {
     const {props, state, clickedAnimation} = this
     const {clicked} = state
-    const {get, className, refine} = props
+    const {query, items, get, className} = props
+
     const isDesktop = get('isDesktop')
     const image = getImage(isDesktop)
     const style = classnames('logo', getStyle(isDesktop), 'mh0-ns ma2', {
@@ -49,21 +39,20 @@ const Logo = createClass({
     })
 
     const onClick = (evt) => {
-      clickedAnimation()
-      refine('')
-      evt.stopPropagation()
+      const isDisabled = items.length === 0 && (!query || query === '')
+      !isDisabled && clickedAnimation()
     }
 
     return (
-      <ConnectedLogoWrapper className={className}>
+      <ClearAll className={`pointer ${className}`} clearsQuery>
         <img
           ref='img'
           className={style} onClick={onClick}
           alt='windtoday'
           src={`/assets/img/${image}.png`} />
-      </ConnectedLogoWrapper>
+      </ClearAll>
     )
   }
 })
 
-export default connectSearchBox(Logo)
+export default connectCurrentRefinements(Logo)
