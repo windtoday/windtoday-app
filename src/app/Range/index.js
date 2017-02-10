@@ -6,10 +6,11 @@ import './style.scss'
 
 const Range = createClass({
   propTypes: {
-    min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired,
-    currentRefinement: PropTypes.object.isRequired,
-    refine: PropTypes.func.isRequired
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    currentRefinement: React.PropTypes.object,
+    refine: PropTypes.func.isRequired,
+    canRefine: React.PropTypes.bool.isRequired
   },
 
   getInitialState () {
@@ -52,6 +53,8 @@ const Range = createClass({
     const { onChange, onValuesUpdated, state, props } = this
     const { min, max, label, attributeName } = props
     const {currentRefinement} = state
+
+    if (!currentRefinement) return null
     const values = [currentRefinement.min, currentRefinement.max]
 
     return (
