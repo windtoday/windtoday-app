@@ -32,10 +32,6 @@ $gradient-invert: linear-gradient(141deg, $gradient-two, $gradient-one);
   hyphens: auto;
 }
 
-.lh-title {
-  line-height: 1.3rem;
-}
-
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
 

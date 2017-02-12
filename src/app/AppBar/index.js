@@ -20,7 +20,7 @@ function AppBar (props) {
   return (
     <header
       data-app='appbar'
-      className='appbar bg-gradient shadow-2 w-100 center pb2 pt1 ph3 flex justify-around items-center fixed z-5'>
+      className='appbar bg-gradient shadow-2 w-100 pb2 ph3 flex justify-around items-center fixed z-5'>
 
       {asideLeftButton({
         className: 'order-1 dim pointer white',

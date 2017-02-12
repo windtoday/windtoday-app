@@ -84,7 +84,7 @@ const Hit = createClass({
             >
             {price(item)}</p>
 
-          <div className='flex-auto lh-title'>
+          <div className='flex-auto lh-copy'>
             <p
               className={titleStyle}
               >
