@@ -14,9 +14,9 @@
   }
 }
 
-
 .hit__image-wrapper {
   width: 3rem;
+  min-width: 3rem;
 }
 
 .hit__image {
@@ -24,5 +24,9 @@
 }
 
 .hit__price {
-  min-width: 91.38px;
+  min-width: 80px;
+
+  @include break(large) {
+    min-width: 91.38px;
+  }
 }

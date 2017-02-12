@@ -57,7 +57,7 @@ const Hit = createClass({
       'light-blue': isHover
     })
 
-    const priceStyle = classnames('hit__price link dib ph2 ph3-l blue', {
+    const priceStyle = classnames('hit__price link blue', {
       'light-blue': isHover
     })
 
@@ -66,13 +66,12 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
-        className='hit fade-in bb b--near-white ph3 ph4-l'
+        className='hit fade-in bb b--near-white pv1 ph3 ph4-l'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >
         <a
-          data-app='hit-link'
-          className='link dt w-100 pv2 pv1-l blue'
+          className='hit__link flex flex-row justify-center items-center link w-100 pv2 pv1-l blue'
           href={item.link}
           target='_blank'
           rel='noopener'
@@ -80,24 +79,20 @@ const Hit = createClass({
 
           {image(item, isHover, onHover)}
 
-          <div className='dtc f4 w3 v-mid tc'>
-            <p
-              data-app='hit-price'
-              className={priceStyle}
-              >
-              {price(item)}</p>
-          </div>
+          <p
+            className={`f4 w3 tc ${priceStyle}`}
+            >
+            {price(item)}</p>
 
-          <div className='dtc v-mid pr3 lh-title'>
+          <div className='flex-auto lh-title'>
             <p
-              data-app='hit-title'
               className={titleStyle}
               >
               <Highlight attributeName='title' hit={item} />
               {isRecently(timestamp) && <Badge isHover={isHover}>new</Badge>}
             </p>
 
-            <p data-hit='hit-date' className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
+            <p className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
               <TimeAgo date={timestamp} />
             </p>
           </div>
