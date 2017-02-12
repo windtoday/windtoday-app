@@ -1,9 +1,25 @@
 @import '../style';
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 darken(rgba($gold, .4), 10%);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px darken(rgba($gold, 0), 10%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 darken(rgba($gold, 0), 10%);
+  }
+}
+
 .badge {
   font-size: 65%;
   padding: 1px 3px;
   top: -2px;
+  box-shadow: 0 0 0 darken(rgba($gold, .4), 10%);
+  animation: pulse 3s infinite;
   @include hover-transition(opacity);
 }
 
