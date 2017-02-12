@@ -4,7 +4,6 @@
   height: $appbar-height;
 
   > * {
-    position: relative;
-    top: 3px;
+    padding: 0 .5rem;
   }
 }

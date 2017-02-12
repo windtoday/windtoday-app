@@ -34,7 +34,7 @@ const Logo = createClass({
 
     const isDesktop = get('isDesktop')
     const image = getImage(isDesktop)
-    const style = classnames('logo', getStyle(isDesktop), 'mh0-ns ma2', {
+    const style = classnames('logo', getStyle(isDesktop), {
       'logo--shake': clicked
     })
 

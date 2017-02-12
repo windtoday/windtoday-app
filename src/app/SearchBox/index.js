@@ -47,7 +47,7 @@ const CustomSearchBox = createClass({
       'searchbox__icon-clear--active': currentRefinement
     })
 
-    const boxStyle = classnames('searchbox relative w-80 w-70-l pa2-ns pt2 pb2 pl2', className)
+    const boxStyle = classnames('searchbox relative w-80 w-70-l', className)
 
     return (
       <div data-app='searchbox' className={boxStyle}>

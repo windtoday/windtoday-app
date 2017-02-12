@@ -20,7 +20,7 @@ function AppBar (props) {
   return (
     <header
       data-app='appbar'
-      className='appbar bg-gradient shadow-2 w-100 pb2 ph3 flex justify-around items-center fixed z-5'>
+      className='appbar bg-gradient shadow-2 w-100 ph3 flex justify-around items-center fixed z-5'>
 
       {asideLeftButton({
         className: 'order-1 dim pointer white',
@@ -33,7 +33,7 @@ function AppBar (props) {
       <div className='changelog order-4' />
 
       {asideRightButton({
-        className: 'order-5 dim pointer white mn0-ns ml2',
+        className: 'order-5 dim pointer white',
         onClick: toggle('asideRightOpen')
       })}
 
