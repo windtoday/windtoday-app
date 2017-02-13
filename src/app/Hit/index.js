@@ -47,10 +47,15 @@ const Hit = createClass({
     this.setState({isHover: !isHover})
   },
 
-  render () {
-    const {props, state, onHover} = this
-    const {item} = props
+  renderBadge (item, timestamp) {
+    if (item.isForced) return
+    const {isHover} = this.state
+    { isRecently(timestamp) && <Badge isHover={isHover}>new</Badge> }
+  },
 
+  render () {
+    const {props, state, onHover, renderBadge} = this
+    const {item} = props
     const {isHover} = state
 
     const titleStyle = classnames('link f6 f5-l fw6 mv0 helvetica navy', {
@@ -89,7 +94,7 @@ const Hit = createClass({
               className={titleStyle}
               >
               <Highlight attributeName='title' hit={item} />
-              {isRecently(timestamp) && <Badge isHover={isHover}>new</Badge>}
+              {renderBadge(item, timestamp)}
             </p>
 
             <p className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
