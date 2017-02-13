@@ -1,8 +1,10 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const webpack = require('webpack')
@@ -37,6 +39,50 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
+    new LodashModuleReplacementPlugin(),
+    new HashedModuleIdsPlugin(),
+    new OccurrenceOrderPlugin(),
+    new AggressiveMergingPlugin(),
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: 'assets/css/bundle.css'
+    }),
+    new PurifyCSSWebpackPlugin({
+      basePath: path.resolve('src/www'),
+      resolveExtensions: ['.js'],
+      purifyOptions: {
+        minify: true,
+        rejected: true
+      }
+    }),
+    new CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'assets/js/vendor.bundle.js',
+      minChunks: Infinity
+    }),
+    new UglifyJsPlugin({
+      sourceMap: true,
+      minimize: true,
+      compress: { warnings: false },
+      comments: false
+    }),
+    new OfflinePlugin({
+      relativePaths: false,
+      publicPath: '/',
+      caches: {
+        main: [':rest:'],
+        additional: [
+          'assets/js/vendor.bundle.js',
+          ':externals:'
+        ],
+        externals: [
+          'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
+          'https://www.google-analytics.com/analytics.js'
+        ]
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
+    }),
     new HtmlWebpackPlugin(Object.assign({}, config, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
@@ -64,51 +110,8 @@ module.exports = {
         minifyURLs: true
       }
     })),
-    new HtmlWebpackHarddiskPlugin(),
-    new AggressiveMergingPlugin(),
-    new ExtractTextPlugin({
-      allChunks: true,
-      filename: 'assets/css/bundle.css'
-    }),
-    new PurifyCSSWebpackPlugin({
-      basePath: path.resolve('src/www'),
-      resolveExtensions: ['.js'],
-      purifyOptions: {
-        minify: true,
-        rejected: true
-      }
-    }),
-    new HashedModuleIdsPlugin(),
-    // optimizations
-    new CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'assets/js/vendor.bundle.js',
-      minChunks: Infinity
-    }),
-    new OccurrenceOrderPlugin(),
-    new UglifyJsPlugin({
-      sourceMap: true,
-      minimize: true,
-      compress: { warnings: false },
-      comments: false
-    }),
-    new OfflinePlugin({
-      relativePaths: false,
-      publicPath: '/',
-      caches: {
-        main: [':rest:'],
-        additional: [
-          'assets/js/vendor.bundle.js',
-          ':externals:'
-        ],
-        externals: [
-          'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
-          'https://www.google-analytics.com/analytics.js'
-        ]
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
-    })
+    new PreloadWebpackPlugin(),
+    new HtmlWebpackHarddiskPlugin()
   ],
   module: {
     rules: [{
