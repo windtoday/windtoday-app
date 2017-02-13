@@ -102,7 +102,6 @@ module.exports = {
           ':externals:'
         ],
         externals: [
-          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
           'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
           'https://www.google-analytics.com/analytics.js'
         ]
