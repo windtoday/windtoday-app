@@ -1,7 +1,6 @@
 'use strict'
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
@@ -39,7 +38,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
-    new LodashModuleReplacementPlugin(),
     new HashedModuleIdsPlugin(),
     new OccurrenceOrderPlugin(),
     new AggressiveMergingPlugin(),
