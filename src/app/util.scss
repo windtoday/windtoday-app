@@ -6,10 +6,6 @@ $ease-in-out: cubic-bezier(.4, .0, .2, 1);
   transition-property: $props;
   transition-duration: .2s;
   transition-timing-function: $ease-in-out;
-
-  @include break(not-small) {
-    transition-duration: .3s;
-  }
 }
 
 @mixin hover-transition($props...) {
