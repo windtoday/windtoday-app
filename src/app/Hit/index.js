@@ -48,9 +48,9 @@ const Hit = createClass({
   },
 
   renderBadge (item, timestamp) {
-    if (item.isForced) return
+    if (item.isForced || !isRecently(timestamp)) return
     const {isHover} = this.state
-    { isRecently(timestamp) && <Badge isHover={isHover}>new</Badge> }
+    return <Badge isHover={isHover}>new</Badge>
   },
 
   render () {
