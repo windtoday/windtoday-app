@@ -4,6 +4,11 @@
   height: $appbar-height;
 
   > * {
-    padding: 0 .5rem;
+    padding: 0 .25rem;
+    vertical-align: middle;
   }
+}
+
+.changelog {
+  margin: -6px;
 }
