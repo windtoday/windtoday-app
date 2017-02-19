@@ -105,7 +105,16 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', '<%= htmlWebpackPlugin.options.googleAnalytics %>', 'auto');
+      ga('set', 'transport', 'beacon');
       ga('send', 'pageview');
+      window.addEventListener('error', function(error) {
+        ga('send', 'event', {
+          eventCategory: 'Script',
+          eventAction: 'uncaught error',
+          eventLabel: (error && error.stack) || '(not set)',
+          nonInteraction: true
+        });
+      });
     </script>
     <% } %>
     <% if (isProduction) { %>
