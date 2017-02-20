@@ -27,5 +27,10 @@ if (module.hot) {
     return render(NextApp)
   })
 } else {
+  require('autotrack/lib/plugins/outbound-link-tracker')
+  require('autotrack/lib/plugins/clean-url-tracker')
+  require('autotrack/lib/plugins/max-scroll-tracker')
+  require('autotrack/lib/plugins/page-visibility-tracker')
+  require('autotrack/lib/plugins/url-change-tracker')
   require('offline-plugin/runtime').install()
 }
