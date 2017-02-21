@@ -27,7 +27,7 @@ function AppBar (props) {
         onClick: toggle('asideLeftOpen')
       })}
 
-      <Logo className='order-2' {...props} />
+      <Logo className='order-2' {...props} clearsQuery />
       <SearchBox className='order-3' {...props} />
 
       <div className='changelog order-4' />
