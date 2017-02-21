@@ -10,8 +10,8 @@ import './style.scss'
 function isRecently (timestamp) {
   const now = Date.now()
   const diff = now - timestamp
-  const last24hours = 1000 * 60 * 60 * 24
-  return diff < last24hours
+  const last12hours = 1000 * 60 * 60 * 12
+  return diff < last12hours
 }
 
 function getTimestamp (item) {
