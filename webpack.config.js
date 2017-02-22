@@ -2,6 +2,7 @@
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const PurifyCSSWebpackPlugin = require('purifycss-webpack-plugin')
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -32,6 +33,24 @@ module.exports = {
   resolve: {
     extensions: ['.scss', '.css', '.js'],
     modules: ['node_modules']
+  },
+  module: {
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: ['babel-loader'],
+      include: path.resolve('src/app')
+    }, {
+      test: /\.(css|scss)$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader?minimize&sourceMap',
+          'sass-loader',
+          'postcss-loader'
+        ]
+      })
+    }]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -109,24 +128,12 @@ module.exports = {
       }
     })),
     new PreloadWebpackPlugin(),
-    new HtmlWebpackHarddiskPlugin()
-  ],
-  module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: ['babel-loader'],
-      include: path.resolve('src/app')
-    }, {
-      test: /\.(css|scss)$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          'css-loader?minimize&sourceMap',
-          'sass-loader',
-          'postcss-loader'
-        ]
-      })
-    }]
-  }
+    new HtmlWebpackHarddiskPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      logLevel: 'error'
+    })
+  ]
 }

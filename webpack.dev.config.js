@@ -30,6 +30,22 @@ module.exports = {
     extensions: ['.scss', '.css', '.js', '.json'],
     modules: ['node_modules']
   },
+  module: {
+    rules: [{
+      test: /(\.js|\.jsx)$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader?cacheDirectory',
+      include: path.resolve('src/app')
+    }, {
+      test: /(\.scss|\.css)$/,
+      loader: [
+        'style-loader',
+        'css-loader',
+        'sass-loader',
+        'postcss-loader'
+      ]
+    }]
+  },
   plugins: [
     new NamedModulesPlugin(),
     new webpack.DefinePlugin({
@@ -62,21 +78,5 @@ module.exports = {
         reload: false
       }
     )
-  ],
-  module: {
-    rules: [{
-      test: /(\.js|\.jsx)$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader?cacheDirectory',
-      include: path.resolve('src/app')
-    }, {
-      test: /(\.scss|\.css)$/,
-      loader: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
-        'postcss-loader'
-      ]
-    }]
-  }
+  ]
 }
