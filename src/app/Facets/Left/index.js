@@ -13,6 +13,10 @@ function Facets () {
       />
 
       <RefinementList
+        attributeName='condition'
+      />
+
+      <RefinementList
         attributeName='category'
       />
 
@@ -20,9 +24,6 @@ function Facets () {
         attributeName='provider'
       />
 
-      <RefinementList
-        attributeName='condition'
-      />
     </section>
   )
 }
