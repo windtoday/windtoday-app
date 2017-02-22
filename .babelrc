@@ -1,9 +1,10 @@
 {
   "presets": [
     "react",
-    ["latest", { "modules": false }]
+    "latest"
   ],
   "plugins": [
+    "lodash",
     "transform-object-rest-spread",
     "react-hot-loader/babel"
   ],
@@ -11,9 +12,6 @@
     "production": {
       "presets": [
         "react-optimize"
-      ],
-      "plugins": [
-        "lodash"
       ]
     }
   }
