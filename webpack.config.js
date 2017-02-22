@@ -37,9 +37,8 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: ['babel-loader'],
-      include: path.resolve('src/app')
+      exclude: /node_modules\/(?!(autotrack|dom-utils))/,
+      use: ['babel-loader']
     }, {
       test: /\.(css|scss)$/,
       use: ExtractTextPlugin.extract({
