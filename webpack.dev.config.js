@@ -15,6 +15,7 @@ module.exports = {
     hints: false
   },
   devtool: 'eval',
+  cache: true,
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
