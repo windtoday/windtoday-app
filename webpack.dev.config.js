@@ -33,9 +33,8 @@ module.exports = {
   module: {
     rules: [{
       test: /(\.js|\.jsx)$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader?cacheDirectory',
-      include: path.resolve('src/app')
+      exclude: /node_modules\/(?!(autotrack|dom-utils))/,
+      loader: 'babel-loader?cacheDirectory'
     }, {
       test: /(\.scss|\.css)$/,
       loader: [
