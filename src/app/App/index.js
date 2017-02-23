@@ -14,6 +14,12 @@ import './style.scss'
 // You can ignore this warning. For details, see:
 // https://github.com/reactjs/react-router/issues/2182
 
+const UPDATE_THRESHOLD = 700
+
+function createURL (state) {
+  return `?${qs.stringify(state)}`
+}
+
 function getDevice () {
   if (window.innerWidth > 960) return 'desktop'
   return 'mobile'
@@ -41,9 +47,7 @@ const App = createClass({
     this.setState({searchState: qs.parse(this.props.router.location.query)})
   },
 
-  createURL (state) {
-    return `?${qs.stringify(state)}`
-  },
+  createURL,
 
   toggle (key) {
     return (e) => {
@@ -57,15 +61,13 @@ const App = createClass({
   },
 
   onSearchStateChange (nextSearchState) {
-    const THRESHOLD = 700
+    const {props, state} = this
+    const {lastPush} = state
     const newPush = Date.now()
     this.setState({lastPush: newPush, searchState: nextSearchState})
-
-    if (this.state.lastPush && newPush - this.state.lastPush <= THRESHOLD) {
-      this.props.router.replace(nextSearchState ? `?${qs.stringify(nextSearchState)}` : '')
-    } else {
-      this.props.router.push(nextSearchState ? `?${qs.stringify(nextSearchState)}` : '')
-    }
+    if (!lastPush) return
+    const method = (newPush - lastPush <= UPDATE_THRESHOLD) ? 'replace' : 'push'
+    props.router[method](nextSearchState ? createURL(nextSearchState) : '')
   },
 
   render () {
