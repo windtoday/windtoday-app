@@ -39,8 +39,13 @@ const App = createClass({
   getInitialState () {
     const device = getDeviceState()
     const sidebar = {asideLeftOpen: device.isDesktop}
-    const searchState = {...qs.parse(this.props.router.location.query)}
-    return {...device, ...sidebar, searchState}
+    const searchState = qs.parse(this.props.router.location.query)
+
+    return {
+      ...device,
+      ...sidebar,
+      searchState
+    }
   },
 
   componentWillReceiveProps () {
