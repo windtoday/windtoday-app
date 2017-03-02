@@ -1,24 +1,18 @@
-import React, {createClass} from 'react'
+import React, {createClass, PropTypes} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
-import {withRouter} from 'react-router'
 import qs from 'qs'
 
 import AppBar from '../AppBar'
 import Main from '../Main'
 import './style.scss'
 
-// If you use React Router, make this component
-// render <Router> with your routes. Currently,
-// only synchronous routes are hot reloaded, and
-// you will see a warning from <Router> on every reload.
-// You can ignore this warning. For details, see:
-// https://github.com/reactjs/react-router/issues/2182
+const updateAfter = 700
 
-const UPDATE_THRESHOLD = 700
+const searchStateToUrl =
+  (props, searchState) =>
+    searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
 
-function createURL (state) {
-  return `?${qs.stringify(state)}`
-}
+const createURL = (state) => `?${qs.stringify(state)}`
 
 function getDevice () {
   if (window.innerWidth > 960) return 'desktop'
@@ -36,23 +30,16 @@ function getDeviceState () {
 }
 
 const App = createClass({
+  propTypes: {
+    push: React.PropTypes.func.isRequired,
+    location: React.PropTypes.object.isRequired
+  },
   getInitialState () {
     const device = getDeviceState()
     const sidebar = {asideLeftOpen: device.isDesktop}
-    const searchState = qs.parse(this.props.router.location.query)
-
-    return {
-      ...device,
-      ...sidebar,
-      searchState
-    }
+    const searchState = qs.parse(this.props.location.search.slice(1))
+    return {...device, ...sidebar, searchState}
   },
-
-  componentWillReceiveProps () {
-    this.setState({searchState: qs.parse(this.props.router.location.query)})
-  },
-
-  createURL,
 
   toggle (key) {
     return (e) => {
@@ -65,18 +52,20 @@ const App = createClass({
     return this.state[key]
   },
 
-  onSearchStateChange (nextSearchState) {
-    const {props, state} = this
-    const {lastPush} = state
-    const newPush = Date.now()
-    this.setState({lastPush: newPush, searchState: nextSearchState})
-    if (!lastPush) return
-    const method = (newPush - lastPush <= UPDATE_THRESHOLD) ? 'replace' : 'push'
-    props.router[method](nextSearchState ? createURL(nextSearchState) : '')
+  onSearchStateChange (searchState) {
+    clearTimeout(this.debouncedSetState)
+    this.debouncedSetState = setTimeout(() => {
+      this.props.push(
+      searchStateToUrl(this.props, searchState),
+      searchState
+      )
+    }, updateAfter)
+    this.setState({searchState})
   },
 
   render () {
     const {toggle, get, onSearchStateChange, createURL, state} = this
+    const {searchState} = state
     const props = {toggle, get}
 
     return (
@@ -84,7 +73,7 @@ const App = createClass({
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
         indexName='primary'
-        searchState={state.searchState}
+        searchState={searchState}
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
@@ -95,4 +84,4 @@ const App = createClass({
   }
 })
 
-export default withRouter(App)
+export default App
