@@ -2,6 +2,7 @@
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
@@ -46,6 +47,7 @@ module.exports = {
     }]
   },
   plugins: [
+    new DashboardPlugin(),
     new NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),

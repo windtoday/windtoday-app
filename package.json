@@ -59,6 +59,7 @@
     "browser-sync": "latest",
     "browser-sync-webpack-plugin": "latest",
     "standard": "latest",
+    "webpack-dashboard": "latest",
     "webpack-dev-server": "latest"
   },
   "engines": {
@@ -68,7 +69,7 @@
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "standard src/app && scss-lint src/app",
     "pretest": "npm run lint",
-    "start": "node bin/server",
+    "start": "webpack-dashboard -- node bin/server",
     "test": "echo 'not yet implemented, wanna help?'"
   },
   "private": true,
