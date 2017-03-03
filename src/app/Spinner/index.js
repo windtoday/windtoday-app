@@ -3,15 +3,13 @@ import React from 'react'
 
 import './style.scss'
 
-function DEFAULT () {
-  return {
-    size: '65px',
-    color: 'white'
-  }
+const DEFAULT = {
+  size: '65px',
+  color: 'white'
 }
 
 function Spinner (props) {
-  props = Object.assign(DEFAULT(), props)
+  props = {...DEFAULT, props}
   const {size, className, color} = props
   const style = classnames('spinner', className)
 
