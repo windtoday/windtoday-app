@@ -1,9 +1,9 @@
 @import './variables';
-
-$ease-in-out: cubic-bezier(.4, .0, .2, 1);
+$ease-in-out: cubic-bezier(.4, 0, .2, 1);
 
 @mixin lateral-transition($props...) {
   transition-property: $props;
+  will-change: $props;
   transition-duration: .2s;
   transition-timing-function: $ease-in-out;
 }
@@ -23,8 +23,6 @@ $ease-in-out: cubic-bezier(.4, .0, .2, 1);
     color: $color;
   }
 }
-
-// animations
 
 @keyframes fadeIn {
   from {
