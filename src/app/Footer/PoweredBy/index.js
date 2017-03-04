@@ -1,9 +1,18 @@
 import React from 'react'
-import AlgoliaLogo from './AlgoliaLogo'
+import IconAlgolia from '../../Icon/algolia'
 
 const PoweredBy = () =>
   <span>
-    Powered by <a href='https://algolia.com' target='blank' className='link pointer'><AlgoliaLogo className='grow v-mid w3 v-btm' /></a>
+    Powered by
+      <a
+        href='https://algolia.com'
+        target='_blank'
+        className='link pointer'
+      >
+        <IconAlgolia
+          className='grow v-mid w3 v-btm'
+          />
+      </a>
   </span>
 
 export default PoweredBy
