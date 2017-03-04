@@ -113,10 +113,11 @@
       ga('require', 'urlChangeTracker');
       ga('send', 'pageview');
       window.addEventListener('error', function(error) {
+        error = error || {message: '(not set)'}
         ga('send', 'event', {
           eventCategory: 'Script',
           eventAction: 'uncaught error',
-          eventLabel: (error && error.stack) || '(not set)',
+          eventLabel: error.stack || error.message || error,
           nonInteraction: true
         });
       });
