@@ -31,8 +31,8 @@ function getDeviceState () {
 
 const App = createClass({
   propTypes: {
-    push: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired
   },
   getInitialState () {
     const device = getDeviceState()
@@ -55,7 +55,7 @@ const App = createClass({
   onSearchStateChange (searchState) {
     clearTimeout(this.debouncedSetState)
     this.debouncedSetState = setTimeout(() => {
-      this.props.push(
+      this.props.history.push(
       searchStateToUrl(this.props, searchState),
       searchState
       )

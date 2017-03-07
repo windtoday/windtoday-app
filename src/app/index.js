@@ -1,4 +1,7 @@
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 import {AppContainer} from 'react-hot-loader'
 import ReactDOM from 'react-dom'
 import React from 'react'
@@ -12,7 +15,7 @@ function render (component) {
   return ReactDOM.render(
     <AppContainer>
       <Router>
-        <Route pattern='/' component={App} />
+        <Route path='/' component={App} />
       </Router>
     </AppContainer>,
     el
