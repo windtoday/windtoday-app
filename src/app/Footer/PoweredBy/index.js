@@ -7,7 +7,7 @@ const PoweredBy = () =>
       <a
         href='https://algolia.com'
         target='_blank'
-        className='link pointer'
+        className='link pointer ph1'
       >
         <IconAlgolia
           className='grow v-mid w3 v-btm'
