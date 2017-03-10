@@ -9,7 +9,8 @@ const DEFAULT = {
 }
 
 function Spinner (props) {
-  props = {...DEFAULT, props}
+  props = {...DEFAULT, ...props}
+
   const {size, className, color} = props
   const style = classnames('spinner', className)
 
