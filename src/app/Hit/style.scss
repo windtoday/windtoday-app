@@ -6,6 +6,7 @@
       padding-top: 0;
     }
   }
+
   @include hover-transition(background-color);
 
   &:hover {
