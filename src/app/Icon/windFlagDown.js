@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IconWind = (props) =>
+const IconWindFlagDown = (props) =>
   <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'>
     <ellipse transform='rotate(61 27.18 21.34)' cx='27.181' cy='21.34' rx='4' ry='12' fill='#BDD7E5' />
     <path d='M19.177 29.13c-2.102 0-2.99-.81-3.367-1.488-.525-.948-.633-2.644 1.84-5.338 1.688-1.837 4.21-3.732 7.105-5.338 3.86-2.14 7.76-3.416 10.43-3.416 2.1 0 2.99.81 3.365 1.486 1.59 2.873-3.296 7.545-8.946 10.677-3.86 2.14-7.758 3.416-10.427 3.416zm16.007-13.58c-2.312 0-5.936 1.213-9.46 3.166-2.71 1.503-5.055 3.258-6.6 4.94-1.597 1.738-1.722 2.733-1.565 3.016.122.222.61.457 1.617.457 2.31 0 5.935-1.214 9.458-3.167 6.225-3.45 8.66-7.066 8.166-7.957-.12-.22-.61-.456-1.616-.456z' fill='#ABCADD' />
@@ -14,4 +14,4 @@ const IconWind = (props) =>
     <path fill='#BDC3C7' stroke='#7F8C8D' strokeWidth='2' strokeMiterlimit='10' d='M10.506 49h4v6h-4zM8.506 55h8v4h-8z' />
   </svg>
 
-export default IconWind
+export default IconWindFlagDown
