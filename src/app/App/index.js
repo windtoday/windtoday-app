@@ -36,7 +36,7 @@ const App = createClass({
   },
   getInitialState () {
     const device = getDeviceState()
-    const sidebar = {asideLeftOpen: device.isDesktop}
+    const sidebar = {asideLeftOpen: device.isDesktop, asideRightOpen: device.isDesktop}
     const searchState = qs.parse(this.props.location.search.slice(1))
     return {...device, ...sidebar, searchState}
   },
