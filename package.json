@@ -42,17 +42,17 @@
     "react-hot-loader": "3.0.0-beta.6",
     "react-icons": "~2.2.3",
     "react-instantsearch": "~3.2.1",
-    "react-router-dom": "~4.0.0-beta.7",
+    "react-router-dom": "~4.0.0",
     "react-swipeable": "~3.9.2",
     "react-timeago": "~3.2.0",
     "rheostat": "~2.1.0",
-    "sass-loader": "~6.0.2",
+    "sass-loader": "~6.0.3",
     "style-loader": "~0.13.2",
     "tachyons-queries": "~0.3.3",
     "tachyons-sass": "~4.7.1",
     "travis-after-all": "~1.4.4",
     "webpack": "~2.2.1",
-    "webpack-bundle-analyzer": "~2.3.0"
+    "webpack-bundle-analyzer": "~2.3.1"
   },
   "devDependencies": {
     "babel-preset-react-optimize": "latest",
