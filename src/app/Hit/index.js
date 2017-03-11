@@ -58,7 +58,7 @@ const Hit = createClass({
     const {item} = props
     const {isHover} = state
 
-    const titleStyle = classnames('link f6 f5-l fw6 mv0 helvetica navy', {
+    const titleStyle = classnames('link f5 fw6 mv0 helvetica navy', {
       'light-blue': isHover
     })
 
