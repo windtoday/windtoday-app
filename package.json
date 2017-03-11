@@ -16,7 +16,7 @@
     "url": "https://github.com/windtoday/windtoday-marketplace/issues"
   },
   "dependencies": {
-    "autoprefixer": "~6.7.6",
+    "autoprefixer": "~6.7.7",
     "autotrack": "~2.1.0",
     "babel-core": "~6.23.1",
     "babel-loader": "~6.4.0",
