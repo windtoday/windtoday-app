@@ -34,3 +34,5 @@ src/www/sw.js
 src/www/assets/css
 src/www/assets/js
 src/www/index.html
+src/www/report.html
+src/www/stats.json
