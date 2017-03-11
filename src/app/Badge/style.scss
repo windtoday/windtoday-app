@@ -2,7 +2,7 @@
 
 .badge {
   font-size: 65%;
-  padding: 1px 3px;
+  padding: 3px 5px;
   top: -2px;
   box-shadow: 0 0 0 darken(rgba($gold, .4), 10%);
   @include hover-transition(opacity);

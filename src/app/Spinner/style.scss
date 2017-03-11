@@ -1,5 +1,4 @@
 @import '../style';
-
 $offset: 187;
 $duration: 1.4s;
 
@@ -22,20 +21,13 @@ $duration: 1.4s;
   stroke-dashoffset: 0;
   transform-origin: center;
   animation: dash $duration ease-in-out infinite;
-}
-
-.spinner__path--white {
   stroke: $white;
-}
-
-.spinner__path--blue {
-  stroke: $blue;
 }
 
 @keyframes dash {
   0% {
     stroke-dashoffset: $offset;
-   }
+  }
 
   50% {
     stroke-dashoffset: $offset / 4;

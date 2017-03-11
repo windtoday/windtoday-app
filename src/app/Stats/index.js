@@ -6,9 +6,9 @@ import './style.scss'
 
 function CustomStats () {
   return (
-    <header data-app='stats' className='fade-in db pt2 moon-gray ph3 ph4-l'>
+    <header data-app='stats' className='fade-in db moon-gray pa2'>
       <CurrentRefinements />
-      <Stats />
+      <Stats className='red' />
     </header>
   )
 }

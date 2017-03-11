@@ -4,7 +4,7 @@ import FacetsLeft from '../../Facets/Left'
 
 import './style.scss'
 
-const theme = 'aside aside-left shadow-1 fl w-25-l w-95 vh-100 bg-white overflow-x-hidden overflow-y-scroll z-4'
+const theme = 'aside aside-left fl w-25-l w-95 vh-100 bg-near-white overflow-x-hidden overflow-y-scroll z-4'
 
 function AsideLeft (props) {
   const { get } = props

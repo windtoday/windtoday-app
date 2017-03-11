@@ -1,16 +1,18 @@
 @import '../style';
 
 .ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
-  @extend .dib, .br3, .mb2, .mr2, .mt3, .near-white, .bg-gradient-invert;
+  @extend .dib, .br3, .mr2, .near-white, .bg-gradient-invert;
 
   > .ais-CurrentRefinements__itemLabel {
     @extend .pl2;
   }
 }
 
-.ais-CurrentRefinements__itemParent > .ais-CurrentRefinements__itemLabel {
-  display: block;
-  @extend .mt3;
+.ais-CurrentRefinements__itemParent {
+  > .ais-CurrentRefinements__itemLabel {
+    @extend .db;
+    @extend .pv3;
+  }
 }
 
 .ais-CurrentRefinements__itemClear {

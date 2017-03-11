@@ -4,14 +4,13 @@ import React from 'react'
 import './style.scss'
 
 const DEFAULT = {
-  size: '65px',
-  color: 'white'
+  size: '65px'
 }
 
 function Spinner (props) {
   props = {...DEFAULT, ...props}
 
-  const {size, className, color} = props
+  const {size, className} = props
   const style = classnames('spinner', className)
 
   return (
@@ -22,7 +21,7 @@ function Spinner (props) {
       viewBox='0 0 66 66'
       xmlns='http://www.w3.org/2000/svg'>
       <circle
-        className={`spinner__path spinner__path--${color}`}
+        className='spinner__path'
         fill='none'
         strokeWidth='6'
         strokeLinecap='round'

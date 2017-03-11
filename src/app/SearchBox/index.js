@@ -33,7 +33,7 @@ const CustomSearchBox = createClass({
   },
 
   render () {
-    const iconStyle = 'searchbox__icon absolute f4'
+    const iconStyle = 'searchbox__icon absolute f3'
     const {props, onInputMount, onChange, onFocus, onBlur, onClear, state} = this
     const {focus: isFocus} = state
     const {currentRefinement, className} = props

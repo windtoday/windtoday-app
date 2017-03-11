@@ -6,8 +6,8 @@
   border: 0;
   border-radius: 4px;
   font-weight: lighter;
-  font-size: 85%;
-  letter-spacing: 0.03rem;
+  font-size: 16px;
+  letter-spacing: .03rem;
   color: $white;
   padding: 42px;
   @include placeholder-color(rgba($white, .6));
@@ -30,6 +30,7 @@
 .searchbox__icon-clear {
   transform: scale(0);
   @include hover-transition(color, transform);
+
   &:hover {
     color: $white;
   }

@@ -12,8 +12,8 @@ function renderHasMore (refine, searching) {
       <a
         onClick={refine}
         style={{fontSize: '.8rem'}}
-        className='hits__button link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif white normal blue hover-white'>
-        Load More {searching && <Spinner className='ml1' color='blue' size='12px' />}
+        className='hits__button link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif normal bg-gradient white b--transparent'>
+        Load More {searching && <Spinner className='ml1' size='12px' />}
       </a>
     </footer>
   )
@@ -26,7 +26,7 @@ function CustomHits (props) {
   return (
     <div data-app='hits' className='hits'>
       <Stats />
-      <div className='pv3'>
+      <div className='pa2'>
         {hits.map((item, key) => <Hit item={item} key={key} {...hitsProps} />)}
       </div>
       {hasMore && renderHasMore(refine, searching)}

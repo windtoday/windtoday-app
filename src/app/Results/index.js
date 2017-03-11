@@ -24,7 +24,7 @@ const Results = createClass({
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const theme = 'results fl bg-white vh-100 overflow-x-hidden overflow-y-scroll'
+    const theme = 'results fl bg-near-white vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
       'results--expand': isAsideLeftOpen,

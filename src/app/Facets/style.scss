@@ -2,8 +2,4 @@
 
 .facets {
   margin-top: $appbar-height;
-
-  > article:first-of-type {
-    @extend .pt4-l, .pt3, .mt2;
-  }
 }

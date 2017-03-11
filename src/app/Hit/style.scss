@@ -6,7 +6,6 @@
       padding-top: 0;
     }
   }
-
   @include hover-transition(background-color);
 
   &:hover {
@@ -15,8 +14,8 @@
 }
 
 .hit__image-wrapper {
-  width: 3rem;
-  min-width: 3rem;
+  width: 4rem;
+  min-width: 4rem;
 }
 
 .hit__image {

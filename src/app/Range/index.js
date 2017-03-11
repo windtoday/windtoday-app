@@ -58,7 +58,7 @@ const Range = createClass({
     const values = [currentRefinement.min, currentRefinement.max]
 
     return (
-      <article data-app='facet' data-facet={attributeName} className='ph3 ph4-l pb4'>
+      <article data-app='facet' data-facet={attributeName} className='mb1 bg-white pa3'>
         <header className='f6 fw6 ttu tracked pb3 green'>{attributeName}</header>
         <Rheostat
           min={min}

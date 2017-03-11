@@ -26,7 +26,7 @@ function price (item) {
 function image (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('hit__image w-100 db br3', {
+  const style = classnames('hit__image w-100 db', {
     'o-50': isHover
   })
 
@@ -71,12 +71,12 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
-        className='hit fade-in bb b--near-white pv1 ph3 ph4-l'
+        className='hit fade-in bb b--near-white pa3 bg-white mb3'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >
         <a
-          className='hit__link flex flex-row justify-center items-center link w-100 pv2 pv1-l blue'
+          className='hit__link flex flex-row justify-center items-center link w-100 blue'
           href={item.link}
           target='_blank'
           rel='noopener'
