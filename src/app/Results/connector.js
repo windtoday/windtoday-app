@@ -34,7 +34,7 @@ export default createConnector({
     if (page === 0) {
       this._allResults = hits
     } else {
-      const previousPage = this._allResults.length / hitsPerPage - 1
+      const previousPage = (this._allResults.length / hitsPerPage) - 1
 
       if (page > previousPage) {
         this._allResults = [
