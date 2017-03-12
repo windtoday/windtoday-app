@@ -56,7 +56,7 @@ const CustomSearchBox = createClass({
         />
         <input
           ref={onInputMount}
-          className='searchbox__input w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid'
+          className='searchbox__input w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2'
           type='search'
           results={5}
           value={currentRefinement}

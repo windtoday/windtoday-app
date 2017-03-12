@@ -20,13 +20,13 @@ function getTimestamp (item) {
 
 function price (item) {
   const {price} = item
-  return price ? `€${price}` : 'N/A'
+  return price ? `${price}€` : 'N/A'
 }
 
 function image (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('hit__image w-100 db', {
+  const style = classnames('hit__image w-100 db br2', {
     'o-50': isHover
   })
 
@@ -71,7 +71,7 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
-        className='hit fade-in bb b--near-white pa3 bg-white mb3'
+        className='hit fade-in pa3 bg-white mb3 br2'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >

@@ -20,6 +20,10 @@ em {
   animation-duration: 1s;
 }
 
+.card-shadow {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .16);
+}
+
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,

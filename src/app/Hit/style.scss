@@ -1,12 +1,6 @@
 @import '../style';
 
 .hit {
-  &:first-of-type {
-    > a {
-      padding-top: 0;
-    }
-  }
-
   @include hover-transition(background-color);
 
   &:hover {
@@ -15,8 +9,11 @@
 }
 
 .hit__image-wrapper {
-  width: 4rem;
-  min-width: 4rem;
+  width: 3.5rem;
+
+  @include break(large) {
+    width: 4rem;
+  }
 }
 
 .hit__image {

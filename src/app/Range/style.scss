@@ -34,7 +34,6 @@
   border: 1px solid darken($near-white, 2%);
   background: #fff;
   border-radius: 100%;
-  box-shadow: $toggle-box-shadow;
   cursor: pointer;
   height: 24px;
   margin-left: -12px;
@@ -46,6 +45,7 @@
   animation-timing-function: $toggle-transition-timing-function;
   animation-duration: .3s;
   animation-name: toggleOff;
+  @extend .card-shadow;
 
   &:hover {
     transform: scale(1.1);

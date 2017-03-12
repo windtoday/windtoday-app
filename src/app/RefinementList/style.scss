@@ -39,12 +39,12 @@
     background-color: #fff;
     content: ' ';
     cursor: pointer;
-    box-shadow: $toggle-box-shadow;
     transform: scale(1);
     transition: left $toggle-transition-duration $toggle-transition-timing-function;
     animation-timing-function: $toggle-transition-timing-function;
     animation-duration: $toggle-transition-duration;
     animation-name: toggleOff;
+    @extend .card-shadow;
   }
 
   &:hover::after {
