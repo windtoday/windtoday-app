@@ -10,9 +10,11 @@
 
 .hit__image-wrapper {
   width: 3.5rem;
+  min-width: 3.5rem;
 
   @include break(large) {
     width: 4rem;
+    min-width: 4rem;
   }
 }
 
