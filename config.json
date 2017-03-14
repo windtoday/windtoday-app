@@ -1,7 +1,9 @@
 {
   "appMountId": "app",
-  "title": "Windtoday, Intelligent Windsurf Marketplace",
-  "baseHref": "https://windtoday.co",
-  "description": "Intelligent windsurf advertisements classificator for sails, boards, fins, booms, masts or accesories, by particular (second hand) or stores.",
+  "title": "windtoday.co, Largest windsurf shops marketplace, all stock in one place",
+  "baseHref": "https://market.windtoday.co",
+  "description": "Discover, compare and choose daily offers from the main windsurf shops. Pay and receive in your house, independently where are you.",
+  "logoUrl": "https://windtoday.co/assets/img/logo.jpg",
+  "twitterAccount": "@windtodayco",
   "googleAnalytics": "UA-85604345-1"
 }

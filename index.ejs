@@ -9,56 +9,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- basic -->
+    <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" shrink-to-fit="no" />
-    <meta name="application-name" content="windtoday.co">
 
-    <!-- favicon -->
-    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/img/favicon-48x48.png" sizes="48x48">
-    <link rel="icon" type="image/png" href="assets/img/favicon-62x62.png" sizes="62x62">
-    <link rel="icon" type="image/png" href="assets/img/favicon-192x192.png" sizes="192x192">
-
-    <!-- apple -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="windtoday.co">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180x180.png">
-
-    <!-- safari -->
-    <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#19b5fe">
-
-    <!-- android -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- internet explorer -->
-    <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="theme-color" content="#19b7ff">
-
-    <!-- facebook -->
-    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>"/>
-    <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>"/>
-    <meta property="og:url" content="<%= htmlWebpackPlugin.options.baseHref %>"/>
-    <meta property="og:image" content="<%= htmlWebpackPlugin.options.baseHref %>/assets/img/favicon-192x192.png"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:image:width" content="192"/>
-    <meta property="og:image:height" content="192"/>
-
-    <!-- twitter -->
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>"/>
-    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>"/>
-    <meta name="twitter:url" content="<%= htmlWebpackPlugin.options.baseHref %>"/>
-    <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.baseHref %>/assets/img/favicon-192x192.png"/>
-    <meta property="twitter:image:width" content="192"/>
-    <meta property="twitter:image:height" content="192"/>
-    <link rel="canonical" href="https://market.windtoday.co" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Search Engine -->
     <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.baseHref %>" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!-- WebApp -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" shrink-to-fit="no" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=ngGXy3wdgX">
+    <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png?v=ngGXy3wdgX" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png?v=ngGXy3wdgX" sizes="16x16">
+    <link rel="manifest" href="/manifest.json?v=ngGXy3wdgX">
+    <link rel="mask-icon" href="/assets/img/safari-pinned-tab.svg?v=ngGXy3wdgX" color="#19b5fe">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico?v=ngGXy3wdgX">
+    <meta name="apple-mobile-web-app-title" content="windtoday.co">
+    <meta name="application-name" content="windtoday.co">
+    <meta name="msapplication-config" content="/browserconfig.xml?v=ngGXy3wdgX">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta itemprop="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta itemprop="image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="twitter:site" content="<%= htmlWebpackPlugin.options.twitterAccount %>">
+    <meta name="twitter:image:src" content="<%= htmlWebpackPlugin.options.title %>">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta name="og:description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="og:image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
+    <meta name="og:url" content="<%= htmlWebpackPlugin.options.baseHref %>">
+    <meta name="og:site_name" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta name="og:type" content="website">
 
     <% for (item of htmlWebpackPlugin.options.links) { %>
     <% if (typeof item === 'string' || item instanceof String) { item = { href: item, rel: 'stylesheet' } } %>
