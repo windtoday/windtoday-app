@@ -97,7 +97,7 @@ const Hit = createClass({
               {renderBadge(item, timestamp)}
             </p>
 
-            <p className='f6 fw4 mt2 mb0 moon-gray sans-serif' >
+            <p className='f6 fw4 mt1 mb0 moon-gray sans-serif' >
               <TimeAgo date={timestamp} />
             </p>
           </div>
