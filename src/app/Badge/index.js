@@ -3,7 +3,7 @@ import classnames from 'classnames'
 
 import './style.scss'
 
-const theme = 'badge sans-serif b bg-gold ttu white ml2 relative'
+const theme = 'badge sans-serif b bg-gold ttu white ml2-ns ml1 relative'
 
 function Badge (props) {
   const {isHover, children} = props

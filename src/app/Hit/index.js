@@ -62,7 +62,7 @@ const Hit = createClass({
       'light-blue': isHover
     })
 
-    const priceStyle = classnames('hit__price link blue', {
+    const priceStyle = classnames('dit link blue', {
       'light-blue': isHover
     })
 
@@ -85,11 +85,11 @@ const Hit = createClass({
           {image(item, isHover, onHover)}
 
           <p
-            className={`f4 w3 tc ${priceStyle}`}
+            className={`hit__price f4 w3 tc ${priceStyle}`}
             >
             {price(item)}</p>
 
-          <div className='flex-auto lh-copy'>
+          <div className='hit__text-wrapper flex-auto lh-copy'>
             <p
               className={titleStyle}
               >
