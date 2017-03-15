@@ -3,7 +3,7 @@
 .ais-RefinementList__wrapper {
   &:hover {
     span {
-      @extend .blue;
+      @extend .light-blue;
     }
   }
 }
@@ -18,7 +18,7 @@
   vertical-align: middle;
   border-radius: 20px;
   border: 1px solid darken($near-white, 2%);
-  background-color: #fdfdfd;
+  background-color: $near-white;
   cursor: pointer;
   transition: all $toggle-transition-duration $toggle-transition-timing-function;
 
@@ -57,7 +57,7 @@
   }
 
   &-checked {
-    @extend .bg-gradient-invert;
+    background-color: $light-blue;
 
     .rc-switch-inner {
       left: 6px;
