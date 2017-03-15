@@ -1,13 +1,20 @@
-$gold: #ffc107;
+$navy: #4f5d72;
 $moon-gray: #cfd7e6;
 $near-white: #f5f5f5;
 $light-silver: hsla(216, 18%, 65%, .8);
+
 $blue: #19b5fe;
 $light-blue: lighten($blue, 10%);
+$lightest-blue: #d1f1fe;
 $dark-blue: darken($blue, 10%);
-$navy: #4f5d72;
+
 $green: #31d0c9;
-$gradient-one: $light-blue;
+$light-green: lighten($green, 10%);
+$lightest-green: #D8F5F3;
+
+$gold: #ffc107;
+
+$gradient-one: $blue;
 $gradient-two: $green;
 $gradient: linear-gradient(141deg, $gradient-one, $gradient-two);
 $gradient-invert: linear-gradient(141deg, $gradient-two, $gradient-one);

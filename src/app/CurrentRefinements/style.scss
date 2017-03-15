@@ -1,7 +1,7 @@
 @import '../style';
 
 .ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
-  @extend .dib, .br3, .mr2, .near-white, .bg-gradient-invert;
+  @extend .dib, .br2, .mr2, .nowrap, .blue, .bg-lightest-blue;
 
   > .ais-CurrentRefinements__itemLabel {
     @extend .pl2;
@@ -22,6 +22,6 @@
   @extend .v-mid, .pointer;
 
   > svg {
-    @extend .white, .f6, .b, .dim;
+    @extend .blue, .f6, .b, .dim;
   }
 }
