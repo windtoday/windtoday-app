@@ -1,16 +1,33 @@
-import React from 'react'
-import {Stats} from 'react-instantsearch/dom'
+import React, {PropTypes, createClass} from 'react'
+import IconInfo from 'react-icons/lib/md/info'
+import {connectStats} from 'react-instantsearch/connectors'
 
 import CurrentRefinements from '../CurrentRefinements'
-import './style.scss'
 
-function CustomStats () {
-  return (
-    <header data-app='stats' className='fade-in db moon-gray pa2'>
-      <CurrentRefinements />
-      <Stats className='red' />
-    </header>
-  )
-}
+const Stats = createClass({
+  propTypes: {
+    nbHits: PropTypes.number.isRequired,
+    processingTimeMS: PropTypes.number.isRequired
+  },
 
-export default CustomStats
+  stats (n, ms) {
+    return `${n.toLocaleString()} results found in ${ms.toLocaleString()}ms`
+  },
+
+  render () {
+    const {props, stats} = this
+    const {nbHits, processingTimeMS} = props
+    return (
+      <header data-app='stats' className='fade-in moon-gray pa2'>
+        <CurrentRefinements />
+        <div className='pt3 f5 sans-serif flex items-start items-center'>
+          <IconInfo className='mr1' />
+          <span>{stats(nbHits, processingTimeMS)}</span>
+        </div>
+      </header>
+
+    )
+  }
+})
+
+export default connectStats(Stats)
