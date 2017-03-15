@@ -24,7 +24,7 @@ function CustomCurrentRefinements () {
       <CurrentRefinements
         transformItems={transformItems}
         translations={{
-          clearFilter: <IconClose style={{verticalAlign: 'baseline'}} />
+          clearFilter: <IconClose />
         }}
       />
     </div>

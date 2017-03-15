@@ -1,11 +1,9 @@
 @import '../style';
 
 .ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
-  @extend .dib, .br2, .mr2, .nowrap, .blue, .bg-lightest-blue;
+  @extend .dib, .br2, .mr2, .nowrap, .blue, .bg-lightest-blue, .inline-flex, .items-center, .justify-center;
 
-  > .ais-CurrentRefinements__itemLabel {
-    @extend .pl2;
-  }
+  padding: 5px 8px;
 }
 
 .ais-CurrentRefinements__itemParent {
@@ -18,8 +16,9 @@
 .ais-CurrentRefinements__itemClear {
   background: none;
   border: 0;
-  padding: .4rem .4rem .3rem;
-  @extend .v-mid, .pointer;
+  margin-left: 3px;
+
+  @extend .pointer, .pa0;
 
   > svg {
     @extend .blue, .f6, .b, .dim;
