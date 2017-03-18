@@ -1,7 +1,7 @@
+import IconAdd from 'react-icons/lib/md/add-circle'
 import React from 'react'
 
 import Stats from '../Stats'
-import Spinner from '../Spinner'
 import Hit from '../Hit'
 
 import './style.scss'
@@ -11,9 +11,9 @@ function renderHasMore (refine, searching) {
     <footer className='tc pv3 ph3 ph4-l'>
       <a
         onClick={refine}
-        style={{fontSize: '.8rem'}}
-        className='dim link ttu lh-solid ba br2 cb-ns db dib-l mb2 pv3 ph4 pointer sans-serif normal bg-green white b--transparent card-shadow'>
-        Load More {searching && <Spinner className='ml1' size='12px' />}
+        className='dim link ttu lh-solid cb-ns db dib-l mb2 pb3 ph4 pointer sans-serif normal moon-gray'>
+        <IconAdd size={34} className='db tc w-100 pb2' />
+        <span className='f6'>Load More</span>
       </a>
     </footer>
   )
