@@ -8,17 +8,13 @@
   }
 }
 
-.hit__price {
-  min-width: 95px;
-}
-
 .hit__image-wrapper {
-  width: 3.5rem;
-  min-width: 3.5rem;
+  width: 3rem;
+  min-width: 3rem;
 
   @include break(large) {
-    width: 4rem;
-    min-width: 4rem;
+    width: 3.5rem;
+    min-width: 3.5rem;
   }
 }
 

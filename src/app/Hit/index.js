@@ -7,23 +7,41 @@ import Badge from '../Badge'
 
 import './style.scss'
 
+function formatter (value, unit, suffix) {
+  const unitFirstChar = unit.charAt(0)
+  return `${value}${unitFirstChar}`
+}
+
 function isRecently (timestamp) {
   const now = Date.now()
   const diff = now - timestamp
-  const last12hours = 1000 * 60 * 60 * 12
-  return diff < last12hours
+  const last24hours = 1000 * 60 * 60 * 24
+  return diff < last24hours
 }
 
 function getTimestamp (item) {
   return item.updatedAt || item.createdAt
 }
 
-function price (item) {
+function renderPrice (item, className) {
   const {price} = item
-  return price ? `${price}€` : 'N/A'
+  return (
+    <span
+      className={className}>
+      {price ? `${price}€` : 'N/A'}
+    </span>
+  )
 }
 
-function image (item, isHover, onHover) {
+function renderTimestamp (timestamp) {
+  return (
+    <TimeAgo
+      className='fr ma0 fw4 moon-gray'
+      date={timestamp} formatter={formatter} />
+  )
+}
+
+function renderImage (item, isHover, onHover) {
   const {provider} = item
   const imageURL = `/assets/img/provider/${provider}.jpg`
   const style = classnames('hit__image w-100 db br2', {
@@ -31,9 +49,7 @@ function image (item, isHover, onHover) {
   })
 
   return (
-    <div className='hit__image-wrapper dtc v-mid'>
-      <img alt={provider} src={imageURL} className={style} />
-    </div>
+    <img alt={provider} src={imageURL} className={style} />
   )
 }
 
@@ -48,9 +64,13 @@ const Hit = createClass({
   },
 
   renderBadge (item, timestamp) {
-    if (item.isForced || !isRecently(timestamp)) return
     const {isHover} = this.state
-    return <Badge isHover={isHover}>new</Badge>
+    return (
+      <Badge
+        isHover={isHover}>
+        new
+      </Badge>
+    )
   },
 
   render () {
@@ -58,12 +78,12 @@ const Hit = createClass({
     const {item} = props
     const {isHover} = state
 
-    const titleStyle = classnames('link f5 f4-l fw6 mv0 helvetica navy', {
+    const titleStyle = classnames('link fw6 helvetica mv0 navy', {
       'light-blue': isHover
     })
 
-    const priceStyle = classnames('dit link blue', {
-      'light-blue': isHover
+    const priceStyle = classnames('dit link green ma0', {
+      'light-green': isHover
     })
 
     const timestamp = getTimestamp(item)
@@ -76,29 +96,30 @@ const Hit = createClass({
         onMouseLeave={onHover}
         >
         <a
-          className='hit__link flex flex-row justify-center items-center link w-100 blue'
+          className='hit__link f5 flex link w-100 blue'
           href={item.link}
           target='_blank'
           rel='noopener'
           >
 
-          {image(item, isHover, onHover)}
+          <div className='hit__image-wrapper'>
+            {renderImage(item, isHover, onHover)}
+          </div>
 
-          <p
-            className={`hit__price f4 w3 tc ${priceStyle}`}
-            >
-            {price(item)}</p>
+          <div className='w-100 pl3 lh-copy'>
+            <div className='flex justify-between'>
+              <p className='ma0' style={{flexGrow: 1}}>
+                {renderPrice(item, priceStyle)}
+                {isRecently(timestamp) && renderBadge(item, timestamp)}
+              </p>
 
-          <div className='hit__text-wrapper flex-auto lh-copy'>
-            <p
-              className={titleStyle}
-              >
+              <p className='ma0' style={{flexGrow: 0}}>
+                {renderTimestamp(timestamp)}
+              </p>
+            </div>
+
+            <p className={titleStyle}>
               <Highlight attributeName='title' hit={item} />
-              {renderBadge(item, timestamp)}
-            </p>
-
-            <p className='f6 fw4 mt1 mb0 moon-gray sans-serif' >
-              <TimeAgo date={timestamp} />
             </p>
           </div>
         </a>

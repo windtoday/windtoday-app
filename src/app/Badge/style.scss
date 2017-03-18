@@ -1,11 +1,9 @@
 @import '../style';
 
 .badge {
-  font-size: 65%;
-  padding: 2px 5px;
-  border-radius: 20px;
+  font-size: 80%;
+  position: relative;
   top: -2px;
-  box-shadow: 0 0 0 darken(rgba($gold, .4), 10%);
   @include hover-transition(opacity);
 }
 
