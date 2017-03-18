@@ -1,8 +1,28 @@
+import IconExpandMore from 'react-icons/lib/md/expand-more'
+import IconExpandLess from 'react-icons/lib/md/expand-less'
 import React, {createClass} from 'react'
 import classnames from 'classnames'
 import Switch from 'rc-switch'
 import {connectRefinementList} from 'react-instantsearch/connectors'
 import './style.scss'
+
+function moreIcon () {
+  return (
+    <span>
+      <IconExpandMore />
+      more
+    </span>
+  )
+}
+
+function lessIcon () {
+  return (
+    <span>
+      <IconExpandLess />
+      less
+    </span>
+  )
+}
 
 const RefinementList = createClass({
   getInitialState () {
@@ -100,9 +120,9 @@ const RefinementList = createClass({
     return (
       <a disabled={disabled}
         onClick={onClick}
-        className='pointer link dim dib light-blue pt2'
+        className='pointer link dim dib moon-gray pt2'
       >
-        {extended ? '« less' : 'more »'}
+        {extended ? lessIcon() : moreIcon()}
       </a>
     )
   },
