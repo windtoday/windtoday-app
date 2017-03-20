@@ -19,11 +19,6 @@ function Facets () {
       <RefinementList
         attributeName='category'
       />
-
-      <RefinementList
-        attributeName='provider'
-      />
-
     </section>
   )
 }
