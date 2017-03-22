@@ -10,19 +10,22 @@
 }
 
 .logo--shake {
-  animation: shake 150ms 2 linear;
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes shake {
-  0% {
-    transform: translate(3px, 0);
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
   }
 
-  50% {
-    transform: translate(-3px, 0);
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
   }
 
-  100% {
-    transform: translate(0, 0);
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
   }
 }
