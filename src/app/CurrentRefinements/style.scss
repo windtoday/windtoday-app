@@ -1,15 +1,19 @@
 @import '../style';
 
+.ais-CurrentRefinements__root:not(.ais-CurrentRefinements__noRefinement) {
+  @extend .pv3;
+}
+
 .ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
   @extend .dib, .br2, .mr2, .nowrap, .blue, .bg-lightest-blue, .inline-flex, .items-center, .justify-center;
-
   padding: 5px 8px;
 }
 
 .ais-CurrentRefinements__itemParent {
+  @extend .dib;
+
   > .ais-CurrentRefinements__itemLabel {
-    @extend .db;
-    @extend .pv3;
+    @extend .dn;
   }
 }
 

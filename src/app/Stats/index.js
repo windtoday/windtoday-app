@@ -17,6 +17,7 @@ const Stats = createClass({
   render () {
     const {props, stats} = this
     const {nbHits, processingTimeMS} = props
+
     return (
       <header data-app='stats' className='fade-in moon-gray pa2'>
         <CurrentRefinements />
