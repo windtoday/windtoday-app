@@ -1,9 +1,8 @@
 @import '../style';
 
 .badge {
-  font-size: 80%;
-  position: relative;
-  top: -2px;
+  font-size: 12px;
+  line-height: 22px;
   @include hover-transition(opacity);
 }
 

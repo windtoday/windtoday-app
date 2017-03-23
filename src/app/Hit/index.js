@@ -108,7 +108,7 @@ const Hit = createClass({
 
           <div className='w-100 pl3 lh-copy'>
             <div className='flex justify-between'>
-              <p className='ma0' style={{flexGrow: 1}}>
+              <p className='ma0 flex' style={{flexGrow: 1}}>
                 {renderPrice(item, priceStyle)}
                 {isRecently(timestamp) && renderBadge(item, timestamp)}
               </p>
