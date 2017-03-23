@@ -1,70 +1,104 @@
 @import '../style';
 
-.ais-RefinementList__wrapper {
-  &:hover {
-    span {
-      @extend .light-blue;
-    }
-  }
-}
-
 .rc-switch {
+  width: 32px;
+  border-radius: 4px;
+  height: 10px;
+  transform: translateY(50%);
+  background-color: #e0e0e0;
   position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 44px;
-  height: 22px;
-  line-height: 20px;
-  vertical-align: middle;
-  border-radius: 20px;
-  border: 1px solid darken($near-white, 2%);
-  background-color: $near-white;
-  cursor: pointer;
-  transition: all $toggle-transition-duration $toggle-transition-timing-function;
+  user-select: none;
 
-  &-inner {
-    color: #fff;
-    font-size: 12px;
-    position: absolute;
-    left: 24px;
+  > span {
+    margin-left: 45px;
+    position: relative;
+    top: -2px;
+    color: #666;
+    white-space: nowrap;
+    display: block;
+    cursor: pointer;
   }
 
   &::after {
+    border-radius: 100%;
+    background-color: #bdbdbd;
     position: absolute;
-    width: 18px;
-    height: 18px;
-    left: 2px;
-    top: 1px;
-    border-radius: 50%;
-    background-color: #fff;
-    content: ' ';
-    cursor: pointer;
-    transform: scale(1);
-    transition: left $toggle-transition-duration $toggle-transition-timing-function;
+    left: 0;
+    top: -3px;
+    width: 15px;
+    height: 15px;
+    content: '';
+    transform: scale(1) translateX(0);
+    transition: all $toggle-transition-duration $toggle-transition-timing-function;
     animation-timing-function: $toggle-transition-timing-function;
     animation-duration: $toggle-transition-duration;
-    animation-name: toggleOff;
-    @extend .card-shadow;
-  }
-
-  &:hover::after {
-    transform: scale(1.1);
-    animation-name: toggleOn;
   }
 
   &:focus {
     outline: none;
   }
 
-  &-checked {
-    background-color: $light-blue;
+  &:hover {
+    cursor: pointer;
 
-    .rc-switch-inner {
-      left: 6px;
+    > span {
+      color: $black;
+      cursor: pointer;
     }
 
     &::after {
-      left: 22px;
+      transform: scale(1.1) translateX(0);
+      animation-name: toggleOnRefinementList;
     }
+  }
+}
+
+.rc-switch-checked {
+  background-color: $lightest-blue;
+  transform: scale(1) translate3d(0, 50%, 0);
+
+  > span {
+    color: $blue;
+    cursor: pointer;
+  }
+
+  &::after {
+    background-color: $blue;
+    transform: scale(1) translate3d(17px, 0, 0);
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1.1) translate3d(17px, 0, 0);
+      animation-name: toggleOffRefinementList;
+    }
+  }
+}
+
+@keyframes toggleOnRefinementList {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes toggleOffRefinementList {
+  0% {
+    transform: scale(1) translate3d(17px, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.25) translate3d(17px, 0, 0);
+  }
+
+  100% {
+    transform: scale(1.1) translate3d(17px, 0, 0);
   }
 }

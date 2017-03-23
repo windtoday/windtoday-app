@@ -8,7 +8,7 @@
 }
 
 .rheostat-background {
-  background: #dce0e0;
+  background: #e0e0e0;
   height: 2px;
   position: relative;
   top: 14px;
@@ -27,33 +27,32 @@
   height: 4px;
   position: absolute;
   top: 13px;
-  @extend .bg-gradient-invert;
+  background-color: $blue;
 }
 
 .rheostat-handle {
-  border: 1px solid darken($near-white, 2%);
-  background: #fff;
+  border: 0;
+  background-color: $blue;
   border-radius: 100%;
   cursor: pointer;
-  height: 24px;
+  top: 7px;
+  width: 15px;
+  height: 15px;
   margin-left: -12px;
   position: absolute;
   z-index: 2;
-  width: 24px;
   font-size: 0;
   transform: scale(1);
   animation-timing-function: $toggle-transition-timing-function;
-  animation-duration: .3s;
-  animation-name: toggleOff;
-  @extend .card-shadow;
+  animation-duration: $toggle-transition-duration;
 
   &:hover {
     transform: scale(1.1);
-    animation-name: toggleOn;
+    animation-name: toggleRange;
   }
 }
 
-@keyframes toggleOn {
+@keyframes toggleRange {
   0% {
     transform: scale(1);
   }
@@ -64,15 +63,5 @@
 
   100% {
     transform: scale(1.1);
-  }
-}
-
-@keyframes toggleOff {
-  0% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
   }
 }
