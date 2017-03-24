@@ -8,6 +8,7 @@ $light-blue: lighten($blue, 10%);
 $lightest-blue: #d1f1fe;
 $dark-blue: darken($blue, 10%);
 
+$cyan: #00bcd4;
 $green: #31d0c9;
 $light-green: lighten($green, 10%);
 $lightest-green: #d8f5f3;
@@ -16,11 +17,11 @@ $gold: #ffc107;
 // custom rules
 
 .cyan {
-  color: #00BCD4;
+  color: $cyan;
 }
 
 .bg-cyan {
-  background-color: #00BCD4;
+  background-color: $cyan;
 }
 
 .w-95 {
