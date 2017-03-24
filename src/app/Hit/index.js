@@ -99,7 +99,7 @@ const Hit = createClass({
           className='hit__link f5 flex link w-100 blue'
           href={item.link}
           target='_blank'
-          rel='noopener'
+          rel='nofollow'
           >
 
           <div className='hit__image-wrapper'>
