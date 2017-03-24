@@ -61,18 +61,18 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                classnames('link ph2 lh-title helvetica f5 fw5 hover-blue ttc', {
-                  'light-silver': !item.isRefined,
-                  'light-blue fw8': item.isRefined,
+                classnames('link ph2 lh-title helvetica f5 fw5 dim ttc', {
+                  'blue-grey-300': !item.isRefined,
+                  'light-blue-500 fw8': item.isRefined,
                   'ttu': isUpperCase()
                 })}>
               {item.label}
             </span>
             <span
               onClick={onChange}
-              className={classnames('link fr fw4 hover-blue', {
-                'moon-gray': !item.isRefined,
-                'light-blue fw8': item.isRefined
+              className={classnames('link fr fw4 dim', {
+                'blue-grey-200': !item.isRefined,
+                'light-blue-500 fw8': item.isRefined
               })}>
               {item.count}
             </span>
@@ -104,7 +104,7 @@ const RefinementList = createClass({
     return (
       <a disabled={disabled}
         onClick={onClick}
-        className='pointer link dim dib moon-gray pt2'
+        className='pointer link dim dib blue-grey-100 pt2'
       >
         {extended ? lessIcon() : moreIcon()}
       </a>
@@ -120,7 +120,7 @@ const RefinementList = createClass({
 
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
-        <header className='f6 fw6 ttu tracked pb3 green'>{attributeName}</header>
+        <header className='f6 fw6 ttu tracked pb3 cyan-500'>{attributeName}</header>
         {slicedItems.map(renderItem)}
         {renderShowMore()}
       </article>

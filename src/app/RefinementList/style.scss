@@ -5,23 +5,13 @@
   border-radius: 4px;
   height: 10px;
   transform: translateY(50%);
-  background-color: #cfd8dc;
+  background-color: material-color('blue-grey', '100');
   position: relative;
   user-select: none;
 
-  > span {
-    margin-left: 45px;
-    position: relative;
-    top: -2px;
-    color: #666;
-    white-space: nowrap;
-    display: block;
-    cursor: pointer;
-  }
-
   &::after {
     border-radius: 100%;
-    background-color: #90a4ae;
+    background-color: material-color('blue-grey', '300');
     position: absolute;
     left: 0;
     top: -3px;
@@ -41,11 +31,6 @@
   &:hover {
     cursor: pointer;
 
-    > span {
-      color: $black;
-      cursor: pointer;
-    }
-
     &::after {
       transform: scale(1.1) translateX(0);
       animation-name: toggleOnRefinementList;
@@ -54,16 +39,11 @@
 }
 
 .rc-switch-checked {
-  background-color: $lightest-blue;
+  background-color: material-color('light-blue', '100');
   transform: scale(1) translate3d(0, 50%, 0);
 
-  > span {
-    color: $blue;
-    cursor: pointer;
-  }
-
   &::after {
-    background-color: $blue;
+    background-color: material-color('light-blue', '500');
     transform: scale(1) translate3d(17px, 0, 0);
   }
 

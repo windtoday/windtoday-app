@@ -59,7 +59,7 @@ const Range = createClass({
 
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
-        <header className='f6 fw6 ttu tracked pb3 green'>{attributeName}</header>
+        <header className='f6 fw6 ttu tracked pb3 cyan-500'>{attributeName}</header>
         <Rheostat
           min={min}
           max={max}
@@ -69,10 +69,10 @@ const Range = createClass({
           snap
         />
         <div className='cf'>
-          <div className='moon-gray fl w-50 pl2 pt3 tl'>
+          <div className='blue-grey-200 fl w-50 pl2 pt3 tl'>
             <span>{currentRefinement.min}{label}</span>
           </div>
-          <div className='moon-gray fl w-50 pt3 pr2 tr'>
+          <div className='blue-grey-200 fl w-50 pt3 pr2 tr'>
             <span>{currentRefinement.max}{label}</span>
           </div>
         </div>

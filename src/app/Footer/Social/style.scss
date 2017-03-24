@@ -1,7 +1,7 @@
 @import '../../style';
 
 .social-icon {
-  fill: $moon-gray;
+  fill: material-color('blue-grey', '200');
   @include hover-transition(fill);
 }
 

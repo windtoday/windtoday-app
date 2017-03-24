@@ -24,7 +24,7 @@ const Results = createClass({
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const theme = 'results fl bg-near-white vh-100 overflow-x-hidden overflow-y-scroll'
+    const theme = 'results fl bg-grey-100 vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
       'results--expand': isAsideLeftOpen,
@@ -51,7 +51,7 @@ const Results = createClass({
 
   renderLoader (props) {
     return (
-      <article className='z-max fixed vh-100 dt w-100 bg-cyan'>
+      <article className='z-max fixed vh-100 dt w-100 bg-cyan-500'>
         <div className='dtc v-mid tc'>
           <Spinner />
         </div>

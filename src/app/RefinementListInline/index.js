@@ -3,7 +3,6 @@ import IconExpandLess from 'react-icons/lib/md/expand-less'
 import React, {createClass} from 'react'
 import classnames from 'classnames'
 import {connectRefinementList} from 'react-instantsearch/connectors'
-import './style.scss'
 
 function moreIcon () {
   return (
@@ -48,14 +47,17 @@ const RefinementList = createClass({
       <li className='dib mr1 mb2' key={key}>
         <a
           onClick={onChange}
-          className={classnames('list-item f6 b db pa1 pointer dim br2', {
-            'list-item--checked': item.isRefined
+          className={classnames('f6 b db pa1 pointer dim br2', {
+            'bg-moon-gray': !item.isRefined,
+            'bg-blue-grey-700': item.isRefined
           })}>
-          <span className={classnames('list-item__label', {
-            'list-item__label--checked': item.isRefined
+          <span className={classnames({
+            'blue-grey-500': !item.isRefined,
+            'blue-grey-100': item.isRefined
           })}>{item.label}</span>
-          <span className={classnames('list-item__count f7 pl2', {
-            'list-item__count--checked': item.isRefined
+          <span className={classnames('f7 pl2', {
+            'blue-grey-400': !item.isRefined,
+            'blue-grey-300': item.isRefined
           })}>{item.count}</span>
         </a>
       </li>
@@ -84,7 +86,7 @@ const RefinementList = createClass({
     return (
       <a disabled={disabled}
         onClick={onClick}
-        className='pointer link dim db moon-gray pt2'
+        className='pointer link dim db blue-grey-200 pt2'
       >
         {extended ? lessIcon() : moreIcon()}
       </a>
@@ -100,7 +102,7 @@ const RefinementList = createClass({
 
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
-        <header className='f6 fw6 ttu tracked pb3 green'>{attributeName}</header>
+        <header className='f6 fw6 ttu tracked pb3 cyan-500'>{attributeName}</header>
         {slicedItems.map(renderItem)}
         {renderShowMore()}
       </article>

@@ -53,6 +53,7 @@
     "style-loader": "~0.16.0",
     "tachyons-queries": "~0.3.3",
     "tachyons-sass": "~4.7.1",
+    "material-colors-scss": "~0.2.2",
     "webpack": "~2.3.1",
     "webpack-bundle-analyzer": "~2.3.1"
   },

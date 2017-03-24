@@ -36,7 +36,7 @@ function renderPrice (item, className) {
 function renderTimestamp (timestamp) {
   return (
     <TimeAgo
-      className='fr ma0 fw4 moon-gray'
+      className='fr ma0 fw4 blue-grey-200'
       date={timestamp} formatter={formatter} />
   )
 }
@@ -78,7 +78,7 @@ const Hit = createClass({
     const {item} = props
     const {isHover} = state
 
-    const titleStyle = classnames('link fw6 helvetica mv0 navy', {
+    const titleStyle = classnames('link fw8 helvetica mv0 blue-grey-700', {
       'light-blue': isHover
     })
 
