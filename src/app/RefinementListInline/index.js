@@ -103,7 +103,7 @@ const RefinementList = createClass({
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
         <header className='f6 fw6 ttu tracked pb3 cyan-500'>{attributeName}</header>
-        {slicedItems.map(renderItem)}
+        <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>
         {renderShowMore()}
       </article>
     )
