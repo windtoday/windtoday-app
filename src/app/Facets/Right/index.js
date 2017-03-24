@@ -1,6 +1,7 @@
 import React from 'react'
 
 import RefinementList from '../../RefinementList'
+import RefinementListInline from '../../RefinementListInline'
 import Range from '../../Range'
 import '../style'
 
@@ -18,22 +19,18 @@ function Facets () {
   return (
     <section data-app='facets-right' className='facets facets-right pa2'>
 
-      <RefinementList
+      <RefinementListInline
         attributeName='brand'
-        limitMin={5}
+        limitMin={10}
         showMore
+        withSearchBox
       />
 
-      <RefinementList
+      <RefinementListInline
         attributeName='model'
-        limitMin={5}
+        limitMin={10}
         showMore
-      />
-
-      <RefinementList
-        attributeName='year'
-        limitMin={5}
-        showMore
+        withSearchBox
       />
 
       <Range
@@ -52,31 +49,30 @@ function Facets () {
         showMore
       />
 
-      <RefinementList
+      <RefinementListInline
         attributeName='mast carbon'
-        limitMin={5}
+        limitMin={3}
         transformItems={createAddLabel('%')}
         showMore
       />
 
-      <RefinementList
+      <RefinementListInline
         attributeName='mast size'
-        limitMin={5}
+        limitMin={3}
         transformItems={createAddLabel(' cm')}
         showMore
       />
 
-      <RefinementList
+      <RefinementListInline
         attributeName='fin size'
-        limitMin={5}
+        limitMin={3}
         transformItems={createAddLabel(' cm')}
         showMore
       />
 
       <RefinementList
         attributeName='fin type'
-        limitMin={5}
-        showMore
+        limitMin={10}
       />
 
       <RefinementList
@@ -85,9 +81,9 @@ function Facets () {
         showMore
       />
 
-      <RefinementList
+      <RefinementListInline
         attributeName='boom size'
-        limitMin={5}
+        limitMin={3}
         showMore
       />
 

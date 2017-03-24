@@ -1,6 +1,7 @@
 import React from 'react'
 
 import RefinementList from '../../RefinementList'
+import RefinementListInline from '../../RefinementListInline'
 import Range from '../../Range'
 import '../style'
 
@@ -16,9 +17,16 @@ function Facets () {
         attributeName='condition'
       />
 
+      <RefinementListInline
+        attributeName='year'
+        limitMin={3}
+        showMore
+      />
+
       <RefinementList
         attributeName='category'
       />
+
     </section>
   )
 }

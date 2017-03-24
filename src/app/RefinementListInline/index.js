@@ -2,7 +2,6 @@ import IconExpandMore from 'react-icons/lib/md/expand-more'
 import IconExpandLess from 'react-icons/lib/md/expand-less'
 import React, {createClass} from 'react'
 import classnames from 'classnames'
-import Switch from 'rc-switch'
 import {connectRefinementList} from 'react-instantsearch/connectors'
 import './style.scss'
 
@@ -29,6 +28,13 @@ const RefinementList = createClass({
     return { extended: false }
   },
 
+  isCapitalize () {
+    const {attributeName} = this.props
+    if (attributeName === 'mast size') return false
+    if (attributeName === 'fin size') return false
+    return true
+  },
+
   isUpperCase () {
     const {attributeName} = this.props
     if (attributeName !== 'mast type') return false
@@ -36,49 +42,23 @@ const RefinementList = createClass({
   },
 
   renderItem (item, key) {
-    const {isUpperCase} = this
     const onChange = () => this.props.refine(item.value)
 
     return (
-      <section className='ph2' key={key}>
-        <label
-          className='pointer pb2'
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}
-            >
-
-          <Switch
-            className={classnames({
-              'rc-switch-checked': item.isRefined
-            })}
-            onChange={onChange}
-            checked={item.isRefined}
-            />
-
-          <div style={{flexGrow: '1'}}>
-            <span
-              onClick={onChange}
-              className={
-                classnames('link ph2 lh-title helvetica f5 fw5 hover-blue ttc', {
-                  'light-silver': !item.isRefined,
-                  'light-blue fw8': item.isRefined,
-                  'ttu': isUpperCase()
-                })}>
-              {item.label}
-            </span>
-            <span
-              onClick={onChange}
-              className={classnames('link fr fw4 hover-blue', {
-                'moon-gray': !item.isRefined,
-                'light-blue fw8': item.isRefined
-              })}>
-              {item.count}
-            </span>
-          </div>
-        </label>
-      </section>
+      <li className='dib mr1 mb2' key={key}>
+        <a
+          onClick={onChange}
+          className={classnames('list-item f6 b db pa1 pointer dim br2', {
+            'list-item--checked': item.isRefined
+          })}>
+          <span className={classnames('list-item__label', {
+            'list-item__label--checked': item.isRefined
+          })}>{item.label}</span>
+          <span className={classnames('list-item__count f7 pl2', {
+            'list-item__count--checked': item.isRefined
+          })}>{item.count}</span>
+        </a>
+      </li>
     )
   },
 
@@ -104,7 +84,7 @@ const RefinementList = createClass({
     return (
       <a disabled={disabled}
         onClick={onClick}
-        className='pointer link dim dib moon-gray pt2'
+        className='pointer link dim db moon-gray pt2'
       >
         {extended ? lessIcon() : moreIcon()}
       </a>

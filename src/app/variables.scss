@@ -11,26 +11,20 @@ $dark-blue: darken($blue, 10%);
 $green: #31d0c9;
 $light-green: lighten($green, 10%);
 $lightest-green: #d8f5f3;
-
 $gold: #ffc107;
-
-$gradient-one: $blue;
-$gradient-two: $green;
-$gradient: linear-gradient(141deg, $gradient-one, $gradient-two);
-$gradient-invert: linear-gradient(141deg, $gradient-two, $gradient-one);
 
 // custom rules
 
+.cyan {
+  color: #00BCD4;
+}
+
+.bg-cyan {
+  background-color: #00BCD4;
+}
+
 .w-95 {
   width: 95%;
-}
-
-.bg-gradient {
-  background: $gradient;
-}
-
-.bg-gradient-invert {
-  background: $gradient-invert;
 }
 
 .no-break {
