@@ -1,30 +1,34 @@
 import IconExpandMore from 'react-icons/lib/md/expand-more'
+import IconSearch from 'react-icons/lib/md/search'
 import IconExpandLess from 'react-icons/lib/md/expand-less'
 import React, {createClass} from 'react'
 import classnames from 'classnames'
 import {connectRefinementList} from 'react-instantsearch/connectors'
 
-function moreIcon () {
-  return (
-    <span>
-      <IconExpandMore />
-      more
-    </span>
-  )
-}
+import './style.scss'
 
-function lessIcon () {
-  return (
-    <span>
-      <IconExpandLess />
-      less
-    </span>
-  )
-}
+const moreIcon = () => <span><IconExpandMore />more</span>
+const lessIcon = () => <span><IconExpandLess />less</span>
 
 const RefinementList = createClass({
   getInitialState () {
-    return { extended: false }
+    return { focus: false, extended: false }
+  },
+
+  onFocus (event) {
+    this.setState({focus: true})
+  },
+
+  onBlur (e) {
+    this.setState({focus: false})
+  },
+
+  onMouseEnter (e) {
+    this.setState({hover: true})
+  },
+
+  onMouseLeave (e) {
+    this.setState({hover: true})
   },
 
   isCapitalize () {
@@ -41,6 +45,7 @@ const RefinementList = createClass({
   },
 
   renderItem (item, key) {
+    const {count, label} = item
     const onChange = () => this.props.refine(item.value)
 
     return (
@@ -54,11 +59,11 @@ const RefinementList = createClass({
           <span className={classnames({
             'blue-grey-500': !item.isRefined,
             'blue-grey-100': item.isRefined
-          })}>{item.label}</span>
+          })}>{label}</span>
           <span className={classnames('f7 pl2', {
             'blue-grey-400': !item.isRefined,
             'blue-grey-300': item.isRefined
-          })}>{item.count}</span>
+          })}>{count}</span>
         </a>
       </li>
     )
@@ -94,15 +99,47 @@ const RefinementList = createClass({
   },
 
   render () {
-    const {renderItem, renderShowMore, getLimit, props} = this
+    const {renderItem, renderShowMore, getLimit, props, state, onFocus, onBlur} = this
     const {attributeName, items} = props
 
     if (!items.length) return null
     const slicedItems = items.slice(0, getLimit())
 
+    const {focus: isFocus} = state
+
+    function getPlaceholder (attributeName) {
+      const arr = attributeName.split(' ')
+      return arr[arr.length - 1]
+    }
+
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
-        <header className='f6 fw6 ttu tracked pb3 cyan-500'>{attributeName}</header>
+        <header className='flex justify-between items-start pb3'>
+          <h3
+            style={{flexGrow: 1, lineHeight: '26px'}}
+            className='f6 fw6 ttu tracked cyan-500 ma0 pa0'
+            >{attributeName}</h3>
+          <div
+            onMouseEnter={onFocus}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onMouseLeave={onBlur}
+            className='hover-bg-white pa1 br2'
+            style={{flexGrow: 0}}>
+            <IconSearch className='grey-400' />
+            <input
+              style={{width: '118px', fontSize: '14px'}}
+              placeholder={`Search for ${getPlaceholder(attributeName)}`}
+              className={classnames('inline-list__searchbox input-search bg-grey-100', {
+                'bg-white': isFocus
+              })}
+              type='search'
+              onInput={e => props.searchForItems(e.target.value)}
+              />
+          </div>
+
+        </header>
+
         <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>
         {renderShowMore()}
       </article>

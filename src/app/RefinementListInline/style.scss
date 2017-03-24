@@ -1,0 +1,5 @@
+@import '../style';
+
+.inline-list__searchbox {
+  @include placeholder-color(material-color('grey', '400'));
+}
