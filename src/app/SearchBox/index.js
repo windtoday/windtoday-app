@@ -50,7 +50,7 @@ const CustomSearchBox = createClass({
     const boxStyle = classnames('searchbox relative w-80 w-70-l', className)
 
     return (
-      <div data-app='searchbox' className={boxStyle}>
+      <div data-app='searchbox' role='search' className={boxStyle}>
         <IconSearch
           className={iconSearchStyle}
         />

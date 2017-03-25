@@ -14,7 +14,7 @@ function AsideLeft (props) {
   })
 
   return (
-    <aside data-app='aside-left' className={style}>
+    <aside data-app='aside-left' role='complementary' className={style}>
       <FacetsLeft />
     </aside>
   )

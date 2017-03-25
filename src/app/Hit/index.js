@@ -91,6 +91,7 @@ const Hit = createClass({
     return (
       <article
         data-app='hit'
+        role='article'
         className='hit fade-in pa3 bg-white mb3 br2'
         onMouseEnter={onHover}
         onMouseLeave={onHover}

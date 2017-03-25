@@ -34,6 +34,7 @@ function Main (props) {
       stopPropagation
       onSwipedRight={onSwipedRight}
       onSwipedLeft={onSwipedLeft}
+      role='main'
       data-app='app-main'>
 
       <AsideLeft {...props} />

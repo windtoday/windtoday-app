@@ -19,6 +19,7 @@ function AppBar (props) {
 
   return (
     <header
+      role='banner'
       data-app='appbar'
       className='appbar bg-cyan-500 w-100 ph2 flex justify-around items-center fixed z-5 card-shadow'>
 
