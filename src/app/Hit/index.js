@@ -111,7 +111,7 @@ const Hit = createClass({
             <div className='flex justify-between'>
               <p className='ma0 flex' style={{flexGrow: 1}}>
                 {renderPrice(item, priceStyle)}
-                {isRecently(timestamp) && renderBadge(item, timestamp)}
+                {!item.isForced && isRecently(timestamp) && renderBadge(item, timestamp)}
               </p>
 
               <p className='ma0' style={{flexGrow: 0}}>
