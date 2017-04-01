@@ -1,5 +1,7 @@
 @import '../style';
 
+$icon-size: 20px;
+
 .appbar {
   height: $appbar-height;
 
@@ -10,6 +12,18 @@
 }
 
 .changelog {
-  padding: 0;
-  margin: -6px;
+  margin: auto 0;
+
+  #HW_badge {
+    position: initial;
+    height: $icon-size;
+    width: $icon-size;
+    font-size: 14px;
+    line-height: $icon-size;
+  }
+
+  #HW_badge_cont {
+    width: $icon-size;
+    height: $icon-size;
+  }
 }
