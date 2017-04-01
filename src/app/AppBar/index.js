@@ -8,9 +8,9 @@ import Logo from '../Logo'
 
 import './style.scss'
 
-const renderMenuButton = (props) => <IconMenu size={20} {...props} />
-const renderFilterButton = (props) => <IconFilter size={20} {...props} />
-const renderCloseButton = (props) => <IconClose size={20} {...props} />
+const renderMenuButton = (props) => <IconMenu size={24} {...props} />
+const renderFilterButton = (props) => <IconFilter size={24} {...props} />
+const renderCloseButton = (props) => <IconClose size={24} {...props} />
 
 function AppBar (props) {
   const {toggle, get} = props
@@ -21,22 +21,28 @@ function AppBar (props) {
     <header
       role='banner'
       data-app='appbar'
-      className='appbar bg-cyan-500 w-100 ph2 flex justify-around items-center fixed z-5 card-shadow'>
+      className='appbar bg-cyan-500 w-100 ph2 ph5-ns flex justify-around items-center fixed z-5 card-shadow'>
 
-      {asideLeftButton({
-        className: 'order-1 dim pointer white',
-        onClick: toggle('asideLeftOpen')
-      })}
+      <div className='order-1 pa0 ma0 flex justify-between' style={{flexGrow: 1}}>
+        {asideLeftButton({
+          className: 'dim pointer white',
+          onClick: toggle('asideLeftOpen')
+        })}
 
-      <Logo className='order-2' {...props} clearsQuery />
-      <SearchBox className='order-3' {...props} />
+        <Logo className='pr3-ns ph3' {...props} clearsQuery />
+      </div>
 
-      <div className='changelog order-4' />
+      <SearchBox className='order-2' {...props} />
 
-      {asideRightButton({
-        className: 'order-5 dim pointer white',
-        onClick: toggle('asideRightOpen')
-      })}
+      <div className='order-3 pa0 flex justify-between' style={{flexGrow: 1}}>
+        <div className='pl3-ns ph3 changelog' />
+
+        {asideRightButton({
+          className: 'dim pointer white',
+          onClick: toggle('asideRightOpen')
+        })}
+
+      </div>
 
     </header>
   )

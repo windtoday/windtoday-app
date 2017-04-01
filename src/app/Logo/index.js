@@ -5,9 +5,6 @@ import {connectCurrentRefinements} from 'react-instantsearch/connectors'
 import './style.scss'
 import ClearAll from './ClearAll'
 
-const getStyle = (isDesktop) => isDesktop ? 'logo--big' : 'logo--tiny'
-const getImage = (isDesktop) => isDesktop ? 'logo' : 'logo-tiny'
-
 const Logo = createClass({
   getInitialState () {
     return {clicked: false}
@@ -30,11 +27,9 @@ const Logo = createClass({
   render () {
     const {props, state, clickedAnimation} = this
     const {clicked} = state
-    const {query, items, get, className} = props
+    const {query, items, className} = props
 
-    const isDesktop = get('isDesktop')
-    const image = getImage(isDesktop)
-    const style = classnames('logo', getStyle(isDesktop), {
+    const style = classnames('logo', {
       'logo--shake': clicked
     })
 
@@ -49,7 +44,7 @@ const Logo = createClass({
           ref='img'
           className={style} onClick={onClick}
           alt='windtoday'
-          src={`/assets/img/${image}.png`} />
+          src={`/assets/img/logo-tiny.png`} />
       </ClearAll>
     )
   }
