@@ -25,20 +25,20 @@ function AppBar (props) {
 
       <div className='order-1 pa0 ma0 flex justify-between' style={{flexGrow: 1}}>
         {asideLeftButton({
-          className: 'dim pointer white',
+          className: 'dim pointer white pr3',
           onClick: toggle('asideLeftOpen')
         })}
 
-        <Logo className='pr3-ns ph3' {...props} clearsQuery />
+        <Logo {...props} clearsQuery />
       </div>
 
-      <SearchBox className='order-2' {...props} />
+      <SearchBox className='order-2 mh3' {...props} />
 
       <div className='order-3 pa0 flex justify-between' style={{flexGrow: 1}}>
-        <div className='pl3-ns ph3 changelog' />
+        <div className='changelog' />
 
         {asideRightButton({
-          className: 'dim pointer white',
+          className: 'dim pointer white pl3',
           onClick: toggle('asideRightOpen')
         })}
 
