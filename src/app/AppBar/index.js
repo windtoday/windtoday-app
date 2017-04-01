@@ -8,9 +8,9 @@ import Logo from '../Logo'
 
 import './style.scss'
 
-const renderMenuButton = (props) => <IconMenu size={24} {...props} />
-const renderFilterButton = (props) => <IconFilter size={24} {...props} />
-const renderCloseButton = (props) => <IconClose size={24} {...props} />
+const renderMenuButton = (props) => <IconMenu size={20} {...props} />
+const renderFilterButton = (props) => <IconFilter size={20} {...props} />
+const renderCloseButton = (props) => <IconClose size={20} {...props} />
 
 function AppBar (props) {
   const {toggle, get} = props
