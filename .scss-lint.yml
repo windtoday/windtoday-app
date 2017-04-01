@@ -12,6 +12,9 @@ linters:
   BemDepth:
     enabled: true
 
+  IdSelector:
+    enabled: false
+
   DeclarationOrder:
     enabled: false
 
@@ -45,6 +48,9 @@ linters:
     convention: hyphenated_BEM
     class_convention: ^(?!js-).*
     class_convention_explanation: should not be written in the form js-*
+    ignored_names:
+      - HW_badge
+      - HW_badge_cont
 
   SingleLinePerProperty:
     enabled: true
