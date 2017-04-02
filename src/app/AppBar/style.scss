@@ -11,19 +11,16 @@ $icon-size: 20px;
   }
 }
 
-.changelog {
+#HW_badge {
   margin: auto 0;
+  position: initial !important;
+  height: $icon-size !important;
+  width: $icon-size !important;
+  font-size: 14px !important;
+  line-height: $icon-size !important;
+}
 
-  #HW_badge {
-    position: initial;
-    height: $icon-size;
-    width: $icon-size;
-    font-size: 14px;
-    line-height: $icon-size;
-  }
-
-  #HW_badge_cont {
-    width: $icon-size;
-    height: $icon-size;
-  }
+#HW_badge_cont {
+  width: $icon-size !important;
+  height: $icon-size !important;
 }
