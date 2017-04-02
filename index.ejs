@@ -134,18 +134,21 @@
     <% } %>
     <style>
       #HW_badge {
-        margin: auto 0;
-        position: initial !important;
-        height: 20px !important;
-        width: 20px !important;
-        font-size: 14px !important;
-        line-height: 20px !important;
+        box-shadow: 0 0 0 2px #00bcd4;
+      }
+      #HW_badge_cont {
+        position: absolute !important;
+        top: 4px;
+        margin-left: 26px;
       }
 
-      #HW_badge_cont {
-        width: 20px !important;
-        height: 20px !important;
+      @media screen and (min-width: 30em) {
+        #HW_badge_cont {
+          top: 2px;
+          margin-left: 38px;
+        }
       }
+
     </style>
     <script>
       var HW_config = {
