@@ -12,8 +12,11 @@ linters:
   BemDepth:
     enabled: true
 
+  ImportantRule:
+    severity: warning
+
   IdSelector:
-    enabled: false
+    severity: warning
 
   DeclarationOrder:
     enabled: false
