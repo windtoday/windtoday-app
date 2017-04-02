@@ -33,13 +33,15 @@ const Logo = createClass({
       'logo--shake': clicked
     })
 
+    const clearStyle = classnames('pointer changelog', className)
+
     const onClick = (evt) => {
       const isDisabled = items.length === 0 && (!query || query === '')
       !isDisabled && clickedAnimation()
     }
 
     return (
-      <ClearAll className={`pointer ${className}`} clearsQuery>
+      <ClearAll className={clearStyle} clearsQuery>
         <img
           ref='img'
           className={style} onClick={onClick}

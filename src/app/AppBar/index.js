@@ -35,8 +35,6 @@ function AppBar (props) {
       <SearchBox className='order-2 mh3' {...props} />
 
       <div className='order-3 pa0 flex justify-between' style={{flexGrow: 1}}>
-        <div className='changelog' />
-
         {asideRightButton({
           className: 'dim pointer white pl3',
           onClick: toggle('asideRightOpen')
