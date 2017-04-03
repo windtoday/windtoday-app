@@ -18,6 +18,7 @@ module.exports = {
   devtool: 'eval',
   cache: true,
   entry: [
+    'react-hot-loader/patch',
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint
     'webpack-dev-server/client?http://0.0.0.0:3000',
