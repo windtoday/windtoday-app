@@ -14,7 +14,7 @@ const path = require('path')
 const config = require('./config.json')
 const pkg = require('./package.json')
 
-const { HashedModuleIdsPlugin } = webpack
+const { DefinePlugin, HashedModuleIdsPlugin } = webpack
 
 const {
   OccurrenceOrderPlugin,
@@ -53,7 +53,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),

@@ -33,7 +33,7 @@ const Logo = createClass({
       'logo--shake': clicked
     })
 
-    const clearStyle = classnames('pointer changelog', className)
+    const clearStyle = classnames('pointer changelog relative', className)
 
     const onClick = (evt) => {
       const isDisabled = items.length === 0 && (!query || query === '')
