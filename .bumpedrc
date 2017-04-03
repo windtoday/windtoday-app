@@ -21,7 +21,3 @@ plugins:
     'Publishing tag at GitHub':
       plugin: 'bumped-terminal'
       command: 'git tag $newVersion && git push && git push --tags'
-
-    'Trigger Netlify Deploy':
-      plugin: 'bumped-http'
-      url: process.env.NETLIFY_DEPLOY_TRIGGER

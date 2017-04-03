@@ -70,7 +70,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "scss-lint src/app; (if [ $? -eq 1 ]; then exit 0; else exit $?; fi)",
+    "lint:css": "scss-lint src/app",
     "lint:js": "standard src/app",
     "pretest": "npm run lint",
     "start": "webpack-dashboard -- node bin/server",

@@ -65,7 +65,8 @@ module.exports = {
       filename: 'assets/css/bundle.css'
     }),
     new PurifyCSSPlugin({
-      paths: glob.sync(path.resolve('src/www'), {nodir: true}),
+      paths: glob.sync('src/app/**/*', { nodir: true }),
+      styleExtensions: ['.css'],
       moduleExtensions: ['.js', '.html'],
       purifyOptions: {
         info: true,
@@ -73,16 +74,16 @@ module.exports = {
         rejected: true
       }
     }),
-    new CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'assets/js/vendor.bundle.js',
-      minChunks: Infinity
-    }),
     new UglifyJsPlugin({
       sourceMap: true,
       minimize: true,
       compress: { warnings: false },
       comments: false
+    }),
+    new CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'assets/js/vendor.bundle.js',
+      minChunks: Infinity
     }),
     new OfflinePlugin({
       relativePaths: false,
