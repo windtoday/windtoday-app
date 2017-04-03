@@ -1,3 +1,38 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2017-04-03)
+
+* Add inline refinement list ([72aba71](https://github.com/windtoday/windtoday-marketplace/commit/72aba71))
+* Add search for facets ([5cd7d91](https://github.com/windtoday/windtoday-marketplace/commit/5cd7d91))
+* Add some missing a11y roles ([cee3515](https://github.com/windtoday/windtoday-marketplace/commit/cee3515))
+* Align load more button style ([8eec713](https://github.com/windtoday/windtoday-marketplace/commit/8eec713))
+* Avoid load HMR two times ([cec3ad3](https://github.com/windtoday/windtoday-marketplace/commit/cec3ad3))
+* Avoid new for forced items ([61b9b1d](https://github.com/windtoday/windtoday-marketplace/commit/61b9b1d))
+* Define changelog icon inside logo ([f1e5d29](https://github.com/windtoday/windtoday-marketplace/commit/f1e5d29))
+* Fix li elements inside ul ([d9b9668](https://github.com/windtoday/windtoday-marketplace/commit/d9b9668))
+* Fix linter ([c1afdc1](https://github.com/windtoday/windtoday-marketplace/commit/c1afdc1))
+* Fix linter ([f687d41](https://github.com/windtoday/windtoday-marketplace/commit/f687d41))
+* Improve badge vertical align ([b0101ac](https://github.com/windtoday/windtoday-marketplace/commit/b0101ac))
+* Improve Nav Icons (#146) ([3c6f318](https://github.com/windtoday/windtoday-marketplace/commit/3c6f318))
+* Improve shake animation ([49aab3b](https://github.com/windtoday/windtoday-marketplace/commit/49aab3b))
+* Improve toggle style ([19f2ab6](https://github.com/windtoday/windtoday-marketplace/commit/19f2ab6))
+* Lock dependencies ([e4bb44b](https://github.com/windtoday/windtoday-marketplace/commit/e4bb44b))
+* No follow shop links ([0a4d25e](https://github.com/windtoday/windtoday-marketplace/commit/0a4d25e))
+* Refactor changelog styles ([a6502fd](https://github.com/windtoday/windtoday-marketplace/commit/a6502fd))
+* Refactor css linter ([0b992c4](https://github.com/windtoday/windtoday-marketplace/commit/0b992c4))
+* Remove current facet label ([65322c5](https://github.com/windtoday/windtoday-marketplace/commit/65322c5))
+* Remove provider facet ([133e5e8](https://github.com/windtoday/windtoday-marketplace/commit/133e5e8))
+* Tweaks local environment ([f4edb26](https://github.com/windtoday/windtoday-marketplace/commit/f4edb26))
+* Update and lock dependencies ([46cdf37](https://github.com/windtoday/windtoday-marketplace/commit/46cdf37))
+* Use material colors instead of tachyons colors ([e8da3c2](https://github.com/windtoday/windtoday-marketplace/commit/e8da3c2))
+* chore(package): update autotrack to version 2.2.0 (#139) ([6b6951e](https://github.com/windtoday/windtoday-marketplace/commit/6b6951e))
+* chore(package): update babel-preset-env to version 1.3.2 (#145) ([e9d24f6](https://github.com/windtoday/windtoday-marketplace/commit/e9d24f6))
+* chore(package): update css-loader to version 0.28.0 (#140) ([313efac](https://github.com/windtoday/windtoday-marketplace/commit/313efac))
+* chore(package): update style-loader to version 0.15.0 (#131) ([712f101](https://github.com/windtoday/windtoday-marketplace/commit/712f101))
+* chore(package): update webpack to version 2.3.1 (#137) ([bf5a30f](https://github.com/windtoday/windtoday-marketplace/commit/bf5a30f))
+* fix(package): update style-loader to version 0.16.0 (#136) ([ef90d50](https://github.com/windtoday/windtoday-marketplace/commit/ef90d50))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-03-19)
 
