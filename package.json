@@ -55,7 +55,7 @@
     "tachyons-queries": "~0.3.3",
     "tachyons-sass": "~4.7.1",
     "webpack": "~2.3.3",
-    "webpack-bundle-analyzer": "~2.3.1"
+    "webpack-bundle-analyzer": "~2.4.0"
   },
   "devDependencies": {
     "browser-sync": "latest",
