@@ -5,11 +5,12 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const glob = require('glob')
 const path = require('path')
 
 const pkg = require('./package.json')
 const config = require('./config.json')
-const {HotModuleReplacementPlugin, NamedModulesPlugin} = webpack
+const {NamedModulesPlugin} = webpack
 
 module.exports = {
   performance: {
@@ -18,14 +19,9 @@ module.exports = {
   devtool: 'eval',
   cache: true,
   entry: [
-    // activate HMR for React
-    'react-hot-loader/patch',
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint
     'webpack-dev-server/client?http://0.0.0.0:3000',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
-    'webpack/hot/only-dev-server',
     // the entry point of our app
     './src/app/index.js'
   ],
@@ -44,16 +40,36 @@ module.exports = {
       loader: ['react-hot-loader/webpack', 'babel-loader?cacheDirectory']
     }, {
       test: /(\.scss|\.css)$/,
-      loader: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
-        'postcss-loader'
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true
+        }
+      }, {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+          /* Bug related with scoped path workaround,
+             see:https://git.io/vSMim
+          */
+          includePaths: ['node_modules', 'node_modules/@material/*']
+                .map((d) => path.join(__dirname, d))
+                .map((g) => glob.sync(g))
+                .reduce((a, c) => a.concat(c), [])
+        }
+      }, {
+        loader: 'postcss-loader',
+        options: {
+          parser: require('postcss-scss'),
+          sourceMap: 'inline'
+        }
+      }
       ]
     }]
   },
   plugins: [
-    new HotModuleReplacementPlugin(),
     new DashboardPlugin(),
     new NamedModulesPlugin(),
     new webpack.DefinePlugin({
@@ -82,7 +98,7 @@ module.exports = {
       {
         // prevent BrowserSync from reloading the page
         // and let Webpack Dev Server take care of this
-        reload: false
+        reload: true
       }
     )
   ]
