@@ -1,12 +1,14 @@
 @import '../style';
 
 .ais-CurrentRefinements__root:not(.ais-CurrentRefinements__noRefinement) {
-  @extend .pv3;
+  @extend .pv1;
 }
 
 .ais-CurrentRefinements__item:not(.ais-CurrentRefinements__itemParent) {
-  @extend .dib, .br2, .mr2, .nowrap, .blue, .bg-lightest-blue, .inline-flex, .items-center, .justify-center;
+  @extend .dib, .br2, .mr2, .nowrap, .inline-flex, .items-center, .justify-center;
   padding: 5px 8px;
+  color: material-color('blue', '700');
+  background-color: material-color('blue', '50');
 }
 
 .ais-CurrentRefinements__itemParent {

@@ -1,7 +1,11 @@
 @import '../style';
 
+$card-size: 10rem;
+$card-image-size: 160px;
+
 .hit {
   @include hover-transition(background-color);
+  height: $card-size;
 
   &:hover {
     background-color: rgba($near-white, .5);
@@ -9,15 +13,11 @@
 }
 
 .hit__image-wrapper {
-  width: 3rem;
-  min-width: 3rem;
-
-  @include break(large) {
-    width: 3.5rem;
-    min-width: 3.5rem;
-  }
+  width: $card-image-size;
 }
 
 .hit__image {
   @include hover-transition(opacity);
+  object-fit: contain;
+  object-position: top;
 }

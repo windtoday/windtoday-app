@@ -1,16 +1,9 @@
 import classnames from 'classnames'
 import React, {createClass} from 'react'
-import TimeAgo from 'react-timeago'
-
 import {Highlight} from 'react-instantsearch/dom'
 import Badge from '../Badge'
 
 import './style.scss'
-
-function formatter (value, unit, suffix) {
-  const unitFirstChar = unit.charAt(0)
-  return `${value}${unitFirstChar}`
-}
 
 function isRecently (timestamp) {
   const now = Date.now()
@@ -23,30 +16,26 @@ function getTimestamp (item) {
   return item.updatedAt || item.createdAt
 }
 
-function renderPrice (item, className) {
-  const {price} = item
-  return (
-    <span
-      className={className}>
-      {price ? `${price}€` : 'N/A'}
-    </span>
-  )
-}
+function renderPrice (item) {
+  const {price, provider} = item
+  const priceText = price ? `${price}€` : 'N/A'
+  const providerText = `by ${provider}`
 
-function renderTimestamp (timestamp) {
   return (
-    <TimeAgo
-      className='fr ma0 fw4 blue-grey-200'
-      date={timestamp} formatter={formatter} />
+    <div>
+      <span
+        className='cyan-500 b pr1'>{priceText}
+      </span> <span
+        className='tracked blue-grey-200 f6'>{providerText}</span>
+    </div>
+
   )
 }
 
 function renderImage (item, isHover, onHover) {
-  const {provider} = item
-  const imageURL = `/assets/img/provider/${provider}.jpg`
-  const style = classnames('hit__image w-100 db br2', {
-    'o-50': isHover
-  })
+  const {provider, image} = item
+  const imageURL = image || `/assets/img/provider/${provider}.jpg`
+  const style = classnames('hit__image w-100 h-100 db br2')
 
   return (
     <img alt={provider} src={imageURL} className={style} />
@@ -78,13 +67,7 @@ const Hit = createClass({
     const {item} = props
     const {isHover} = state
 
-    const titleStyle = classnames('link fw8 helvetica mv0 blue-grey-700', {
-      'light-blue': isHover
-    })
-
-    const priceStyle = classnames('dit link green ma0', {
-      'light-green': isHover
-    })
+    const titleStyle = classnames('link fw4 lh-title mv0 blue-grey-700 w-90 pb1')
 
     const timestamp = getTimestamp(item)
 
@@ -92,36 +75,32 @@ const Hit = createClass({
       <article
         data-app='hit'
         role='article'
-        className='hit fade-in pa3 bg-white mb3 br2'
+        className='hit fade-in bg-white pa3 bb b--light-gray h6'
         onMouseEnter={onHover}
         onMouseLeave={onHover}
         >
         <a
-          className='hit__link f5 flex link w-100 blue'
+          className='hit__link flex link w-100 h-100 black'
           href={item.link}
           target='_blank'
           rel='nofollow'
           >
 
-          <div className='hit__image-wrapper'>
-            {renderImage(item, isHover, onHover)}
-          </div>
-
-          <div className='w-100 pl3 lh-copy'>
-            <div className='flex justify-between'>
-              <p className='ma0 flex' style={{flexGrow: 1}}>
-                {renderPrice(item, priceStyle)}
-                {!item.isForced && isRecently(timestamp) && renderBadge(item, timestamp)}
-              </p>
-
-              <p className='ma0' style={{flexGrow: 0}}>
-                {renderTimestamp(timestamp)}
-              </p>
-            </div>
-
+          <div className='w-100 lh-copy f4'>
             <p className={titleStyle}>
               <Highlight attributeName='title' hit={item} />
+              {!item.isForced && isRecently(timestamp) && renderBadge(item, timestamp)}
             </p>
+
+            <div className='flex justify-between'>
+              <p className='ma0 flex' style={{flexGrow: 1}}>
+                {renderPrice(item)}
+              </p>
+            </div>
+          </div>
+
+          <div className='hit__image-wrapper'>
+            {renderImage(item, isHover, onHover)}
           </div>
         </a>
       </article>

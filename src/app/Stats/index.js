@@ -19,9 +19,9 @@ const Stats = createClass({
     const {nbHits, processingTimeMS} = props
 
     return (
-      <header data-app='stats' className='fade-in blue-grey-200 pa2'>
+      <header data-app='stats' className='fade-in blue-grey-200 pa3'>
         <CurrentRefinements />
-        <div className='pt3 f5 sans-serif flex items-start items-center'>
+        <div className='pt3 f5 code flex items-start items-center'>
           <IconInfo className='mr1' />
           <span>{stats(nbHits, processingTimeMS)}</span>
         </div>

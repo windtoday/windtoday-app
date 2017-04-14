@@ -12,7 +12,10 @@ const lessIcon = () => <span><IconExpandLess />less</span>
 
 const RefinementList = createClass({
   getInitialState () {
-    return { focus: false, extended: false }
+    return {
+      focus: false,
+      extended: false
+    }
   },
 
   onFocus (event) {
@@ -53,16 +56,16 @@ const RefinementList = createClass({
         <a
           onClick={onChange}
           className={classnames('f6 b db pa1 pointer dim br2', {
-            'bg-moon-gray': !item.isRefined,
-            'bg-blue-grey-700': item.isRefined
+            'bg-grey-200': !item.isRefined,
+            'bg-blue-grey-500': item.isRefined
           })}>
           <span className={classnames({
             'blue-grey-500': !item.isRefined,
             'blue-grey-100': item.isRefined
           })}>{label}</span>
           <span className={classnames('f7 pl2', {
-            'blue-grey-400': !item.isRefined,
-            'blue-grey-300': item.isRefined
+            'blue-grey-300': !item.isRefined,
+            'blue-grey-200': item.isRefined
           })}>{count}</span>
         </a>
       </li>
@@ -117,21 +120,24 @@ const RefinementList = createClass({
         <header className='flex justify-between items-start pb3'>
           <h3
             style={{flexGrow: 1, lineHeight: '26px'}}
-            className='f6 fw6 ttu tracked cyan-500 ma0 pa0'
+            className='f6 fw6 ttu tracked blue-300 ma0 pa0'
             >{attributeName}</h3>
           <div
             onMouseEnter={onFocus}
             onFocus={onFocus}
             onBlur={onBlur}
             onMouseLeave={onBlur}
-            className='hover-bg-white pa1 br2'
+            className={classnames('pa1 br2', {
+              'bg-grey-100': isFocus
+            })}
             style={{flexGrow: 0}}>
             <IconSearch className='grey-400' />
             <input
               style={{width: '118px', fontSize: '14px'}}
               placeholder={`Search for ${getPlaceholder(attributeName)}`}
-              className={classnames('inline-list__searchbox input-search bg-grey-100', {
-                'bg-white': isFocus
+              className={classnames('inline-list__searchbox input-search pointer', {
+                'bg-grey-100 grey-800': isFocus,
+                'grey-400': !isFocus
               })}
               type='search'
               onInput={e => props.searchForItems(e.target.value)}
