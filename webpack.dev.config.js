@@ -41,15 +41,24 @@ module.exports = {
     rules: [{
       test: /(\.js|\.jsx)$/,
       exclude: /node_modules\/(?!(autotrack|dom-utils))/,
-      loader: ['babel-loader?cacheDirectory']
+      use: ['babel-loader?cacheDirectory']
     }, {
       test: /(\.scss|\.css)$/,
-      loader: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
-        'postcss-loader'
-      ]
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 2
+        }
+      }, {
+        loader: 'postcss-loader',
+        options: {
+          parser: require('postcss-scss')
+        }
+      }, {
+        loader: 'sass-loader'
+      }]
     }]
   },
   plugins: [
