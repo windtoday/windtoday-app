@@ -1,7 +1,7 @@
 @import '../style';
 
 $card-size: 10rem;
-$card-image-size: 160px;
+$card-image-size: 25%;
 
 .hit {
   @include hover-transition(background-color);
@@ -12,12 +12,9 @@ $card-image-size: 160px;
   }
 }
 
-.hit__image-wrapper {
-  width: $card-image-size;
-}
-
 .hit__image {
   @include hover-transition(opacity);
+  width: $card-image-size;
   object-fit: contain;
   object-position: top;
 }

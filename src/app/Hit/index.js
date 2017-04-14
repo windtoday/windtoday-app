@@ -35,7 +35,7 @@ function renderPrice (item) {
 function renderImage (item, isHover, onHover) {
   const {provider, image} = item
   const imageURL = image || `/assets/img/provider/${provider}.jpg`
-  const style = classnames('hit__image w-100 h-100 db br2')
+  const style = classnames('hit__image db br2')
 
   return (
     <img alt={provider} src={imageURL} className={style} />
@@ -99,9 +99,7 @@ const Hit = createClass({
             </div>
           </div>
 
-          <div className='hit__image-wrapper'>
-            {renderImage(item, isHover, onHover)}
-          </div>
+          {renderImage(item, isHover, onHover)}
         </a>
       </article>
     )
