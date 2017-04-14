@@ -45,8 +45,6 @@ module.exports = {
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [{
-          loader: 'style-loader'
-        }, {
           loader: 'css-loader',
           options: {
             minimize: true,
@@ -58,7 +56,10 @@ module.exports = {
             parser: require('postcss-scss')
           }
         }, {
-          loader: 'sass-loader'
+          loader: 'sass-loader',
+          options: {
+            sourcemap: true
+          }
         }]
       })
     }]
