@@ -51,7 +51,7 @@ const Results = createClass({
 
   renderLoader (props) {
     return (
-      <article className='z-max fixed vh-100 dt w-100 bg-blue-300'>
+      <article className='z-max fixed vh-100 dt w-100 bg-blue-500'>
         <div className='dtc v-mid tc'>
           <Spinner />
         </div>
