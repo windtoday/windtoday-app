@@ -48,17 +48,19 @@ module.exports = {
           loader: 'css-loader',
           options: {
             minimize: true,
+            sourceMap: true,
             importLoaders: 2
           }
         }, {
           loader: 'postcss-loader',
           options: {
-            parser: require('postcss-scss')
+            parser: require('postcss-scss'),
+            sourceMap: 'inline'
           }
         }, {
           loader: 'sass-loader',
           options: {
-            sourcemap: true
+            sourceMap: true
           }
         }]
       })
