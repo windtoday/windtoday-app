@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
     require('postcss-focus'),
-    require('autoprefixer')
+    require('autoprefixer')({grid: false})
   ]
 }

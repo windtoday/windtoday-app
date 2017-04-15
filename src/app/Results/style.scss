@@ -2,6 +2,7 @@
 
 .results {
   -webkit-overflow-scrolling: touch;
+
   @include lateral-transition(width, padding-left);
 }
 

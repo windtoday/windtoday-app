@@ -21,7 +21,7 @@ function AppBar (props) {
     <header
       role='banner'
       data-app='appbar'
-      className='appbar bg-cyan-500 w-100 ph2 ph5-ns flex justify-around items-center fixed z-5 card-shadow'>
+      className='appbar bg-blue-700 w-100 ph3 ph5-ns flex justify-around items-center fixed z-5 card-shadow'>
 
       <div className='order-1 pa0 ma0 flex justify-between' style={{flexGrow: 1}}>
         {asideLeftButton({

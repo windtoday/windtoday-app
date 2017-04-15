@@ -4,7 +4,7 @@ import FacetsRight from '../../Facets/Right'
 
 import './style.scss'
 
-const theme = 'aside aside-right fl w-25-l w-95 vh-100 bg-grey-100 overflow-x-hidden overflow-y-scroll z-4 fixed'
+const theme = 'aside aside-right fl w-25-l w-95 vh-100 bg-white overflow-x-hidden overflow-y-scroll z-4 fixed'
 
 function AsideRight (props) {
   const { get } = props

@@ -7,12 +7,14 @@
   letter-spacing: .03rem;
   color: $white;
   padding: 42px;
+
   @include placeholder-color(rgba($white, .6));
 }
 
 .searchbox__icon {
   height: $searchbox-input-height;
   color: rgba($white, .6);
+
   @include hover-transition(color);
 }
 
@@ -26,6 +28,7 @@
 
 .searchbox__icon-clear {
   transform: scale(0);
+
   @include hover-transition(color, transform);
 
   &:hover {

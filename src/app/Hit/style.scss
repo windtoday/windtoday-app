@@ -1,23 +1,28 @@
 @import '../style';
 
+$card-size: 10rem;
+$card-image-size: 80px;
+$card-image-size-large: 96px;
+
 .hit {
   @include hover-transition(background-color);
 
+  height: $card-size;
+
   &:hover {
-    background-color: rgba($near-white, .5);
-  }
-}
-
-.hit__image-wrapper {
-  width: 3rem;
-  min-width: 3rem;
-
-  @include break(large) {
-    width: 3.5rem;
-    min-width: 3.5rem;
+    background-color: material-color('grey', '50');
   }
 }
 
 .hit__image {
   @include hover-transition(opacity);
+
+  width: $card-image-size;
+
+  @include break(large) {
+    width: $card-image-size-large;
+  }
+
+  object-fit: contain;
+  object-position: top;
 }

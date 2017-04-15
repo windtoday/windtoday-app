@@ -1,16 +1,3 @@
-@import '~material-colors-scss/classes';
-@import '~material-colors-scss/function';
-
-$moon-gray: rgba(184, 192, 203, .3);
-$blue: #19b5fe;
-$light-blue: lighten($blue, 10%);
-$lightest-blue: #d1f1fe;
-$dark-blue: darken($blue, 10%);
-
-$green: #31d0c9;
-$light-green: lighten($green, 10%);
-$lightest-green: #d8f5f3;
-
 // custom rules
 
 .input-search {
@@ -27,6 +14,10 @@ $lightest-green: #d8f5f3;
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+}
+
+.tracked {
+  letter-spacing: 0.04em;
 }
 
 @import '~tachyons-sass/tachyons';

@@ -11,8 +11,8 @@ import './style.scss'
 
 const el = document.getElementById('app')
 
-function render (component) {
-  return ReactDOM.render(
+const render = component =>
+  ReactDOM.render(
     <AppContainer>
       <Router>
         <Route path='/' component={App} />
@@ -20,13 +20,11 @@ function render (component) {
     </AppContainer>,
     el
   )
-}
 
 render(App)
+if (module.hot) module.hot.accept('./App', () => render(App))
 
-if (module.hot) {
-  module.hot.accept('./App', () => render(App))
-} else {
+if (process.env.NODE_ENV === 'production') {
   require('autotrack/lib/plugins/outbound-link-tracker')
   require('autotrack/lib/plugins/clean-url-tracker')
   require('autotrack/lib/plugins/max-scroll-tracker')
