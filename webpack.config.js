@@ -81,7 +81,7 @@ module.exports = {
     new PurifyCSSPlugin({
       paths: glob.sync('src/app/**/*', { nodir: true }),
       styleExtensions: ['.css'],
-      moduleExtensions: ['.js', '.html'],
+      moduleExtensions: ['.js', '.scss', '.html'],
       purifyOptions: {
         info: true,
         minify: true,

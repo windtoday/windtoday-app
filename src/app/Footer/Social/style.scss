@@ -2,6 +2,7 @@
 
 .social-icon {
   fill: material-color('blue-grey', '200');
+
   @include hover-transition(fill);
 }
 
