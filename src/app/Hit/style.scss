@@ -1,7 +1,7 @@
 @import '../style';
 
 $card-size: 10rem;
-$card-image-size: 25%;
+$card-image-size: 20vw;
 
 .hit {
   @include hover-transition(background-color);
