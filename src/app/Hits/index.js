@@ -8,10 +8,10 @@ import './style.scss'
 
 function renderHasMore (refine, searching) {
   return (
-    <footer className='tc pv3 ph3 ph4-l'>
+    <footer className='tc pt4'>
       <a
         onClick={refine}
-        className='dim link ttu lh-solid cb-ns db dib-l mb2 pb3 ph4 pointer normal blue-grey-200'>
+        className='dim link ttu lh-solid cb-ns db dib-l mb2 ph4 pointer normal blue-grey-200'>
         <IconAdd size={34} className='db tc w-100 pb2' />
         <span className='f6'>Load More</span>
       </a>
