@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "number-leading-zero": "never"
+    "number-leading-zero": "never",
+    "value-list-max-empty-lines": 1
   }
 }
