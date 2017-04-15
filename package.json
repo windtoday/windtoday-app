@@ -60,6 +60,8 @@
     "browser-sync": "latest",
     "browser-sync-webpack-plugin": "latest",
     "standard": "latest",
+    "stylelint": "latest",
+    "stylelint-config-standard": "~16.0.0",
     "webpack-dashboard": "latest",
     "webpack-dev-server": "latest"
   },
@@ -69,7 +71,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "scss-lint src/app",
+    "lint:css": "stylelint src/app/**/*.scss",
     "lint:js": "standard src/app",
     "pretest": "npm run lint",
     "dev": "webpack-dashboard -- node bin/server",

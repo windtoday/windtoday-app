@@ -5,6 +5,7 @@ $card-image-size: 20vw;
 
 .hit {
   @include hover-transition(background-color);
+
   height: $card-size;
 
   &:hover {
@@ -14,6 +15,7 @@ $card-image-size: 20vw;
 
 .hit__image {
   @include hover-transition(opacity);
+
   width: $card-image-size;
   object-fit: contain;
   object-position: top;
