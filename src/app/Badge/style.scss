@@ -2,11 +2,4 @@
 
 .badge {
   font-size: 12px;
-  line-height: 22px;
-
-  @include hover-transition(opacity);
-}
-
-.badge--hover {
-  opacity: .5;
 }

@@ -10,7 +10,7 @@ $card-image-size-large: 96px;
   height: $card-size;
 
   &:hover {
-    background-color: rgba($near-white, .5);
+    background-color: material-color('grey', '50');
   }
 }
 

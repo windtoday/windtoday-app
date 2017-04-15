@@ -1,19 +1,14 @@
 import React from 'react'
-import classnames from 'classnames'
 
 import './style.scss'
 
 const theme = 'badge b ttu amber-500 pl1'
 
 function Badge (props) {
-  const {isHover, children} = props
-
-  const style = classnames(theme, {
-    'badge--hover': isHover
-  })
+  const {children} = props
 
   return (
-    <span className={style}>{children}</span>
+    <span className={theme}>{children}</span>
   )
 }
 

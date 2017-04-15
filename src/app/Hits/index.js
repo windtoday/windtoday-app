@@ -26,7 +26,7 @@ function CustomHits (props) {
   return (
     <div data-app='hits' className='hits'>
       <Stats />
-      <div className=''>
+      <div>
         {hits.map((item, key) => <Hit item={item} key={key} {...hitsProps} />)}
       </div>
       {hasMore && renderHasMore(refine, searching)}
