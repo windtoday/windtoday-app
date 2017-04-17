@@ -40,7 +40,7 @@ export default (props) => {
         >
 
         <div className='w-100 lh-copy f4'>
-          <p className='link fw4 lh-title mv0 blue-grey-700 w-95 pb1 flex items-center'>
+          <p className='link fw4 lh-title mv0 blue-grey-700 w-95 pb1'>
             <Highlight attributeName='title' hit={item} />
             {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
           </p>
