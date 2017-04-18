@@ -79,9 +79,11 @@ module.exports = {
       filename: 'assets/css/bundle.css'
     }),
     new PurifyCSSPlugin({
-      paths: glob.sync('src/app/**/*', { nodir: true }),
-      styleExtensions: ['.css'],
-      moduleExtensions: ['.js', '.scss', '.html'],
+      paths: [
+        'src/app/**/*.js',
+        'src/app/Range/style.scss',
+        'src/app/style.scss'
+      ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
         info: true,
         minify: true,
