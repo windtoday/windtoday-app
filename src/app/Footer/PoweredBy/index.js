@@ -6,6 +6,7 @@ const PoweredBy = () =>
     Powered by
       <a
         href='https://algolia.com'
+        rel='noopener'
         target='_blank'
         className='link pointer ph1'
       >
