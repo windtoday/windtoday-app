@@ -36,7 +36,7 @@ export default (props) => {
         className='hit__link flex link w-100 h-100 black'
         href={item.link}
         target='_blank'
-        rel='nofollow'
+        rel='nofollow noopener'
         >
 
         <div className='w-100 lh-copy f4'>
