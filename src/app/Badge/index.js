@@ -1,8 +1,6 @@
 import React from 'react'
 
-import './style.scss'
-
-const theme = 'badge b ttu amber-500 pl1 v-mid'
+const theme = 'b ttu amber-500 pl1 v-mid f7'
 
 function Badge (props) {
   const {children} = props
