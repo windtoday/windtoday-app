@@ -10,6 +10,11 @@ import './style.scss'
 const moreIcon = () => <span><IconExpandMore />more</span>
 const lessIcon = () => <span><IconExpandLess />less</span>
 
+function getPlaceholder (attributeName) {
+  const arr = attributeName.split(' ')
+  return arr[arr.length - 1]
+}
+
 const RefinementList = createClass({
   getInitialState () {
     return {
@@ -101,19 +106,42 @@ const RefinementList = createClass({
     )
   },
 
+  renderSearchBox () {
+    const {props, onFocus, onBlur} = this
+    const {focus: isFocus} = this.state
+    const {attributeName} = props
+
+    return (
+      <div
+        onMouseEnter={onFocus}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onMouseLeave={onBlur}
+        className={classnames('pa1 br2', {
+          'bg-grey-100': isFocus
+        })}
+        style={{flexGrow: 0}}>
+        <IconSearch className='grey-400' />
+        <input
+          style={{width: '118px', fontSize: '.875rem'}}
+          placeholder={`Search for ${getPlaceholder(attributeName)}`}
+          className={classnames('inline-list__searchbox border-0 outline-0 pointer', {
+            'bg-grey-100 grey-800': isFocus,
+            'grey-400': !isFocus
+          })}
+          type='search'
+          onInput={e => props.searchForItems(e.target.value)}
+          />
+      </div>
+    )
+  },
+
   render () {
-    const {renderItem, renderShowMore, getLimit, props, state, onFocus, onBlur} = this
+    const {renderItem, renderShowMore, renderSearchBox, getLimit, props} = this
     const {attributeName, items} = props
 
     if (!items.length) return null
     const slicedItems = items.slice(0, getLimit())
-
-    const {focus: isFocus} = state
-
-    function getPlaceholder (attributeName) {
-      const arr = attributeName.split(' ')
-      return arr[arr.length - 1]
-    }
 
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
@@ -122,28 +150,7 @@ const RefinementList = createClass({
             style={{flexGrow: 1, lineHeight: '26px'}}
             className='f6 fw6 ttu tracked blue-300 ma0 pa0'
             >{attributeName}</h3>
-          <div
-            onMouseEnter={onFocus}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onMouseLeave={onBlur}
-            className={classnames('pa1 br2', {
-              'bg-grey-100': isFocus
-            })}
-            style={{flexGrow: 0}}>
-            <IconSearch className='grey-400' />
-            <input
-              style={{width: '118px', fontSize: '14px'}}
-              placeholder={`Search for ${getPlaceholder(attributeName)}`}
-              className={classnames('inline-list__searchbox border-0 outline-0 pointer', {
-                'bg-grey-100 grey-800': isFocus,
-                'grey-400': !isFocus
-              })}
-              type='search'
-              onInput={e => props.searchForItems(e.target.value)}
-              />
-          </div>
-
+          {renderSearchBox()}
         </header>
 
         <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>
