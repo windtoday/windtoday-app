@@ -109,7 +109,7 @@ const RefinementList = createClass({
   renderSearchBox () {
     const {props, onFocus, onBlur} = this
     const {focus: isFocus} = this.state
-    const {attributeName} = props
+    const {attributeName, searchForItems} = props
 
     return (
       <div
@@ -130,7 +130,7 @@ const RefinementList = createClass({
             'grey-400': !isFocus
           })}
           type='search'
-          onInput={e => props.searchForItems(e.target.value)}
+          onInput={e => searchForItems(e.target.value)}
           />
       </div>
     )
@@ -138,9 +138,10 @@ const RefinementList = createClass({
 
   render () {
     const {renderItem, renderShowMore, renderSearchBox, getLimit, props} = this
-    const {attributeName, items} = props
+    const {attributeName, items, isFromSearch} = props
 
-    if (!items.length) return null
+    if (!items.length && !isFromSearch) return null
+
     const slicedItems = items.slice(0, getLimit())
 
     return (
@@ -153,7 +154,7 @@ const RefinementList = createClass({
           {renderSearchBox()}
         </header>
 
-        <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>
+        {slicedItems && <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>}
         {renderShowMore()}
       </article>
     )
