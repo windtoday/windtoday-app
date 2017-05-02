@@ -66,6 +66,10 @@ const CustomSearchBox = createClass({
           autoSave='searchbox'
           name='s'
           placeholder='brand, model, size,...'
+          autoComplete='off'
+          autoCorrect='off'
+          autoCapitalize='off'
+          spellCheck='false'
           autoFocus
         />
         <IconClear
