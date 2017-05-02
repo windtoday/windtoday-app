@@ -3,3 +3,7 @@
 .inline-list__searchbox {
   @include placeholder-color(material-color('grey', '400'));
 }
+
+.refinementlist-inline__link {
+  @include hover-transition(background-color);
+}

@@ -60,9 +60,9 @@ const RefinementList = createClass({
       <li className='dib mr1 mb2' key={key}>
         <a
           onClick={onChange}
-          className={classnames('f6 b db pa1 pointer dim br2', {
-            'bg-grey-200': !item.isRefined,
-            'bg-blue-grey-500': item.isRefined
+          className={classnames('refinementlist-inline__link f6 b db pa1 pointer br2', {
+            'hover-bg-grey-300 bg-grey-200': !item.isRefined,
+            'hover-bg-blue-grey-400 bg-blue-grey-500': item.isRefined
           })}>
           <span className={classnames({
             'blue-grey-500': !item.isRefined,
