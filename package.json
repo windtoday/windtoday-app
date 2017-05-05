@@ -47,7 +47,7 @@
     "react-icons": "~2.2.3",
     "react-instantsearch": "~3.3.1",
     "react-router-dom": "~4.1.1",
-    "react-swipeable": "~3.9.2",
+    "react-swipeable": "~4.0.0",
     "rheostat": "~2.1.0",
     "sass-loader": "~6.0.3",
     "style-loader": "~0.17.0",
