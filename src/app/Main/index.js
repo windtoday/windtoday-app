@@ -35,7 +35,9 @@ function Main (props) {
       onSwipedRight={onSwipedRight}
       onSwipedLeft={onSwipedLeft}
       role='main'
-      data-app='app-main'>
+      data-app='app-main'
+      style={{touchAction: 'none'}}
+      >
 
       <AsideLeft {...props} />
       <Results {...props} />
