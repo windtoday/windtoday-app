@@ -16,7 +16,7 @@
     "url": "https://github.com/windtoday/windtoday-marketplace/issues"
   },
   "dependencies": {
-    "autoprefixer": "~6.7.7",
+    "autoprefixer": "~7.0.1",
     "autotrack": "~2.3.2",
     "babel-core": "~6.24.1",
     "babel-loader": "~7.0.0",
@@ -27,7 +27,7 @@
     "babel-preset-react": "~6.24.1",
     "babel-preset-react-optimize": "~1.0.1",
     "classnames": "~2.2.5",
-    "css-loader": "~0.28.0",
+    "css-loader": "~0.28.1",
     "extract-text-webpack-plugin": "2.1.0",
     "glob": "~7.1.1",
     "html-webpack-harddisk-plugin": "0.1.0",
@@ -36,7 +36,7 @@
     "offline-plugin": "~4.7.0",
     "postcss-focus": "~1.0.0",
     "postcss-loader": "~1.3.3",
-    "postcss-scss": "~0.4.1",
+    "postcss-scss": "~1.0.0",
     "preload-webpack-plugin": "~1.2.2",
     "purifycss-webpack": "~0.6.1",
     "qs": "~6.4.0",
@@ -44,8 +44,8 @@
     "react": "~15.5.4",
     "react-dom": "~15.5.4",
     "react-hot-loader": "3.0.0-beta.6",
-    "react-icons": "~2.2.3",
-    "react-instantsearch": "~3.3.1",
+    "react-icons": "~2.2.5",
+    "react-instantsearch": "~3.3.2",
     "react-router-dom": "~4.1.1",
     "react-swipeable": "~4.0.0",
     "rheostat": "~2.1.0",
@@ -53,8 +53,8 @@
     "style-loader": "~0.17.0",
     "tachyons-queries": "~0.3.3",
     "tachyons-sass": "~4.7.1",
-    "webpack": "~2.5.0",
-    "webpack-bundle-analyzer": "~2.4.0"
+    "webpack": "~2.5.1",
+    "webpack-bundle-analyzer": "~2.6.0"
   },
   "devDependencies": {
     "browser-sync": "latest",

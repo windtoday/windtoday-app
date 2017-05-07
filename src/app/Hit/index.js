@@ -12,8 +12,21 @@ function isRecently (timestamp) {
   return diff < last24hours
 }
 
-function getTimestamp (item) {
-  return item.updatedAt || item.createdAt
+const getTimestamp = item => item.updatedAt || item.createdAt
+
+const renderPopularIcon = rarity => {
+  return (
+    <img className='pl1' src={`/assets/img/popular/${rarity}.svg`} />
+  )
+}
+
+function getPopularIcon (item) {
+  const {priceScore} = item
+  if (priceScore < 0.5) return
+  if (priceScore > 0.95) return renderPopularIcon('legendary')
+  if (priceScore > 0.80) return renderPopularIcon('epic')
+  if (priceScore > 0.70) return renderPopularIcon('rare')
+  return renderPopularIcon('uncommon')
 }
 
 export default props => {
@@ -39,16 +52,17 @@ export default props => {
         <div className='w-100 lh-copy f4'>
           <p className='link fw4 lh-title mv0 blue-grey-700 w-95 pb1'>
             <Highlight attributeName='title' hit={item} />
+            {getPopularIcon(item)}
             {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
           </p>
 
-          <p className='ma0'>
+          <div className='ma0'>
             <span className='cyan-500 b pr1'>{priceText}</span>
             {' '}
-            <div className='tracked blue-grey-200 f6 di'>
+            <p className='tracked blue-grey-200 f6 di'>
               by <Highlight attributeName='provider' hit={item} />
-            </div>
-          </p>
+            </p>
+          </div>
 
         </div>
         <img alt={provider} src={imageURL} className='hit__image db br2' />
