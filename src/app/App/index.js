@@ -72,7 +72,7 @@ const App = createClass({
       <InstantSearch
         appId='PDZK7H6PD0'
         apiKey='911167d1e62d76e16e9cd746c0b1a684'
-        indexName='windsurf_staging'
+        indexName='windsurf'
         searchState={searchState}
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
