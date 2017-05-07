@@ -14,27 +14,19 @@ function isRecently (timestamp) {
 
 const getTimestamp = item => item.updatedAt || item.createdAt
 
-const rarityIcon = {
-  legendary: 't4',
-  epic: 't3',
-  rare: 't2',
-  uncommon: 't1'
-}
-
-const renderRarity = icon => {
+const renderPopularIcon = rarity => {
   return (
-    <img className='pl1' src={`https://yarnpkg.com/assets/search/ico-hot-${icon}.svg`} />
+    <img className='pl1' src={`/assets/img/popular/${rarity}.svg`} />
   )
 }
 
-function getIconPopular (item) {
+function getPopularIcon (item) {
   const {priceScore} = item
-
   if (priceScore < 0.5) return
-  if (priceScore > 0.95) return renderRarity(rarityIcon['legendary'])
-  if (priceScore > 0.80) return renderRarity(rarityIcon['epic'])
-  if (priceScore > 0.70) return renderRarity(rarityIcon['rare'])
-  return renderRarity(rarityIcon['uncommon'])
+  if (priceScore > 0.95) return renderPopularIcon('legendary')
+  if (priceScore > 0.80) return renderPopularIcon('epic')
+  if (priceScore > 0.70) return renderPopularIcon('rare')
+  return renderPopularIcon('uncommon')
 }
 
 export default props => {
@@ -60,7 +52,7 @@ export default props => {
         <div className='w-100 lh-copy f4'>
           <p className='link fw4 lh-title mv0 blue-grey-700 w-95 pb1'>
             <Highlight attributeName='title' hit={item} />
-            {getIconPopular(item)}
+            {getPopularIcon(item)}
             {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
           </p>
 
