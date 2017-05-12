@@ -125,7 +125,7 @@ const RefinementList = createClass({
         <input
           style={{width: '118px', fontSize: '.875rem'}}
           placeholder={`Search for ${getPlaceholder(attributeName)}`}
-          className={classnames('inline-list__searchbox border-0 outline-0 pointer', {
+          className={classnames('inline-list__searchbox border-0 outline-0 pointer fw3', {
             'bg-grey-100 grey-800': isFocus,
             'grey-400': !isFocus
           })}

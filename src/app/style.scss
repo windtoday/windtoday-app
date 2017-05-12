@@ -4,6 +4,12 @@
 
 // global
 
+button,
+html,
+input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 ::selection {
   background: #b1d7fe;
   color: $white;
