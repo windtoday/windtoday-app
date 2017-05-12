@@ -29,11 +29,20 @@ function getPopularIcon (item) {
   return renderPopularIcon('uncommon')
 }
 
+function getImageUrl (item) {
+  const {image, provider} = item
+  if (!image) return `/assets/img/provider/${provider}.jpg`
+
+  const el = document.createElement('a')
+  el.href = image
+  return `https://images.weserv.nl/?url=${el.hostname}${el.pathname}&w=96&t=fit`
+}
+
 export default props => {
   const {item} = props
-  const {provider, price, image} = item
+  const {provider, price} = item
 
-  const imageURL = image || `/assets/img/provider/${provider}.jpg`
+  const imageURL = getImageUrl(item)
   const priceText = price ? `${price}€` : 'N/A'
 
   const timestamp = getTimestamp(item)
