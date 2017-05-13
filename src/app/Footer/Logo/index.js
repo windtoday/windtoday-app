@@ -1,10 +1,8 @@
+import IconWindtoday from '../../Icon/windtoday'
 import React from 'react'
 
-const Logo = () =>
-  <img
-    className='grow ph1 w2'
-    alt='windtoday'
-    src='/assets/img/logo-tiny-blue.png'
-  />
+import './style.scss'
 
-export default Logo
+export default () => (
+  <IconWindtoday className='footer__logo grow ph1 w2' />
+)
