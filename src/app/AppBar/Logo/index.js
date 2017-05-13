@@ -30,8 +30,8 @@ const Logo = createClass({
     const {clicked} = state
     const {query, items, className} = props
 
-    const style = classnames('logo', {
-      'logo--shake': clicked
+    const style = classnames('appbar__logo', {
+      'appbar__logo--shake': clicked
     })
 
     const clearStyle = classnames('pointer changelog relative', className)
