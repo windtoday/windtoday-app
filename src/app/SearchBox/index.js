@@ -8,7 +8,7 @@ import './style.scss'
 
 const CustomSearchBox = createClass({
   getInitialState () {
-    return { focus: false }
+    return {focus: false}
   },
 
   onInputMount (input) {
@@ -34,26 +34,45 @@ const CustomSearchBox = createClass({
 
   render () {
     const iconStyle = 'searchbox__icon absolute f3'
-    const {props, onInputMount, onChange, onFocus, onBlur, onClear, state} = this
+    const {
+      props,
+      onInputMount,
+      onChange,
+      onFocus,
+      onBlur,
+      onClear,
+      state
+    } = this
     const {focus: isFocus} = state
     const {currentRefinement, className, style} = props
 
-    const iconSearchStyle = classnames(iconStyle, 'searchbox__icon-search ph3-l ph2 ml2-ns ml1 mr2-ns', {
-      'searchbox__icon-search--focus': isFocus,
-      'searchbox__icon-search--blur': !isFocus
-    })
+    const iconSearchStyle = classnames(
+      iconStyle,
+      'searchbox__icon-search ph3-l ph2 ml2-ns ml1 mr2-ns',
+      {
+        'searchbox__icon-search--focus': isFocus,
+        'searchbox__icon-search--blur': !isFocus
+      }
+    )
 
-    const iconClearStyle = classnames(iconStyle, 'searchbox__icon-clear nl4 pointer', {
-      'searchbox__icon-clear--active': currentRefinement
-    })
+    const iconClearStyle = classnames(
+      iconStyle,
+      'searchbox__icon-clear nl4 pointer',
+      {
+        'searchbox__icon-clear--active': currentRefinement
+      }
+    )
 
     const boxStyle = classnames('searchbox relative w-80 w-70-l', className)
 
     return (
-      <div data-app='searchbox' role='search' className={boxStyle} style={style}>
-        <IconSearch
-          className={iconSearchStyle}
-        />
+      <form
+        noValidate
+        data-app='searchbox'
+        role='search'
+        className={boxStyle}
+        style={style}>
+        <IconSearch className={iconSearchStyle} />
         <input
           ref={onInputMount}
           className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3'
@@ -70,13 +89,11 @@ const CustomSearchBox = createClass({
           autoCorrect='off'
           autoCapitalize='off'
           spellCheck='false'
+          required=''
           autoFocus
         />
-        <IconClear
-          onClick={onClear}
-          className={iconClearStyle}
-        />
-      </div>
+        <IconClear onClick={onClear} className={iconClearStyle} />
+      </form>
     )
   }
 })
