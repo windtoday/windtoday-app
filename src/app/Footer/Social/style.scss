@@ -1,15 +1,15 @@
 @import '../../style';
 
-.social-icon {
+.footer__social-icon {
   fill: material-color('blue-grey', '200');
 
   @include hover-transition(fill);
 }
 
-.social-icon-facebook:hover {
+.footer__social-icon-facebook:hover {
   fill: #3b5998;
 }
 
-.social-icon-twitter:hover {
+.footer__social-icon-twitter:hover {
   fill: #00aced;
 }
