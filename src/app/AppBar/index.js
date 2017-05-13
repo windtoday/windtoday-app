@@ -4,7 +4,7 @@ import IconClose from 'react-icons/lib/md/close'
 import IconFilter from 'react-icons/lib/md/filter-list'
 
 import SearchBox from '../SearchBox'
-import Logo from '../Logo'
+import Logo from './Logo'
 
 import './style.scss'
 

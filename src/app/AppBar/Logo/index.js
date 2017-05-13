@@ -4,18 +4,19 @@ import {connectCurrentRefinements} from 'react-instantsearch/connectors'
 
 import './style.scss'
 import ClearAll from './ClearAll'
+import IconWindtoday from '../../Icon/windtoday'
 
 const Logo = createClass({
   getInitialState () {
     return {clicked: false}
   },
   componentDidMount () {
-    const elm = this.refs.img
-    elm.addEventListener('clickedAnimation', this.clickedDone)
+    const el = this.refs.logo
+    el.addEventListener('clickedAnimation', this.clickedDone)
   },
   componentWillUnmount () {
-    const elm = this.refs.img
-    elm.removeEventListener('clickedAnimation', this.clickedDone)
+    const el = this.refs.logo
+    el.removeEventListener('clickedAnimation', this.clickedDone)
   },
   clickedDone () {
     this.setState({clicked: false})
@@ -42,11 +43,9 @@ const Logo = createClass({
 
     return (
       <ClearAll className={clearStyle} clearsQuery>
-        <img
-          ref='img'
-          className={style} onClick={onClick}
-          alt='windtoday'
-          src={`/assets/img/logo-tiny.png`} />
+        <div ref='logo' onClick={onClick}>
+          <IconWindtoday className={style} />
+        </div>
       </ClearAll>
     )
   }
