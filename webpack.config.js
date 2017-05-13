@@ -104,15 +104,18 @@ module.exports = {
     }),
     new OfflinePlugin({
       safeToUseOptionalCaches: true,
-      relativePaths: false,
-      publicPath: '/',
       AppCache: {
         FALLBACK: { '/': '/' }
       },
       caches: {
         main: [
+          'index.html',
           ':rest:'
-        ],
+        ].concat(
+          glob.sync('src/www/assets/img/**/*.*', {
+            nodir: true
+          }).map(file => file.replace('src/www/', ''))
+        ),
         additional: [
           'assets/js/vendor.bundle.js',
           'assets/css/bundle.css'
