@@ -16,7 +16,11 @@ const getTimestamp = item => item.updatedAt || item.createdAt
 
 const renderPopularIcon = rarity => {
   return (
-    <img className='pl1' src={`/assets/img/popular/${rarity}.svg`} />
+    <img
+      alt={rarity}
+      className='pl1'
+      src={`/assets/img/popular/${rarity}.svg`}
+    />
   )
 }
 
@@ -40,7 +44,7 @@ function getImageUrl (item) {
 
 export default props => {
   const {item} = props
-  const {provider, price} = item
+  const {price, title} = item
 
   const imageURL = getImageUrl(item)
   const priceText = price ? `${price}€` : 'N/A'
@@ -74,7 +78,7 @@ export default props => {
           </div>
 
         </div>
-        <img alt={provider} src={imageURL} className='hit__image db br2' />
+        <img alt={title} src={imageURL} className='hit__image db br2' />
       </a>
     </article>
   )
