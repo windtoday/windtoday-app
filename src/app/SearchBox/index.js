@@ -32,6 +32,13 @@ const CustomSearchBox = createClass({
     this.setState({focus: false})
   },
 
+  onSubmit (e) {
+    e.preventDefault()
+    e.stopPropagation()
+    this.input.blur()
+    return false
+  },
+
   render () {
     const iconStyle = 'searchbox__icon absolute f3'
     const {
@@ -41,6 +48,7 @@ const CustomSearchBox = createClass({
       onFocus,
       onBlur,
       onClear,
+      onSubmit,
       state
     } = this
     const {focus: isFocus} = state
@@ -71,25 +79,23 @@ const CustomSearchBox = createClass({
         data-app='searchbox'
         role='search'
         className={boxStyle}
-        style={style}>
+        style={style}
+        onSubmit={onSubmit}
+        >
         <IconSearch className={iconSearchStyle} />
         <input
           ref={onInputMount}
           className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3'
           type='search'
-          results={5}
           value={currentRefinement}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          autoSave='searchbox'
-          name='s'
           placeholder='brand, model, size,...'
           autoComplete='off'
           autoCorrect='off'
           autoCapitalize='off'
           spellCheck='false'
-          required=''
           autoFocus
         />
         <IconClear onClick={onClear} className={iconClearStyle} />

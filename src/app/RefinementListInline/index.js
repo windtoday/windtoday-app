@@ -23,6 +23,10 @@ const RefinementList = createClass({
     }
   },
 
+  onInputMount (input) {
+    this.input = input
+  },
+
   onFocus (event) {
     this.setState({focus: true})
   },
@@ -60,18 +64,27 @@ const RefinementList = createClass({
       <li className='dib mr1 mb2' key={key}>
         <a
           onClick={onChange}
-          className={classnames('refinementlist-inline__link f6 b db pa1 pointer br2', {
-            'hover-bg-grey-300 bg-grey-200': !item.isRefined,
-            'hover-bg-blue-grey-400 bg-blue-grey-500': item.isRefined
-          })}>
-          <span className={classnames({
-            'blue-grey-500': !item.isRefined,
-            'blue-grey-100': item.isRefined
-          })}>{label}</span>
-          <span className={classnames('f7 pl2', {
-            'blue-grey-300': !item.isRefined,
-            'blue-grey-200': item.isRefined
-          })}>{count}</span>
+          className={classnames(
+            'refinementlist-inline__link f6 b db pa1 pointer br2',
+            {
+              'hover-bg-grey-300 bg-grey-200': !item.isRefined,
+              'hover-bg-blue-grey-400 bg-blue-grey-500': item.isRefined
+            }
+          )}>
+          <span
+            className={classnames({
+              'blue-grey-500': !item.isRefined,
+              'blue-grey-100': item.isRefined
+            })}>
+            {label}
+          </span>
+          <span
+            className={classnames('f7 pl2', {
+              'blue-grey-300': !item.isRefined,
+              'blue-grey-200': item.isRefined
+            })}>
+            {count}
+          </span>
         </a>
       </li>
     )
@@ -97,25 +110,35 @@ const RefinementList = createClass({
     if (!showMore || items.length < limitMin) return
 
     return (
-      <a disabled={disabled}
+      <a
+        disabled={disabled}
         onClick={onClick}
-        className='pointer link dim db blue-grey-200 pt2'
-      >
+        className='pointer link dim db blue-grey-200 pt2'>
         {extended ? lessIcon() : moreIcon()}
       </a>
     )
   },
 
+  onSubmit (e) {
+    e.preventDefault()
+    e.stopPropagation()
+    this.input.blur()
+    return false
+  },
+
   renderSearchBox () {
-    const {props, onFocus, onBlur} = this
+    const {props, onFocus, onBlur, onSubmit, onInputMount} = this
     const {focus: isFocus} = this.state
     const {attributeName, searchForItems} = props
 
     return (
-      <div
+      <form
+        noValidate
+        role='search'
         onMouseEnter={onFocus}
         onFocus={onFocus}
         onBlur={onBlur}
+        onSubmit={onSubmit}
         onMouseLeave={onBlur}
         className={classnames('pa1 br2', {
           'bg-grey-100': isFocus
@@ -123,16 +146,24 @@ const RefinementList = createClass({
         style={{flexGrow: 0}}>
         <IconSearch className='grey-400' />
         <input
+          ref={onInputMount}
           style={{width: '118px', fontSize: '.875rem'}}
           placeholder={`Search for ${getPlaceholder(attributeName)}`}
-          className={classnames('inline-list__searchbox border-0 outline-0 pointer fw3', {
-            'bg-grey-100 grey-800': isFocus,
-            'grey-400': !isFocus
-          })}
+          className={classnames(
+            'inline-list__searchbox border-0 outline-0 pointer fw3',
+            {
+              'bg-grey-100 grey-800': isFocus,
+              'grey-400': !isFocus
+            }
+          )}
           type='search'
           onInput={e => searchForItems(e.target.value)}
-          />
-      </div>
+          autoComplete='off'
+          autoCorrect='off'
+          autoCapitalize='off'
+          spellCheck='false'
+        />
+      </form>
     )
   },
 
@@ -149,12 +180,14 @@ const RefinementList = createClass({
         <header className='flex justify-between items-start pb3'>
           <h3
             style={{flexGrow: 1, lineHeight: '26px'}}
-            className='f6 fw6 ttu tracked blue-300 ma0 pa0'
-            >{attributeName}</h3>
+            className='f6 fw6 ttu tracked blue-300 ma0 pa0'>
+            {attributeName}
+          </h3>
           {renderSearchBox()}
         </header>
 
-        {slicedItems && <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>}
+        {slicedItems &&
+          <ul className='pa0 ma0'>{slicedItems.map(renderItem)}</ul>}
         {renderShowMore()}
       </article>
     )
