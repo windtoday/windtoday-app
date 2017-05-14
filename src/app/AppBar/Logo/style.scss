@@ -1,8 +1,12 @@
 @import '../style';
 
 .appbar__logo {
-  width: 3.5rem;
+  width: 3rem;
   fill: white;
+
+  @include break(large) {
+    width: 3.5rem;
+  }
 }
 
 .appbar__logo--shake {
