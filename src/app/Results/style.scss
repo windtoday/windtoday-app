@@ -7,7 +7,9 @@
 }
 
 .results--expand {
-  @include break(not-small) {
+  padding-left: 0;
+
+  @include break(large) {
     padding-left: 25%;
   }
 }
