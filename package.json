@@ -69,6 +69,7 @@
     "node": "7"
   },
   "scripts": {
+    "clean": "rm -rf node_modules",
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint \"src/app/**/*.scss\"",

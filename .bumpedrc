@@ -9,6 +9,14 @@ plugins:
     'Linting config files':
       plugin: 'bumped-finepack'
 
+    'Cleanup and fresh installation':
+      plugin: 'bumped-terminal'
+      command: 'npm run clean && npm install'
+
+    'Locking dependencies':
+      plugin: 'bumped-terminal'
+      command: 'npm shrinkwrap'
+
   postrelease:
 
     'Generating CHANGELOG file':
