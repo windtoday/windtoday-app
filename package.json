@@ -38,7 +38,7 @@
     "postcss-loader": "~2.0.5",
     "postcss-scss": "~1.0.0",
     "preload-webpack-plugin": "~1.2.2",
-    "purifycss-webpack": "~0.6.2",
+    "purifycss-webpack": "~0.7.0",
     "qs": "~6.4.0",
     "rc-switch": "~1.4.4",
     "react": "~15.5.4",
