@@ -55,7 +55,7 @@ module.exports = {
           loader: 'postcss-loader',
           options: {
             parser: 'postcss-scss',
-            sourceMap: 'inline'
+            sourceMap: true
           }
         }, {
           loader: 'sass-loader',
