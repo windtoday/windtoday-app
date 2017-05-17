@@ -19,6 +19,10 @@
   letter-spacing: .04em;
 }
 
+.lighter {
+  font-weight: lighter;
+}
+
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
 

@@ -65,23 +65,23 @@ const RefinementList = createClass({
         <a
           onClick={onChange}
           className={classnames(
-            'refinementlist-inline__link f6 b db pa1 pointer br2',
+            'refinementlist-inline__link f6 db pa1 pointer br2',
             {
-              'hover-bg-grey-300 bg-grey-200': !item.isRefined,
-              'hover-bg-blue-grey-400 bg-blue-grey-500': item.isRefined
+              'bg-grey-100': !item.isRefined,
+              'bg-blue-500': item.isRefined
             }
           )}>
           <span
-            className={classnames({
-              'blue-grey-500': !item.isRefined,
-              'blue-grey-100': item.isRefined
+            className={classnames('refinementlist-inline__label', {
+              'blue-500': !item.isRefined,
+              'white': item.isRefined
             })}>
             {label}
           </span>
           <span
-            className={classnames('f7 pl2', {
-              'blue-grey-300': !item.isRefined,
-              'blue-grey-200': item.isRefined
+            className={classnames('refinementlist-inline__count f7 pl2', {
+              'blue-200': !item.isRefined,
+              'grey-200': item.isRefined
             })}>
             {count}
           </span>
@@ -150,9 +150,9 @@ const RefinementList = createClass({
           style={{width: '118px', fontSize: '.875rem'}}
           placeholder={`Search for ${getPlaceholder(attributeName)}`}
           className={classnames(
-            'inline-list__searchbox border-0 outline-0 pointer fw3',
+            'inline-list__searchbox border-0 outline-0 pointer lighter',
             {
-              'bg-grey-100 grey-800': isFocus,
+              'grey-700 bg-grey-100': isFocus,
               'grey-400': !isFocus
             }
           )}
@@ -180,7 +180,7 @@ const RefinementList = createClass({
         <header className='flex justify-between items-start pb3'>
           <h3
             style={{flexGrow: 1, lineHeight: '26px'}}
-            className='f6 fw6 ttu tracked blue-300 ma0 pa0'>
+            className='f6 ttu tracked blue-300 ma0'>
             {attributeName}
           </h3>
           {renderSearchBox()}

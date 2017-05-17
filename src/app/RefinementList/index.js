@@ -41,7 +41,7 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                classnames('link ph2 lh-title f5 fw8 dim ttc', {
+                classnames('link ph2 lh-title f5 hover-blue-500 ttc', {
                   'blue-grey-200': !item.isRefined,
                   'blue-500': item.isRefined,
                   'ttu': isUpperCase()
@@ -50,7 +50,7 @@ const RefinementList = createClass({
             </span>
             <span
               onClick={onChange}
-              className={classnames('link fr fw8 dim', {
+              className={classnames('link fr hover-blue-500', {
                 'blue-grey-200': !item.isRefined,
                 'blue-500': item.isRefined
               })}>
@@ -83,7 +83,7 @@ const RefinementList = createClass({
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
         <header>
-          <h3 className='f6 fw6 ttu tracked pb3 blue-300 ma0 pa0'>{attributeName}</h3>
+          <h3 className='f6 ttu tracked pb3 blue-300 ma0'>{attributeName}</h3>
         </header>
         {slicedItems.map(renderItem)}
       </article>

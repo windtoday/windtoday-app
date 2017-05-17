@@ -5,13 +5,13 @@
   border-radius: 4px;
   height: 10px;
   transform: translateY(50%);
-  background-color: material-color('blue-grey', '100');
+  background-color: material-color('grey', '200');
   position: relative;
   user-select: none;
 
   &::after {
     border-radius: 100%;
-    background-color: material-color('blue-grey', '500');
+    background-color: material-color('blue-grey', '200');
     position: absolute;
     left: 0;
     top: -3px;
