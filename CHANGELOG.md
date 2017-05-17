@@ -1,3 +1,14 @@
+<a name="1.2.1"></a>
+## 1.2.1 (2017-05-17)
+
+* Fix hover color ([0b50af4](https://github.com/windtoday/windtoday-marketplace/commit/0b50af4))
+* Improve tag style ([ed7d8cc](https://github.com/windtoday/windtoday-marketplace/commit/ed7d8cc))
+* Update deps ([db11fed](https://github.com/windtoday/windtoday-marketplace/commit/db11fed))
+* Update load sorcemap ([c706e1e](https://github.com/windtoday/windtoday-marketplace/commit/c706e1e))
+* Use material colors for borders ([59d6075](https://github.com/windtoday/windtoday-marketplace/commit/59d6075))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-05-15)
 
