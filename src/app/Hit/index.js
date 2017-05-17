@@ -55,7 +55,7 @@ export default props => {
     <article
       data-app='hit'
       role='article'
-      className='hit fade-in bg-white pa3 bb b--light-gray h6'>
+      className='hit fade-in bg-white pa3 bb b--grey-200 h6'>
       <a
         className='hit__link flex link w-100 h-100 black'
         href={item.link}

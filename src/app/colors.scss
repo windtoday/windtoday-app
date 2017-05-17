@@ -331,6 +331,10 @@ $material-colors: (
     .hover-bg-#{$color-name}-#{$color-variant}:focus {
       background-color: #{$hex-value};
     }
+
+    .b--#{$color-name}-#{$color-variant} {
+      border-color: #{$hex-value};
+    }
   }
 }
 
