@@ -113,7 +113,7 @@ const RefinementList = createClass({
       <a
         disabled={disabled}
         onClick={onClick}
-        className='pointer link dim db blue-grey-200 pt2'>
+        className='pointer link db blue-grey-300 pt2'>
         {extended ? lessIcon() : moreIcon()}
       </a>
     )
@@ -144,16 +144,16 @@ const RefinementList = createClass({
           'bg-grey-100': isFocus
         })}
         style={{flexGrow: 0}}>
-        <IconSearch className='grey-400' />
+        <IconSearch className='blue-grey-300' />
         <input
           ref={onInputMount}
           style={{width: '118px', fontSize: '.875rem'}}
           placeholder={`Search for ${getPlaceholder(attributeName)}`}
           className={classnames(
-            'inline-list__searchbox border-0 outline-0 pointer lighter',
+            'inline-list__searchbox border-0 outline-0 pointer normal',
             {
-              'grey-700 bg-grey-100': isFocus,
-              'grey-400': !isFocus
+              'blue-grey-400 bg-grey-100': isFocus,
+              'blue-grey-200': !isFocus
             }
           )}
           type='search'

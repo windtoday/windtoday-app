@@ -11,7 +11,7 @@ function renderHasMore (refine, searching) {
     <footer className='tc pt4'>
       <a
         onClick={refine}
-        className='link ttu lh-solid cb-ns db dib-l mb2 ph4 pointer normal blue-grey-200 hover-blue-500'>
+        className='link ttu lh-solid cb-ns db dib-l mb2 ph4 pointer normal blue-grey-300 hover-blue-500'>
         <IconAdd size={34} className='db tc w-100 pb2' />
         <span className='f6'>Load More</span>
       </a>

@@ -5,7 +5,7 @@
   border-radius: 4px;
   height: 10px;
   transform: translateY(50%);
-  background-color: material-color('grey', '200');
+  background-color: material-color('blue-grey', '50');
   position: relative;
   user-select: none;
 
@@ -39,7 +39,7 @@
 }
 
 .rc-switch-checked {
-  background-color: material-color('blue', '100');
+  background-color: material-color('blue', '200');
   transform: scale(1) translate3d(0, 50%, 0);
 
   &::after {

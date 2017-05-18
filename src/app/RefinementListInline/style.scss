@@ -1,25 +1,5 @@
 @import '../style';
 
 .inline-list__searchbox {
-  @include placeholder-color(material-color('grey', '400'));
-}
-
-.refinementlist-inline__link {
-  &:hover {
-    background-color: material-color('blue', '500');
-
-    @include hover-transition(background-color);
-
-    .refinementlist-inline__label {
-      color: white;
-
-      @include hover-transition(color);
-    }
-
-    .refinementlist-inline__count {
-      color: material-color('grey', '200');
-
-      @include hover-transition(color);
-    }
-  }
+  @include placeholder-color(material-color('blue-grey', '200'));
 }

@@ -42,7 +42,7 @@ const RefinementList = createClass({
               onClick={onChange}
               className={
                 classnames('link ph2 lh-title f5 hover-blue-500 ttc', {
-                  'blue-grey-200': !item.isRefined,
+                  'blue-grey-300': !item.isRefined,
                   'blue-500': item.isRefined,
                   'ttu': isUpperCase()
                 })}>
@@ -51,7 +51,7 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={classnames('link fr hover-blue-500', {
-                'blue-grey-200': !item.isRefined,
+                'blue-grey-300': !item.isRefined,
                 'blue-500': item.isRefined
               })}>
               {item.count}

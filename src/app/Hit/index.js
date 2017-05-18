@@ -63,7 +63,7 @@ export default props => {
         rel='nofollow noopener'>
 
         <div className='w-100 lh-copy f4'>
-          <p className='link lh-title mv0 blue-grey-700 w-95 pb1'>
+          <p className='link lh-title mv0 blue-grey-700 fw5 w-95 pb1'>
             <Highlight attributeName='title' hit={item} />
             {getPopularIcon(item)}
             {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
@@ -72,7 +72,7 @@ export default props => {
           <div className='ma0'>
             <span className='cyan-500 pr1'>{priceText}</span>
             {' '}
-            <p className='tracked blue-grey-200 f6 di'>
+            <p className='tracked blue-grey-300 f6 di'>
               by <Highlight attributeName='provider' hit={item} />
             </p>
           </div>
