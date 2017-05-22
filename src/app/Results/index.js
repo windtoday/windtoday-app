@@ -17,13 +17,12 @@ const Results = createClass({
   },
 
   renderResults (props, hasResults) {
-    const {get} = props
+    const {get, set} = props
     const isAsideRightOpen = get('asideRightOpen')
     const isAsideLeftOpen = get('asideLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
-
     const theme = 'results fl vh-100 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
@@ -32,8 +31,13 @@ const Results = createClass({
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })
 
+    set('onClear', () => {
+      const el = this.refs.results
+      el.scrollTop = 0
+    })
+
     return (
-      <section data-app='results' className={style}>
+      <section ref='results' data-app='results' className={style}>
         {isMobile && <Overlay active={hasAsideOpen} />}
         {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
         <Footer />
@@ -61,8 +65,8 @@ const Results = createClass({
 
   render () {
     const {props: parentProps, renderLoader, renderResults, state} = this
-    const {searching, hasResults, query, hasMore, toggle, get, refine, hits} = parentProps
-    const props = { searching, toggle, get, hasMore, refine, hits, query }
+    const {searching, hasResults, query, hasMore, toggle, get, refine, hits, set} = parentProps
+    const props = { searching, toggle, get, hasMore, refine, hits, query, set }
     const {loading} = state
     const render = loading ? renderLoader : renderResults
     return render(props, hasResults)

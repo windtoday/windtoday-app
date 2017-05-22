@@ -42,7 +42,7 @@ const Logo = createClass({
     }
 
     return (
-      <ClearAll className={clearStyle} clearsQuery>
+      <ClearAll {...props} className={clearStyle} clearsQuery>
         <div ref='logo' onClick={onClick}>
           <IconWindtoday className={style} />
         </div>

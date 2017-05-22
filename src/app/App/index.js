@@ -37,7 +37,8 @@ const App = createClass({
     const device = getDeviceState()
     const sidebar = {asideLeftOpen: device.isDesktop, asideRightOpen: device.isDesktop}
     const searchState = qs.parse(this.props.location.search.slice(1))
-    return {...device, ...sidebar, searchState}
+    const onClear = () => {}
+    return {...device, ...sidebar, searchState, onClear}
   },
 
   toggle (key) {
@@ -64,9 +65,9 @@ const App = createClass({
   },
 
   render () {
-    const {toggle, get, onSearchStateChange, createURL, state} = this
+    const {toggle, get, onSearchStateChange, createURL, state, set} = this
     const {searchState} = state
-    const props = {toggle, get}
+    const props = {toggle, get, set}
 
     return (
       <InstantSearch
