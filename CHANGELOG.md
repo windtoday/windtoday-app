@@ -1,3 +1,20 @@
+<a name="1.2.2"></a>
+## 1.2.2 (2017-05-23)
+
+* Move scroll top after clear all ([fac90ac](https://github.com/windtoday/windtoday-marketplace/commit/fac90ac))
+* Reduce colors ([99a870f](https://github.com/windtoday/windtoday-marketplace/commit/99a870f))
+* Refactor ([7146833](https://github.com/windtoday/windtoday-marketplace/commit/7146833))
+* Remove grow effect ([6ee66ae](https://github.com/windtoday/windtoday-marketplace/commit/6ee66ae))
+* Update deps ([624f893](https://github.com/windtoday/windtoday-marketplace/commit/624f893))
+* Update deps ([99a0974](https://github.com/windtoday/windtoday-marketplace/commit/99a0974))
+* Use default connector ([4e7cd9a](https://github.com/windtoday/windtoday-marketplace/commit/4e7cd9a))
+* chore(package): update babel-preset-env to version 1.5.1 (#228) ([a030419](https://github.com/windtoday/windtoday-marketplace/commit/a030419))
+* chore(package): update style-loader to version 0.18.0 (#226) ([0259ddd](https://github.com/windtoday/windtoday-marketplace/commit/0259ddd))
+* chore(package): update webpack to version 2.6.0 (#229) ([6709764](https://github.com/windtoday/windtoday-marketplace/commit/6709764))
+* fix(package): update offline-plugin to version 4.8.0 (#222) ([884b7f3](https://github.com/windtoday/windtoday-marketplace/commit/884b7f3))
+
+
+
 <a name="1.2.1"></a>
 ## 1.2.1 (2017-05-17)
 
