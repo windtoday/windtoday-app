@@ -7,7 +7,7 @@ import '../style'
 
 function Facets () {
   return (
-    <section data-app='facets-left' className='facets facets-left pa2'>
+    <section data-app='facets-left' className='facets facets-left pa2 bg-grey-50'>
       <Range
         attributeName='price'
         label='€'

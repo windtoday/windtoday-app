@@ -21,7 +21,7 @@ const Results = createClass({
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const theme = 'results fl vh-100 overflow-x-hidden overflow-y-scroll'
+    const theme = 'results fl vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll'
 
     const style = classnames(theme, {
       'results--expand': isAsideLeftOpen,
@@ -39,7 +39,7 @@ const Results = createClass({
         ref='results'
         data-app='results' className={style}>
         {isMobile && <Overlay active={hasAsideOpen} />}
-        {hasResults ? <Hits {...props} /> : <NoHits {...props} />}
+        {React.createElement(hasResults ? Hits : NoHits, props)}
         <Footer />
       </section>
     )

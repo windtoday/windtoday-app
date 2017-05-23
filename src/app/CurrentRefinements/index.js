@@ -1,6 +1,7 @@
 import React from 'react'
 import {CurrentRefinements} from 'react-instantsearch/dom'
 import IconClose from 'react-icons/lib/md/close'
+import classnames from 'classnames'
 
 import './style.scss'
 
@@ -18,9 +19,11 @@ function transformItems (items) {
   return items.map(item => !isRange(item) ? item : transformRange(item))
 }
 
-function CustomCurrentRefinements () {
+function CustomCurrentRefinements (props) {
   return (
-    <div data-app='current-refinements' >
+    <div data-app='current-refinements' className={classnames('pb2', {
+      'pt3': false
+    })} >
       <CurrentRefinements
         transformItems={transformItems}
         translations={{

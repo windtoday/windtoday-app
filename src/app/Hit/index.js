@@ -55,24 +55,24 @@ export default props => {
     <article
       data-app='hit'
       role='article'
-      className='hit fade-in bg-white pa3 bb b--grey-200 h6'>
+      className='hit fade-in bg-white mv2 br2 pa3 h6'>
       <a
         className='hit__link flex link w-100 h-100 black'
         href={item.link}
         target='_blank'
         rel='nofollow noopener'>
 
-        <div className='w-100 lh-copy f4'>
-          <p className='link lh-title mv0 blue-grey-700 fw5 w-95 pb1'>
+        <div className='pv3 w-100 lh-copy f4'>
+          <p className='link lh-title mv0 grey-900 fw5 w-95 pb1'>
             <Highlight attributeName='title' hit={item} />
             {getPopularIcon(item)}
             {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
           </p>
 
           <div className='ma0'>
-            <span className='cyan-500 pr1'>{priceText}</span>
+            <span className='blue-500 pr1'>{priceText}</span>
             {' '}
-            <p className='tracked blue-grey-300 f6 di'>
+            <p className='tracked grey-400 f6 di'>
               by <Highlight attributeName='provider' hit={item} />
             </p>
           </div>

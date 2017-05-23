@@ -41,6 +41,7 @@
     "purify-css": "~1.2.2",
     "purifycss-webpack": "~0.7.0",
     "qs": "~6.4.0",
+    "rc-checkbox": "~2.0.2",
     "rc-switch": "~1.4.4",
     "react": "~15.5.4",
     "react-dom": "~15.5.4",

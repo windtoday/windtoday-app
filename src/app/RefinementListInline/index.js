@@ -65,23 +65,23 @@ const RefinementList = createClass({
         <a
           onClick={onChange}
           className={classnames(
-            'refinementlist-inline__link f6 db pa1 pointer br2',
+            'refinementlist-inline__link f6 db pa1 pointer br2 fw5',
             {
-              'bg-grey-100': !item.isRefined,
-              'bg-blue-500': item.isRefined
+              'grey-500 bg-grey-300': !item.isRefined,
+              'white bg-blue-300': item.isRefined
             }
           )}>
           <span
             className={classnames('refinementlist-inline__label', {
-              'blue-500': !item.isRefined,
-              'white': item.isRefined
+              '': !item.isRefined,
+              '': item.isRefined
             })}>
             {label}
           </span>
           <span
-            className={classnames('refinementlist-inline__count f7 pl2', {
-              'blue-200': !item.isRefined,
-              'grey-200': item.isRefined
+            className={classnames('refinementlist-inline__count pl2', {
+              'grey-100': !item.isRefined,
+              'blue-100': item.isRefined
             })}>
             {count}
           </span>
@@ -113,7 +113,7 @@ const RefinementList = createClass({
       <a
         disabled={disabled}
         onClick={onClick}
-        className='pointer link db blue-grey-300 pt2'>
+        className='pointer link db grey-500 pt2'>
         {extended ? lessIcon() : moreIcon()}
       </a>
     )
@@ -144,7 +144,7 @@ const RefinementList = createClass({
           'bg-grey-100': isFocus
         })}
         style={{flexGrow: 0}}>
-        <IconSearch className='blue-grey-300' />
+        <IconSearch className='grey-500' />
         <input
           ref={onInputMount}
           style={{width: '118px', fontSize: '.875rem'}}
@@ -152,8 +152,8 @@ const RefinementList = createClass({
           className={classnames(
             'inline-list__searchbox border-0 outline-0 pointer normal',
             {
-              'blue-grey-400 bg-grey-100': isFocus,
-              'blue-grey-200': !isFocus
+              'grey-500 bg-grey-100': isFocus,
+              'grey-500 bg-grey-50': !isFocus
             }
           )}
           type='search'
@@ -180,7 +180,7 @@ const RefinementList = createClass({
         <header className='flex justify-between items-start pb3'>
           <h3
             style={{flexGrow: 1, lineHeight: '26px'}}
-            className='f6 ttu tracked blue-300 ma0'>
+            className='f6 ttu tracked grey-800 ma0'>
             {attributeName}
           </h3>
           {renderSearchBox()}

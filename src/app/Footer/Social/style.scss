@@ -1,7 +1,7 @@
 @import '../../style';
 
 .footer__social-icon {
-  fill: material-color('blue-grey', '200');
+  fill: material-color('grey', '400');
 
   @include hover-transition(fill);
 }

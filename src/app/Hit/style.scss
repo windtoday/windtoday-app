@@ -15,6 +15,8 @@ $card-image-size-large: 96px;
 }
 
 .hit__image {
+  margin: auto 0;
+
   @include hover-transition(opacity);
 
   width: $card-image-size;

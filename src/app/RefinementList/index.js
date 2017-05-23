@@ -1,6 +1,6 @@
 import React, {createClass} from 'react'
 import classnames from 'classnames'
-import Switch from 'rc-switch'
+import Checkbox from 'rc-checkbox'
 import {connectRefinementList} from 'react-instantsearch/connectors'
 import './style.scss'
 
@@ -29,10 +29,7 @@ const RefinementList = createClass({
           }}
             >
 
-          <Switch
-            className={classnames({
-              'rc-switch-checked': item.isRefined
-            })}
+          <Checkbox
             onChange={onChange}
             checked={item.isRefined}
             />
@@ -41,18 +38,18 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={
-                classnames('link ph2 lh-title f5 hover-blue-500 ttc', {
-                  'blue-grey-300': !item.isRefined,
-                  'blue-500': item.isRefined,
-                  'ttu': isUpperCase()
+                classnames('link ph2 lh-title f5 ttc fw5', {
+                  'ttu': isUpperCase(),
+                  'blue-300': item.isRefined,
+                  'grey-500': !item.isRefined
                 })}>
               {item.label}
             </span>
             <span
               onClick={onChange}
-              className={classnames('link fr hover-blue-500', {
-                'blue-grey-300': !item.isRefined,
-                'blue-500': item.isRefined
+              className={classnames('refinement-list__quantity link br2 fr ph1 fw5', {
+                'grey-500 bg-grey-300': !item.isRefined,
+                'white bg-blue-300': item.isRefined
               })}>
               {item.count}
             </span>
@@ -83,7 +80,7 @@ const RefinementList = createClass({
     return (
       <article data-app='facet' data-facet={attributeName} className='mb1 pa3'>
         <header>
-          <h3 className='f6 ttu tracked pb3 blue-300 ma0'>{attributeName}</h3>
+          <h3 className='f6 ttu tracked pb3 grey-800 ma0'>{attributeName}</h3>
         </header>
         {slicedItems.map(renderItem)}
       </article>

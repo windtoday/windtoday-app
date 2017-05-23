@@ -12,7 +12,7 @@ function Footer () {
     <footer
       data-app='footer'
       role='contentinfo'
-      className='tc pv4 blue-grey-200'
+      className='tc pv4 grey-400'
     >
 
       <small className='pb3 f6 db'>
