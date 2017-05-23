@@ -11,7 +11,7 @@ const PoweredBy = () =>
         className='link pointer ph1'
       >
         <IconAlgolia
-          className='grow v-mid w3 v-btm'
+          className='v-mid w3 v-btm'
           />
       </a>
   </span>
