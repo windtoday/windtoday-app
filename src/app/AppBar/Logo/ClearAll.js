@@ -3,8 +3,13 @@ import {connectCurrentRefinements} from 'react-instantsearch/connectors'
 
 const ClearAll = createClass({
   render () {
-    const {items, refine, children, className} = this.props
-    const onClick = () => refine(items)
+    const {items, refine, children, className, get} = this.props
+    const onClear = get('onClear')
+
+    const onClick = () => {
+      refine(items)
+      onClear()
+    }
 
     return (
       <a
