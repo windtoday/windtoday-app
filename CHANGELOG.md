@@ -1,3 +1,17 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2017-05-24)
+
+* Add second color and badges ([3b0e100](https://github.com/windtoday/windtoday-marketplace/commit/3b0e100))
+* Adjust background ([0b53a73](https://github.com/windtoday/windtoday-marketplace/commit/0b53a73))
+* delete lock ([ff5e590](https://github.com/windtoday/windtoday-marketplace/commit/ff5e590))
+* Fix linter ([e9deac9](https://github.com/windtoday/windtoday-marketplace/commit/e9deac9))
+* Remove rc-switch ([8c58e9f](https://github.com/windtoday/windtoday-marketplace/commit/8c58e9f))
+* Update copy ([2e6a7bd](https://github.com/windtoday/windtoday-marketplace/commit/2e6a7bd))
+* Use object contain ([c818fe2](https://github.com/windtoday/windtoday-marketplace/commit/c818fe2))
+* WIP ([d86e0fd](https://github.com/windtoday/windtoday-marketplace/commit/d86e0fd))
+
+
+
 <a name="1.2.2"></a>
 ## 1.2.2 (2017-05-23)
 
