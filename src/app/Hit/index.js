@@ -20,11 +20,11 @@ const isRecently = (timestamp, hours) => {
 }
 
 const getTimeIcon = timestamp => {
-  if (isRecently(timestamp, 24)) return renderTimeIcon('24 Hours')
-  if (isRecently(timestamp, 48)) return renderTimeIcon('48 Hours')
-  if (isRecently(timestamp, 72)) return renderTimeIcon('3 Days')
-  if (isRecently(timestamp, 120)) return renderTimeIcon('1 Week')
-  return renderTimeIcon('1 Month')
+  if (isRecently(timestamp, 24)) return renderTimeIcon('24 hours')
+  if (isRecently(timestamp, 48)) return renderTimeIcon('48 hours')
+  if (isRecently(timestamp, 72)) return renderTimeIcon('3 days')
+  if (isRecently(timestamp, 120)) return renderTimeIcon('1 week')
+  return renderTimeIcon('1-3 months')
 }
 
 const renderPopularIcon = rarity => {
