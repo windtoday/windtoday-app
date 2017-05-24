@@ -30,6 +30,5 @@ $card-image-size-large: 96px;
     height: $card-image-size-large;
   }
 
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
 }
