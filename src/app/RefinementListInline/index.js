@@ -67,7 +67,7 @@ const RefinementList = createClass({
           className={classnames(
             'refinementlist-inline__link db pa1 pointer br2 fw5',
             {
-              'blue-grey-400 bg-grey-300': !item.isRefined,
+              'blue-grey-400 bg-grey-200': !item.isRefined,
               'white bg-blue-400': item.isRefined
             }
           )}>

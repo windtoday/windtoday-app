@@ -48,7 +48,7 @@ const RefinementList = createClass({
             <span
               onClick={onChange}
               className={classnames('refinement-list__quantity link br2 fr ph1 fw5', {
-                'blue-grey-400 bg-grey-300': !item.isRefined,
+                'blue-grey-400 bg-grey-200': !item.isRefined,
                 'white bg-blue-400': item.isRefined
               })}>
               {item.count}
