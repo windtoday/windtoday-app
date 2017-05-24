@@ -13,10 +13,6 @@ $card-image-size-large: 96px;
   @include break(large) {
     height: $card-size-large;
   }
-
-  &:hover {
-    background-color: material-color('grey', '50');
-  }
 }
 
 .hit__image {
