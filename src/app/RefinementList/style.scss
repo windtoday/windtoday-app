@@ -1,5 +1,7 @@
 @import '../style';
 
+$primary-color: material-color('grey', '300');
+
 .refinement-list__quantity {
   padding: 3px 6px;
 }
@@ -41,7 +43,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: transparent;
-    background-color: material-color('grey', '300');
+    background-color: $primary-color;
     transition: border-color .3s cubic-bezier(.68, -.55, .27, 1.55), background-color .3s cubic-bezier(.68, -.55, .27, 1.55);
   }
 

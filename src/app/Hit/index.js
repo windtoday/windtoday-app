@@ -1,3 +1,4 @@
+import IconTime from 'react-icons/lib/md/access-time'
 import {Highlight} from 'react-instantsearch/dom'
 import React from 'react'
 
@@ -5,22 +6,38 @@ import Badge from '../Badge'
 
 import './style.scss'
 
-function isRecently (timestamp) {
-  const now = Date.now()
-  const diff = now - timestamp
-  const last24hours = 1000 * 60 * 60 * 24
-  return diff < last24hours
+const getTimestamp = item => item.updatedAt || item.createdAt
+
+const renderTimeIcon = time => (
+  <Badge
+    iconComponent={<IconTime size={20} />}
+    className='ml1'>{time}</Badge>
+)
+
+const isRecently = (timestamp, hours) => {
+  const lastHours = 1000 * 60 * 60 * hours
+  return Date.now() - timestamp < lastHours
 }
 
-const getTimestamp = item => item.updatedAt || item.createdAt
+const getTimeIcon = timestamp => {
+  if (isRecently(timestamp, 24)) return renderTimeIcon('24 Hours')
+  if (isRecently(timestamp, 48)) return renderTimeIcon('48 Hours')
+  if (isRecently(timestamp, 72)) return renderTimeIcon('3 Days')
+  if (isRecently(timestamp, 120)) return renderTimeIcon('1 Week')
+  return renderTimeIcon('1 Month')
+}
 
 const renderPopularIcon = rarity => {
   return (
-    <img
-      alt={rarity}
-      className='pl1'
-      src={`/assets/img/popular/${rarity}.svg`}
-    />
+    <Badge
+      iconComponent={
+        <img
+          alt={rarity}
+          className='v-mid'
+          src={`/assets/img/popular/${rarity}.svg`}
+        />
+      }
+      className='mr1'>{rarity}</Badge>
   )
 }
 
@@ -56,29 +73,33 @@ export default props => {
       data-app='hit'
       role='article'
       className='hit fade-in bg-white mv2 br2 pa3 h6'>
+
       <a
         className='hit__link flex link w-100 h-100 black'
         href={item.link}
         target='_blank'
         rel='nofollow noopener'>
 
-        <div className='pv3 w-100 lh-copy f4'>
-          <p className='link lh-title mv0 grey-900 fw5 w-95 pb1'>
+        <div className='pv2 w-100 lh-copy f4 flex flex-column justify-around'>
+          <p className='link lh-title mv0 blue-grey-900 fw5 w-95'>
             <Highlight attributeName='title' hit={item} />
-            {getPopularIcon(item)}
-            {!item.isForced && isRecently(timestamp) && <Badge>new</Badge>}
           </p>
 
           <div className='ma0'>
             <span className='blue-500 pr1'>{priceText}</span>
             {' '}
-            <p className='tracked grey-400 f6 di'>
+            <p className='tracked blue-grey-300 f6 di'>
               by <Highlight attributeName='provider' hit={item} />
             </p>
           </div>
 
+          <p className='ma0'>
+            {getPopularIcon(item)}
+            {getTimeIcon(timestamp)}
+          </p>
+
         </div>
-        <img alt={title} src={imageURL} className='hit__image db br2' />
+        <img alt={title} src={imageURL} className='hit__image db br2 pt3' />
       </a>
     </article>
   )

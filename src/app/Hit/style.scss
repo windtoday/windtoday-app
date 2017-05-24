@@ -1,6 +1,7 @@
 @import '../style';
 
-$card-size: 10rem;
+$card-size: 12rem;
+$card-size-large: 10rem;
 $card-image-size: 80px;
 $card-image-size-large: 96px;
 
@@ -9,22 +10,26 @@ $card-image-size-large: 96px;
 
   height: $card-size;
 
+  @include break(large) {
+    height: $card-size-large;
+  }
+
   &:hover {
     background-color: material-color('grey', '50');
   }
 }
 
 .hit__image {
-  margin: auto 0;
-
   @include hover-transition(opacity);
 
   width: $card-image-size;
+  height: $card-image-size;
 
   @include break(large) {
     width: $card-image-size-large;
+    height: $card-image-size-large;
   }
 
-  object-fit: contain;
+  object-fit: cover;
   object-position: top;
 }
