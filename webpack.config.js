@@ -82,6 +82,7 @@ module.exports = {
       paths: [
         'src/app/**/*.js',
         'src/app/Range/style.scss',
+        'src/app/RefinementList/style.scss',
         'src/app/CurrentRefinements/style.scss',
         'src/app/style.scss'
       ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
