@@ -1,5 +1,6 @@
 'use strict'
 
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -60,6 +61,10 @@ module.exports = {
         }, {
           loader: 'sass-loader',
           options: {
+            data: '@import "index.scss";',
+            includePaths: [
+              path.resolve('src/app')
+            ],
             sourceMap: true
           }
         }]
@@ -78,15 +83,18 @@ module.exports = {
       allChunks: true,
       filename: 'assets/css/bundle.css'
     }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/
+    }),
     new PurifyCSSPlugin({
-      paths: [
-        'src/app/**/*.js',
-        'src/app/**/*.scss'
-      ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
+      paths: glob.sync('src/**/*.js', { nodir: true }),
       purifyOptions: {
         info: true,
-        minify: true,
-        rejected: true
+        rejected: true,
+        whitelist: [
+          '*rheostat*',
+          '*rc-checkbox*'
+        ]
       }
     }),
     new UglifyJsPlugin({

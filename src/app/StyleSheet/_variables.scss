@@ -1,17 +1,20 @@
-@import './variables';
-$ease-in-out: cubic-bezier(.4, 0, .2, 1);
+$appbar-height: 64px;
+$searchbox-input-height: 48px;
+$toggle-transition-duration: .25s;
+$lateral-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+$toggle-transition-timing-function: cubic-bezier(.35, 0, .25, 1);
 
 @mixin lateral-transition($props...) {
   transition-property: $props;
   will-change: $props;
   transition-duration: .2s;
-  transition-timing-function: $ease-in-out;
+  transition-timing-function: $lateral-transition-timing-function;
 }
 
 @mixin hover-transition($props...) {
   transition-property: $props;
   transition-duration: .35s;
-  transition-timing-function: $ease-in-out;
+  transition-timing-function: $lateral-transition-timing-function;
 }
 
 @mixin placeholder-color($color) {

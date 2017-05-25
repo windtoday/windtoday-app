@@ -25,10 +25,3 @@
 
 @import '~tachyons-sass/tachyons';
 @import '~tachyons-queries/queries';
-
-// specific app configuration
-
-$appbar-height: 64px;
-$searchbox-input-height: 48px;
-$toggle-transition-duration: .25s;
-$toggle-transition-timing-function: cubic-bezier(.35, 0, .25, 1);

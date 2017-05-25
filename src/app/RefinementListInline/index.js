@@ -141,7 +141,7 @@ const RefinementList = createClass({
         onSubmit={onSubmit}
         onMouseLeave={onBlur}
         className={classnames('pa1 br2', {
-          'bg-blue-grey-50': isFocus
+          'bg-grey-200': isFocus
         })}
         style={{flexGrow: 0}}>
         <IconSearch className='blue-grey-300' />
@@ -152,7 +152,7 @@ const RefinementList = createClass({
           className={classnames(
             'inline-list__searchbox border-0 outline-0 pointer normal blue-grey-300',
             {
-              'bg-blue-grey-50': isFocus,
+              'bg-grey-200': isFocus,
               'bg-grey-50': !isFocus
             }
           )}
