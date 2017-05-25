@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 
 import App from './App'
-import './style.scss'
+import './index.scss'
 
 const el = document.getElementById('app')
 
