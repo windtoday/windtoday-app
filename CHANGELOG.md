@@ -1,3 +1,14 @@
+<a name="1.3.1"></a>
+## 1.3.1 (2017-05-25)
+
+* Add Refinement CSS ([f11201b](https://github.com/windtoday/windtoday-marketplace/commit/f11201b))
+* Lock deps ([6baffdb](https://github.com/windtoday/windtoday-marketplace/commit/6baffdb))
+* Remove hover effect ([15c8557](https://github.com/windtoday/windtoday-marketplace/commit/15c8557))
+* Setup better purify css on prod (#233) ([fb2c9a2](https://github.com/windtoday/windtoday-marketplace/commit/fb2c9a2))
+* WIP (#234) ([1c21851](https://github.com/windtoday/windtoday-marketplace/commit/1c21851))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-05-24)
 
