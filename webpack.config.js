@@ -100,8 +100,18 @@ module.exports = {
     new UglifyJsPlugin({
       sourceMap: true,
       minimize: true,
-      compress: { warnings: false },
-      comments: true
+      compress: {
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true
+      },
+      output: {
+        comments: false
+      }
     }),
     new CommonsChunkPlugin({
       name: 'vendor',
