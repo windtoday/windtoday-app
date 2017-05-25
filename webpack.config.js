@@ -101,7 +101,7 @@ module.exports = {
       sourceMap: true,
       minimize: true,
       compress: { warnings: false },
-      comments: false
+      comments: true
     }),
     new CommonsChunkPlugin({
       name: 'vendor',
