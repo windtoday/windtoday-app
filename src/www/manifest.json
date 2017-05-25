@@ -1,5 +1,7 @@
 {
     "name": "windtoday.co",
+    "short_name": "windtoday",
+    "start_url": "/",
     "icons": [
         {
             "src": "/assets/img/android-chrome-192x192.png?v=ngGXy3wdgX",
@@ -12,7 +14,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#12a5fe",
+    "background_color": "#12a5fe",
     "display": "standalone"
 }
