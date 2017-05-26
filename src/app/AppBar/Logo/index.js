@@ -11,12 +11,10 @@ const Logo = createClass({
     return {clicked: false}
   },
   componentDidMount () {
-    const el = this.refs.logo
-    el.addEventListener('clickedAnimation', this.clickedDone)
+    this.logo.addEventListener('clickedAnimation', this.clickedDone)
   },
   componentWillUnmount () {
-    const el = this.refs.logo
-    el.removeEventListener('clickedAnimation', this.clickedDone)
+    this.logo.removeEventListener('clickedAnimation', this.clickedDone)
   },
   clickedDone () {
     this.setState({clicked: false})
@@ -43,7 +41,8 @@ const Logo = createClass({
 
     return (
       <ClearAll {...props} className={clearStyle} clearsQuery>
-        <div ref='logo' onClick={onClick}>
+        <div ref={node => (this.logo = node)}
+          onClick={onClick}>
           <IconWindtoday className={style} />
         </div>
       </ClearAll>
