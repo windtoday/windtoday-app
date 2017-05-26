@@ -92,7 +92,7 @@ module.exports = {
         info: true,
         rejected: true,
         whitelist: [
-          '*ais-CurrentRefinements*',
+          '*CurrentRefinements*',
           '*rheostat*',
           '*rc-checkbox*'
         ]
