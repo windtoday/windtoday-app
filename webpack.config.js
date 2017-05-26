@@ -87,12 +87,14 @@ module.exports = {
       assetNameRegExp: /\.css$/
     }),
     new PurifyCSSPlugin({
-      paths: glob.sync('src/**/*.js', { nodir: true }),
+      paths: [
+        'src/**/*.js',
+        'src/app/CurrentRefinements/style.scss'
+      ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
         info: true,
         rejected: true,
         whitelist: [
-          '*ais-CurrentRefinements*',
           '*rheostat*',
           '*rc-checkbox*'
         ]
