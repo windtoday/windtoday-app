@@ -1,4 +1,4 @@
-import React, {createClass} from 'react'
+import {createElement, createClass} from 'react'
 import {createConnector} from 'react-instantsearch'
 
 import Results from './results'
@@ -28,7 +28,7 @@ const ConditionalResults = createClass({
     const {toggle, get, set} = this.props
     const props = {toggle, get, set}
 
-    return React.createElement(
+    return createElement(
       loading ? Loader : Results,
       props
     )

@@ -1,5 +1,5 @@
 import {connectInfiniteHits} from 'react-instantsearch/connectors'
-import React, {createClass} from 'react'
+import React, {createElement, createClass} from 'react'
 import classnames from 'classnames'
 
 import Overlay from '../Overlay'
@@ -39,7 +39,7 @@ const Results = createClass({
         ref='results'
         data-app='results' className={style}>
         {isMobile && <Overlay active={hasAsideOpen} />}
-        {React.createElement(hasResults ? Hits : NoHits, props)}
+        {createElement(hasResults ? Hits : NoHits, props)}
         <Footer />
       </section>
     )

@@ -2,9 +2,19 @@ import IconTime from 'react-icons/lib/md/access-time'
 import {Highlight} from 'react-instantsearch/dom'
 import React from 'react'
 
+import IconLegendary from '../Icon/legendary'
+import IconUncommon from '../Icon/uncommon'
+import IconEpic from '../Icon/epic'
+import IconRare from '../Icon/rare'
 import Badge from '../Badge'
-
 import './style.scss'
+
+const popularity = {
+  legendary: IconLegendary,
+  uncommon: IconUncommon,
+  epic: IconEpic,
+  rare: IconRare
+}
 
 const getTimestamp = item => item.updatedAt || item.createdAt
 
@@ -28,15 +38,12 @@ const getTimeIcon = timestamp => {
 }
 
 const renderPopularIcon = rarity => {
+  const RarityIcon = popularity[rarity]
+  const iconComponent = <RarityIcon className='v-mid' />
+
   return (
     <Badge
-      iconComponent={
-        <img
-          alt={rarity}
-          className='v-mid'
-          src={`/assets/img/popular/${rarity}.svg`}
-        />
-      }
+      iconComponent={iconComponent}
       className='mr1'>{rarity}</Badge>
   )
 }
