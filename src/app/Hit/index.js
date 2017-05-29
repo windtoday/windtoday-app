@@ -18,10 +18,12 @@ const popularity = {
 
 const getTimestamp = item => item.updatedAt || item.createdAt
 
-const renderTimeIcon = time => (
+const renderTimeIcon = ({label, active = false}) => (
   <Badge
     iconComponent={<IconTime size={20} />}
-    className='ml1'>{time}</Badge>
+    className='ml1'
+    active={active}
+  >{label}</Badge>
 )
 
 const isRecently = (timestamp, hours) => {
@@ -30,11 +32,11 @@ const isRecently = (timestamp, hours) => {
 }
 
 const getTimeIcon = timestamp => {
-  if (isRecently(timestamp, 24)) return renderTimeIcon('24 hours')
-  if (isRecently(timestamp, 48)) return renderTimeIcon('48 hours')
-  if (isRecently(timestamp, 72)) return renderTimeIcon('3 days')
-  if (isRecently(timestamp, 120)) return renderTimeIcon('1 week')
-  return renderTimeIcon('1-3 months')
+  if (isRecently(timestamp, 24)) return renderTimeIcon({label: '24 hours', active: true})
+  if (isRecently(timestamp, 48)) return renderTimeIcon({label: '48 hours'})
+  if (isRecently(timestamp, 72)) return renderTimeIcon({label: '3 days'})
+  if (isRecently(timestamp, 120)) return renderTimeIcon({label: '1 week'})
+  return renderTimeIcon({label: '1-3 months'})
 }
 
 const renderPopularIcon = rarity => {
