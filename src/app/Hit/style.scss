@@ -4,8 +4,6 @@ $card-image-size: 80px;
 $card-image-size-large: 96px;
 
 .hit {
-  @include hover-transition(background-color);
-
   height: $card-size;
 
   @include break(large) {
@@ -14,8 +12,6 @@ $card-image-size-large: 96px;
 }
 
 .hit__image {
-  @include hover-transition(opacity);
-
   width: $card-image-size;
   height: $card-image-size;
 
