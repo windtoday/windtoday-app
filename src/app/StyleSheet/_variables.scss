@@ -26,13 +26,3 @@ $toggle-transition-timing-function: cubic-bezier(.35, 0, .25, 1);
     color: $color;
   }
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
