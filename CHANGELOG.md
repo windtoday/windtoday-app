@@ -1,3 +1,21 @@
+<a name="1.3.2"></a>
+## 1.3.2 (2017-06-02)
+
+* Add active badge for 24hours ([a37004e](https://github.com/windtoday/windtoday-marketplace/commit/a37004e))
+* Add fast fade in animation ([704cb84](https://github.com/windtoday/windtoday-marketplace/commit/704cb84))
+* Avoid use ref ([b9455e4](https://github.com/windtoday/windtoday-marketplace/commit/b9455e4))
+* Exclude current refinement style ([31c5059](https://github.com/windtoday/windtoday-marketplace/commit/31c5059))
+* Exclude CurrentRefinement style ([d5dac0f](https://github.com/windtoday/windtoday-marketplace/commit/d5dac0f))
+* Extract rarity icons ([b42835c](https://github.com/windtoday/windtoday-marketplace/commit/b42835c))
+* Fix animation ([6d7bed4](https://github.com/windtoday/windtoday-marketplace/commit/6d7bed4))
+* Fix manifest ([bdbf40a](https://github.com/windtoday/windtoday-marketplace/commit/bdbf40a))
+* Fix twitter image url ([e212974](https://github.com/windtoday/windtoday-marketplace/commit/e212974))
+* Improve result loader ([1a42a7c](https://github.com/windtoday/windtoday-marketplace/commit/1a42a7c))
+* Remove comments ([e36c532](https://github.com/windtoday/windtoday-marketplace/commit/e36c532))
+* Tweaks (#237) ([42c59c6](https://github.com/windtoday/windtoday-marketplace/commit/42c59c6))
+
+
+
 <a name="1.3.1"></a>
 ## 1.3.1 (2017-05-25)
 
