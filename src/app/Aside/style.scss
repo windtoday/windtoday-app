@@ -1,6 +1,4 @@
 .aside {
   position: absolute;
   -webkit-overflow-scrolling: touch;
-
-  @include lateral-transition(transform);
 }

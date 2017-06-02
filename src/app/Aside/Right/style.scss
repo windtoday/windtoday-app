@@ -1,5 +1,7 @@
 .aside-right {
   right: 0;
+
+  @include lateral-transition(transform);
 }
 
 .aside-right--collapse {

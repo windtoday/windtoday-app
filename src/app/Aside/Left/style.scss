@@ -4,4 +4,6 @@
 
 .aside-left {
   left: 0;
+
+  @include lateral-transition(transform);
 }
