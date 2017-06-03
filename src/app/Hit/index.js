@@ -108,7 +108,7 @@ export default props => {
           </p>
 
         </div>
-        <img alt={title} src={imageURL} className='hit__image db br2 pt3' />
+        <img alt={title} src={imageURL} className='hit__image db br2 mt2' />
       </a>
     </article>
   )
