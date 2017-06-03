@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "autoprefixer": "~7.1.1",
-    "autotrack": "~2.3.3",
+    "autotrack": "~2.4.0",
     "babel-core": "~6.24.1",
     "babel-loader": "~7.0.0",
     "babel-plugin-lodash": "~3.2.11",
@@ -68,7 +68,7 @@
     "webpack-dev-server": "latest"
   },
   "engines": {
-    "node": "7"
+    "node": ">= 8"
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --debug --config webpack.config.js",
