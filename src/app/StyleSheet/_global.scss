@@ -27,11 +27,11 @@ input[type='search']::-webkit-search-results-decoration {
 
 .fade-in {
   animation-fill-mode: both;
-  animation-name: fadeIn;
+  animation-name: fadeInOpacity;
   animation-duration: .35s;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInOpacity {
   from {
     opacity: 0;
   }
