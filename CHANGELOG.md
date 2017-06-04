@@ -1,3 +1,15 @@
+<a name="1.4.0"></a>
+# 1.4.0 (2017-06-04)
+
+* Fix border ([a122e10](https://github.com/windtoday/windtoday-marketplace/commit/a122e10))
+* Star rating (#240) ([bf9575f](https://github.com/windtoday/windtoday-marketplace/commit/bf9575f))
+* Update favicon ([31f9a94](https://github.com/windtoday/windtoday-marketplace/commit/31f9a94))
+* Use differente animation name ([31760ef](https://github.com/windtoday/windtoday-marketplace/commit/31760ef))
+* Use last node lts ([ae0a93e](https://github.com/windtoday/windtoday-marketplace/commit/ae0a93e))
+* Use node 8 ([65d10ea](https://github.com/windtoday/windtoday-marketplace/commit/65d10ea))
+
+
+
 <a name="1.3.2"></a>
 ## 1.3.2 (2017-06-02)
 
