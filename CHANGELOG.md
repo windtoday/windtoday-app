@@ -1,3 +1,11 @@
+<a name="1.4.1"></a>
+## 1.4.1 (2017-06-04)
+
+* Add hover effect ([9f29d28](https://github.com/windtoday/windtoday-marketplace/commit/9f29d28))
+* WIP ([6498a89](https://github.com/windtoday/windtoday-marketplace/commit/6498a89))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-06-04)
 
