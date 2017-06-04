@@ -1,3 +1,10 @@
+<a name="1.4.2"></a>
+## 1.4.2 (2017-06-04)
+
+* Fix hit link outline on hover ([da159c2](https://github.com/windtoday/windtoday-marketplace/commit/da159c2))
+
+
+
 <a name="1.4.1"></a>
 ## 1.4.1 (2017-06-04)
 
