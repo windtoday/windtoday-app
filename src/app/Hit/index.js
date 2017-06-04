@@ -71,7 +71,7 @@ function renderStars (activeStars) {
 
 export default props => {
   const {item} = props
-  const {price, title, condition, starRating, category} = item
+  const {price, title, condition, priceScore, category} = item
 
   const imageURL = getImageUrl(item)
   const priceText = price ? `${price}€` : 'N/A'
@@ -81,7 +81,7 @@ export default props => {
   return (
     <article data-app='hit' role='article' className='hit fade-in bg-white mv2 br2 pa3 h6'>
 
-      {renderStars(starRating)}
+      {renderStars(priceScore)}
 
       <a
         className='hit__link flex link w-100 h-100 black'
