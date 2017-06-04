@@ -79,7 +79,10 @@ export default props => {
   const timestamp = getTimestamp(item)
 
   return (
-    <article data-app='hit' role='article' className='hit fade-in bg-white mv2 br2 pa3 h6'>
+    <article
+      data-app='hit'
+      role='article'
+      className='hit fade-in bg-white mv2 br2 pa3 h6'>
 
       {renderStars(priceScore)}
 

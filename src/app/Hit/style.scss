@@ -5,9 +5,16 @@ $card-image-size-large: 96px;
 
 .hit {
   height: $card-size;
+  border: 1px solid transparent;
 
   @include break(large) {
     height: $card-size-large;
+  }
+
+  @include hover-transition(border-color);
+
+  &:hover {
+    border-color: material-color('blue', '500');
   }
 }
 
