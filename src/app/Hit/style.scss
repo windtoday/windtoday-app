@@ -22,3 +22,12 @@ $card-image-size-large: 96px;
 
   object-fit: contain;
 }
+
+.hit__start {
+  // amber-500
+  fill: #ffc107;
+}
+
+.hit__start--empty {
+  fill: material-color('grey', '200');
+}
