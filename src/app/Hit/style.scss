@@ -18,6 +18,12 @@ $card-image-size-large: 96px;
   }
 }
 
+.hit__link {
+  &:focus {
+    outline: 0 !important;
+  }
+}
+
 .hit__image {
   width: $card-image-size;
   height: $card-image-size;
