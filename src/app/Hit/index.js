@@ -1,63 +1,44 @@
 import IconTime from 'react-icons/lib/md/access-time'
+import IconStar from 'react-icons/lib/md/star'
+import IconNew from 'react-icons/lib/ti/gift'
+import IconUsed from 'react-icons/lib/fa/hand-paper-o'
+import IconCategory from 'react-icons/lib/fa/tags'
 import {Highlight} from 'react-instantsearch/dom'
 import React from 'react'
 
-import IconLegendary from '../Icon/legendary'
-import IconUncommon from '../Icon/uncommon'
-import IconEpic from '../Icon/epic'
-import IconRare from '../Icon/rare'
 import Badge from '../Badge'
 import './style.scss'
 
-const popularity = {
-  legendary: IconLegendary,
-  uncommon: IconUncommon,
-  epic: IconEpic,
-  rare: IconRare
-}
+const ICON_SIZE = 20
+const MAX_STARS = 5
 
 const getTimestamp = item => item.updatedAt || item.createdAt
 
-const renderTimeIcon = ({label, active = false}) => (
+const BadgeTime = ({label, active = false}) =>
   <Badge
-    iconComponent={<IconTime size={20} />}
-    className='ml1'
-    active={active}
-  >{label}</Badge>
-)
+    iconComponent={<IconTime size={ICON_SIZE} />}
+    active={active}>{label}
+  </Badge>
 
 const isRecently = (timestamp, hours) => {
   const lastHours = 1000 * 60 * 60 * hours
   return Date.now() - timestamp < lastHours
 }
 
-const getTimeIcon = timestamp => {
-  if (isRecently(timestamp, 24)) return renderTimeIcon({label: '24 hours', active: true})
-  if (isRecently(timestamp, 48)) return renderTimeIcon({label: '48 hours'})
-  if (isRecently(timestamp, 72)) return renderTimeIcon({label: '3 days'})
-  if (isRecently(timestamp, 120)) return renderTimeIcon({label: '1 week'})
-  return renderTimeIcon({label: '1-3 months'})
+const renderTime = timestamp => {
+  if (isRecently(timestamp, 24)) return BadgeTime({label: '24 hours'})
+  if (isRecently(timestamp, 48)) return BadgeTime({label: '48 hours'})
+  if (isRecently(timestamp, 72)) return BadgeTime({label: '3 days'})
+  if (isRecently(timestamp, 120)) return BadgeTime({label: '1 week'})
+  return BadgeTime({label: '1-3 months'})
 }
 
-const renderPopularIcon = rarity => {
-  const RarityIcon = popularity[rarity]
-  const iconComponent = <RarityIcon className='v-mid' />
-
-  return (
-    <Badge
-      iconComponent={iconComponent}
-      className='mr1'>{rarity}</Badge>
-  )
-}
-
-function getPopularIcon (item) {
-  const {priceScore} = item
-  if (priceScore < 0.5) return
-  if (priceScore > 0.95) return renderPopularIcon('legendary')
-  if (priceScore > 0.80) return renderPopularIcon('epic')
-  if (priceScore > 0.70) return renderPopularIcon('rare')
-  return renderPopularIcon('uncommon')
-}
+const renderBadge = (label, IconComponent) =>
+  <Badge
+    iconComponent={<IconComponent size={20} />}
+    className='ml2'>
+    {label}
+  </Badge>
 
 function getImageUrl (item) {
   const {image, provider} = item
@@ -68,9 +49,29 @@ function getImageUrl (item) {
   return `https://images.weserv.nl/?url=${el.hostname}${el.pathname}&w=96&t=fit`
 }
 
+function renderStars (activeStars) {
+  const emptyStars = MAX_STARS - activeStars
+  const stars = []
+  let starKey = 0
+
+  for (let i = 0; i < activeStars; i++) {
+    stars.push(
+      <IconStar key={++starKey} className='hit__start' />
+    )
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    stars.push(
+      <IconStar key={++starKey} className='hit__start hit__start--empty' />
+    )
+  }
+
+  return <div>{stars}</div>
+}
+
 export default props => {
   const {item} = props
-  const {price, title} = item
+  const {price, title, condition, starRating, category} = item
 
   const imageURL = getImageUrl(item)
   const priceText = price ? `${price}€` : 'N/A'
@@ -78,10 +79,9 @@ export default props => {
   const timestamp = getTimestamp(item)
 
   return (
-    <article
-      data-app='hit'
-      role='article'
-      className='hit fade-in bg-white mv2 br2 pa3 h6'>
+    <article data-app='hit' role='article' className='hit fade-in bg-white mv2 br2 pa3 h6'>
+
+      {renderStars(starRating)}
 
       <a
         className='hit__link flex link w-100 h-100 black'
@@ -103,8 +103,9 @@ export default props => {
           </div>
 
           <p className='ma0'>
-            {getPopularIcon(item)}
-            {getTimeIcon(timestamp)}
+            {renderTime(timestamp)}
+            {renderBadge(condition, condition === 'used' ? IconUsed : IconNew)}
+            {renderBadge(category, IconCategory)}
           </p>
 
         </div>
