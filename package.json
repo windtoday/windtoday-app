@@ -55,7 +55,7 @@
     "style-loader": "~0.18.1",
     "tachyons-queries": "~0.3.3",
     "tachyons-sass": "~4.7.1",
-    "webpack": "~2.6.1",
+    "webpack": "~3.0.0-rc.1",
     "webpack-bundle-analyzer": "~2.8.2"
   },
   "devDependencies": {
