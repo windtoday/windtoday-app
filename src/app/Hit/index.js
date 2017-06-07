@@ -12,6 +12,17 @@ import './style.scss'
 const ICON_SIZE = 20
 const MAX_STARS = 5
 
+const TIME_PERIOD = [
+  {hours: 24, label: '24 hours'},
+  {hours: 48, label: '48 hours'},
+  {hours: 72, label: '3 days'},
+  {hours: 120, label: '5 days'},
+  {hours: 168, label: '1 week'},
+  {hours: 336, label: '2 weeks'},
+  {hours: 720, label: '1 month'},
+  {hours: 2160, label: '3 months'}
+]
+
 const getTimestamp = item => item.updatedAt || item.createdAt
 
 const BadgeTime = ({label, active = false}) =>
@@ -26,11 +37,9 @@ const isRecently = (timestamp, hours) => {
 }
 
 const renderTime = timestamp => {
-  if (isRecently(timestamp, 24)) return BadgeTime({label: '24 hours'})
-  if (isRecently(timestamp, 48)) return BadgeTime({label: '48 hours'})
-  if (isRecently(timestamp, 72)) return BadgeTime({label: '3 days'})
-  if (isRecently(timestamp, 120)) return BadgeTime({label: '1 week'})
-  return BadgeTime({label: '1-3 months'})
+  const timePeriod = TIME_PERIOD.find(({hours}) => isRecently(timestamp, hours))
+  const {label = '+3 months'} = timePeriod
+  return BadgeTime({label})
 }
 
 const renderBadge = (label, IconComponent) =>
