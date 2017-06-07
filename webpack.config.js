@@ -88,7 +88,7 @@ module.exports = {
     }),
     new PurifyCSSPlugin({
       paths: [
-        'src/**/*.js',
+        'src/app/**/*.js',
         'src/app/CurrentRefinements/style.scss'
       ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
@@ -104,7 +104,7 @@ module.exports = {
       sourceMap: true,
       minimize: true,
       compress: { warnings: false },
-      comments: true
+      comments: false
     }),
     new CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
