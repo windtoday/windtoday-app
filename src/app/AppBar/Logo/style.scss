@@ -1,11 +1,9 @@
-
-
 .appbar__logo {
-  width: 3rem;
+  width: 2rem;
   fill: $white;
 
   @include break(large) {
-    width: 3.5rem;
+    width: 2.5rem;
   }
 }
 
