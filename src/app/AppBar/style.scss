@@ -1,8 +1,36 @@
-.appbar {
-  height: $appbar-height;
+.appbar__topbar {
+  height: $appbar__topbar-height;
 
   > * {
     padding: 0 .25rem;
     vertical-align: middle;
+  }
+}
+
+.appbar__navbar {
+  max-height: $appbar__navbar-height;
+  height: $appbar__navbar-height;
+}
+
+.appbar__navbar-list {
+  min-height: $appbar__navbar-height;
+  max-height: $appbar__navbar-height;
+  list-style: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.appbar__navbar-item {
+  min-height: $appbar__navbar-height;
+  height: $appbar__navbar-height;
+}
+
+.appbar__navbar-item--active {
+  border-bottom: 2px solid material-color('blue', '500');
+
+  > a {
+    color: material-color('blue', '500');
+    background: rgba(0, 0, 0, .1);
   }
 }
