@@ -1,3 +1,19 @@
+<a name="1.4.3"></a>
+## 1.4.3 (2017-06-08)
+
+* Add peer dependency ([4953b2e](https://github.com/windtoday/windtoday-marketplace/commit/4953b2e))
+* Add peer dependency ([64e5ecb](https://github.com/windtoday/windtoday-marketplace/commit/64e5ecb))
+* Adjust logo size ([1c24cde](https://github.com/windtoday/windtoday-marketplace/commit/1c24cde))
+* Fix font for mobile ([b12061e](https://github.com/windtoday/windtoday-marketplace/commit/b12061e))
+* New copy ([2829c21](https://github.com/windtoday/windtoday-marketplace/commit/2829c21))
+* Refactor ([53609fa](https://github.com/windtoday/windtoday-marketplace/commit/53609fa))
+* Tweaks ([7300ffc](https://github.com/windtoday/windtoday-marketplace/commit/7300ffc))
+* Update favicon ([5287856](https://github.com/windtoday/windtoday-marketplace/commit/5287856))
+* fix(package): update extract-text-webpack-plugin to version 2.1.1 (#242) ([9ad19da](https://github.com/windtoday/windtoday-marketplace/commit/9ad19da))
+* fix(package): update optimize-css-assets-webpack-plugin to version 2.0.0 (#239) ([74aea22](https://github.com/windtoday/windtoday-marketplace/commit/74aea22))
+
+
+
 <a name="1.4.2"></a>
 ## 1.4.2 (2017-06-04)
 
