@@ -3,6 +3,7 @@ import {InstantSearch} from 'react-instantsearch/dom'
 import qs from 'qs'
 
 import AppBar from '../AppBar'
+import Home from '../Home'
 import Main from '../Main'
 import './style.scss'
 
@@ -78,7 +79,7 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>
         <AppBar {...props} />
-        <Main {...props} />
+        <Home {...props} />
       </InstantSearch>
     )
   }

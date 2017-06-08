@@ -26,9 +26,9 @@ function AppBar (props) {
   : renderIcon(IconFilter)
 
   return (
-    <header data-app='appbar' className='fixed z-5 card-shadow w-100'>
+    <header data-app='appbar' className='appbar fixed z-5 w-100'>
 
-      <div className='appbar__topbar bg-blue-700 flex justify-around items-center ph3 ph5-ns'>
+      <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
         <div
           className='order-1 pa0 ma0 flex justify-between items-center'
           style={{flexGrow: 1}}>
@@ -65,6 +65,9 @@ function AppBar (props) {
           </li>
           <li className='appbar__navbar-item'>
             <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Blog</a>
+          </li>
+          <li className='appbar__navbar-item'>
+            <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>About</a>
           </li>
         </ul>
       </nav>
