@@ -30,6 +30,7 @@ const Results = createClass({
     })
 
     set('onClear', () => {
+      set('isSearching', false)
       const el = this.refs.results
       el.scrollTop = 0
     })

@@ -3,37 +3,162 @@ import './style.scss'
 
 export default () => (
   <div>
-    <article className='home vh-100 w-100 bg-blue-500 white ph7'>
-      <div>
-        <p className='f1 lh-copy'>
-          windtoday is a <strong>windsurfing marketplace</strong> to discover, compare & choose daily offers. 💨
+    <article className='home w-100 bg-blue-500 white ph7'>
+      <div className='pb4'>
+        <p className='f2 tc measuse lh-copy avenir fw3 ma0 pv2'>
+          Daily windsurfing offers
+        </p>
+        <p className='f4 tc measuse lh-copy ph5'>
+          windtoday is a <strong>windsurfing marketplace</strong> to discover, compare & choose daily equipment offers. 💨
         </p>
       </div>
-      <div className='cf'>
-        <dl className='fl fn-l w-50 dib-l w-auto-l lh-title mr5-l'>
-          <dd className='f5 fw4 ml0'>Total products</dd>
-          <dd className='f2 fw6 ml0'>+3,269</dd>
-        </dl>
-        <dl className='fl fn-l w-50 dib-l w-auto-l lh-title mr5-l'>
-          <dd className='f5 fw4 ml0'>Daily searches</dd>
-          <dd className='f2 fw6 ml0'>+10,000</dd>
-        </dl>
-        <dl className='fl fn-l w-50 dib-l w-auto-l lh-title mr5-l'>
-          <dd className='f5 fw4 ml0'>Shops tracked</dd>
-          <dd className='f2 fw6 ml0'>+9</dd>
-        </dl>
-        <dl className='fl fn-l w-50 dib-l w-auto-l lh-title mr5-l'>
-          <dd className='f5 fw4 ml0'>Countries</dd>
-          <dd className='f2 fw6 ml0'>+5</dd>
-        </dl>
-      </div>
     </article>
-    <article className='pv5 w-100 bg-white ph6'>
-      <div className='f2 fw6 pb2 bb b--blue-500 black ttc bw2 flex justify-between items-center'>
+    <article className='pv4 w-100 bg-white ph6'>
+      <div className='f2 fw6 pt3 pb2 bb b--blue-500 black ttc bw2 flex justify-between items-center'>
         <h3 className='ma0 avenir'>Feature Products</h3>
         <a href='/pens/' className='link f5 blue-500 avenir'>View More Products →</a>
       </div>
+      <div className='pt3 flex justify-around'>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+      </div>
       <div className='flex justify-around'>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article className='pv4 w-100 bg-white ph6'>
+      <div className='f2 fw6 pt3 pb2 bb b--blue-500 black ttc bw2 flex justify-between items-center'>
+        <h3 className='ma0 avenir'>Feature Products</h3>
+        <a href='/pens/' className='link f5 blue-500 avenir'>View More Products →</a>
+      </div>
+      <div className='pt3 flex justify-around'>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+      </div>
+      <div className='flex justify-around'>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+        <div className='bg-white mw5 ba b--black-10 mv4'>
+          <div className='pv2 ph3'>
+            <h1 className='f6 ttu tracked'>Daily News Co.</h1>
+          </div>
+          <img src='http://tachyons.io/img/cat-720.jpg' className='w-100 db' alt='Closeup photo of a tabby cat yawning.' />
+          <div className='pa3'>
+            <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
+            <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article className='pv4 w-100 bg-white ph6'>
+      <div className='f2 fw6 pt3 pb2 bb b--blue-500 black ttc bw2 flex justify-between items-center'>
+        <h3 className='ma0 avenir'>Feature Products</h3>
+        <a href='/pens/' className='link f5 blue-500 avenir'>View More Products →</a>
+      </div>
+      <div className='pt3 flex justify-around'>
         <div className='bg-white mw5 ba b--black-10 mv4'>
           <div className='pv2 ph3'>
             <h1 className='f6 ttu tracked'>Daily News Co.</h1>

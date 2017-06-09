@@ -1,4 +1,4 @@
-import React, {createClass, PropTypes} from 'react'
+import React, {createClass, createElement, PropTypes} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
 import qs from 'qs'
 
@@ -39,7 +39,7 @@ const App = createClass({
     const sidebar = {asideLeftOpen: device.isDesktop, asideRightOpen: device.isDesktop}
     const searchState = qs.parse(this.props.location.search.slice(1))
     const onClear = () => {}
-    return {...device, ...sidebar, searchState, onClear}
+    return {...device, ...sidebar, searchState, onClear, isSearching: false}
   },
 
   toggle (key) {
@@ -67,7 +67,7 @@ const App = createClass({
 
   render () {
     const {toggle, get, onSearchStateChange, createURL, state, set} = this
-    const {searchState} = state
+    const {searchState, isSearching} = state
     const props = {toggle, get, set}
 
     return (
@@ -79,7 +79,7 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>
         <AppBar {...props} />
-        <Home {...props} />
+        {createElement(isSearching ? Main : Home, props)}
       </InstantSearch>
     )
   }

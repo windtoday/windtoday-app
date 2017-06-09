@@ -3,6 +3,7 @@ import React, {createElement} from 'react'
 import IconMenu from 'react-icons/lib/md/menu'
 import IconClose from 'react-icons/lib/md/close'
 import IconFilter from 'react-icons/lib/md/filter-list'
+import classnames from 'classnames'
 
 import SearchBox from '../SearchBox'
 import Logo from './Logo'
@@ -17,6 +18,8 @@ const renderIcon = IconComponent => props =>
 function AppBar (props) {
   const {toggle, get} = props
 
+  const isSearching = get('isSearching')
+
   const asideLeftButton = get('asideLeftOpen')
   ? renderIcon(IconClose)
   : renderIcon(IconMenu)
@@ -30,9 +33,13 @@ function AppBar (props) {
 
       <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
         <div
-          className='order-1 pa0 ma0 flex justify-between items-center'
+          className={classnames('order-1 pa0 ma0 flex items-center', {
+            'justify-between': isSearching,
+            'justify-end': !isSearching
+          })}
+
           style={{flexGrow: 1}}>
-          {asideLeftButton({
+          {isSearching && asideLeftButton({
             className: 'dim pointer white pr3',
             onClick: toggle('asideLeftOpen')
           })}
@@ -45,7 +52,7 @@ function AppBar (props) {
         <div
           className='order-3 pa0 flex justify-between items-center'
           style={{flexGrow: 1}}>
-          {asideRightButton({
+          {isSearching && asideRightButton({
             className: 'dim pointer white pl3',
             onClick: toggle('asideRightOpen')
           })}

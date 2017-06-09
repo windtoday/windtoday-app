@@ -11,12 +11,11 @@ const CustomSearchBox = createClass({
     return {focus: false}
   },
 
-  onInputMount (input) {
-    this.input = input
-  },
-
   onChange (e) {
-    this.props.refine(e.target.value)
+    const {set} = this.props
+    const value = e.target.value
+    set('isSearching', value.length > 0)
+    this.props.refine(value)
   },
 
   onClear () {
@@ -43,7 +42,6 @@ const CustomSearchBox = createClass({
     const iconStyle = 'searchbox__icon absolute f3'
     const {
       props,
-      onInputMount,
       onChange,
       onFocus,
       onBlur,
@@ -52,7 +50,10 @@ const CustomSearchBox = createClass({
       state
     } = this
     const {focus: isFocus} = state
-    const {currentRefinement, className, style} = props
+    const {currentRefinement, className, style, get} = props
+
+    const isSearching = get('isSearching')
+    console.log(isSearching)
 
     const iconSearchStyle = classnames(
       iconStyle,
@@ -84,14 +85,14 @@ const CustomSearchBox = createClass({
         >
         <IconSearch className={iconSearchStyle} />
         <input
-          ref={onInputMount}
+          ref={node => (this.input = node)}
           className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3'
           type='search'
           value={currentRefinement}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          placeholder='brand, model, size,...'
+          placeholder='What you want to find?'
           autoComplete='off'
           autoCorrect='off'
           autoCapitalize='off'
