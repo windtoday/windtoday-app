@@ -53,7 +53,6 @@ const CustomSearchBox = createClass({
     const {currentRefinement, className, style, get} = props
 
     const isSearching = get('isSearching')
-    console.log(isSearching)
 
     const iconSearchStyle = classnames(
       iconStyle,
