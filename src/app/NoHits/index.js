@@ -1,7 +1,6 @@
 import React from 'react'
 
 import IconWindFlagDown from '../Icon/windFlagDown'
-import './style.scss'
 
 import {createConnector} from 'react-instantsearch'
 
@@ -13,7 +12,7 @@ const NoHits = createConnector({
   }
 })(({noResults, query}) => {
   return (
-    <article data-app='no-hits' className='no-hits tc pa4-l pa4'>
+    <article data-app='no-hits' className='tc pa4-l pa4'>
       <IconWindFlagDown className='w4 pv4' />
       <h1 className='no-break blue-300 f3'>
         <em>{query}</em>

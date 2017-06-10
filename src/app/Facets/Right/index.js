@@ -3,7 +3,6 @@ import React from 'react'
 import RefinementList from '../../RefinementList'
 import RefinementListInline from '../../RefinementListInline'
 import Range from '../../Range'
-import '../style'
 
 function createAddLabel (label) {
   function addLabel (items) {
@@ -17,7 +16,7 @@ function createAddLabel (label) {
 
 function Facets () {
   return (
-    <section data-app='facets-right' className='facets facets-right pa2 bg-grey-50'>
+    <section data-app='facets-right' className='facets-right pa2 bg-grey-50'>
 
       <RefinementListInline
         attributeName='brand'

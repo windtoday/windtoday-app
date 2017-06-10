@@ -3,11 +3,10 @@ import React from 'react'
 import RefinementList from '../../RefinementList'
 import RefinementListInline from '../../RefinementListInline'
 import Range from '../../Range'
-import '../style'
 
 function Facets () {
   return (
-    <section data-app='facets-left' className='facets facets-left pa2 bg-grey-50'>
+    <section data-app='facets-left' className='facets-left pa2 bg-grey-50'>
       <Range
         attributeName='price'
         label='€'

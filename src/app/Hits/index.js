@@ -24,7 +24,7 @@ function CustomHits (props) {
   const hitsProps = { toggle, get }
 
   return (
-    <div data-app='hits' className='hits'>
+    <div data-app='hits'>
       <Stats />
       <div>
         {hits.map((item, key) => <Hit item={item} key={key} {...hitsProps} />)}
