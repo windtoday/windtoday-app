@@ -35,6 +35,7 @@ const App = createClass({
     location: PropTypes.object.isRequired
   },
   getInitialState () {
+    const {isSearching} = this
     const device = getDeviceState()
 
     const sidebar = {
@@ -50,8 +51,8 @@ const App = createClass({
       ...device,
       ...sidebar,
       searchState,
-      onSearchClear,
-      isSearching: false
+      isSearching,
+      onSearchClear
     }
   },
 
@@ -78,6 +79,13 @@ const App = createClass({
     this.setState({searchState})
   },
 
+  isSearching () {
+    const {query, page} = this.state.searchState
+    if (Object.keys(this.state.searchState) > 2) return true
+    if (!query || (query === '' && page === 1)) return false
+    return true
+  },
+
   render () {
     const {toggle, get, onSearchStateChange, createURL, state, set} = this
     const {searchState, isSearching} = state
@@ -92,7 +100,7 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>
         <AppBar {...props} />
-        {createElement(isSearching ? Search : Home, props)}
+        {createElement(isSearching() ? Search : Home, props)}
       </InstantSearch>
     )
   }

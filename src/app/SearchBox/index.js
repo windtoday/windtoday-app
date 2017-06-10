@@ -12,9 +12,7 @@ const CustomSearchBox = createClass({
   },
 
   onChange (e) {
-    const {set} = this.props
     const value = e.target.value
-    set('isSearching', value.length > 0)
     this.props.refine(value)
   },
 
@@ -50,9 +48,7 @@ const CustomSearchBox = createClass({
       state
     } = this
     const {focus: isFocus} = state
-    const {currentRefinement, className, style, get} = props
-
-    const isSearching = get('isSearching')
+    const {currentRefinement, className, style} = props
 
     const iconSearchStyle = classnames(
       iconStyle,

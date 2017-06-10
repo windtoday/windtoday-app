@@ -30,7 +30,7 @@ const AppBar = createClass({
     const {scroll} = this.state
     const {toggle, get} = this.props
 
-    const isSearching = get('isSearching')
+    const isSearching = get('isSearching')()
 
     const asideLeftButton = get('searchFiltersLeftOpen')
     ? renderIcon(IconClose)
