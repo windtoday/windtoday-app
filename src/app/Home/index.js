@@ -1,16 +1,14 @@
 import React from 'react'
 import './style.scss'
 
-import FeatureProducts from './FeatureProducts'
+import HomeProducts from '../HomeProducts'
 import Header from './Header'
 import Footer from './Footer'
 
 export default () => (
   <div>
     <Header />
-    <FeatureProducts />
-    <FeatureProducts />
-    <FeatureProducts />
+    <HomeProducts />
     <Footer />
   </div>
 )
