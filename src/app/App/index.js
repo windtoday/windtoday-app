@@ -3,8 +3,8 @@ import {InstantSearch} from 'react-instantsearch/dom'
 import qs from 'qs'
 
 import AppBar from '../AppBar'
+import Search from '../Search'
 import Home from '../Home'
-import Main from '../Main'
 import './style.scss'
 
 const updateAfter = 700
@@ -79,7 +79,7 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>
         <AppBar {...props} />
-        {createElement(isSearching ? Main : Home, props)}
+        {createElement(isSearching ? Search : Home, props)}
       </InstantSearch>
     )
   }
