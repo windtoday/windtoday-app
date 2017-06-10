@@ -8,25 +8,25 @@ import SearchResults from '../SearchResults'
 function Search (props) {
   const { toggle, get } = props
 
-  const toggleAsideLeftOpen = toggle('asideLeftOpen')
-  const toggleAsideRightOpen = toggle('asideRightOpen')
+  const toggleSearchFiltersLeftOpen = toggle('searchFiltersLeftOpen')
+  const toggleSearchFiltersRightOpen = toggle('searchFiltersRightOpen')
 
   function onSwipedRight () {
-    const isAsideRightOpen = get('asideRightOpen')
-    const isAsideLeftOpen = get('asideLeftOpen')
+    const isAsideRightOpen = get('searchFiltersRightOpen')
+    const isAsideLeftOpen = get('searchFiltersLeftOpen')
 
     if (isAsideLeftOpen) return
-    if (!isAsideRightOpen) return toggleAsideLeftOpen()
-    return toggleAsideRightOpen()
+    if (!isAsideRightOpen) return toggleSearchFiltersLeftOpen()
+    return toggleSearchFiltersRightOpen()
   }
 
   function onSwipedLeft () {
-    const isAsideRightOpen = get('asideRightOpen')
-    const isAsideLeftOpen = get('asideLeftOpen')
+    const isAsideRightOpen = get('searchFiltersRightOpen')
+    const isAsideLeftOpen = get('searchFiltersLeftOpen')
 
     if (isAsideRightOpen) return
-    if (isAsideLeftOpen) return toggleAsideLeftOpen()
-    return toggleAsideRightOpen()
+    if (isAsideLeftOpen) return toggleSearchFiltersLeftOpen()
+    return toggleSearchFiltersRightOpen()
   }
 
   return (

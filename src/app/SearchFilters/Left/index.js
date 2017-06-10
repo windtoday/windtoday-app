@@ -8,7 +8,7 @@ const theme = 'search-filters search-filters-left fade-in fl w-25-l w-95 vh-100 
 
 export default ({get}) => {
   const style = classnames(theme, {
-    'search-filters-left--collapse': !get('asideLeftOpen')
+    'search-filters-left--collapse': !get('searchFiltersLeftOpen')
   })
 
   return (

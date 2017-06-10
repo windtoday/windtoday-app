@@ -15,8 +15,8 @@ const Results = createClass({
     const {set, get, hits} = props
 
     const hasResults = hits.length > 0
-    const isAsideRightOpen = get('asideRightOpen')
-    const isAsideLeftOpen = get('asideLeftOpen')
+    const isAsideRightOpen = get('searchFiltersRightOpen')
+    const isAsideLeftOpen = get('searchFiltersLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
@@ -29,7 +29,7 @@ const Results = createClass({
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })
 
-    set('onClear', () => {
+    set('onSearchClear', () => {
       set('isSearching', false)
       const el = this.refs.results
       el.scrollTop = 0

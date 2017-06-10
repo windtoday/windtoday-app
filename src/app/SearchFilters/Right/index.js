@@ -10,7 +10,7 @@ function AsideRight (props) {
   const { get } = props
 
   const style = classnames(theme, {
-    'search-filters-right--collapse': !get('asideRightOpen')
+    'search-filters-right--collapse': !get('searchFiltersRightOpen')
   })
 
   return (

@@ -32,11 +32,11 @@ const AppBar = createClass({
 
     const isSearching = get('isSearching')
 
-    const asideLeftButton = get('asideLeftOpen')
+    const asideLeftButton = get('searchFiltersLeftOpen')
     ? renderIcon(IconClose)
     : renderIcon(IconMenu)
 
-    const asideRightButton = get('asideRightOpen')
+    const asideRightButton = get('searchFiltersRightOpen')
     ? renderIcon(IconClose)
     : renderIcon(IconFilter)
 
@@ -59,7 +59,7 @@ const AppBar = createClass({
               style={{flexGrow: 1}}>
               {isSearching && asideLeftButton({
                 className: 'dim pointer white pr3',
-                onClick: toggle('asideLeftOpen')
+                onClick: toggle('searchFiltersLeftOpen')
               })}
 
               <Logo {...this.props} clearsQuery />
@@ -72,7 +72,7 @@ const AppBar = createClass({
               style={{flexGrow: 1}}>
               {isSearching && asideRightButton({
                 className: 'dim pointer white pl3',
-                onClick: toggle('asideRightOpen')
+                onClick: toggle('searchFiltersRightOpen')
               })}
             </div>
           </div>

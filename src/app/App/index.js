@@ -36,10 +36,23 @@ const App = createClass({
   },
   getInitialState () {
     const device = getDeviceState()
-    const sidebar = {asideLeftOpen: device.isDesktop, asideRightOpen: device.isDesktop}
+
+    const sidebar = {
+      searchFiltersLeftOpen: device.isDesktop,
+      searchFiltersRightOpen: device.isDesktop
+    }
+
     const searchState = qs.parse(this.props.location.search.slice(1))
-    const onClear = () => {}
-    return {...device, ...sidebar, searchState, onClear, isSearching: false}
+
+    const onSearchClear = () => {}
+
+    return {
+      ...device,
+      ...sidebar,
+      searchState,
+      onSearchClear,
+      isSearching: false
+    }
   },
 
   toggle (key) {
