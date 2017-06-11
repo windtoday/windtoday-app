@@ -22,13 +22,13 @@ const RenderHits = ({hits: products, title, subtitle}) => {
 
 const HomeProducts = connectHits(RenderHits)
 
-export default ({title, filters, hitsPerPage}) => (
+export default ({title, subtitle, filters, hitsPerPage}) => (
   <InstantSearch
     appId='PDZK7H6PD0'
     apiKey='911167d1e62d76e16e9cd746c0b1a684'
     indexName='windsurf'
     >
     <Configure filters={filters} hitsPerPage={hitsPerPage} />
-    <HomeProducts title={title} />
+    <HomeProducts title={title} subtitle={subtitle} />
   </InstantSearch>
 )
