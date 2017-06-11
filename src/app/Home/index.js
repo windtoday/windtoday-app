@@ -18,9 +18,9 @@ export default () => (
     />
 
     <HomeProducts
-      title='Feature Sails'
-      subtitle='View more sails →'
-      filters='category:sails AND provider:wewind'
+      title='Feature Boards'
+      subtitle='View more Boards →'
+      filters='category:boards AND provider:wewind'
       hitsPerPage={3}
     />
 

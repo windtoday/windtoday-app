@@ -1,6 +1,6 @@
 import React from 'react'
 import { connectHits } from 'react-instantsearch/connectors'
-import { Configure } from 'react-instantsearch/dom'
+import { Configure, InstantSearch } from 'react-instantsearch/dom'
 
 import ProductCard from '../ProductCard'
 
@@ -23,8 +23,12 @@ const RenderHits = ({hits: products, title, subtitle}) => {
 const HomeProducts = connectHits(RenderHits)
 
 export default ({title, filters, hitsPerPage}) => (
-  <div>
+  <InstantSearch
+    appId='PDZK7H6PD0'
+    apiKey='911167d1e62d76e16e9cd746c0b1a684'
+    indexName='windsurf'
+    >
     <Configure filters={filters} hitsPerPage={hitsPerPage} />
     <HomeProducts title={title} />
-  </div>
+  </InstantSearch>
 )
