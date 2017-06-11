@@ -61,11 +61,11 @@ module.exports = {
         }, {
           loader: 'sass-loader',
           options: {
+            sourceMap: true,
             data: '@import "index.scss";',
-            includePaths: [
-              path.resolve('src/app')
-            ],
-            sourceMap: true
+            includePaths: ['node_modules', 'node_modules/@material/*', 'src/app']
+              .map(modulePath => glob.sync(path.resolve(modulePath)))
+              .reduce((acc, paths) => acc.concat(paths), [])
           }
         }]
       })
