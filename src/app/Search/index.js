@@ -1,48 +1,63 @@
 import Swipeable from 'react-swipeable'
-import React from 'react'
+import React, {createClass} from 'react'
 
 import SearchFiltersRight from '../SearchFilters/Right'
 import SearchFiltersLeft from '../SearchFilters/Left'
 import SearchResults from '../SearchResults'
 
-function Search (props) {
-  const { toggle, get } = props
+const Search = createClass({
+  componentWillMount () {
+    if (this.props.location.pathname !== '/search') {
+      this.props.history.push('/search')
+    }
+  },
 
-  const toggleSearchFiltersLeftOpen = toggle('searchFiltersLeftOpen')
-  const toggleSearchFiltersRightOpen = toggle('searchFiltersRightOpen')
+  onSwipedRight () {
+    const {get, toggle} = this.props
 
-  function onSwipedRight () {
     const isAsideRightOpen = get('searchFiltersRightOpen')
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
+
+    const toggleSearchFiltersLeftOpen = toggle('searchFiltersLeftOpen')
+    const toggleSearchFiltersRightOpen = toggle('searchFiltersRightOpen')
 
     if (isAsideLeftOpen) return
     if (!isAsideRightOpen) return toggleSearchFiltersLeftOpen()
     return toggleSearchFiltersRightOpen()
-  }
+  },
 
-  function onSwipedLeft () {
+  onSwipedLeft () {
+    const {get, toggle} = this.props
+
     const isAsideRightOpen = get('searchFiltersRightOpen')
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
+
+    const toggleSearchFiltersLeftOpen = toggle('searchFiltersLeftOpen')
+    const toggleSearchFiltersRightOpen = toggle('searchFiltersRightOpen')
 
     if (isAsideRightOpen) return
     if (isAsideLeftOpen) return toggleSearchFiltersLeftOpen()
     return toggleSearchFiltersRightOpen()
+  },
+
+  render () {
+    const {onSwipedRight, onSwipedLeft, props} = this
+
+    return (
+      <Swipeable
+        stopPropagation
+        onSwipedRight={onSwipedRight}
+        onSwipedLeft={onSwipedLeft}
+        role='main'
+        data-app='app-main'
+        >
+
+        <SearchFiltersLeft {...props} />
+        <SearchResults {...props} />
+        <SearchFiltersRight {...props} />
+      </Swipeable>
+    )
   }
-
-  return (
-    <Swipeable
-      stopPropagation
-      onSwipedRight={onSwipedRight}
-      onSwipedLeft={onSwipedLeft}
-      role='main'
-      data-app='app-main'
-      >
-
-      <SearchFiltersLeft {...props} />
-      <SearchResults {...props} />
-      <SearchFiltersRight {...props} />
-    </Swipeable>
-  )
-}
+})
 
 export default Search
