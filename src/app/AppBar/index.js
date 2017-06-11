@@ -2,8 +2,9 @@ import React, {createClass, createElement} from 'react'
 import IconMenu from 'react-icons/lib/md/menu'
 import IconClose from 'react-icons/lib/md/close'
 import IconFilter from 'react-icons/lib/md/filter-list'
-import classnames from 'classnames'
 import Headroom from 'react-headroom'
+import classnames from 'classnames'
+import { NavLink } from 'react-router-dom'
 
 import SearchBox from '../SearchBox'
 import Logo from './Logo'
@@ -79,11 +80,16 @@ const AppBar = createClass({
 
           <nav className='appbar__navbar flex justify-center'>
             <ul className='appbar__navbar-list list flex'>
-              <li className='appbar__navbar-item appbar__navbar-item--active'>
-                <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Home</a>
+              <li className='appbar__navbar-item'>
+                <NavLink
+                  activeClassName='appbar__navbar-link--active'
+                  className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6'
+                  to='/'>Home</NavLink>
               </li>
               <li className='appbar__navbar-item relative'>
-                <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Categories</a>
+                <NavLink
+                  activeClassName='appbar__navbar-link--active'
+                  className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' to='/search'>Search</NavLink>
               </li>
               <li className='appbar__navbar-item'>
                 <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Insights</a>

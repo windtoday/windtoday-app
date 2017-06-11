@@ -32,7 +32,7 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-item--active {
+.appbar__navbar-link--active {
   border-bottom: 2px solid material-color('blue', '500');
 
   > a {
