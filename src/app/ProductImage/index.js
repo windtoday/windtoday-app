@@ -1,12 +1,21 @@
 import React from 'react'
 
-function getImageUrl ({image, provider}) {
-  if (!image) return `/assets/img/provider/${provider}.jpg`
+const createImg = href => {
   const el = document.createElement('a')
-  el.href = image
-  return `https://images.weserv.nl/?url=${el.hostname}${el.pathname}&w=96&t=fit`
+  el.href = href
+  return el
 }
 
-export default ({product, className}) => (
-  <img alt={product.title} src={getImageUrl(product)} className={className} />
+function getImageUrl (product, width) {
+  const {image, provider} = product
+  if (!image) return `/assets/img/provider/${provider}.jpg`
+
+  const {hostname, pathname} = createImg(image)
+  const baseUrl = `https://images.weserv.nl/?url=${hostname}${pathname}`
+
+  return width ? `${baseUrl}&w=${width}` : baseUrl
+}
+
+export default ({product, className, width}) => (
+  <img alt={product.title} src={getImageUrl(product, width)} className={className} />
 )

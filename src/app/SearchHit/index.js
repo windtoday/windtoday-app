@@ -91,7 +91,11 @@ export default props => {
           </p>
 
         </div>
-        <ProductImage className='search-hit__image db br2 mt2' product={product} />
+        <ProductImage
+          className='search-hit__image db br2 mt2'
+          product={product}
+          width={96}
+        />
       </a>
     </article>
   )
