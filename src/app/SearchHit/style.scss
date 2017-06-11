@@ -18,12 +18,6 @@ $card-image-size-large: 96px;
   }
 }
 
-.search-hit__link {
-  &:focus {
-    outline: 0 !important;
-  }
-}
-
 .search-hit__image {
   width: $card-image-size;
   height: $card-image-size;

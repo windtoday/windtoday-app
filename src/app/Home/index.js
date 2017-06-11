@@ -11,17 +11,10 @@ export default () => (
     <Header />
 
     <HomeProducts
-      title='Feature Sails'
-      subtitle='View more sails →'
-      filters='category:sails AND provider:lpwind'
-      hitsPerPage={3}
-    />
-
-    <HomeProducts
-      title='Feature Boards'
-      subtitle='View more Boards →'
-      filters='category:boards AND provider:wewind'
-      hitsPerPage={3}
+      title='Latest Products'
+      subtitle='View more →'
+      filters='NOT provider:totalwind'
+      hitsPerPage={20}
     />
 
     <Footer />

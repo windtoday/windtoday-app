@@ -6,6 +6,7 @@ const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
+const glob = require('glob')
 
 const pkg = require('./package.json')
 const config = require('./config.json')
@@ -60,9 +61,9 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           data: '@import "index.scss";',
-          includePaths: [
-            path.resolve('src/app')
-          ]
+          includePaths: ['node_modules/@material/*', 'src/app']
+            .map(modulePath => glob.sync(path.resolve(modulePath)))
+            .reduce((acc, paths) => acc.concat(paths), [])
         }
       }]
     }]

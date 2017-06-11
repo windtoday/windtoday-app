@@ -83,22 +83,22 @@ const AppBar = createClass({
               <li className='appbar__navbar-item'>
                 <NavLink
                   activeClassName='appbar__navbar-link--active'
-                  className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6'
+                  className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6'
                   to='/'>Home</NavLink>
               </li>
               <li className='appbar__navbar-item relative'>
                 <NavLink
                   activeClassName='appbar__navbar-link--active'
-                  className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' to='/search'>Search</NavLink>
+                  className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' to='/search'>Search</NavLink>
               </li>
               <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Insights</a>
+                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Insights</a>
               </li>
               <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Blog</a>
+                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Blog</a>
               </li>
               <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link link flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>About</a>
+                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>About</a>
               </li>
             </ul>
           </nav>

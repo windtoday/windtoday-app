@@ -66,7 +66,7 @@ export default props => {
       <ProductStars product={product} />
 
       <a
-        className='search-hit__link flex link w-100 h-100 black'
+        className='search-hit__link flex no-underline w-100 h-100 black'
         href={product.link}
         target='_blank'
         rel='nofollow noopener'>
