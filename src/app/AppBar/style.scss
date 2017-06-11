@@ -32,11 +32,14 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-link--active {
-  border-bottom: 2px solid material-color('blue', '500');
+.headroom--unfixed {
+  .appbar__navbar-link--active {
+    border-bottom: 2px solid material-color('blue', '300');
+  }
+}
 
-  > a {
-    color: material-color('blue', '500');
-    background: rgba(0, 0, 0, .1);
+.headroom--scrolled {
+  .appbar__navbar-link--active {
+    border-bottom: 2px solid material-color('blue', '500');
   }
 }
