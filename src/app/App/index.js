@@ -57,6 +57,15 @@ const App = createClass({
     }
   },
 
+  componentWillReceiveProps (nextProps) {
+    const {pathname: currentPathname} = this.props.location
+    const {pathname: nextPathname} = nextProps.location
+
+    if (currentPathname === '/search' && nextPathname === '/') {
+      this.setState({searchState: {}})
+    }
+  },
+
   toggle (key) {
     return e => {
       const val = !this.state[key]
@@ -83,11 +92,8 @@ const App = createClass({
   isSearching () {
     const {pathname} = this.props.location
     if (pathname === '/search') return true
-
-    const {searchState} = this.state
-    const {query} = searchState
-
-    return query !== undefined
+    const {query = ''} = this.state.searchState
+    return query !== ''
   },
 
   render () {
