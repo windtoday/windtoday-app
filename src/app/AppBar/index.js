@@ -92,13 +92,7 @@ const AppBar = createClass({
                   className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' to='/search'>Search</NavLink>
               </li>
               <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Insights</a>
-              </li>
-              <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>Blog</a>
-              </li>
-              <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' href='/'>About</a>
+                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' target='_blank' href='http://windtoday.co/blog'>Blog</a>
               </li>
             </ul>
           </nav>
