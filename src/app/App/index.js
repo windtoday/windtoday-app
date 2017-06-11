@@ -9,8 +9,9 @@ import './style.scss'
 
 const updateAfter = 700
 
-const searchStateToUrl = (props, searchState) =>
-  searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
+const searchStateToUrl = (props, searchState) => {
+  return searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
+}
 
 const createURL = state => `?${qs.stringify(state)}`
 
@@ -80,16 +81,19 @@ const App = createClass({
   },
 
   isSearching () {
-    const {query, page} = this.state.searchState
-    if (Object.keys(this.state.searchState) > 2) return true
-    if (!query || (query === '' && page === 1)) return false
-    return true
+    const {pathname} = this.props.location
+    if (pathname === '/search') return true
+
+    const {searchState} = this.state
+    const {query} = searchState
+
+    return query !== undefined
   },
 
   render () {
     const {toggle, get, onSearchStateChange, createURL, state, set} = this
     const {searchState, isSearching} = state
-    const props = {toggle, get, set}
+    const props = {toggle, get, set, ...this.props}
 
     return (
       <InstantSearch
