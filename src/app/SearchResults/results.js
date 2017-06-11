@@ -35,13 +35,13 @@ const Results = createClass({
     })
 
     return (
-      <section
+      <main
         ref='results'
         data-app='search-results' className={style}>
         {isMobile && <Overlay active={hasAsideOpen} />}
         {createElement(hasResults ? SearchHits : SearchNoHits, props)}
         <SearchFooter />
-      </section>
+      </main>
     )
   }
 })

@@ -7,7 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 export default () => (
-  <div>
+  <main>
     <Header />
 
     <HomeProducts
@@ -18,5 +18,5 @@ export default () => (
     />
 
     <Footer />
-  </div>
+  </main>
 )
