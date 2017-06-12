@@ -6,11 +6,11 @@ import ProductsGrid from '../ProductsGrid'
 
 const RenderHits = ({hits: products, title, subtitle}) => {
   return (
-    <section className='w-100 bg-grey-50'>
-      <div className='pv4 ph3 f4 f3-ns fw3 avenir black ttc flex justify-between items-center'>
+    <section className='w-100 bg-grey-50 ph4'>
+      <header className='pv4 f4 f3-ns fw3 avenir black ttc flex justify-between items-center'>
         <h3 className='ma0 avenir'>{title}</h3>
         <a href='/pens/' className='link f5 blue-500 avenir'>{subtitle}</a>
-      </div>
+      </header>
       <ProductsGrid products={products} />
 
       <div className='flex items-center justify-center pa4'>
