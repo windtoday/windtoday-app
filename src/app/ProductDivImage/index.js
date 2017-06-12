@@ -11,7 +11,7 @@ export default ({product, className, width}) => {
   )`
 
   const style = {
-    background: `${linearGradient}, url("${src}") center center / cover no-repeat`
+    background: `url("${src}") center center / cover no-repeat`
   }
 
   return (

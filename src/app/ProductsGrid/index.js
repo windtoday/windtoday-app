@@ -8,15 +8,15 @@ const Product = (product) => {
 
   return (
     <li className='mdc-grid-tile'>
-      <div className='mdc-grid-tile__primary br3'>
+      <div className='mdc-grid-tile__primary'>
         <a href={link} target='_blank'>
           <ProductDivImage
-            className='mdc-grid-tile__primary-content br3'
+            className='mdc-grid-tile__primary-content'
             product={product}
             />
         </a>
       </div>
-      <span className='mdc-grid-tile__secondary br3'>
+      <span className='mdc-grid-tile__secondary'>
         <i className='mdc-grid-tile__icon material-icons'>star_border</i>
         <span className='mdc-grid-tile__title'>{title}</span>
         <span className='mdc-grid-tile__support-text'>{price}€ by {provider}</span>

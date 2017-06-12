@@ -3,5 +3,5 @@ $mdc-grid-list-tile-width: 249px;
 @import "mdc-grid-list";
 
 .mdc-grid-tile__secondary {
-  background-color: transparent;
+  background: linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(255,255,255,0) 100%);
 }

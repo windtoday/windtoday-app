@@ -12,6 +12,16 @@ const RenderHits = ({hits: products, title, subtitle}) => {
         <a href='/pens/' className='link f5 blue-500 avenir'>{subtitle}</a>
       </div>
       <ProductsGrid products={products} />
+
+      <div className='flex items-center justify-center pa4'>
+        <a href='#0' className='f5 no-underline blue-500 bg-animate hover-bg-blue-500 hover-white inline-flex items-center pa3 ba border-box br2'>
+          <span className='pr1'>See More Products</span>
+          <svg className='w1' data-icon='chevronRight' viewBox='0 0 32 32' style={{fill: 'currentColor'}}>
+            <title>chevronRight icon</title>
+            <path d='M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z' />
+          </svg>
+        </a>
+      </div>
     </section>
   )
 }
