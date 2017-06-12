@@ -27,10 +27,27 @@ const AppBar = createClass({
       this.setState({scroll: window.pageYOffset})
     })
   },
+  getAppBarStyle () {
+    const {get, location} = this.props
+    const {scroll} = this.state
+
+    const isMobile = get('isMobile')
+    const {pathname} = location
+
+    let backgroundColor = '#19B5FE'
+    let position = 'fixed'
+
+    if (!isMobile && pathname === '/search') {
+    } else if (scroll > 1) {
+      backgroundColor = '#424242'
+    }
+
+    return {backgroundColor, position}
+  },
   render () {
+    const {getAppBarStyle} = this
     const {scroll} = this.state
     const {toggle, get} = this.props
-
     const isSearching = get('isSearching')()
 
     const asideLeftButton = get('searchFiltersLeftOpen')
@@ -41,13 +58,19 @@ const AppBar = createClass({
     ? renderIcon(IconClose)
     : renderIcon(IconFilter)
 
+    const darkStyle = scroll > 1
+
+    const navLinkStyle = classnames('appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300', {
+      'appbar__navbar-link--dark': darkStyle
+    })
+
+    const navLinkActiveStyle = classnames('appbar__navbar-link--active bl-0 br-0 bt-0 b--solid bw1')
+
     return (
       <header className='bg-blue-500'>
         <Headroom
           data-app='appbar'
-          style={{
-            backgroundColor: scroll > 1 && '#424242'
-          }}
+          style={getAppBarStyle()}
           >
 
           <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
@@ -82,17 +105,20 @@ const AppBar = createClass({
             <ul className='appbar__navbar-list list flex'>
               <li className='appbar__navbar-item'>
                 <NavLink
-                  activeClassName='appbar__navbar-link--active'
-                  className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6'
+                  activeClassName={navLinkActiveStyle}
+                  className={navLinkStyle}
                   to='/'>Home</NavLink>
               </li>
               <li className='appbar__navbar-item relative'>
                 <NavLink
-                  activeClassName='appbar__navbar-link--active'
-                  className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' to='/search'>Search</NavLink>
+                  activeClassName={navLinkActiveStyle}
+                  className={navLinkStyle}
+                  to='/search'>Search</NavLink>
               </li>
               <li className='appbar__navbar-item'>
-                <a className='appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 blue-300 f6' target='_blank' href='http://windtoday.co/blog'>Blog</a>
+                <a className={navLinkStyle}
+                  target='_blank'
+                  href='http://windtoday.co/blog'>Blog</a>
               </li>
             </ul>
           </nav>
