@@ -3,14 +3,14 @@ import React from 'react'
 import './style.scss'
 
 import HomeProducts from '../HomeProducts'
-import Header from './Header'
-import Footer from './Footer'
+import HomeFooter from '../HomeFooter'
+import HomeHero from '../HomeHero'
 
 export default () => (
   <main>
-    <Header />
+    <HomeHero />
 
-    <section className='w-100 bg-grey-50 ph4'>
+    <section className='w-100 bg-grey-50 ph4 pt3'>
       <header className='pv4 f4 f3-ns fw3 avenir black ttc flex justify-between items-center'>
         <h3 className='ma0 avenir'>Browse Brands</h3>
         <a href='/pens/' className='link f5 blue-500 avenir'>View More →</a>
@@ -35,6 +35,16 @@ export default () => (
         <a className='f3 link b hover-purple no-underline black dib pa2 ma2 pointer br2 fw5 blue-grey-400 bg-grey-200' href='http://twitter.com/mrmrs_'>Prolimit</a>
         <a className='f3 link b hover-purple no-underline black dib pa2 ma2 pointer br2 fw5 blue-grey-400 bg-grey-200' href='http://twitter.com/mrmrs_'>Exocet</a>
       </div>
+
+      <div className='flex items-center justify-center pa4'>
+        <a href='#0' className='f5 no-underline blue-500 bg-animate hover-bg-blue-500 hover-white inline-flex items-center pa3 ba border-box br2'>
+          <span className='pr1'>See More Brands</span>
+          <svg className='w1' data-icon='chevronRight' viewBox='0 0 32 32' style={{fill: 'currentColor'}}>
+            <title>chevronRight icon</title>
+            <path d='M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z' />
+          </svg>
+        </a>
+      </div>
     </section>
 
     <HomeProducts
@@ -44,6 +54,6 @@ export default () => (
       hitsPerPage={20}
     />
 
-    <Footer />
+    <HomeFooter />
   </main>
 )
