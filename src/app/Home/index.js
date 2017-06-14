@@ -12,7 +12,7 @@ export default () => (
 
     <HomeProducts
       filters=''
-      hitsPerPage={20}
+      hitsPerPage={21}
     />
 
     <HomeFooter />
