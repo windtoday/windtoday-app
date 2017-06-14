@@ -1,11 +1,16 @@
-$mdc-grid-list-tile-width: 370px;
+$card-width: 342px;
+$card-height: 261px;
+$card-content-height: 146px;
 
-@import "mdc-grid-list";
-
-.mdc-grid-tile__secondary {
-  background: linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(255,255,255,0) 100%);
+.product-grid {
+  width: $card-width;
 }
 
-.mdc-grid-list .mdc-grid-tile {
-  margin: 0 15px 30px;
+.product-grid__image {
+  min-height: $card-height;
+  box-shadow: 0 19px 38px rgba($black, .3), 0 15px 12px rgba($black, .2);
+}
+
+.product-grid__content {
+  height: $card-content-height;
 }
