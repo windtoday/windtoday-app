@@ -44,8 +44,11 @@ const AppBar = createClass({
 
     return {backgroundColor, position}
   },
+  isPath (pathname) {
+    return pathname === this.props.location.pathname
+  },
   render () {
-    const {getAppBarStyle} = this
+    const {getAppBarStyle, isPath} = this
     const {scroll} = this.state
     const {toggle, get} = this.props
     const isSearching = get('isSearching')()
@@ -105,13 +108,13 @@ const AppBar = createClass({
             <ul className='appbar__navbar-list list flex'>
               <li className='appbar__navbar-item'>
                 <NavLink
-                  activeClassName={navLinkActiveStyle}
+                  activeClassName={isPath('/') ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/'>Home</NavLink>
               </li>
               <li className='appbar__navbar-item relative'>
                 <NavLink
-                  activeClassName={navLinkActiveStyle}
+                  activeClassName={isPath('/search') ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/search'>Search</NavLink>
               </li>
