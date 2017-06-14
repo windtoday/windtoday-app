@@ -2,6 +2,7 @@ import React from 'react'
 
 import './style.scss'
 import ProductDivImage from '../ProductDivImage'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const Product = (product) => {
   const {title, provider, link, price} = product
@@ -17,7 +18,6 @@ const Product = (product) => {
         </a>
       </div>
       <span className='mdc-grid-tile__secondary'>
-        <i className='mdc-grid-tile__icon material-icons'>star_border</i>
         <span className='mdc-grid-tile__title'>{title}</span>
         <span className='mdc-grid-tile__support-text'>{price}€ by {provider}</span>
       </span>
@@ -25,12 +25,19 @@ const Product = (product) => {
   )
 }
 
-export default ({products}) => {
+export default ({hits, refine, hasMore}) => {
   return (
-    <div className='mdc-grid-list mdc-grid-list--twoline-caption'>
-      <ul className='mdc-grid-list__tiles justify-center'>
-        {products.map((props, index) => <Product key={index} {...props} />)}
-      </ul>
+    <div
+      className='mdc-grid-list mdc-grid-list--twoline-caption'>
+      <InfiniteScroll
+        next={refine}
+        hasMore={hasMore}
+        scrollThreshold={0.6}
+      >
+        <ul className='mdc-grid-list__tiles justify-between'>
+          {hits.map((props, index) => <Product key={index} {...props} />)}
+        </ul>
+      </InfiniteScroll>
     </div>
   )
 }
