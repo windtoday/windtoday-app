@@ -1,32 +1,41 @@
 import React from 'react'
 
 import './style.scss'
+import ProductStars from '../ProductStars'
+import ProductPrice from '../ProductPrice'
 import ProductDivImage from '../ProductDivImage'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 const Product = (product) => {
-  const {title, provider, link, price} = product
+  const {title, provider, link} = product
 
   return (
-    <div className='product-grid pa3'>
+    <a
+      target='blank'
+      href={link}
+      className='product-grid pa3 no-underline white'>
       <ProductDivImage
         className='product-grid__image br2 relative shadow-5'
         product={product}>
         <header className='pa3 cf white'>
-          <span className='fl f5 pv1 ph2 bg-blue-700 br2'>{price}€</span>
+          <ProductPrice
+            className='fl f5 pv1 ph2 bg-grey-50 grey-700 br4'
+            product={product}
+             />
+          <ProductStars
+            className='fr f5 pv1 ph2 bg-grey-50 br4 grey-700'
+            product={product} tiny />
         </header>
         <div className='product-grid__content absolute bottom-0 w-100'>
           <div className='relative pa3'>
             <span className='f5 white'>{provider}</span>
             <h1 className='f3 fw3 avenir mt2 lh-copy'>
-              <a target='blank' href={link} className='no-underline white'>
-                {title}
-              </a>
+              {title}
             </h1>
           </div>
         </div>
       </ProductDivImage>
-    </div>
+    </a>
   )
 }
 
