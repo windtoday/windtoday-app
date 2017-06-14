@@ -5,6 +5,12 @@ $card-content-height: 128px;
 
 .product-grid {
   width: $card-width;
+
+  @include hover-transition(transform);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .product-grid__image {
