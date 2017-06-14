@@ -10,7 +10,7 @@ const Product = (product) => {
   return (
     <div className='product-grid pa3'>
       <ProductDivImage
-        className='product-grid__image br2 relative'
+        className='product-grid__image br2 relative shadow-5'
         product={product}>
         <header className='pa3 cf white'>
           <span className='fl f5 pv1 ph2 bg-blue-700 br2'>{price}€</span>
