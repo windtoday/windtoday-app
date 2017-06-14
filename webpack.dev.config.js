@@ -61,9 +61,9 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           data: '@import "index.scss";',
-          includePaths: ['node_modules', 'node_modules/@material/*', 'src/app']
-            .map(modulePath => glob.sync(path.resolve(modulePath)))
-            .reduce((acc, paths) => acc.concat(paths), [])
+          includePaths: [
+            path.resolve('src/app')
+          ]
         }
       }]
     }]
