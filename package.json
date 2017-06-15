@@ -44,7 +44,7 @@
     "purifycss-webpack": "~0.7.0",
     "qs": "~6.4.0",
     "rc-checkbox": "~2.0.2",
-    "react": "~15.5.4",
+    "react": "~15.6.0",
     "react-dom": "~15.6.0",
     "react-hot-loader": "3.0.0-beta.7",
     "react-icons": "~2.2.5",
