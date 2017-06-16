@@ -27,25 +27,26 @@ const AppBar = createClass({
       this.setState({scroll: window.pageYOffset})
     })
   },
+  isPath (pathname) {
+    return this.props.location.pathname === pathname
+  },
   getAppBarStyle () {
-    const {get, location} = this.props
-    const {scroll} = this.state
+    const {isPath, props, state} = this
+    const {scroll} = state
+    const {get} = props
 
     const isMobile = get('isMobile')
-    const {pathname} = location
+    const isSearchPath = isPath('/search')
 
     let backgroundColor = '#19B5FE'
     let position = 'fixed'
 
-    if (!isMobile && pathname === '/search') {
+    if (!isMobile && isSearchPath) {
     } else if (scroll > 1) {
       backgroundColor = '#424242'
     }
 
     return {backgroundColor, position}
-  },
-  isPath (pathname) {
-    return pathname === this.props.location.pathname
   },
   render () {
     const {getAppBarStyle, isPath} = this
