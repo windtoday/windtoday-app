@@ -1,6 +1,7 @@
 import React, {PropTypes, createClass} from 'react'
 import {connectStats} from 'react-instantsearch/connectors'
 
+import SwitchView from '../SwitchView'
 import SearchCurrentFilters from '../SearchCurrentFilters'
 
 const Stats = createClass({
@@ -19,8 +20,10 @@ const Stats = createClass({
 
     return (
       <header data-app='search-stats' className='fade-in blue-grey-200 pl3 pt4 pr3 br2'>
-        <div className='f6 code flex items-start items-center'>
-          <span>{stats(nbHits, processingTimeMS)}</span>
+        <div className=''>
+          <span className='code f6'>
+            {stats(nbHits, processingTimeMS)}</span>
+          <SwitchView />
         </div>
         <SearchCurrentFilters />
       </header>
