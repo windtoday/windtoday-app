@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ProductProvider from '../ProductProvider'
 import ProductDivImage from '../ProductDivImage'
 import ProductTitle from '../ProductTitle'
 import ProductPrice from '../ProductPrice'
@@ -29,7 +30,9 @@ export default ({product}) => {
         </header>
         <div className='product-card__content absolute bottom-0 w-100'>
           <div className='relative pa3'>
-            <span className='f5 white'>{provider}</span>
+            <span className='f5 white'>
+              <ProductProvider product={product} />
+            </span>
             <h1 className='f3 fw3 avenir mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>

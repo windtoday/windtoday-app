@@ -9,6 +9,7 @@ import ProductImage from '../ProductImage'
 import ProductPrice from '../ProductPrice'
 import ProductStars from '../ProductStars'
 import ProductTitle from '../ProductTitle'
+import ProductProvider from '../ProductProvider'
 import './style.scss'
 
 const ICON_SIZE = 20
@@ -69,9 +70,9 @@ export default ({product}) => {
         rel='nofollow noopener'>
 
         <div className='pv2 w-100 lh-copy f4 flex flex-column justify-around'>
-          <p className='link lh-title mv0 blue-grey-900 fw5 w-95'>
-            <ProductTitle product={product} />
-          </p>
+          <ProductTitle
+            className='link lh-title mv0 blue-grey-900 fw5 w-95'
+            product={product} />
 
           <div className='ma0'>
             <ProductPrice
@@ -80,7 +81,7 @@ export default ({product}) => {
                />
             {' '}
             <p className='tracked blue-grey-300 f6 di'>
-              by <Highlight attributeName='provider' hit={product} />
+              by <ProductProvider product={product} />
             </p>
           </div>
 
