@@ -34,7 +34,7 @@ const Results = createClass({
 
     const style = classnames(theme, {
       'results--expand': isAsideLeftOpen,
-      'w-75': isDesktop && isAsideRightOpen,
+      'w-80': isDesktop && isAsideRightOpen,
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })
 

@@ -4,7 +4,7 @@ import SearchFacetsLeft from '../../SearchFacets/Left'
 
 import './style.scss'
 
-const theme = 'search-filters search-filters-left fade-in fl w-25-l w-95 vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll z-4 fixed'
+const theme = 'search-filters search-filters-left fade-in fl w-20-l w-95 vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll z-4 fixed'
 
 export default ({get}) => {
   const style = classnames(theme, {
