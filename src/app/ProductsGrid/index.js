@@ -3,7 +3,11 @@ import React from 'react'
 import ProductCard from '../ProductCard'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-export default ({hits, refine, hasMore}) => {
+export default ({hits, refine, hasMore, hitsPerPage}) => {
+  const products = hits.length > 0
+    ? hits
+    : Array(hitsPerPage).fill({})
+
   return (
     <InfiniteScroll
       next={refine}
@@ -12,7 +16,7 @@ export default ({hits, refine, hasMore}) => {
       >
       <div
         className='flex justify-center flex-wrap'>
-        {hits.map((product, index) => <ProductCard key={index} product={product} />)}
+        {products.map((product, index) => <ProductCard key={index} product={product} />)}
       </div>
     </InfiniteScroll>
   )

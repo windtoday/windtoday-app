@@ -1,3 +1,5 @@
+const IMAGE_PLACEHOLDER = ''
+
 const createImg = href => {
   const el = document.createElement('a')
   el.href = href
@@ -6,6 +8,8 @@ const createImg = href => {
 
 function getImageUrl (product, width) {
   const {image, provider} = product
+
+  if (!provider) return IMAGE_PLACEHOLDER
   if (!image) return `/assets/img/provider/${provider}.jpg`
 
   const {hostname, pathname} = createImg(image)

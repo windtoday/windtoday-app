@@ -21,6 +21,6 @@ export default ({filters, hitsPerPage}) => (
     indexName='windsurf'
     >
     <Configure filters={filters} hitsPerPage={hitsPerPage} />
-    <HomeProducts />
+    <HomeProducts hitsPerPage={hitsPerPage} />
   </InstantSearch>
 )
