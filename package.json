@@ -65,6 +65,7 @@
   "devDependencies": {
     "browser-sync": "latest",
     "browser-sync-webpack-plugin": "latest",
+    "react-clamp": "~1.0.4",
     "standard": "latest",
     "stylelint": "latest",
     "stylelint-config-standard": "latest",

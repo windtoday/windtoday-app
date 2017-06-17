@@ -1,13 +1,14 @@
 import React from 'react'
 
 import ProductDivImage from '../ProductDivImage'
+import ProductTitle from '../ProductTitle'
 import ProductPrice from '../ProductPrice'
 import ProductStars from '../ProductStars'
 
 import './style.scss'
 
 export default ({product}) => {
-  const {title, provider, link} = product
+  const {provider, link} = product
 
   return (
     <a
@@ -30,7 +31,7 @@ export default ({product}) => {
           <div className='relative pa3'>
             <span className='f5 white'>{provider}</span>
             <h1 className='f3 fw3 avenir mt2 lh-copy'>
-              {title}
+              <ProductTitle product={product} />
             </h1>
           </div>
         </div>

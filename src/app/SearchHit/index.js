@@ -1,14 +1,14 @@
-import IconTime from 'react-icons/lib/md/access-time'
-import IconNew from 'react-icons/lib/ti/gift'
 import IconUsed from 'react-icons/lib/fa/hand-paper-o'
+import IconTime from 'react-icons/lib/md/access-time'
 import IconCategory from 'react-icons/lib/fa/tags'
-import {Highlight} from 'react-instantsearch/dom'
+import IconNew from 'react-icons/lib/ti/gift'
 import React from 'react'
 
 import Badge from '../Badge'
 import ProductImage from '../ProductImage'
 import ProductPrice from '../ProductPrice'
 import ProductStars from '../ProductStars'
+import ProductTitle from '../ProductTitle'
 import './style.scss'
 
 const ICON_SIZE = 20
@@ -70,7 +70,7 @@ export default ({product}) => {
 
         <div className='pv2 w-100 lh-copy f4 flex flex-column justify-around'>
           <p className='link lh-title mv0 blue-grey-900 fw5 w-95'>
-            <Highlight attributeName='title' hit={product} />
+            <ProductTitle product={product} />
           </p>
 
           <div className='ma0'>
