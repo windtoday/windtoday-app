@@ -7,8 +7,6 @@ import SearchStats from '../SearchStats'
 import ProductCard from '../ProductCard'
 import SearchHit from '../SearchHit'
 
-import './style.scss'
-
 export default createClass({
   renderHasMore (refine, searching) {
     return (

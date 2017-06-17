@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './style.scss'
-
 import HomeProducts from '../HomeProducts'
 import Footer from '../Footer'
 import HomeHero from '../HomeHero'
