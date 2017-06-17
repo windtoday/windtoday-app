@@ -3,7 +3,7 @@ import React, {createElement, createClass} from 'react'
 import classnames from 'classnames'
 
 import Overlay from '../Overlay'
-import SearchFooter from '../SearchFooter'
+import Footer from '../Footer'
 import SearchNoHits from '../SearchNoHits'
 import SearchHits from '../SearchHits'
 
@@ -44,7 +44,7 @@ const Results = createClass({
         data-app='search-results' className={style}>
         {isMobile && <Overlay active={hasAsideOpen} />}
         {createElement(hasResults ? SearchHits : SearchNoHits, props)}
-        <SearchFooter />
+        <Footer />
       </main>
     )
   }

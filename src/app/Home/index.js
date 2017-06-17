@@ -3,7 +3,7 @@ import React from 'react'
 import './style.scss'
 
 import HomeProducts from '../HomeProducts'
-import HomeFooter from '../HomeFooter'
+import Footer from '../Footer'
 import HomeHero from '../HomeHero'
 
 export default () => (
@@ -15,6 +15,6 @@ export default () => (
       hitsPerPage={21}
     />
 
-    <HomeFooter />
+    <Footer />
   </main>
 )

@@ -20,7 +20,7 @@ export default () => (
 
     <small
       className='pb3 f6 db'>
-        © 2016-2017 <Logo /> v{APP_VERSION}
+        © 2017 <Logo /> v{APP_VERSION}
     </small>
 
     <div className='pb3'>
