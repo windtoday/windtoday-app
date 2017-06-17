@@ -51,7 +51,6 @@ const Search = createClass({
         role='main'
         data-app='app-main'
         >
-
         <SearchFiltersLeft {...props} />
         <SearchResults {...props} />
         <SearchFiltersRight {...props} />

@@ -1,8 +1,8 @@
 import React, {PropTypes, createClass} from 'react'
 import {connectStats} from 'react-instantsearch/connectors'
 
-import SwitchView from '../SwitchView'
 import SearchCurrentFilters from '../SearchCurrentFilters'
+import SwitchView from '../SwitchView'
 
 const Stats = createClass({
   propTypes: {
@@ -20,14 +20,12 @@ const Stats = createClass({
 
     return (
       <header data-app='search-stats' className='fade-in blue-grey-200 pl3 pt4 pr3 br2'>
-        <div className=''>
-          <span className='code f6'>
-            {stats(nbHits, processingTimeMS)}</span>
-          <SwitchView />
+        <div>
+          <span className='code f6'>{stats(nbHits, processingTimeMS)}</span>
+          <SwitchView {...props} />
         </div>
         <SearchCurrentFilters />
       </header>
-
     )
   }
 })

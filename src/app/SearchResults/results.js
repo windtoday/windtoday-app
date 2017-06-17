@@ -10,9 +10,15 @@ import SearchHits from '../SearchHits'
 import './style.scss'
 
 const Results = createClass({
+  componentWillMount () {
+    this.props.set('onSearchClear', () => {
+      const el = this.refs.results
+      el.scrollTop = 0
+    })
+  },
   render () {
     const {props} = this
-    const {set, get, hits} = props
+    const {get, hits} = props
 
     const hasResults = hits.length > 0
     const isAsideRightOpen = get('searchFiltersRightOpen')
@@ -30,11 +36,6 @@ const Results = createClass({
       'results--expand': isAsideLeftOpen,
       'w-75': isDesktop && isAsideRightOpen,
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
-    })
-
-    set('onSearchClear', () => {
-      const el = this.refs.results
-      el.scrollTop = 0
     })
 
     return (

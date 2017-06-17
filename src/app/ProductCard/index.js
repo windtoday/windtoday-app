@@ -6,14 +6,14 @@ import ProductStars from '../ProductStars'
 
 import './style.scss'
 
-export default (product) => {
+export default ({product}) => {
   const {title, provider, link} = product
 
   return (
     <a
       target='blank'
       href={link}
-      className='product-card pa3 no-underline white'>
+      className='product-card pa3 no-underline white fade-in'>
       <ProductDivImage
         className='product-card__image br2 relative shadow-5'
         product={product}>

@@ -47,13 +47,15 @@ const App = createClass({
     const searchState = qs.parse(this.props.location.search.slice(1))
 
     const onSearchClear = () => {}
+    const hitComponent = 'grid'
 
     return {
       ...device,
       ...sidebar,
       searchState,
       isSearching,
-      onSearchClear
+      onSearchClear,
+      hitComponent
     }
   },
 
@@ -74,7 +76,7 @@ const App = createClass({
   },
 
   set (key, value) {
-    this.state[key] = value
+    this.setState({[key]: value})
   },
 
   get (key) {

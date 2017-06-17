@@ -12,7 +12,7 @@ export default ({hits, refine, hasMore}) => {
       >
       <div
         className='flex justify-center flex-wrap'>
-        {hits.map((props, index) => <ProductCard key={index} {...props} />)}
+        {hits.map((product, index) => <ProductCard key={index} product={product} />)}
       </div>
     </InfiniteScroll>
   )

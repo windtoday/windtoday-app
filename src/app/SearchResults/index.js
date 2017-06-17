@@ -27,11 +27,9 @@ const SearchResults = createClass({
     const {loading} = this.state
     const {toggle, get, set} = this.props
     const props = {toggle, get, set}
+    const childComponent = loading ? Loader : Results
 
-    return createElement(
-      loading ? Loader : Results,
-      props
-    )
+    return createElement(childComponent, props)
   }
 })
 

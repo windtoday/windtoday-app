@@ -49,12 +49,9 @@ const renderBadge = (label, IconComponent) =>
     {label}
   </Badge>
 
-export default props => {
-  const {item: product} = props
+export default ({product}) => {
   const {price, condition, category} = product
-
   const priceText = price ? `${price}€` : 'N/A'
-
   const timestamp = getTimestamp(product)
 
   return (
