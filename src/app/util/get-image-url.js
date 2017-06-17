@@ -9,7 +9,7 @@ function getImageUrl (product, width) {
   if (!image) return `/assets/img/provider/${provider}.jpg`
 
   const {hostname, pathname} = createImg(image)
-  const baseUrl = `https://images.weserv.nl/?url=${hostname}${pathname}`
+  const baseUrl = `https://images.weserv.nl/?url=${hostname}${pathname}&trim`
   return width ? `${baseUrl}&w=${width}` : baseUrl
 }
 
