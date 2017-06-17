@@ -1,17 +1,15 @@
+import InfiniteScroll from 'react-infinite-scroll-component'
 import React from 'react'
 
 import ProductCard from '../ProductCard'
-import InfiniteScroll from 'react-infinite-scroll-component'
 
 export default ({hits, refine, hasMore, hitsPerPage}) => {
-  const products = hits.length > 0
-    ? hits
-    : Array(hitsPerPage).fill({})
+  const products = hits.length > 0 ? hits : Array(hitsPerPage).fill({})
 
   return (
     <InfiniteScroll
       next={refine}
-      hasMore={false}
+      hasMore={hasMore}
       scrollThreshold={0.6}
       >
       <div
