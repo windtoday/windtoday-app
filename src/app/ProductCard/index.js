@@ -19,7 +19,7 @@ export default ({product}) => {
         product={product}>
         <header className='pa3 cf white'>
           <ProductPrice
-            className='fl f5 pv1 ph2 bg-grey-50 grey-700 br4'
+            className='flex items-center fl f5 pv1 ph2 bg-grey-50 grey-700 br4'
             product={product}
              />
           <ProductStars

@@ -7,6 +7,7 @@ import React from 'react'
 
 import Badge from '../Badge'
 import ProductImage from '../ProductImage'
+import ProductPrice from '../ProductPrice'
 import ProductStars from '../ProductStars'
 import './style.scss'
 
@@ -50,8 +51,7 @@ const renderBadge = (label, IconComponent) =>
   </Badge>
 
 export default ({product}) => {
-  const {price, condition, category} = product
-  const priceText = price ? `${price}€` : 'N/A'
+  const {condition, category} = product
   const timestamp = getTimestamp(product)
 
   return (
@@ -74,7 +74,10 @@ export default ({product}) => {
           </p>
 
           <div className='ma0'>
-            <span className='blue-500 pr1'>{priceText}</span>
+            <ProductPrice
+              className='blue-500 pr1'
+              product={product}
+               />
             {' '}
             <p className='tracked blue-grey-300 f6 di'>
               by <Highlight attributeName='provider' hit={product} />
