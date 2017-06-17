@@ -3,7 +3,7 @@ $card-width: 320px * $unit;
 $card-height: 190px * $unit;
 $card-content-height: 128px;
 
-.product-grid {
+.product-card {
   width: $card-width;
 
   @include hover-transition(transform);
@@ -13,10 +13,10 @@ $card-content-height: 128px;
   }
 }
 
-.product-grid__image {
+.product-card__image {
   min-height: $card-height;
 }
 
-.product-grid__content {
+.product-card__content {
   height: $card-content-height;
 }

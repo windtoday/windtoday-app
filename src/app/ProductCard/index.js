@@ -1,16 +1,40 @@
 import React from 'react'
 
-import ProductImage from '../ProductImage'
+import ProductDivImage from '../ProductDivImage'
+import ProductPrice from '../ProductPrice'
+import ProductStars from '../ProductStars'
 
-export default ({product}) => (
-  <div className='bg-white mw5 ba b--black-10 mv4'>
-    <div className='pv2 ph3'>
-      <h1 className='f6 ttu tracked'>{product.title}</h1>
-    </div>
-    <ProductImage product={product} className='w-100 db' />
-    <div className='pa3'>
-      <a href='#' className='link dim lh-title'>15 things every cat owner should know</a>
-      <small className='gray db pv2'>AMP - <time>6 hours ago</time></small>
-    </div>
-  </div>
-)
+import './style.scss'
+
+export default (product) => {
+  const {title, provider, link} = product
+
+  return (
+    <a
+      target='blank'
+      href={link}
+      className='product-card pa3 no-underline white'>
+      <ProductDivImage
+        className='product-card__image br2 relative shadow-5'
+        product={product}>
+        <header className='pa3 cf white'>
+          <ProductPrice
+            className='fl f5 pv1 ph2 bg-grey-50 grey-700 br4'
+            product={product}
+             />
+          <ProductStars
+            className='fr f5 pv1 ph2 bg-grey-50 br4 grey-700'
+            product={product} tiny />
+        </header>
+        <div className='product-card__content absolute bottom-0 w-100'>
+          <div className='relative pa3'>
+            <span className='f5 white'>{provider}</span>
+            <h1 className='f3 fw3 avenir mt2 lh-copy'>
+              {title}
+            </h1>
+          </div>
+        </div>
+      </ProductDivImage>
+    </a>
+  )
+}
