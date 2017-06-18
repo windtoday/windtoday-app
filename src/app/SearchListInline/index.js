@@ -11,11 +11,6 @@ import './style.scss'
 const moreIcon = () => <span><IconExpandMore />more</span>
 const lessIcon = () => <span><IconExpandLess />less</span>
 
-function getPlaceholder (attributeName) {
-  const arr = attributeName.split(' ')
-  return arr[arr.length - 1]
-}
-
 const SearchListInline = createClass({
   getInitialState () {
     return {
@@ -145,11 +140,9 @@ const SearchListInline = createClass({
           'bg-grey-200': isFocus
         })}
         style={{flexGrow: 0}}>
-        <IconSearch className='blue-grey-300' />
         <input
           ref={onInputMount}
-          style={{width: '118px', fontSize: '.875rem'}}
-          placeholder={`Search for ${getPlaceholder(attributeName)}`}
+          style={{width: '60px', fontSize: '.875rem'}}
           className={classnames(
             'inline-list__searchbox border-0 outline-0 pointer normal blue-grey-300',
             {
@@ -164,6 +157,7 @@ const SearchListInline = createClass({
           autoCapitalize='off'
           spellCheck='false'
         />
+        <IconSearch className='blue-grey-300' />
       </form>
     )
   },
