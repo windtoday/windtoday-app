@@ -6,7 +6,6 @@ const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
-const glob = require('glob')
 
 const pkg = require('./package.json')
 const config = require('./config.json')
