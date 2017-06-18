@@ -89,7 +89,7 @@ module.exports = {
     new PurifyCSSPlugin({
       paths: [
         'src/app/**/*.js',
-        'src/app/CurrentRefinements/style.scss'
+        'src/app/SearchCurrentFilters/style.scss'
       ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
         info: true,
