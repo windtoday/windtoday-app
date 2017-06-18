@@ -47,7 +47,6 @@ const App = createClass({
     const searchState = qs.parse(this.props.location.search.slice(1))
 
     const onSearchClear = () => {}
-    const hitComponent = 'grid'
 
     return {
       ...device,
@@ -55,7 +54,8 @@ const App = createClass({
       searchState,
       isSearching,
       onSearchClear,
-      hitComponent
+      hitComponent: 'grid',
+      hitsPerPage: 21
     }
   },
 

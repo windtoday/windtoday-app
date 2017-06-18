@@ -4,13 +4,13 @@ import HomeProducts from '../HomeProducts'
 import Footer from '../Footer'
 import HomeHero from '../HomeHero'
 
-export default () => (
+export default ({get}) => (
   <main>
     <HomeHero />
 
     <HomeProducts
       filters=''
-      hitsPerPage={21}
+      hitsPerPage={get('hitsPerPage')}
     />
 
     <Footer />

@@ -19,7 +19,7 @@ const Results = createClass({
   },
   render () {
     const {get, hits, noResults} = this.props
-    const hitsPerPage = 21
+    const hitsPerPage = get('hitsPerPage')
 
     const products = hits.length > 0 ? hits : Array(hitsPerPage).fill({})
     const isAsideRightOpen = get('searchFiltersRightOpen')
