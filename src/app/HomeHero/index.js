@@ -2,6 +2,8 @@ import React from 'react'
 
 const navLinkStyle = 'no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300'
 
+const categoryLink = category => `/search?refinementList%5Bcategory%5D%5B0%5D=${category}`
+
 export default () => (
   <article className='w-100 bg-blue-500 white pt4'>
     <div className='pb4 ph3 ph7-ns tc lh-copy'>
@@ -14,42 +16,31 @@ export default () => (
     </div>
 
     <nav className='flex justify-center bg-white card-shadow overflow-y-visible overflow-x-scroll'>
-      <ul className='list flex'>
-        <li className=''>
+      <ul className='list flex ma0 pa0'>
+        <li>
           <a
             className={navLinkStyle}
-            target='_blank'
-            href='/'>Sails</a>
+            href={categoryLink('sails')}>Sails</a>
         </li>
-        <li className=''>
+        <li>
           <a
             className={navLinkStyle}
-            target='_blank'
-            href='/'>Boards</a>
+            href={categoryLink('boards')}>Boards</a>
         </li>
-        <li className=''>
+        <li>
           <a
             className={navLinkStyle}
-            target='_blank'
-            href='/'>Masts</a>
+            href={categoryLink('masts')}>Masts</a>
         </li>
-        <li className=''>
+        <li>
           <a
             className={navLinkStyle}
-            target='_blank'
-            href='/'>Fins</a>
+            href={categoryLink('fins')}>Fins</a>
         </li>
-        <li className=''>
+        <li>
           <a
             className={navLinkStyle}
-            target='_blank'
-            href='/'>Booms</a>
-        </li>
-        <li className=''>
-          <a
-            className={navLinkStyle}
-            target='_blank'
-            href='/'>Accesories</a>
+            href={categoryLink('booms')}>Booms</a>
         </li>
       </ul>
     </nav>
