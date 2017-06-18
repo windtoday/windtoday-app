@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 const navLinkStyle = 'no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300'
@@ -18,29 +19,29 @@ export default () => (
     <nav className='flex justify-around bg-white card-shadow overflow-y-visible overflow-x-scroll'>
       <ul className='appbar__navbar list flex ma0 pa0'>
         <li>
-          <a
+          <Link
             className={navLinkStyle}
-            href={categoryLink('sails')}>Sails</a>
+            to={categoryLink('sails')}>Sails</Link>
         </li>
         <li>
-          <a
+          <Link
             className={navLinkStyle}
-            href={categoryLink('boards')}>Boards</a>
+            to={categoryLink('boards')}>Boards</Link>
         </li>
         <li>
-          <a
+          <Link
             className={navLinkStyle}
-            href={categoryLink('masts')}>Masts</a>
+            to={categoryLink('masts')}>Masts</Link>
         </li>
         <li>
-          <a
+          <Link
             className={navLinkStyle}
-            href={categoryLink('fins')}>Fins</a>
+            to={categoryLink('fins')}>Fins</Link>
         </li>
         <li>
-          <a
+          <Link
             className={navLinkStyle}
-            href={categoryLink('booms')}>Booms</a>
+            to={categoryLink('booms')}>Booms</Link>
         </li>
       </ul>
     </nav>
