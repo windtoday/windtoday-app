@@ -4,13 +4,15 @@ import SearchListInline from '../../SearchListInline'
 import SearchRange from '../../SearchRange'
 import SearchList from '../../SearchList'
 
+import '../style.scss'
+
 const createAddLabel = label => items => items.map(item => {
   item.label = `${item.label}${label}`
   return item
 })
 
 export default () => (
-  <section data-app='search-facets-right' className='pa2 bg-grey-50'>
+  <section data-app='search-facets-right' className='search-facets pa2 bg-grey-50'>
 
     <SearchListInline
       attributeName='brand'

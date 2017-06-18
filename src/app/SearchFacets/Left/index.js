@@ -4,8 +4,10 @@ import SearchListInline from '../../SearchListInline'
 import SearchRange from '../../SearchRange'
 import SearchList from '../../SearchList'
 
+import '../style.scss'
+
 export default () => (
-  <section data-app='search-facets-left' className='pa2 bg-grey-50'>
+  <section data-app='search-facets-left' className='search-facets pa2 bg-grey-50'>
     <SearchRange
       attributeName='price'
       label='€'
