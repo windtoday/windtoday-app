@@ -1,12 +1,12 @@
-import React from 'react'
-import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import { Configure, InstantSearch } from 'react-instantsearch/dom'
+import { connectInfiniteHits } from 'react-instantsearch/connectors'
+import React from 'react'
 
 import ProductsGrid from '../ProductsGrid'
 
 const RenderHits = props => {
   return (
-    <section className='w-100 bg-grey-50 pa4'>
+    <section className='w-100 bg-grey-50 ph4-l ph0 pv4-l pv3'>
       <ProductsGrid {...props} />
     </section>
   )
