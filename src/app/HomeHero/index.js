@@ -18,27 +18,27 @@ export default () => (
 
     <nav className='flex justify-around bg-white card-shadow overflow-y-visible overflow-x-scroll'>
       <ul className='appbar__navbar list flex ma0 pa0'>
-        <li>
+        <li className='appbar__navbar-item'>
           <Link
             className={navLinkStyle}
             to={categoryLink('sails')}>Sails</Link>
         </li>
-        <li>
+        <li className='appbar__navbar-item'>
           <Link
             className={navLinkStyle}
             to={categoryLink('boards')}>Boards</Link>
         </li>
-        <li>
+        <li className='appbar__navbar-item'>
           <Link
             className={navLinkStyle}
             to={categoryLink('masts')}>Masts</Link>
         </li>
-        <li>
+        <li className='appbar__navbar-item'>
           <Link
             className={navLinkStyle}
             to={categoryLink('fins')}>Fins</Link>
         </li>
-        <li>
+        <li className='appbar__navbar-item'>
           <Link
             className={navLinkStyle}
             to={categoryLink('booms')}>Booms</Link>

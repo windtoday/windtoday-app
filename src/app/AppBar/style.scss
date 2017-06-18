@@ -18,6 +18,12 @@
   height: $appbar__navbar-height;
 }
 
+.appbar__navbar-item,
+.appbar__navbar-link--active2 {
+  min-height: $appbar__navbar-height;
+  height: $appbar__navbar-height;
+}
+
 .appbar__navbar-link.appbar__navbar-link--dark {
   color: material-color('grey', '500');
 }
