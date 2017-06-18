@@ -31,9 +31,9 @@ export default ({product}) => {
         <div className='product-card__content absolute bottom-0 w-100'>
           <div className='relative pa3'>
             <span className='f5 white'>
-              <ProductProvider product={product} />
+              <ProductProvider className='fw3' product={product} />
             </span>
-            <h1 className='f3 fw3 avenir mt2 lh-copy'>
+            <h1 className='f3 avenir mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
           </div>
