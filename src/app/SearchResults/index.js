@@ -57,7 +57,11 @@ const Results = createClass({
 export default createConnector({
   displayName: 'SearchResults',
   getProvidedProps (props, searchState, searchResults) {
-    const noResults = searchResults.results ? searchResults.results.nbHits === 0 : false
-    return {query: searchState.query, noResults}
+    const {query} = searchState
+    const results = searchResults.results || {}
+    const {page = 0} = results
+    const noResults = results ? results.nbHits === 0 : false
+
+    return {query, noResults, page}
   }
 })(connectInfiniteHits(Results))
