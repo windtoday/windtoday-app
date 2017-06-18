@@ -1,5 +1,7 @@
-import React, {createClass, createElement, PropTypes} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
+import createClass from 'create-react-class'
+import React, {createElement} from 'react'
+import PropTypes from 'prop-types'
 import qs from 'qs'
 
 import AppBar from '../AppBar'

@@ -1,7 +1,9 @@
-import React, {createClass} from 'react'
+import {connectRefinementList} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
 import classnames from 'classnames'
 import Checkbox from 'rc-checkbox'
-import {connectRefinementList} from 'react-instantsearch/connectors'
+import React from 'react'
+
 import './style.scss'
 
 const SearchList = createClass({

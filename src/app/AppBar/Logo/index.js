@@ -1,6 +1,7 @@
-import classnames from 'classnames'
-import React, {createClass} from 'react'
 import {connectCurrentRefinements} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
+import classnames from 'classnames'
+import React from 'react'
 
 import './style.scss'
 import ClearAll from './ClearAll'

@@ -1,5 +1,6 @@
-import React, {createClass} from 'react'
 import {connectCurrentRefinements} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
+import React from 'react'
 
 const ClearAll = createClass({
   render () {

@@ -1,6 +1,8 @@
-import React, {createClass, PropTypes} from 'react'
 import {connectRange} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
+import PropTypes from 'prop-types'
 import Rheostat from 'rheostat'
+import React from 'react'
 
 import './style.scss'
 

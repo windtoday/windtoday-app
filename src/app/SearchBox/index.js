@@ -1,8 +1,9 @@
 import {connectSearchBox} from 'react-instantsearch/connectors'
-import IconSearch from 'react-icons/lib/md/search'
 import IconSearchClear from 'react-icons/lib/md/clear'
-import React, {createClass} from 'react'
+import IconSearch from 'react-icons/lib/md/search'
+import createClass from 'create-react-class'
 import classnames from 'classnames'
+import React from 'react'
 
 import './style.scss'
 

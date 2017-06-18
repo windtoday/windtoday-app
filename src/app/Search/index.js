@@ -1,5 +1,6 @@
+import createClass from 'create-react-class'
 import Swipeable from 'react-swipeable'
-import React, {createClass} from 'react'
+import React from 'react'
 
 import SearchFiltersRight from '../SearchFilters/Right'
 import SearchFiltersLeft from '../SearchFilters/Left'

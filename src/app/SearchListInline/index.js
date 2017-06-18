@@ -1,9 +1,10 @@
-import IconExpandMore from 'react-icons/lib/md/expand-more'
-import IconSearch from 'react-icons/lib/md/search'
-import IconExpandLess from 'react-icons/lib/md/expand-less'
-import React, {createClass} from 'react'
-import classnames from 'classnames'
 import {connectRefinementList} from 'react-instantsearch/connectors'
+import IconExpandMore from 'react-icons/lib/md/expand-more'
+import IconExpandLess from 'react-icons/lib/md/expand-less'
+import IconSearch from 'react-icons/lib/md/search'
+import createClass from 'create-react-class'
+import classnames from 'classnames'
+import React from 'react'
 
 import './style.scss'
 

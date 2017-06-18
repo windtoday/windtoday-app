@@ -1,5 +1,7 @@
-import React, {PropTypes, createClass} from 'react'
 import {connectStats} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import SearchCurrentFilters from '../SearchCurrentFilters'
 import SwitchView from '../SwitchView'

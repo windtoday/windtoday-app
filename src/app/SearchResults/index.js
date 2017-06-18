@@ -1,6 +1,7 @@
 import {connectInfiniteHits} from 'react-instantsearch/connectors'
-import React, {createElement, createClass} from 'react'
 import {createConnector} from 'react-instantsearch'
+import createClass from 'create-react-class'
+import React, {createElement} from 'react'
 import classnames from 'classnames'
 
 import SearchNoHits from '../SearchNoHits'
