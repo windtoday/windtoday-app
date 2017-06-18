@@ -33,7 +33,7 @@ export default ({product}) => {
             <span className='f5 white'>
               <ProductProvider className='fw3' product={product} />
             </span>
-            <h1 className='f3 avenir mt2 lh-copy'>
+            <h1 className='f3 fw4 avenir mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
           </div>
