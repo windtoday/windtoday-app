@@ -30,10 +30,10 @@ export default ({product}) => {
         </header>
         <div className='product-card__content absolute bottom-0 w-100'>
           <div className='relative pa3'>
-            <span className='f5 white'>
+            <span className='f5 white-70'>
               <ProductProvider className='fw3' product={product} />
             </span>
-            <h1 className='f3 fw4 avenir mt2 lh-copy'>
+            <h1 className='f3 fw5 avenir mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
           </div>
