@@ -14,7 +14,7 @@ import './style.scss'
 const Results = createClass({
   componentWillMount () {
     this.props.set('onSearchClear', () => {
-      const el = this.refs.results
+      const el = this.results
       el.scrollTop = 0
     })
   },
@@ -38,7 +38,7 @@ const Results = createClass({
 
     return (
       <main
-        ref='results'
+        ref={node => (this.results = node)}
         data-app='search-results'
         className={className}>
         {isMobile && <Overlay active={hasAsideOpen} />}
