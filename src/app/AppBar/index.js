@@ -106,7 +106,7 @@ const AppBar = createClass({
           </div>
 
           <nav className='appbar__navbar flex justify-center'>
-            <ul className='appbar__navbar-list list flex'>
+            <ul className='list flex ma0 pa0'>
               <li className='appbar__navbar-item'>
                 <NavLink
                   activeClassName={isPath('/') ? navLinkActiveStyle : ''}

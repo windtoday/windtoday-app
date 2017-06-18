@@ -16,7 +16,7 @@ export default () => (
     </div>
 
     <nav className='flex justify-center bg-white card-shadow overflow-y-visible overflow-x-scroll'>
-      <ul className='list flex ma0 pa0'>
+      <ul className='appbar__navbar list flex ma0 pa0'>
         <li>
           <a
             className={navLinkStyle}

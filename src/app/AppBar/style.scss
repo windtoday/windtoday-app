@@ -18,25 +18,10 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-list {
-  min-height: $appbar__navbar-height;
-  max-height: $appbar__navbar-height;
-  list-style: none;
-  user-select: none;
-  margin: 0;
-  padding: 0;
-}
-
-.appbar__navbar-item,
-.appbar__navbar-link--active2 {
-  min-height: $appbar__navbar-height;
-  height: $appbar__navbar-height;
-}
-
-a.appbar__navbar-link--dark {
+.appbar__navbar-link.appbar__navbar-link--dark {
   color: material-color('grey', '500');
 }
 
-a.appbar__navbar-link--active {
+.appbar__navbar-link.appbar__navbar-link--active {
   color: white;
 }
