@@ -21,21 +21,17 @@ const Results = createClass({
   render () {
     const {get, hits, noResults} = this.props
     const hitsPerPage = get('hitsPerPage')
-
     const products = hits.length > 0 ? hits : Array(hitsPerPage).fill({})
+
     const isAsideRightOpen = get('searchFiltersRightOpen')
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const theme = classnames('results fl vh-100 bg-grey-50', {
-      'overflow-x-hidden overflow-y-scroll': isAsideRightOpen || isAsideLeftOpen,
-      'overflow-x-hidden-ns overflow-y-scroll-ns': !isAsideRightOpen || !isAsideLeftOpen
-    })
-
-    const className = classnames(theme, {
-      'results--expand': isAsideLeftOpen,
+    const className = classnames('search-results fl vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll', {
+      'fixed': hasAsideOpen,
+      'search-results--expand': isAsideLeftOpen,
       'w-80': isDesktop && isAsideRightOpen,
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
     })

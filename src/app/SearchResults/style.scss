@@ -1,10 +1,10 @@
-.results {
+.search-results {
   -webkit-overflow-scrolling: touch;
 
   @include lateral-transition(width, padding-left);
 }
 
-.results--expand {
+.search-results--expand {
   padding-left: 0;
 
   @include break(large) {
