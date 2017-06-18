@@ -9,13 +9,13 @@ import ProductStars from '../ProductStars'
 import './style.scss'
 
 export default ({product}) => {
-  const {provider, link} = product
+  const {link} = product
 
   return (
     <a
       target='blank'
       href={link}
-      className='product-card pa3 no-underline white fade-in'>
+      className='product-card pv3 ph3-l ph0 no-underline white fade-in'>
       <ProductDivImage
         className='product-card__image br2 relative shadow-5'
         product={product}>
