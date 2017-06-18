@@ -19,7 +19,7 @@ export default (props) => {
         >
       <div data-app='search-hits'>
         <SearchStats {...props} />
-        <div className={classnames({
+        <div className={classnames('overflow-hidden', {
           'flex justify-center flex-wrap': isGrid
         })}>
           {hits.map((product, key) => (

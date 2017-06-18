@@ -13,7 +13,7 @@ export default ({hits, refine, hasMore, hitsPerPage}) => {
       scrollThreshold={0.6}
       >
       <div
-        className='flex justify-center flex-wrap'>
+        className='flex justify-center flex-wrap overflow-hidden'>
         {products.map((product, index) => <ProductCard key={index} product={product} />)}
       </div>
     </InfiniteScroll>
