@@ -17,8 +17,8 @@ const render = component =>
     <AppContainer>
       <Router>
         <Switch>
-          <Route path='/' component={App} />
-          <Route path='/search' component={App} />
+          <Route path='/' component={component} />
+          <Route path='/search' component={component} />
         </Switch>
       </Router>
     </AppContainer>,
