@@ -59,9 +59,9 @@ export default createConnector({
   getProvidedProps (props, searchState, searchResults) {
     const {query} = searchState
     const results = searchResults.results || {}
-    const {page = 0} = results
-    const noResults = results ? results.nbHits === 0 : false
+    const {nbHits} = results
+    const noResults = nbHits ? nbHits === 0 : false
 
-    return {query, noResults, page}
+    return {query, noResults}
   }
 })(connectInfiniteHits(Results))
