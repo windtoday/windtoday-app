@@ -30,7 +30,7 @@ const Results = createClass({
     const isMobile = get('isMobile')
 
     const className = classnames('search-results fl vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll', {
-      'fixed': hasAsideOpen,
+      'fixed': isMobile && hasAsideOpen,
       'search-results--expand': isAsideLeftOpen,
       'w-80': isDesktop && isAsideRightOpen,
       'w-100': (isDesktop && !isAsideRightOpen) || isMobile
