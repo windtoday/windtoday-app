@@ -47,6 +47,7 @@
     "qs": "~6.4.0",
     "rc-checkbox": "~2.0.2",
     "react": "~15.6.1",
+    "react-clamp": "~1.0.4",
     "react-dom": "~15.6.1",
     "react-headroom": "~2.1.5",
     "react-hot-loader": "3.0.0-beta.7",
@@ -66,7 +67,6 @@
   "devDependencies": {
     "browser-sync": "latest",
     "browser-sync-webpack-plugin": "latest",
-    "react-clamp": "~1.0.4",
     "standard": "latest",
     "stylelint": "latest",
     "stylelint-config-standard": "latest",
