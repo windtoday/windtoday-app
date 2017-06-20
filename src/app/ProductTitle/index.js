@@ -5,7 +5,7 @@ import React from 'react'
 
 export default ({className, product}) => (
   <Ellipsis
-    clamp={2}
+    clamp={1}
     className={className}>
     <Highlight
       attributeName='title'

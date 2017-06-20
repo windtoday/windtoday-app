@@ -15,7 +15,7 @@ export default ({product}) => {
     <a
       target='blank'
       href={link}
-      className='product-card pv3 ph3-l ph0 no-underline white fade-in'>
+      className='product-card pa3 no-underline white fade-in'>
       <ProductDivImage
         className='product-card__image br2 relative shadow-5'
         product={product}>
@@ -31,13 +31,13 @@ export default ({product}) => {
         <div className='product-card__content absolute bottom-0 w-100'>
           <div className='relative pa3'>
             <span className='f5 white-70'>
-              <ProductProvider className='fw3' product={product} />
+              <ProductProvider product={product} />
             </span>
-            <h1 className='f3 fw5 avenir mt2 lh-copy'>
+            <h1 className='f3 fw5 avenir mv2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
             <span className='f5 white-70'>
-              <ProductProvider className='fw3' product={product} />
+              <span>{product.category}</span>
             </span>
           </div>
         </div>

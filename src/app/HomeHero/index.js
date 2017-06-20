@@ -12,8 +12,8 @@ export default () => (
     className='w-100 bg-blue-500 white pt4'
     style={{background: 'linear-gradient(#19b5fe 0%, #31d0c9 100%)'}}
     >
-    <div className='pb4 ph3 ph7-ns tc lh-copy'>
-      <p className='f2 avenir fw4 ma0 pv2'>
+    <div className='pb4 ph3 ph7-l tc lh-copy'>
+      <p className='f2 avenir fw4 ma0 pv2 ph3'>
         windsurf marketplace <IconDash width={30} height={30} />
       </p>
       <p className='f4 fw3 reph5-ns'>
