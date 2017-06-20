@@ -9,13 +9,10 @@ input {
   color: $white;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 em {
   font-style: normal;
-  border-bottom: dotted 1px;
+  background-color: #EC407A; // pink-400
+  padding: .05em .1em;
 }
 
 .card-shadow {
