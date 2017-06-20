@@ -21,7 +21,8 @@ const {
   OccurrenceOrderPlugin,
   AggressiveMergingPlugin,
   CommonsChunkPlugin,
-  UglifyJsPlugin } = webpack.optimize
+  UglifyJsPlugin,
+  ModuleConcatenationPlugin } = webpack.optimize
 
 module.exports = {
   devtool: 'source-map',
@@ -79,6 +80,7 @@ module.exports = {
     new HashedModuleIdsPlugin(),
     new OccurrenceOrderPlugin(),
     new AggressiveMergingPlugin(),
+    new ModuleConcatenationPlugin(),
     new ExtractTextPlugin({
       allChunks: true,
       filename: 'assets/css/bundle.css'
