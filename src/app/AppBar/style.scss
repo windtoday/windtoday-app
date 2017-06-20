@@ -1,5 +1,7 @@
 .headroom {
   background: linear-gradient(to bottom, rgba(0, 0, 0, .4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-color: material-color('blue', '500');
+  position: fixed;
 
   @include hover-transition(background-color);
 }
@@ -22,10 +24,6 @@
 .appbar__navbar-link--active2 {
   min-height: $appbar__navbar-height;
   height: $appbar__navbar-height;
-}
-
-.appbar__navbar-link.appbar__navbar-link--dark {
-  color: material-color('grey', '500');
 }
 
 .appbar__navbar-link.appbar__navbar-link--active {

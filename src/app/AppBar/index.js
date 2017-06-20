@@ -18,40 +18,11 @@ const renderIcon = IconComponent => props =>
   createElement(IconComponent, {...props, size: ICON_SIZE})
 
 const AppBar = createClass({
-  getInitialState () {
-    return {
-      scroll: window.pageYOffset
-    }
-  },
-  componentDidMount () {
-    window.addEventListener('scroll', () => {
-      this.setState({scroll: window.pageYOffset})
-    })
-  },
   isPath (pathname) {
     return this.props.location.pathname === pathname
   },
-  getAppBarStyle () {
-    const {isPath, props, state} = this
-    const {scroll} = state
-    const {get} = props
-
-    const isMobile = get('isMobile')
-    const isSearchPath = isPath('/search')
-
-    let backgroundColor = '#19B5FE'
-    let position = 'fixed'
-
-    if (!isMobile && isSearchPath) {
-    } else if (scroll > 1) {
-      backgroundColor = '#424242'
-    }
-
-    return {backgroundColor, position}
-  },
   render () {
-    const {getAppBarStyle, isPath} = this
-    const {scroll} = this.state
+    const {isPath} = this
     const {toggle, get} = this.props
     const isSearching = get('isSearching')()
 
@@ -63,11 +34,7 @@ const AppBar = createClass({
     ? renderIcon(IconClose)
     : renderIcon(IconFilter)
 
-    const darkStyle = scroll > 1
-
-    const navLinkStyle = classnames('appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300', {
-      'appbar__navbar-link--dark': darkStyle
-    })
+    const navLinkStyle = 'appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300'
 
     const navLinkActiveStyle = classnames('appbar__navbar-link--active bl-0 br-0 bt-0 b--solid bw1')
 
@@ -75,7 +42,6 @@ const AppBar = createClass({
       <header className='bg-blue-500'>
         <Headroom
           data-app='appbar'
-          style={getAppBarStyle()}
           >
 
           <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
