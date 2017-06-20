@@ -1,6 +1,9 @@
 import IconFilter from 'react-icons/lib/md/filter-list'
 import IconClose from 'react-icons/lib/md/close'
 import IconMenu from 'react-icons/lib/md/menu'
+import IconHome from 'react-icons/lib/md/home'
+import IconLaunch from 'react-icons/lib/md/launch'
+import IconSearch from 'react-icons/lib/md/search'
 import createClass from 'create-react-class'
 import React, {createElement} from 'react'
 import Headroom from 'react-headroom'
@@ -34,7 +37,7 @@ const AppBar = createClass({
     ? renderIcon(IconClose)
     : renderIcon(IconFilter)
 
-    const navLinkStyle = 'appbar__navbar-link no-underline flex ttu b items-center justify-center flex-row h-100 ph3 f6 blue-300'
+    const navLinkStyle = 'appbar__navbar-link no-underline flex b items-center justify-center flex-row h-100 ph3 f6 blue-300'
 
     const navLinkActiveStyle = classnames('appbar__navbar-link--active bl-0 br-0 bt-0 b--solid bw1')
 
@@ -78,18 +81,27 @@ const AppBar = createClass({
                 <NavLink
                   activeClassName={isPath('/') ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
-                  to='/'>Home</NavLink>
+                  to='/'>
+                  <IconHome size={ICON_SIZE} />
+                  <span className='pl1'>Home</span>
+                </NavLink>
               </li>
               <li className='appbar__navbar-item relative'>
                 <NavLink
                   activeClassName={isPath('/search') ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
-                  to='/search'>Search</NavLink>
+                  to='/search'>
+                  <IconSearch size={ICON_SIZE} />
+                  <span className='pl1'>Search</span>
+                </NavLink>
               </li>
               <li className='appbar__navbar-item'>
                 <a className={navLinkStyle}
                   target='_blank'
-                  href='http://windtoday.co/blog'>Blog</a>
+                  href='http://windtoday.co/blog'>
+                  <IconLaunch size={ICON_SIZE} />
+                  <span className='pl1'>Blog</span>
+                </a>
               </li>
             </ul>
           </nav>
