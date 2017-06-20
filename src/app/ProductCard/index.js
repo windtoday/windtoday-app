@@ -36,6 +36,9 @@ export default ({product}) => {
             <h1 className='f3 fw5 avenir mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
+            <span className='f5 white-70'>
+              <ProductProvider className='fw3' product={product} />
+            </span>
           </div>
         </div>
       </ProductDivImage>
