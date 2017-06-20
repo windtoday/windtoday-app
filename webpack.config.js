@@ -80,7 +80,6 @@ module.exports = {
     new HashedModuleIdsPlugin(),
     new OccurrenceOrderPlugin(),
     new AggressiveMergingPlugin(),
-    new ModuleConcatenationPlugin(),
     new ExtractTextPlugin({
       allChunks: true,
       filename: 'assets/css/bundle.css'
