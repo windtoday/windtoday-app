@@ -14,7 +14,7 @@ export default ({product}) => {
 
   return (
     <a
-      target='blank'
+      target='_blank'
       href={link}
       className='product-card pa3 no-underline white fade-in'>
       <ProductDivImage
