@@ -9,7 +9,7 @@ $card-content-height: 128px;
   @include hover-transition(transform);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 }
 
