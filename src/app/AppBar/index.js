@@ -37,7 +37,7 @@ const AppBar = createClass({
     ? renderIcon(IconClose)
     : renderIcon(IconFilter)
 
-    const navLinkStyle = 'appbar__navbar-link no-underline flex b items-center justify-center flex-row h-100 ph3 f6 blue-300'
+    const navLinkStyle = 'appbar__navbar-link no-underline flex b items-center justify-center flex-row h-100 ph3 f6 white-50'
 
     const navLinkActiveStyle = classnames('appbar__navbar-link--active bl-0 br-0 bt-0 b--solid bw1')
 

@@ -1,6 +1,7 @@
 .headroom {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, .4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-color: material-color('blue', '500');
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .4), hsla(0, 0%, 100%, 0)),
+    linear-gradient(45deg, rgb(44, 185, 249), rgb(58, 205, 207));
   position: fixed;
 
   @include hover-transition(background-color);
