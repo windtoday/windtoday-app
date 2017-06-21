@@ -100,7 +100,7 @@ const AppBar = createClass({
                   target='_blank'
                   href='http://windtoday.co/blog'>
                   <IconLaunch size={ICON_SIZE} />
-                  <span className='pl1'>Blog</span>
+                  <span className='pl1'>Add your shop</span>
                 </a>
               </li>
             </ul>
