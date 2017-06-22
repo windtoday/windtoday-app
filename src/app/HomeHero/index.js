@@ -16,8 +16,8 @@ export default () => (
       <p className='f2 fw4 ma0 pv2 ph3 ubuntu'>
         windsurf marketplace <IconDash width={30} height={30} />
       </p>
-      <p className='f4 fw4 reph5-ns'>
-        windtoday is a <strong style={{borderBottom: '1px dashed white'}}>windsurfing marketplace</strong> to discover, compare & choose daily equipment offers.
+      <p className='f4 fw4 reph5-ns avenir'>
+        windtoday is a <span className='fw6' style={{borderBottom: '1px dashed white'}}>windsurfing marketplace</span> to discover, compare & choose daily equipment offers.
       </p>
     </div>
 

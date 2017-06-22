@@ -82,7 +82,7 @@ const CustomSearchBox = createClass({
         <IconSearch className={iconSearchStyle} />
         <input
           ref={node => (this.input = node)}
-          className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3'
+          className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3 helvetica'
           type='search'
           value={currentRefinement}
           onChange={onChange}
