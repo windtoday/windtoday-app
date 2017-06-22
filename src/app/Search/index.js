@@ -7,12 +7,6 @@ import SearchFiltersLeft from '../SearchFilters/Left'
 import SearchResults from '../SearchResults'
 
 const Search = createClass({
-  componentWillMount () {
-    if (this.props.location.pathname !== '/search') {
-      this.props.history.push('/search')
-    }
-  },
-
   onSwipedRight () {
     const {get, toggle} = this.props
 
