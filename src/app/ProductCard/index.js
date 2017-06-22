@@ -18,7 +18,7 @@ export default ({product}) => {
       href={link}
       className='product-card pa3 no-underline white fade-in'>
       <ProductDivImage
-        className='product-card__image br2 relative shadow-5'
+        className='product-card__image br2 relative'
         product={product}>
         <header className='pa3 cf white'>
           {isReady && <ProductPrice
