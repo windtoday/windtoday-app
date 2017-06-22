@@ -137,6 +137,7 @@ module.exports = {
       },
       externals: [
         'https://static.hotjar.com/c/hotjar-342795.js?sv=5',
+        'https://fonts.googleapis.com/css?family=Ubuntu:300',
         'https://www.google-analytics.com/analytics.js',
         'https://cdn.headwayapp.co/widget.js'
       ].concat(
