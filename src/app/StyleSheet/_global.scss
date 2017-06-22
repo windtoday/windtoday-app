@@ -1,7 +1,7 @@
 button,
 html,
 input {
-  font-family: "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-family: avenir, sans-serif;
 }
 
 ::selection {
@@ -30,6 +30,10 @@ input[type='search']::-webkit-search-results-decoration {
   animation-fill-mode: both;
   animation-name: fadeInOpacity;
   animation-duration: .35s;
+}
+
+.ubuntu {
+  font-family: Ubuntu, sans-serif;
 }
 
 @keyframes fadeInOpacity {

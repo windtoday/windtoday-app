@@ -13,11 +13,11 @@ export default () => (
     style={{background: 'linear-gradient(45deg, #19b5fe, #31d0c9)'}}
     >
     <div className='pb4 ph3 ph7-l tc lh-copy'>
-      <p className='f2 avenir fw4 ma0 pv2 ph3'>
+      <p className='f2 fw4 ma0 pv2 ph3 ubuntu'>
         windsurf marketplace <IconDash width={30} height={30} />
       </p>
-      <p className='f4 fw3 reph5-ns'>
-        windtoday is a <strong>windsurfing marketplace</strong> to discover, compare & choose daily equipment offers.
+      <p className='f4 fw4 reph5-ns'>
+        windtoday is a <strong style={{borderBottom: '1px dashed white'}}>windsurfing marketplace</strong> to discover, compare & choose daily equipment offers.
       </p>
     </div>
 

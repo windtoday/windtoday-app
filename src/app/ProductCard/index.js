@@ -40,7 +40,7 @@ export default ({product}) => {
                 <span>{product.category}</span>
               </span>
             }
-            <h1 className='f3 fw5 avenir mt2 lh-copy'>
+            <h1 className='f3 fw5 mt2 lh-copy'>
               <ProductTitle product={product} />
             </h1>
           </div>

@@ -58,6 +58,8 @@
     <meta name="og:site_name" content="<%= htmlWebpackPlugin.options.title %>">
     <meta name="og:type" content="website">
 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet">
+
     <% for (item of htmlWebpackPlugin.options.links) { %>
     <% if (typeof item === 'string' || item instanceof String) { item = { href: item, rel: 'stylesheet' } } %>
 	<link<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>>
