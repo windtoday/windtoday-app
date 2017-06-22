@@ -98,7 +98,7 @@ const AppBar = createClass({
               <li className='appbar__navbar-item'>
                 <a className={navLinkStyle}
                   target='_blank'
-                  href='http://windtoday.co/blog'>
+                  href='http://blog.windtoday.co/pricing/'>
                   <IconLaunch size={ICON_SIZE} />
                   <span className='pl1'>Add your shop</span>
                 </a>
