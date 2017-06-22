@@ -1,7 +1,7 @@
 {
-  "name": "windtoday-marketplace",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
-  "homepage": "https://github.com/windtoday/windtoday-marketplace",
+  "name": "windtoday-app",
+  "description": "Intelligent water sport marketplace",
+  "homepage": "https://github.com/windtoday/windtoday-app",
   "version": "1.4.3",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/windtoday/windtoday-marketplace.git"
+    "url": "git+https://github.com/windtoday/windtoday-app.git"
   },
   "bugs": {
-    "url": "https://github.com/windtoday/windtoday-marketplace/issues"
+    "url": "https://github.com/windtoday/windtoday-app/issues"
   },
   "dependencies": {
     "autoprefixer": "~7.1.1",
