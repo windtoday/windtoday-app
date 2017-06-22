@@ -1,8 +1,32 @@
-.appbar {
-  height: $appbar-height;
+.headroom {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .4), hsla(0, 0%, 100%, 0)),
+    linear-gradient(45deg, rgb(44, 185, 249), rgb(58, 205, 207));
+  position: fixed;
+
+  @include hover-transition(background-color);
+}
+
+.appbar__topbar {
+  height: $appbar__topbar-height;
 
   > * {
     padding: 0 .25rem;
     vertical-align: middle;
   }
+}
+
+.appbar__navbar {
+  max-height: $appbar__navbar-height;
+  height: $appbar__navbar-height;
+}
+
+.appbar__navbar-item,
+.appbar__navbar-link--active2 {
+  min-height: $appbar__navbar-height;
+  height: $appbar__navbar-height;
+}
+
+.appbar__navbar-link.appbar__navbar-link--active {
+  color: white;
 }

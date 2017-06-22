@@ -1,5 +1,6 @@
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
+  Switch,
   Route
 } from 'react-router-dom'
 import {AppContainer} from 'react-hot-loader'
@@ -15,7 +16,10 @@ const render = component =>
   ReactDOM.render(
     <AppContainer>
       <Router>
-        <Route path='/' component={App} />
+        <Switch>
+          <Route path='/' component={component} />
+          <Route path='/search' component={component} />
+        </Switch>
       </Router>
     </AppContainer>,
     el

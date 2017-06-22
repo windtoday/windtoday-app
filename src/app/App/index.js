@@ -1,15 +1,19 @@
-import React, {createClass, PropTypes} from 'react'
 import {InstantSearch} from 'react-instantsearch/dom'
+import createClass from 'create-react-class'
+import React, {createElement} from 'react'
+import PropTypes from 'prop-types'
 import qs from 'qs'
 
 import AppBar from '../AppBar'
-import Main from '../Main'
+import Search from '../Search'
+import Home from '../Home'
 import './style.scss'
 
 const updateAfter = 700
 
-const searchStateToUrl = (props, searchState) =>
-  searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
+const searchStateToUrl = (props, searchState) => {
+  return searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
+}
 
 const createURL = state => `?${qs.stringify(state)}`
 
@@ -34,11 +38,36 @@ const App = createClass({
     location: PropTypes.object.isRequired
   },
   getInitialState () {
+    const {isSearching} = this
     const device = getDeviceState()
-    const sidebar = {asideLeftOpen: device.isDesktop, asideRightOpen: device.isDesktop}
+
+    const sidebar = {
+      searchFiltersLeftOpen: device.isDesktop,
+      searchFiltersRightOpen: device.isDesktop
+    }
+
     const searchState = qs.parse(this.props.location.search.slice(1))
-    const onClear = () => {}
-    return {...device, ...sidebar, searchState, onClear}
+
+    const onSearchClear = () => {}
+
+    return {
+      ...device,
+      ...sidebar,
+      searchState,
+      isSearching,
+      onSearchClear,
+      hitComponent: 'grid',
+      hitsPerPage: 21
+    }
+  },
+
+  componentWillReceiveProps (nextProps) {
+    const {pathname: currentPathname} = this.props.location
+    const {pathname: nextPathname} = nextProps.location
+
+    if (currentPathname === '/search' && nextPathname === '/') {
+      this.setState({searchState: {}})
+    }
   },
 
   toggle (key) {
@@ -49,7 +78,7 @@ const App = createClass({
   },
 
   set (key, value) {
-    this.state[key] = value
+    this.setState({[key]: value})
   },
 
   get (key) {
@@ -64,10 +93,17 @@ const App = createClass({
     this.setState({searchState})
   },
 
+  isSearching () {
+    const {pathname} = this.props.location
+    if (pathname === '/search') return true
+    const {query = ''} = this.state.searchState
+    return query !== ''
+  },
+
   render () {
     const {toggle, get, onSearchStateChange, createURL, state, set} = this
-    const {searchState} = state
-    const props = {toggle, get, set}
+    const {searchState, isSearching} = state
+    const props = {toggle, get, set, ...this.props}
 
     return (
       <InstantSearch
@@ -78,7 +114,7 @@ const App = createClass({
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>
         <AppBar {...props} />
-        <Main {...props} />
+        {createElement(isSearching() ? Search : Home, props)}
       </InstantSearch>
     )
   }

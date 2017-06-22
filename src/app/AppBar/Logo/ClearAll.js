@@ -1,14 +1,15 @@
-import React, {createClass} from 'react'
 import {connectCurrentRefinements} from 'react-instantsearch/connectors'
+import createClass from 'create-react-class'
+import React from 'react'
 
 const ClearAll = createClass({
   render () {
     const {items, refine, children, className, get} = this.props
-    const onClear = get('onClear')
+    const onSearchClear = get('onSearchClear')
 
     const onClick = () => {
       refine(items)
-      onClear()
+      onSearchClear()
     }
 
     return (

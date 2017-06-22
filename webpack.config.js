@@ -21,7 +21,8 @@ const {
   OccurrenceOrderPlugin,
   AggressiveMergingPlugin,
   CommonsChunkPlugin,
-  UglifyJsPlugin } = webpack.optimize
+  UglifyJsPlugin,
+  ModuleConcatenationPlugin } = webpack.optimize
 
 module.exports = {
   devtool: 'source-map',
@@ -61,11 +62,11 @@ module.exports = {
         }, {
           loader: 'sass-loader',
           options: {
+            sourceMap: true,
             data: '@import "index.scss";',
-            includePaths: [
-              path.resolve('src/app')
-            ],
-            sourceMap: true
+            includePaths: ['node_modules', 'node_modules/@material/*', 'src/app']
+              .map(modulePath => glob.sync(path.resolve(modulePath)))
+              .reduce((acc, paths) => acc.concat(paths), [])
           }
         }]
       })
@@ -89,7 +90,7 @@ module.exports = {
     new PurifyCSSPlugin({
       paths: [
         'src/app/**/*.js',
-        'src/app/CurrentRefinements/style.scss'
+        'src/app/SearchCurrentFilters/style.scss'
       ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
         info: true,

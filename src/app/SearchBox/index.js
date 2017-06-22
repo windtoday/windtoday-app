@@ -1,8 +1,9 @@
 import {connectSearchBox} from 'react-instantsearch/connectors'
+import IconSearchClear from 'react-icons/lib/md/clear'
 import IconSearch from 'react-icons/lib/md/search'
-import IconClear from 'react-icons/lib/md/clear'
-import React, {createClass} from 'react'
+import createClass from 'create-react-class'
 import classnames from 'classnames'
+import React from 'react'
 
 import './style.scss'
 
@@ -11,15 +12,12 @@ const CustomSearchBox = createClass({
     return {focus: false}
   },
 
-  onInputMount (input) {
-    this.input = input
-  },
-
   onChange (e) {
-    this.props.refine(e.target.value)
+    const value = e.target.value
+    this.props.refine(value)
   },
 
-  onClear () {
+  onSearchClear () {
     this.props.refine('')
     this.input.focus()
   },
@@ -43,11 +41,10 @@ const CustomSearchBox = createClass({
     const iconStyle = 'searchbox__icon absolute f3'
     const {
       props,
-      onInputMount,
       onChange,
       onFocus,
       onBlur,
-      onClear,
+      onSearchClear,
       onSubmit,
       state
     } = this
@@ -63,7 +60,7 @@ const CustomSearchBox = createClass({
       }
     )
 
-    const iconClearStyle = classnames(
+    const iconSearchClearStyle = classnames(
       iconStyle,
       'searchbox__icon-clear nl4 pointer',
       {
@@ -84,21 +81,21 @@ const CustomSearchBox = createClass({
         >
         <IconSearch className={iconSearchStyle} />
         <input
-          ref={onInputMount}
+          ref={node => (this.input = node)}
           className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3'
           type='search'
           value={currentRefinement}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          placeholder='brand, model, size,...'
+          placeholder='What do you want to find?'
           autoComplete='off'
           autoCorrect='off'
           autoCapitalize='off'
           spellCheck='false'
           autoFocus
         />
-        <IconClear onClick={onClear} className={iconClearStyle} />
+        <IconSearchClear onClick={onSearchClear} className={iconSearchClearStyle} />
       </form>
     )
   }

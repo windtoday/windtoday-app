@@ -1,0 +1,22 @@
+$unit: 1.1;
+$card-width: 320px * $unit;
+$card-height: 190px * $unit;
+$card-content-height: 128px;
+
+.product-card {
+  width: $card-width;
+
+  @include hover-transition(transform);
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+.product-card__image {
+  min-height: $card-height;
+}
+
+.product-card__content {
+  height: $card-content-height;
+}

@@ -1,4 +1,7 @@
-$appbar-height: 64px;
+$appbar__topbar-height: 64px;
+$appbar__navbar-height: 48px;
+$appbar-height: $appbar__topbar-height + $appbar__navbar-height;
+
 $searchbox-input-height: 48px;
 $toggle-transition-duration: .25s;
 $lateral-transition-timing-function: cubic-bezier(.4, 0, .2, 1);

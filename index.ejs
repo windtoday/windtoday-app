@@ -13,12 +13,6 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Search Engine -->
-    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
-    <meta name="image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
-    <link rel="canonical" href="<%= htmlWebpackPlugin.options.baseHref %>" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-
     <!-- WebApp -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="mobile-web-app-capable" content="yes">
@@ -38,6 +32,12 @@
     <meta name="msapplication-config" content="/browserconfig.xml?v=ngGXy3wdgX">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Search Engine -->
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.baseHref %>" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="<%= htmlWebpackPlugin.options.title %>">
     <meta itemprop="description" content="<%= htmlWebpackPlugin.options.description %>">
@@ -49,6 +49,7 @@
     <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>">
     <meta name="twitter:site" content="<%= htmlWebpackPlugin.options.twitterAccount %>">
     <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.logoUrl %>">
+
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
     <meta name="og:title" content="<%= htmlWebpackPlugin.options.title %>">
     <meta name="og:description" content="<%= htmlWebpackPlugin.options.description %>">
@@ -133,13 +134,10 @@
       </script>
     <% } %>
     <style>
-      #HW_badge {
-        box-shadow: 0 0 0 2px #12A5FE;
-      }
       #HW_badge_cont {
         position: absolute !important;
-        top: -16px;
-        right: -16px;
+        top: 6px;
+        right: -14px;
       }
 
     </style>
