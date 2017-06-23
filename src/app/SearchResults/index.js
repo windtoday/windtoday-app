@@ -60,7 +60,7 @@ export default createConnector({
     const {query} = searchState
     const results = searchResults.results || {}
     const {nbHits} = results
-    const noResults = nbHits ? nbHits === 0 : false
+    const noResults = nbHits ? nbHits === 0 : true
 
     return {query, noResults}
   }
