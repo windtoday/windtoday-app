@@ -13,7 +13,7 @@ export default () => (
     >
 
     <small
-      className='pb2 f7 db flex items-center justify-center blue-grey-200'>
+      className='pb3 f6 db flex items-center justify-center'>
         © 2017 <Logo /> v{APP_VERSION}
     </small>
 
