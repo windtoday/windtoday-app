@@ -19,7 +19,7 @@ const Results = createClass({
     })
   },
   render () {
-    const {get, hits, noResults} = this.props
+    const {get, hits, noResults, loading} = this.props
     const hitsPerPage = get('hitsPerPage')
     const products = hits.length > 0 ? hits : Array(hitsPerPage).fill({})
 
@@ -42,7 +42,7 @@ const Results = createClass({
         data-app='search-results'
         className={className}>
         {isMobile && <Overlay active={hasAsideOpen} />}
-        {createElement(noResults
+        {createElement(!loading && noResults
           ? SearchNoHits
           : SearchHits, {
             ...this.props,
@@ -61,7 +61,8 @@ export default createConnector({
     const results = searchResults.results || {}
     const {nbHits} = results
     const noResults = nbHits ? nbHits === 0 : true
+    const loading = nbHits == null
 
-    return {query, noResults}
+    return {query, noResults, loading}
   }
 })(connectInfiniteHits(Results))
