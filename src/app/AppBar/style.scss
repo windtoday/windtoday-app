@@ -35,6 +35,6 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-item.appbar__navbar-link--active {
-  color: white;
+a.appbar__navbar-link--active {
+  color: $white;
 }
