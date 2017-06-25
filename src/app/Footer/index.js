@@ -19,7 +19,7 @@ export default () => (
     </small>
 
     <small
-      className='pb3 f6 db'>
+      className='pb3 f6 db flex items-center justify-center'>
         © 2017 <Logo /> v{APP_VERSION}
     </small>
 
