@@ -74,16 +74,16 @@ export default ({product}) => {
             className='link lh-title mv0 blue-grey-900 fw5 w-95'
             product={product} />
 
-          <div className='ma0'>
+          <span>
             <ProductPrice
-              className='blue-500 pr1'
+              className='blue-500 pr1 fl flex items-center'
               product={product}
                />
             {' '}
             <p className='tracked blue-grey-300 f6 di'>
               by <ProductProvider product={product} />
             </p>
-          </div>
+          </span>
 
           <p className='ma0'>
             {renderTime(timestamp)}
