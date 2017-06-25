@@ -6,9 +6,9 @@ import IconLaunch from 'react-icons/lib/md/launch'
 import IconSearch from 'react-icons/lib/md/search'
 import createClass from 'create-react-class'
 import React, {createElement} from 'react'
+import { NavLink } from 'react-router-dom'
 import Headroom from 'react-headroom'
 import classnames from 'classnames'
-import { NavLink } from 'react-router-dom'
 
 import SearchBox from '../SearchBox'
 import Logo from './Logo'
@@ -41,10 +41,20 @@ const AppBar = createClass({
 
     const navLinkActiveStyle = classnames('appbar__navbar-link--active bl-0 br-0 bt-0 b--solid bw1')
 
+    const isSearch = isPath('/search')
+    const isHome = isPath('/')
+    const isDesktop = get('isDesktop')
+    const isFallback = isSearch && isDesktop
+
+    const HeaderComponent = isFallback ? 'div' : Headroom
+
     return (
-      <header className='bg-blue-500'>
-        <Headroom
+      <header className={classnames('bg-blue-500', {
+        'headroom--fallback': isSearch && isDesktop
+      })}>
+        <HeaderComponent
           data-app='appbar'
+          className='headroom'
           >
 
           <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
@@ -79,7 +89,7 @@ const AppBar = createClass({
             <ul className='list flex ma0 pa0'>
               <li className='appbar__navbar-item'>
                 <NavLink
-                  activeClassName={isPath('/') ? navLinkActiveStyle : ''}
+                  activeClassName={isHome ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/'>
                   <IconHome size={ICON_SIZE} />
@@ -88,7 +98,7 @@ const AppBar = createClass({
               </li>
               <li className='appbar__navbar-item relative'>
                 <NavLink
-                  activeClassName={isPath('/search') ? navLinkActiveStyle : ''}
+                  activeClassName={isSearch ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/search'>
                   <IconSearch size={ICON_SIZE} />
@@ -106,7 +116,7 @@ const AppBar = createClass({
             </ul>
           </nav>
 
-        </Headroom>
+        </HeaderComponent>
       </header>
     )
   }

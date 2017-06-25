@@ -2,9 +2,18 @@
   background:
     linear-gradient(180deg, rgba(0, 0, 0, .4), hsla(0, 0%, 100%, 0)),
     linear-gradient(45deg, rgb(44, 185, 249), rgb(58, 205, 207));
-  position: fixed;
 
   @include hover-transition(background-color);
+}
+
+.headroom--fallback {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.headroom--fallback ~ .main {
+  margin-top: 112px;
 }
 
 .appbar__topbar {
@@ -22,7 +31,7 @@
 }
 
 .appbar__navbar-item,
-.appbar__navbar-link--active2 {
+.appbar__navbar-link--active {
   min-height: $appbar__navbar-height;
   height: $appbar__navbar-height;
 }
