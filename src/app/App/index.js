@@ -16,6 +16,7 @@ const searchStateToUrl = (props, searchState) => {
 }
 
 const createURL = state => `?${qs.stringify(state)}`
+const parseURL = location => qs.parse(location.search.slice(1))
 
 function getDevice () {
   if (window.innerWidth > 960) return 'desktop'
@@ -46,7 +47,7 @@ const App = createClass({
       searchFiltersRightOpen: device.isDesktop
     }
 
-    const searchState = qs.parse(this.props.location.search.slice(1))
+    const searchState = parseURL(this.props.location)
 
     const onSearchClear = () => {}
 
@@ -66,7 +67,11 @@ const App = createClass({
     const {pathname: nextPathname} = nextProps.location
 
     if (currentPathname === '/search' && nextPathname === '/') {
-      this.setState({searchState: {}})
+      return this.setState({searchState: {}})
+    }
+
+    if (currentPathname === '/' && nextPathname === '/search') {
+      return this.setState({searchState: parseURL(nextProps.location)})
     }
   },
 
