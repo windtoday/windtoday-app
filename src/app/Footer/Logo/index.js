@@ -4,5 +4,5 @@ import React from 'react'
 import './style.scss'
 
 export default () => (
-  <IconWindtoday className='footer__logo ph1 w2' />
+  <IconWindtoday width='24' className='footer__logo ph1' />
 )
