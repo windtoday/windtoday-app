@@ -30,12 +30,11 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-item,
-.appbar__navbar-link--active {
+.appbar__navbar-item {
   min-height: $appbar__navbar-height;
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-link.appbar__navbar-link--active {
+.appbar__navbar-item.appbar__navbar-link--active {
   color: white;
 }
