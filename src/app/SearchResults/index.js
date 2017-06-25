@@ -48,7 +48,7 @@ const Results = createClass({
             ...this.props,
             hits: products
           })}
-        <Footer />
+        {isDesktop && <Footer />}
       </main>
     )
   }
