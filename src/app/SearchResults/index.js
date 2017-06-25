@@ -29,7 +29,7 @@ const Results = createClass({
     const isDesktop = get('isDesktop')
     const isMobile = get('isMobile')
 
-    const className = classnames('search-results fl vh-100 bg-grey-50 overflow-x-hidden overflow-y-scroll', {
+    const className = classnames('search-results fl vh-100 bg-grey-50', {
       'fixed': isMobile && hasAsideOpen,
       'search-results--expand': isAsideLeftOpen,
       'w-80': isDesktop && isAsideRightOpen,
