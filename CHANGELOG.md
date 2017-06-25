@@ -1,3 +1,24 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2017-06-25)
+
+* Add Web font to cache ([9ae54d6](https://github.com/windtoday/windtoday-app/commit/9ae54d6))
+* Adjust fonts ([6aa6d19](https://github.com/windtoday/windtoday-app/commit/6aa6d19))
+* Clear search event ([1c8ef34](https://github.com/windtoday/windtoday-app/commit/1c8ef34))
+* Fix ##252 ([a5edc7e](https://github.com/windtoday/windtoday-app/commit/a5edc7e)), closes [#252](https://github.com/windtoday/windtoday-app/issues/252)
+* Fix link ([4f9ffa9](https://github.com/windtoday/windtoday-app/commit/4f9ffa9))
+* Fix logo url ([f7fcbaf](https://github.com/windtoday/windtoday-app/commit/f7fcbaf))
+* Fix no hits ([e88bd88](https://github.com/windtoday/windtoday-app/commit/e88bd88))
+* Fix references ([4334bc2](https://github.com/windtoday/windtoday-app/commit/4334bc2))
+* Next (#245) ([ea320c8](https://github.com/windtoday/windtoday-app/commit/ea320c8))
+* Remove unnecessary ([2d22e93](https://github.com/windtoday/windtoday-app/commit/2d22e93))
+* Remove unnecessary ([49831ca](https://github.com/windtoday/windtoday-app/commit/49831ca))
+* Use Ubuntu and Avenir Font ([695aa1e](https://github.com/windtoday/windtoday-app/commit/695aa1e))
+* fix(package): update babel-core to version 6.25.0 (#243) ([5656b67](https://github.com/windtoday/windtoday-app/commit/5656b67))
+* fix(package): update react to version 15.6.0 (#246) ([f57c931](https://github.com/windtoday/windtoday-app/commit/f57c931))
+* fix(package): update react-dom to version 15.6.0 (#247) ([8e88d71](https://github.com/windtoday/windtoday-app/commit/8e88d71))
+
+
+
 <a name="1.4.3"></a>
 ## 1.4.3 (2017-06-08)
 
