@@ -13,9 +13,13 @@ export default () => (
     >
 
     <small
-      className='f7 db flex items-center justify-center'>
+      className='pb2 f7 db flex items-center justify-center blue-grey-200'>
         © 2017 <Logo /> v{APP_VERSION}
     </small>
+
+    <div className=''>
+      <Links />
+    </div>
 
   </footer>
   )
