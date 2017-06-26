@@ -19,10 +19,7 @@ const Results = createClass({
     })
   },
   render () {
-    const {get, hits, noResults, loading} = this.props
-    const hitsPerPage = get('hitsPerPage')
-    const products = hits.length > 0 ? hits : Array(hitsPerPage).fill({})
-
+    const {get, noResults, loading, products} = this.props
     const isAsideRightOpen = get('searchFiltersRightOpen')
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
@@ -57,12 +54,14 @@ const Results = createClass({
 export default createConnector({
   displayName: 'SearchResults',
   getProvidedProps (props, searchState, searchResults) {
+    const {get} = props
     const {query} = searchState
     const results = searchResults.results || {}
-    const {nbHits} = results
+    const {nbHits, hits = []} = results
     const noResults = nbHits ? nbHits === 0 : true
     const loading = nbHits == null
+    const products = hits.length > 0 ? hits : Array(get('hitsPerPage')).fill({})
 
-    return {query, noResults, loading}
+    return {query, noResults, loading, products}
   }
 })(connectInfiniteHits(Results))
