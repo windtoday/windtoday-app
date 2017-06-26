@@ -39,7 +39,6 @@ const App = createClass({
     location: PropTypes.object.isRequired
   },
   getInitialState () {
-    const {isSearching} = this
     const device = getDeviceState()
 
     const sidebar = {
@@ -48,14 +47,12 @@ const App = createClass({
     }
 
     const searchState = parseURL(this.props.location)
-
     const onSearchClear = () => {}
 
     return {
       ...device,
       ...sidebar,
       searchState,
-      isSearching,
       onSearchClear,
       hitsPerPage: 21
     }
@@ -105,9 +102,9 @@ const App = createClass({
   },
 
   render () {
-    const {toggle, get, onSearchStateChange, createURL, state, set} = this
-    const {searchState, isSearching} = state
-    const props = {toggle, get, set, ...this.props}
+    const {toggle, get, onSearchStateChange, createURL, state, set, isSearching} = this
+    const {searchState} = state
+    const props = {toggle, get, set, isSearching, ...this.props}
 
     return (
       <InstantSearch

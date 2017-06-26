@@ -26,8 +26,7 @@ const AppBar = createClass({
   },
   render () {
     const {isPath} = this
-    const {toggle, get} = this.props
-    const isSearching = get('isSearching')()
+    const {toggle, get, isSearching} = this.props
 
     const asideLeftButton = get('searchFiltersLeftOpen')
     ? renderIcon(IconClose)
