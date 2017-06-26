@@ -11,6 +11,8 @@ import Headroom from 'react-headroom'
 import classnames from 'classnames'
 
 import SearchBox from '../SearchBox'
+import IconFacebook from '../Icon/facebook'
+import IconTwitter from '../Icon/twitter'
 import Logo from './Logo'
 
 import './style.scss'
@@ -94,7 +96,7 @@ const AppBar = createClass({
                   <span className='pl1'>Home</span>
                 </NavLink>
               </li>
-              <li className='appbar__navbar-item relative'>
+              <li className='appbar__navbar-item'>
                 <NavLink
                   activeClassName={isSearch ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
@@ -103,12 +105,40 @@ const AppBar = createClass({
                   <span className='pl1'>Search</span>
                 </NavLink>
               </li>
+              {isDesktop &&
+                <li className='appbar__navbar-item'>
+                  <a className={navLinkStyle}
+                    target='_blank'
+                    href='http://blog.windtoday.co/pricing/'>
+                    <IconLaunch size={ICON_SIZE} />
+                    <span className='pl1'>Add your shop</span>
+                  </a>
+                </li>
+              }
               <li className='appbar__navbar-item'>
-                <a className={navLinkStyle}
-                  target='_blank'
-                  href='http://blog.windtoday.co/pricing/'>
-                  <IconLaunch size={ICON_SIZE} />
-                  <span className='pl1'>Add your shop</span>
+                <a
+                  className={navLinkStyle}
+                  href='https://facebook.com/windtodayco'
+                  rel='noopener'
+                  target='_blank'>
+                  <IconFacebook
+                    className='appbar__navbar__social-icon'
+                    height={ICON_SIZE}
+                    width={ICON_SIZE}
+                   />
+                </a>
+              </li>
+              <li className='appbar__navbar-item'>
+                <a
+                  className={navLinkStyle}
+                  href='https://twitter.com/windtodayco'
+                  rel='noopener'
+                  target='_blank'>
+                  <IconTwitter
+                    className='appbar__navbar__social-icon'
+                    height={ICON_SIZE}
+                    width={ICON_SIZE}
+                   />
                 </a>
               </li>
             </ul>

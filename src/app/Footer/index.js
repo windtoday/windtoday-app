@@ -17,9 +17,7 @@ export default () => (
         © 2017 <Logo /> v{APP_VERSION}
     </small>
 
-    <div className=''>
-      <Links />
-    </div>
+    <Links />
 
   </footer>
   )

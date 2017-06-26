@@ -3,10 +3,10 @@ import React from 'react'
 const Links = (props) =>
   <div>
     <a
-      href='mailto:info@windtoday.co?subject=[windtoday]%20Report%20a%20Bug'
-      title='Report a Bug'
+      href='https://blog.windtoday.co'
+      title='Blog'
       className='f7 dib ph2 link blue-grey-200 hover-blue-400'>
-      Report a Bug
+      Blog
     </a>
 
     <a
@@ -17,10 +17,11 @@ const Links = (props) =>
     </a>
 
     <a
-      href='mailto:info@windtoday.co?subject=[windtoday]%20Send%20Feedback'
-      title='Send Feedback'
+      href='https://blog.windtoday.co/pricing/'
+      target='_blank'
+      title='Add your shop'
       className='f7 dib ph2 link blue-grey-200 hover-blue-400'>
-      Send Feedback
+      Add your shop
     </a>
   </div>
 
