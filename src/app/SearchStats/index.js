@@ -20,7 +20,7 @@ const Stats = createClass({
     const {nbHits, processingTimeMS} = props
 
     return (
-      <header data-app='search-stats' className='fade-in blue-grey-200 pt4 ph5-l ph3 br2'>
+      <header data-app='search-stats' className='fade-in blue-grey-200 pt4 ph5-m ph5-l ph3 br2'>
         <div>
           <span className='code f6'>{stats(nbHits, processingTimeMS)}</span>
         </div>
