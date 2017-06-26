@@ -16,6 +16,7 @@ const searchStateToUrl = (props, searchState) => {
 }
 
 const createURL = state => `?${qs.stringify(state)}`
+const parseURL = location => qs.parse(location.search.slice(1))
 
 function getDevice () {
   if (window.innerWidth > 960) return 'desktop'
@@ -38,7 +39,6 @@ const App = createClass({
     location: PropTypes.object.isRequired
   },
   getInitialState () {
-    const {isSearching} = this
     const device = getDeviceState()
 
     const sidebar = {
@@ -46,17 +46,14 @@ const App = createClass({
       searchFiltersRightOpen: device.isDesktop
     }
 
-    const searchState = qs.parse(this.props.location.search.slice(1))
-
+    const searchState = parseURL(this.props.location)
     const onSearchClear = () => {}
 
     return {
       ...device,
       ...sidebar,
       searchState,
-      isSearching,
       onSearchClear,
-      hitComponent: 'grid',
       hitsPerPage: 21
     }
   },
@@ -66,7 +63,11 @@ const App = createClass({
     const {pathname: nextPathname} = nextProps.location
 
     if (currentPathname === '/search' && nextPathname === '/') {
-      this.setState({searchState: {}})
+      return this.setState({searchState: {}})
+    }
+
+    if (currentPathname === '/' && nextPathname === '/search') {
+      return this.setState({searchState: parseURL(nextProps.location)})
     }
   },
 
@@ -101,9 +102,9 @@ const App = createClass({
   },
 
   render () {
-    const {toggle, get, onSearchStateChange, createURL, state, set} = this
-    const {searchState, isSearching} = state
-    const props = {toggle, get, set, ...this.props}
+    const {toggle, get, onSearchStateChange, createURL, state, set, isSearching} = this
+    const {searchState} = state
+    const props = {toggle, get, set, isSearching, ...this.props}
 
     return (
       <InstantSearch

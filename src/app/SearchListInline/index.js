@@ -1,12 +1,12 @@
 import {connectRefinementList} from 'react-instantsearch/connectors'
 import IconExpandMore from 'react-icons/lib/md/expand-more'
 import IconExpandLess from 'react-icons/lib/md/expand-less'
-import IconSearch from 'react-icons/lib/md/search'
 import createClass from 'create-react-class'
 import classnames from 'classnames'
 import React from 'react'
 
 import './style.scss'
+import IconSearch from '../Icon/search'
 
 const moreIcon = () => <span><IconExpandMore />more</span>
 const lessIcon = () => <span><IconExpandLess />less</span>
@@ -125,7 +125,7 @@ const SearchListInline = createClass({
   renderSearchBox () {
     const {props, onFocus, onBlur, onSubmit, onInputMount} = this
     const {focus: isFocus} = this.state
-    const {attributeName, searchForItems} = props
+    const {searchForItems} = props
 
     return (
       <form
@@ -157,7 +157,7 @@ const SearchListInline = createClass({
           autoCapitalize='off'
           spellCheck='false'
         />
-        <IconSearch className='blue-grey-300' />
+        <IconSearch className='inline-list__searchbox__icon' width='16' height='16' />
       </form>
     )
   },

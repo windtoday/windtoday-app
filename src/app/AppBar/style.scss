@@ -2,9 +2,18 @@
   background:
     linear-gradient(180deg, rgba(0, 0, 0, .4), hsla(0, 0%, 100%, 0)),
     linear-gradient(45deg, rgb(44, 185, 249), rgb(58, 205, 207));
-  position: fixed;
 
   @include hover-transition(background-color);
+}
+
+.headroom--fallback {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.headroom--fallback ~ .main {
+  margin-top: 112px;
 }
 
 .appbar__topbar {
@@ -21,12 +30,19 @@
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-item,
-.appbar__navbar-link--active2 {
+.appbar__navbar-item {
   min-height: $appbar__navbar-height;
   height: $appbar__navbar-height;
 }
 
-.appbar__navbar-link.appbar__navbar-link--active {
-  color: white;
+a.appbar__navbar-link--active {
+  color: $white;
+
+  .appbar__navbar__icon {
+    stroke: $white;
+  }
+}
+
+.appbar__navbar__icon {
+  stroke: $white-50;
 }

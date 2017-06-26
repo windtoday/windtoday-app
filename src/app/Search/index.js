@@ -1,10 +1,13 @@
 import createClass from 'create-react-class'
 import Swipeable from 'react-swipeable'
+import classnames from 'classnames'
 import React from 'react'
 
 import SearchFiltersRight from '../SearchFilters/Right'
 import SearchFiltersLeft from '../SearchFilters/Left'
 import SearchResults from '../SearchResults'
+
+import './style.scss'
 
 const Search = createClass({
   onSwipedRight () {
@@ -37,6 +40,8 @@ const Search = createClass({
 
   render () {
     const {onSwipedRight, onSwipedLeft, props} = this
+    const {location, get} = props
+    const isFallback = location.pathname === '/search' && get('isDesktop')
 
     return (
       <Swipeable
@@ -44,7 +49,10 @@ const Search = createClass({
         onSwipedRight={onSwipedRight}
         onSwipedLeft={onSwipedLeft}
         role='main'
-        data-app='app-main'
+        data-app='search'
+        className={classnames({
+          'search--fallback': isFallback
+        })}
         >
         <SearchFiltersLeft {...props} />
         <SearchResults {...props} />

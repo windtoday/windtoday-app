@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ProductProvider from '../ProductProvider'
-import ProductDivImage from '../ProductDivImage'
+import ProductImage from '../ProductImage'
 import ProductTitle from '../ProductTitle'
 import ProductPrice from '../ProductPrice'
 import ProductStars from '../ProductStars'
@@ -17,7 +17,7 @@ export default ({product}) => {
       target='_blank'
       href={link}
       className='product-card pa3 no-underline white fade-in'>
-      <ProductDivImage
+      <ProductImage
         className='product-card__image br2 relative'
         product={product}>
         <header className='pa3 cf white'>
@@ -45,7 +45,7 @@ export default ({product}) => {
             </h1>
           </div>
         </div>
-      </ProductDivImage>
+      </ProductImage>
     </a>
   )
 }

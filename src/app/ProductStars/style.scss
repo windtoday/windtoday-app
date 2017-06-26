@@ -1,8 +1,8 @@
 .product__star {
   // amber-500
-  fill: #ffc107;
+  stroke: #ffc107;
 }
 
 .product__star--empty {
-  fill: material-color('grey', '200');
+  stroke: material-color('grey', '200');
 }

@@ -1,3 +1,5 @@
 .footer__logo {
-  fill: material-color('blue', '500');
+  > path {
+    stroke: material-color('blue', '500');
+  }
 }
