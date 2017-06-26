@@ -1,3 +1,7 @@
 .inline-list__searchbox {
   @include placeholder-color(material-color('blue-grey', '300'));
 }
+
+.inline-list__searchbox__icon {
+  stroke: material-color('blue-grey', '300');
+}

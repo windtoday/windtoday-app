@@ -1,6 +1,6 @@
 import {connectSearchBox} from 'react-instantsearch/connectors'
-import IconSearchClear from 'react-icons/lib/md/clear'
-import IconSearch from 'react-icons/lib/md/search'
+import IconSearch from '../Icon/search'
+import IconClose from '../Icon/close'
 import createClass from 'create-react-class'
 import classnames from 'classnames'
 import React from 'react'
@@ -95,7 +95,7 @@ const CustomSearchBox = createClass({
           spellCheck='false'
           autoFocus
         />
-        <IconSearchClear onClick={onSearchClear} className={iconSearchClearStyle} />
+        <IconClose onClick={onSearchClear} className={iconSearchClearStyle} />
       </form>
     )
   }

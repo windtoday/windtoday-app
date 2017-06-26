@@ -1,10 +1,18 @@
 import classnames from 'classnames'
 import React from 'react'
 
-import IconStar from 'react-icons/lib/md/star'
+import IconStar from '../Icon/star'
 import './style.scss'
 
 const MAX_STARS = 5
+
+const Star = ({key, className}) =>
+  <IconStar
+    key={key}
+    className={`product__star ${className}`}
+    width='16'
+    height='16'
+  />
 
 export default ({product, className, tiny}) => {
   const {priceScore: activeStars} = product
@@ -15,23 +23,14 @@ export default ({product, className, tiny}) => {
   if (tiny) {
     return (
       <span className={classnames('flex items-center', className)}>
-        <span>{activeStars}</span>
-        <IconStar className='product__star' />
+        <span className='pr1'>{activeStars}</span>
+        <Star />
       </span>
     )
   }
 
-  for (let i = 0; i < activeStars; i++) {
-    stars.push(
-      <IconStar key={++starKey} className='product__star' />
-      )
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(
-      <IconStar key={++starKey} className='product__star product__star--empty' />
-      )
-  }
+  for (let i = 0; i < activeStars; i++) stars.push(<Star key={++starKey} />)
+  for (let i = 0; i < emptyStars; i++) stars.push(<Star key={++starKey} className='product__star--empty' />)
 
   return <span className={className}>{stars}</span>
 }

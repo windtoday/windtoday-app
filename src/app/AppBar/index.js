@@ -1,26 +1,26 @@
-import IconFilter from 'react-icons/lib/md/filter-list'
-import IconSearch from 'react-icons/lib/md/search'
-import IconLaunch from 'react-icons/lib/md/launch'
-import IconClose from 'react-icons/lib/md/close'
-import IconMenu from 'react-icons/lib/md/menu'
-import IconHome from 'react-icons/lib/md/home'
 import createClass from 'create-react-class'
 import React, {createElement} from 'react'
 import { NavLink } from 'react-router-dom'
 import Headroom from 'react-headroom'
 import classnames from 'classnames'
 
-import SearchBox from '../SearchBox'
+import IconLaunch from '../Icon/external-link'
 import IconFacebook from '../Icon/facebook'
 import IconTwitter from '../Icon/twitter'
+import IconSearch from '../Icon/search'
+import IconClose from '../Icon/close'
+import SearchBox from '../SearchBox'
+import IconFilter from '../Icon/filter'
+import IconMenu from '../Icon/menu'
+import IconHome from '../Icon/home'
 import Logo from './Logo'
 
 import './style.scss'
 
-const ICON_SIZE = 20
+const ICON_SIZE = '20'
 
 const renderIcon = IconComponent => props =>
-  createElement(IconComponent, {...props, size: ICON_SIZE})
+  createElement(IconComponent, {width: ICON_SIZE, height: ICON_SIZE, ...props})
 
 const AppBar = createClass({
   isPath (pathname) {
@@ -48,6 +48,8 @@ const AppBar = createClass({
     const isFallback = isSearch && isDesktop
     const HeaderComponent = isFallback ? 'div' : Headroom
 
+    const _isSearching = isSearching()
+
     return (
       <header className={classnames('bg-blue-500', {
         'headroom--fallback': isSearch && isDesktop
@@ -60,12 +62,12 @@ const AppBar = createClass({
           <div className='appbar__topbar flex justify-around items-center ph3 ph5-ns'>
             <div
               className={classnames('order-1 pa0 ma0 flex items-center', {
-                'justify-between': isSearching,
-                'justify-end': !isSearching
+                'justify-between': _isSearching,
+                'justify-end': !_isSearching
               })}
 
               style={{flexGrow: 1}}>
-              {isSearching && asideLeftButton({
+              {_isSearching && asideLeftButton({
                 className: 'dim pointer white pr3',
                 onClick: toggle('searchFiltersLeftOpen')
               })}
@@ -78,7 +80,7 @@ const AppBar = createClass({
             <div
               className='order-3 pa0 flex justify-between items-center'
               style={{flexGrow: 1}}>
-              {isSearching && asideRightButton({
+              {_isSearching && asideRightButton({
                 className: 'dim pointer white pl3',
                 onClick: toggle('searchFiltersRightOpen')
               })}
@@ -92,8 +94,8 @@ const AppBar = createClass({
                   activeClassName={isHome ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/'>
-                  <IconHome size={ICON_SIZE} />
-                  <span className='pl1'>Home</span>
+                  <IconHome className='appbar__navbar__icon' height={ICON_SIZE} width={ICON_SIZE} />
+                  <span className='pl2'>Home</span>
                 </NavLink>
               </li>
               <li className='appbar__navbar-item'>
@@ -101,8 +103,8 @@ const AppBar = createClass({
                   activeClassName={isSearch ? navLinkActiveStyle : ''}
                   className={navLinkStyle}
                   to='/search'>
-                  <IconSearch size={ICON_SIZE} />
-                  <span className='pl1'>Search</span>
+                  <IconSearch className='appbar__navbar__icon' height={ICON_SIZE} width={ICON_SIZE} />
+                  <span className='pl2'>Search</span>
                 </NavLink>
               </li>
               {isDesktop &&
@@ -110,8 +112,8 @@ const AppBar = createClass({
                   <a className={navLinkStyle}
                     target='_blank'
                     href='http://blog.windtoday.co/pricing/'>
-                    <IconLaunch size={ICON_SIZE} />
-                    <span className='pl1'>Add your shop</span>
+                    <IconLaunch className='appbar__navbar__icon' height={ICON_SIZE} width={ICON_SIZE} />
+                    <span className='pl2'>Add your shop</span>
                   </a>
                 </li>
               }
@@ -122,7 +124,7 @@ const AppBar = createClass({
                   rel='noopener'
                   target='_blank'>
                   <IconFacebook
-                    className='appbar__navbar__social-icon'
+                    className='appbar__navbar__icon'
                     height={ICON_SIZE}
                     width={ICON_SIZE}
                    />
@@ -135,7 +137,7 @@ const AppBar = createClass({
                   rel='noopener'
                   target='_blank'>
                   <IconTwitter
-                    className='appbar__navbar__social-icon'
+                    className='appbar__navbar__icon'
                     height={ICON_SIZE}
                     width={ICON_SIZE}
                    />

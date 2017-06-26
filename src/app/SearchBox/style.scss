@@ -10,26 +10,26 @@
 
 .searchbox__icon {
   height: $searchbox-input-height;
-  color: rgba($white, .6);
+  stroke: $white-50;
 
-  @include hover-transition(color);
+  @include hover-transition(stroke);
 }
 
 .searchbox__icon-search--focus {
-  color: $white;
+  stroke: $white;
 }
 
 .searchbox__icon-search {
-  @include hover-transition(color);
+  @include hover-transition(stroke);
 }
 
 .searchbox__icon-clear {
   transform: scale(0);
 
-  @include hover-transition(color, transform);
+  @include hover-transition(stroke, transform);
 
   &:hover {
-    color: $white;
+    stroke: $white;
   }
 }
 

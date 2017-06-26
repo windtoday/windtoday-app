@@ -37,8 +37,12 @@
 
 a.appbar__navbar-link--active {
   color: $white;
+
+  .appbar__navbar__icon {
+    stroke: $white;
+  }
 }
 
-.appbar__navbar__social-icon {
-  fill: $white-70;
+.appbar__navbar__icon {
+  stroke: $white-50;
 }
