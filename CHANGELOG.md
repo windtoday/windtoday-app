@@ -1,3 +1,13 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2017-06-26)
+
+* Fix align price properly ([eeca98a](https://github.com/windtoday/windtoday-app/commit/eeca98a))
+* Fix footer logo ([7e56da0](https://github.com/windtoday/windtoday-app/commit/7e56da0))
+* Fix footer style ([2a4c6c3](https://github.com/windtoday/windtoday-app/commit/2a4c6c3))
+* Next (#254) ([e8782cb](https://github.com/windtoday/windtoday-app/commit/e8782cb)), closes [#251](https://github.com/windtoday/windtoday-app/issues/251)
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-06-25)
 
