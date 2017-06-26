@@ -57,7 +57,6 @@ const App = createClass({
       searchState,
       isSearching,
       onSearchClear,
-      hitComponent: 'grid',
       hitsPerPage: 21
     }
   },

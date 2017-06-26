@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import SearchCurrentFilters from '../SearchCurrentFilters'
-import SwitchView from '../SwitchView'
 
 const Stats = createClass({
   propTypes: {
@@ -24,7 +23,6 @@ const Stats = createClass({
       <header data-app='search-stats' className='fade-in blue-grey-200 pt4 ph5-l ph3 br2'>
         <div>
           <span className='code f6'>{stats(nbHits, processingTimeMS)}</span>
-          <SwitchView {...props} />
         </div>
         <SearchCurrentFilters />
       </header>

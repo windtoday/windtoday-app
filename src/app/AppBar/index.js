@@ -1,9 +1,9 @@
 import IconFilter from 'react-icons/lib/md/filter-list'
+import IconSearch from 'react-icons/lib/md/search'
+import IconLaunch from 'react-icons/lib/md/launch'
 import IconClose from 'react-icons/lib/md/close'
 import IconMenu from 'react-icons/lib/md/menu'
 import IconHome from 'react-icons/lib/md/home'
-import IconLaunch from 'react-icons/lib/md/launch'
-import IconSearch from 'react-icons/lib/md/search'
 import createClass from 'create-react-class'
 import React, {createElement} from 'react'
 import { NavLink } from 'react-router-dom'
@@ -45,7 +45,6 @@ const AppBar = createClass({
     const isHome = isPath('/')
     const isDesktop = get('isDesktop')
     const isFallback = isSearch && isDesktop
-
     const HeaderComponent = isFallback ? 'div' : Headroom
 
     return (
