@@ -1,4 +1,49 @@
 @import './StyleSheet/variables';
 @import './StyleSheet/tachyons';
 @import './StyleSheet/colors';
-@import './StyleSheet/global';
+
+::selection {
+  background: #b1d7fe;
+  color: $white;
+}
+
+em {
+  font-style: normal;
+  background-color: #ec407a; // pink-400
+  padding: .05em .1em;
+}
+
+.card-shadow {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+.fade-in {
+  animation-fill-mode: both;
+  animation-name: fadeInOpacity;
+  animation-duration: .35s;
+}
+
+.ubuntu {
+  font-family: Ubuntu, sans-serif;
+}
+
+.bg-gradient {
+  background: linear-gradient(45deg, material-color('blue', '500'), material-color('green', '500'));
+}
+
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

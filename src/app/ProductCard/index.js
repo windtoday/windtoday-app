@@ -28,7 +28,7 @@ export default ({product}) => {
           }
           {isReady && <ProductStars
             className='fr f5 pv1 ph2 bg-grey-50 br4 grey-700'
-            product={product} tiny />
+            product={product} />
           }
         </header>
         <div className='product-card__content absolute bottom-0 w-100'>

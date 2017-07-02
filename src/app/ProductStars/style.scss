@@ -1,6 +1,5 @@
 .product__star {
-  // amber-500
-  stroke: #ffc107;
+  stroke: material-color('amber', '500');
 }
 
 .product__star--empty {

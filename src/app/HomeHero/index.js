@@ -9,8 +9,7 @@ const categoryLink = category => `/search?refinementList%5Bcategory%5D%5B0%5D=${
 
 export default () => (
   <article
-    className='w-100 bg-blue-500 white pt4'
-    style={{background: 'linear-gradient(45deg, #19b5fe, #31d0c9)'}}
+    className='w-100 bg-blue-500 white pt4 bg-gradient'
     >
     <div className='pb4 ph3 ph7-l tc lh-copy'>
       <p className='f2 fw4 ma0 pv2 ph3 ubuntu'>
