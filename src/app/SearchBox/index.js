@@ -53,7 +53,7 @@ const CustomSearchBox = createClass({
 
     const iconSearchStyle = classnames(
       iconStyle,
-      'searchbox__icon-search ph3-l ph2 ml2-ns ml1 mr2-ns',
+      'searchbox__icon-search',
       {
         'searchbox__icon-search--focus': isFocus,
         'searchbox__icon-search--blur': !isFocus
@@ -82,7 +82,7 @@ const CustomSearchBox = createClass({
         <IconSearch className={iconSearchStyle} />
         <input
           ref={node => (this.input = node)}
-          className='searchbox__input border-0 outline-0 w-100 input-reset bg-black-10 ph5-ns pv2 lh-solid br2 fw3 helvetica'
+          className='searchbox__input white border-0 outline-0 w-100 input-reset bg-black-10 pv2 lh-solid br2 fw3 f5 helvetica'
           type='search'
           value={currentRefinement}
           onChange={onChange}

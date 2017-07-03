@@ -1,9 +1,11 @@
 .searchbox__input {
   height: $searchbox-input-height;
-  font-size: 16px;
+  padding-left: 42px;
   letter-spacing: .03rem;
-  color: $white;
-  padding: 42px;
+
+  @include break(large) {
+    padding-left: 64px;
+  }
 
   @include placeholder-color(rgba($white, .6));
 }
@@ -20,6 +22,12 @@
 }
 
 .searchbox__icon-search {
+  padding: 0 12px;
+
+  @include break(large) {
+    padding: 0 24px;
+  }
+
   @include hover-transition(stroke);
 }
 
