@@ -1,3 +1,10 @@
+<a name="2.0.2"></a>
+## 2.0.2 (2017-07-03)
+
+* Little refactor ([b3dbd1e](https://github.com/windtoday/windtoday-app/commit/b3dbd1e))
+
+
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2017-06-26)
 
