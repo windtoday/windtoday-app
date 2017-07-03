@@ -1,3 +1,12 @@
+<a name="2.0.3"></a>
+## 2.0.3 (2017-07-03)
+
+* Fix searchbox padding ([67119a8](https://github.com/windtoday/windtoday-app/commit/67119a8))
+* remove unnecessary class ([862c4b4](https://github.com/windtoday/windtoday-app/commit/862c4b4))
+* Update production build ([7208301](https://github.com/windtoday/windtoday-app/commit/7208301))
+
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2017-07-03)
 
