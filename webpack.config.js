@@ -77,6 +77,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'APP_VERSION': JSON.stringify(pkg.version)
     }),
+    new ModuleConcatenationPlugin(),
     new HashedModuleIdsPlugin(),
     new OccurrenceOrderPlugin(),
     new AggressiveMergingPlugin(),
@@ -90,7 +91,8 @@ module.exports = {
     new PurifyCSSPlugin({
       paths: [
         'src/app/**/*.js',
-        'src/app/SearchCurrentFilters/style.scss'
+        'src/app/SearchCurrentFilters/style.scss',
+        'index.ejs'
       ].reduce((acc, pattern) => acc.concat(glob.sync(pattern, { nodir: true })), []),
       purifyOptions: {
         info: true,
