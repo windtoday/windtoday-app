@@ -10,6 +10,11 @@ import SearchResults from '../SearchResults'
 import './style.scss'
 
 const Search = createClass({
+  componentWillMount () {
+    if (this.props.location.pathname !== '/search') {
+      this.props.history.push('/search')
+    }
+  },
   onSwipedRight () {
     const {get, toggle} = this.props
 
