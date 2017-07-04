@@ -19,6 +19,7 @@ export default createClass({
         <HomeProducts
           filters=''
           hitsPerPage={get('hitsPerPage')}
+          {...this.props}
         />
       </main>
     )

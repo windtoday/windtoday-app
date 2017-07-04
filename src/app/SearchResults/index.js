@@ -5,7 +5,7 @@ import React, {createElement} from 'react'
 import classnames from 'classnames'
 
 import SearchNoHits from '../SearchNoHits'
-import SearchHits from '../SearchHits'
+import ProductsGrid from '../ProductsGrid'
 import Overlay from '../Overlay'
 import Footer from '../Footer'
 
@@ -19,7 +19,7 @@ const Results = createClass({
     })
   },
   render () {
-    const {get, noResults, loading, products} = this.props
+    const {get, noResults, loading} = this.props
     const isAsideRightOpen = get('searchFiltersRightOpen')
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
@@ -39,12 +39,10 @@ const Results = createClass({
         data-app='search-results'
         className={className}>
         {isMobile && <Overlay active={hasAsideOpen} />}
-        {createElement(!loading && noResults
-          ? SearchNoHits
-          : SearchHits, {
-            ...this.props,
-            hits: products
-          })}
+        {createElement(!loading && noResults ? SearchNoHits : ProductsGrid, {
+          stats: true,
+          ...this.props
+        })}
         {isDesktop && <Footer />}
       </main>
     )
@@ -54,14 +52,12 @@ const Results = createClass({
 export default createConnector({
   displayName: 'SearchResults',
   getProvidedProps (props, searchState, searchResults) {
-    const {get} = props
     const {query} = searchState
     const results = searchResults.results || {}
-    const {nbHits, hits = []} = results
+    const {nbHits} = results
     const noResults = nbHits ? nbHits === 0 : true
     const loading = nbHits == null
-    const products = hits.length > 0 ? hits : Array(get('hitsPerPage')).fill({})
 
-    return {query, noResults, loading, products}
+    return {query, noResults, loading}
   }
 })(connectInfiniteHits(Results))
