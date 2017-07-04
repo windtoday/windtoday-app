@@ -49,7 +49,7 @@ const CustomSearchBox = createClass({
       state
     } = this
     const {focus: isFocus} = state
-    const {currentRefinement, className, style} = props
+    const {currentRefinement, className, style, get} = props
 
     const iconSearchStyle = classnames(
       iconStyle,
@@ -69,6 +69,7 @@ const CustomSearchBox = createClass({
     )
 
     const boxStyle = classnames('searchbox relative w-80 w-70-l', className)
+    const isMobile = get('isMobile')
 
     return (
       <form
@@ -88,7 +89,7 @@ const CustomSearchBox = createClass({
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          placeholder='What do you want to find?'
+          placeholder={isMobile ? 'sails, boards,...' : 'What do you want to find?'}
           autoComplete='off'
           autoCorrect='off'
           autoCapitalize='off'
