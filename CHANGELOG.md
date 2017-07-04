@@ -1,3 +1,14 @@
+<a name="2.0.4"></a>
+## 2.0.4 (2017-07-04)
+
+* Change view under query ([7fe67b6](https://github.com/windtoday/windtoday-app/commit/7fe67b6))
+* Extract content placeholder helper ([e3fa468](https://github.com/windtoday/windtoday-app/commit/e3fa468))
+* Fix placeholder on mobile ([262fedd](https://github.com/windtoday/windtoday-app/commit/262fedd))
+* Little Refactor ([1536be8](https://github.com/windtoday/windtoday-app/commit/1536be8))
+* Unify Product Grid ([b3f31a0](https://github.com/windtoday/windtoday-app/commit/b3f31a0))
+
+
+
 <a name="2.0.3"></a>
 ## 2.0.3 (2017-07-03)
 
