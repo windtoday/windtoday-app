@@ -4,6 +4,7 @@ import createClass from 'create-react-class'
 import React, {createElement} from 'react'
 import classnames from 'classnames'
 
+import contentPlaceholder from '../util/content-placeholder'
 import SearchNoHits from '../SearchNoHits'
 import ProductsGrid from '../ProductsGrid'
 import Overlay from '../Overlay'
@@ -52,12 +53,14 @@ const Results = createClass({
 export default createConnector({
   displayName: 'SearchResults',
   getProvidedProps (props, searchState, searchResults) {
+    const {get} = props
     const {query} = searchState
     const results = searchResults.results || {}
-    const {nbHits} = results
+    const {nbHits, hits = []} = results
     const noResults = nbHits ? nbHits === 0 : true
     const loading = nbHits == null
+    const products = contentPlaceholder(hits, get('hitsPerPage'))
 
-    return {query, noResults, loading}
+    return {query, noResults, loading, products}
   }
 })(connectInfiniteHits(Results))

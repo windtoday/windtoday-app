@@ -1,11 +1,16 @@
 import InfiniteScroll from 'react-infinite-scroll-component'
 import React from 'react'
 
+import contentPlaceholder from '../util/content-placeholder'
 import ProductCard from '../ProductCard'
 import SearchStats from '../SearchStats'
 
-export default ({refine, hasMore, hits, get, stats = false, ...props}) => {
-  const products = hits.length > 0 ? hits : Array(get('hitsPerPage')).fill({})
+const getProducts = ({products, hits, get}) => (
+  products || contentPlaceholder(hits, get('hitsPerPage'))
+)
+
+export default ({refine, hasMore, stats = false, ...props}) => {
+  const products = getProducts(props)
 
   return (
     <InfiniteScroll
