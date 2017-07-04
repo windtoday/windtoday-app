@@ -9,19 +9,15 @@ import Search from '../Search'
 import Home from '../Home'
 import './style.scss'
 
-const updateAfter = 700
+const updateAfter = 750
 
-const searchStateToUrl = (props, searchState) => {
-  return searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
-}
+const searchStateToUrl = (props, searchState) => (
+  searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
+)
 
 const createURL = state => `?${qs.stringify(state)}`
 const parseURL = location => qs.parse(location.search.slice(1))
-
-function getDevice () {
-  if (window.innerWidth > 960) return 'desktop'
-  return 'mobile'
-}
+const getDevice = () => window.innerWidth > 960 ? 'desktop' : 'mobile'
 
 function getDeviceState () {
   const device = getDevice()
