@@ -5,12 +5,8 @@ import contentPlaceholder from '../util/content-placeholder'
 import ProductCard from '../ProductCard'
 import SearchStats from '../SearchStats'
 
-const getProducts = ({products, hits, get}) => (
-  products || contentPlaceholder(hits, get('hitsPerPage'))
-)
-
-export default ({refine, hasMore, stats = false, ...props}) => {
-  const products = getProducts(props)
+export default ({hits, get, refine, hasMore, stats = false, ...props}) => {
+  const products = contentPlaceholder(hits, get('hitsPerPage'))
 
   return (
     <InfiniteScroll
