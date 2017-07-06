@@ -11,8 +11,12 @@ import './style.scss'
 
 const Search = createClass({
   componentWillMount () {
-    if (this.props.location.pathname !== '/search') {
-      this.props.history.push('/search')
+    const {location, get, createURL, history} = this.props
+
+    if (location.pathname !== '/search') {
+      const searchState = get('searchState')
+      const state = createURL(searchState)
+      history.push(`/search${state}`)
     }
   },
   onSwipedRight () {

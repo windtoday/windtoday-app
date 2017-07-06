@@ -11,30 +11,13 @@ import './style.scss'
 
 const updateAfter = 750
 
-const searchStateToUrl = (props, searchState) => (
-  searchState ? `${props.location.pathname}${createURL(searchState)}` : ''
-)
-
-const createURL = state => `?${qs.stringify(state)}`
-const parseURL = location => qs.parse(location.search.slice(1))
-const getDevice = () => window.innerWidth > 960 ? 'desktop' : 'mobile'
-
-function getDeviceState () {
-  const device = getDevice()
-  const isDesktop = device === 'desktop'
-
-  return {
-    isDesktop,
-    isMobile: !isDesktop
-  }
-}
-
 const App = createClass({
   propTypes: {
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
   },
   getInitialState () {
+    const {getDeviceState, parseURL} = this
     const device = getDeviceState()
 
     const sidebar = {
@@ -54,9 +37,24 @@ const App = createClass({
     }
   },
 
+  parseURL (location) {
+    return qs.parse(location.search.slice(1))
+  },
+
+  getDeviceState () {
+    const device = this.getDevice()
+    const isDesktop = device === 'desktop'
+
+    return {
+      isDesktop,
+      isMobile: !isDesktop
+    }
+  },
+
   componentWillReceiveProps (nextProps) {
     const {pathname: currentPathname} = this.props.location
     const {pathname: nextPathname} = nextProps.location
+    const {parseURL} = this
 
     if (currentPathname === '/search' && nextPathname === '/') {
       return this.setState({searchState: {}})
@@ -65,6 +63,21 @@ const App = createClass({
     if (currentPathname === '/' && nextPathname === '/search') {
       return this.setState({searchState: parseURL(nextProps.location)})
     }
+  },
+
+  getDevice () {
+    return window.innerWidth > 960 ? 'desktop' : 'mobile'
+  },
+
+  createURL (state) {
+    return `?${qs.stringify(state)}`
+  },
+
+  searchStateToUrl (props, searchState) {
+    const {createURL} = this
+    const {pathname} = props.location
+
+    return searchState ? `${pathname}${createURL(searchState)}` : ''
   },
 
   toggle (key) {
@@ -83,6 +96,8 @@ const App = createClass({
   },
 
   onSearchStateChange (searchState) {
+    const {searchStateToUrl} = this
+
     clearTimeout(this.debouncedSetState)
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(searchStateToUrl(this.props, searchState), searchState)
@@ -100,7 +115,15 @@ const App = createClass({
   render () {
     const {toggle, get, onSearchStateChange, createURL, state, set, isSearching} = this
     const {searchState} = state
-    const props = {toggle, get, set, isSearching, ...this.props}
+
+    const props = {
+      toggle,
+      createURL,
+      get,
+      set,
+      isSearching,
+      ...this.props
+    }
 
     return (
       <InstantSearch
