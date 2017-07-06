@@ -9,8 +9,6 @@ import Search from '../Search'
 import Home from '../Home'
 import './style.scss'
 
-const updateAfter = 750
-
 const App = createClass({
   propTypes: {
     history: PropTypes.object.isRequired,
@@ -77,7 +75,9 @@ const App = createClass({
     const {createURL} = this
     const {pathname} = props.location
 
-    return searchState ? `${pathname}${createURL(searchState)}` : ''
+    return searchState
+      ? `${pathname}${createURL(searchState)}`
+      : ''
   },
 
   toggle (key) {
@@ -97,12 +97,10 @@ const App = createClass({
 
   onSearchStateChange (searchState) {
     const {searchStateToUrl} = this
+    const url = searchStateToUrl(this.props, searchState)
 
-    clearTimeout(this.debouncedSetState)
-    this.debouncedSetState = setTimeout(() => {
-      this.props.history.push(searchStateToUrl(this.props, searchState), searchState)
-    }, updateAfter)
     this.setState({searchState})
+    this.props.history.push(url, searchState)
   },
 
   isSearching () {
