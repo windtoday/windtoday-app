@@ -1,3 +1,13 @@
+<a name="2.0.5"></a>
+## 2.0.5 (2017-07-06)
+
+* Avoid generate products ([19643c3](https://github.com/windtoday/windtoday-app/commit/19643c3))
+* Fix change between views, passing query ([1f1a2ce](https://github.com/windtoday/windtoday-app/commit/1f1a2ce))
+* Remove debounce ([cd374b7](https://github.com/windtoday/windtoday-app/commit/cd374b7))
+* Update deps ([38ce1b0](https://github.com/windtoday/windtoday-app/commit/38ce1b0))
+
+
+
 <a name="2.0.4"></a>
 ## 2.0.4 (2017-07-04)
 
