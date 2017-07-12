@@ -8,7 +8,7 @@ const compiler = webpack(config)
 
 const server = new WebpackDevServer(compiler, {
   publicPath: config.output.publicPath,
-  hot: false,
+  hot: true,
   overlay: true,
   historyApiFallback: true,
   contentBase: 'src/www'

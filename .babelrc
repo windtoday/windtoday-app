@@ -1,20 +1,18 @@
 {
   "presets": [
-    ["env", {
-      "modules": false,
-      "targets": { "browsers": ["last 2 versions", "ie >= 9"] }
-    }],
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {"browsers": ["last 2 versions", "ie >= 9"]}
+      }
+    ],
     "react"
   ],
-  "plugins": [
-    "lodash",
-    "transform-object-rest-spread"
-  ],
+  "plugins": ["react-hot-loader/babel", "lodash", "transform-object-rest-spread"],
   "env": {
     "production": {
-      "presets": [
-        "react-optimize"
-      ]
+      "presets": ["react-optimize"]
     }
   }
 }
