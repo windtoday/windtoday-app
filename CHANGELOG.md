@@ -1,3 +1,14 @@
+<a name="2.0.6"></a>
+## 2.0.6 (2017-07-12)
+
+* Add compression plugin ([e208db5](https://github.com/windtoday/windtoday-app/commit/e208db5))
+* Fix url searchstate ([2f365dd](https://github.com/windtoday/windtoday-app/commit/2f365dd))
+* Tweaks ([c7c5d22](https://github.com/windtoday/windtoday-app/commit/c7c5d22))
+* Update hot loader config ([830999f](https://github.com/windtoday/windtoday-app/commit/830999f))
+* Update index.ejs ([50fe6dd](https://github.com/windtoday/windtoday-app/commit/50fe6dd))
+
+
+
 <a name="2.0.5"></a>
 ## 2.0.5 (2017-07-06)
 
