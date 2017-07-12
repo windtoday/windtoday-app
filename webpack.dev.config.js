@@ -17,6 +17,9 @@ module.exports = {
   },
   devtool: 'eval',
   cache: true,
+  devServer: {
+    stats: 'minimal'
+  },
   entry: [
     // activate HMR for React
     'react-hot-loader/patch',

@@ -16,7 +16,7 @@ const Search = createClass({
     if (location.pathname !== '/search') {
       const searchState = get('searchState')
       const url = `/search${createURL(searchState)}`
-      history.push(url)
+      history.push(url, searchState)
     }
   },
   onSwipedRight () {
