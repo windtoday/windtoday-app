@@ -9,8 +9,6 @@ import ProductsGrid from '../ProductsGrid'
 import Overlay from '../Overlay'
 import Footer from '../Footer'
 
-import './style.scss'
-
 const Results = createClass({
   componentWillMount () {
     this.props.set('onSearchClear', () => {
@@ -24,13 +22,9 @@ const Results = createClass({
     const isAsideLeftOpen = get('searchFiltersLeftOpen')
     const hasAsideOpen = isAsideLeftOpen || isAsideRightOpen
     const isDesktop = get('isDesktop')
-    const isMobile = get('isMobile')
 
-    const className = classnames('search-results fl vh-100 bg-grey-50', {
-      'fixed': isMobile && hasAsideOpen,
-      'search-results--expand': isAsideLeftOpen,
-      'w-80': isDesktop && isAsideRightOpen,
-      'w-100': (isDesktop && !isAsideRightOpen) || isMobile
+    const className = classnames('search-results fl vh-100 bg-grey-50 w-100', {
+      'fixed': hasAsideOpen
     })
 
     return (
@@ -38,7 +32,7 @@ const Results = createClass({
         ref={node => (this.results = node)}
         data-app='search-results'
         className={className}>
-        {isMobile && <Overlay active={hasAsideOpen} />}
+        <Overlay active={hasAsideOpen} />
         {createElement(!loading && noResults ? SearchNoHits : ProductsGrid, {
           stats: true,
           ...this.props
