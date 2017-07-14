@@ -19,8 +19,8 @@ const App = createClass({
     const device = getDeviceState()
 
     const sidebar = {
-      searchFiltersLeftOpen: device.isDesktop,
-      searchFiltersRightOpen: device.isDesktop
+      searchFiltersLeftOpen: false,
+      searchFiltersRightOpen: false
     }
 
     const searchState = parseURL(this.props.location)
