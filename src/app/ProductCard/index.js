@@ -4,7 +4,7 @@ import ProductProvider from '../ProductProvider'
 import ProductImage from '../ProductImage'
 import ProductTitle from '../ProductTitle'
 import ProductPrice from '../ProductPrice'
-import ProductStars from '../ProductStars'
+import ProductScore from '../ProductScore'
 
 import './style.scss'
 
@@ -26,8 +26,8 @@ export default ({product}) => {
             product={product}
              />
           }
-          {isReady && <ProductStars
-            className='fr f5 pv1 ph2 bg-grey-50 br4 grey-700'
+          {isReady && <ProductScore
+            className='fr'
             product={product} />
           }
         </header>
