@@ -1,9 +1,11 @@
 import React from 'react'
 
+import CircularProgressbar from 'react-circular-progressbar'
 import ColourMeLife from 'colour-me-life'
-import IconScore from '../Icon/score'
 
-const SIZE = '34px'
+import './style.scss'
+
+const SIZE = '30px'
 
 const gradient = new ColourMeLife()
   .setSpectrum('#6e4b46', '#9e6b64', '#1ac391')
@@ -14,15 +16,18 @@ export default ({product, className, tiny}) => {
 
   return (
     <div
-      className='relative fr'
+      className='relative fr br-100'
       style={{
         'width': SIZE,
-        'height': SIZE
+        'height': SIZE,
+        backgroundColor: `#${gradient.colourAt(priceScore)}`
       }}
       >
-      <IconScore
+      <CircularProgressbar
         className={`absolute ${className}`}
-        style={{color: `#${gradient.colourAt(priceScore)}`}}
+        percentage={priceScore}
+        textForPercentage={() => ''}
+        strokeWidth={6}
         />
       <span
         className='b absolute f7'
