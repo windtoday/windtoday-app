@@ -1,3 +1,5 @@
+/* global ALGOLIA */
+
 import {InstantSearch} from 'react-instantsearch/dom'
 import createClass from 'create-react-class'
 import React, {createElement} from 'react'
@@ -125,9 +127,9 @@ const App = createClass({
 
     return (
       <InstantSearch
-        appId='PDZK7H6PD0'
-        apiKey='911167d1e62d76e16e9cd746c0b1a684'
-        indexName='windsurf'
+        appId={ALGOLIA.appId}
+        apiKey={ALGOLIA.apiKey}
+        indexName={ALGOLIA.indexName}
         searchState={searchState}
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}>

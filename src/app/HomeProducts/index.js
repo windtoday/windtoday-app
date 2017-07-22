@@ -1,3 +1,5 @@
+/* global ALGOLIA */
+
 import { Configure, InstantSearch } from 'react-instantsearch/dom'
 import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import React from 'react'
@@ -12,9 +14,9 @@ const HomeProducts = connectInfiniteHits(props => (
 
 export default ({filters, hitsPerPage, ...props}) => (
   <InstantSearch
-    appId='PDZK7H6PD0'
-    apiKey='911167d1e62d76e16e9cd746c0b1a684'
-    indexName='windsurf'
+    appId={ALGOLIA.appId}
+    apiKey={ALGOLIA.apiKey}
+    indexName={ALGOLIA.indexName}
     >
     <Configure filters={filters} hitsPerPage={hitsPerPage} />
     <HomeProducts hitsPerPage={hitsPerPage} {...props} />

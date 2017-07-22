@@ -13,7 +13,7 @@ const webpack = require('webpack')
 const glob = require('glob')
 const path = require('path')
 
-const config = require('./config.json')
+const config = JSON.parse(JSON.stringify(require('config')))
 const pkg = require('./package.json')
 
 const { DefinePlugin, HashedModuleIdsPlugin } = webpack
@@ -76,7 +76,8 @@ module.exports = {
   plugins: [
     new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-      'APP_VERSION': JSON.stringify(pkg.version)
+      'APP_VERSION': JSON.stringify(pkg.version),
+      'ALGOLIA': JSON.stringify(config.algolia)
     }),
     new ModuleConcatenationPlugin(),
     new HashedModuleIdsPlugin(),
@@ -156,7 +157,7 @@ module.exports = {
         }).map(file => file.replace('src/www/', ''))
       )
     }),
-    new HtmlWebpackPlugin(Object.assign({}, config, {
+    new HtmlWebpackPlugin(Object.assign({}, config.meta, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
       inject: false,

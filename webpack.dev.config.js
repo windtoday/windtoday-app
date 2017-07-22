@@ -4,11 +4,11 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const config = JSON.parse(JSON.stringify(require('config')))
 const webpack = require('webpack')
 const path = require('path')
 
 const pkg = require('./package.json')
-const config = require('./config.json')
 const {HotModuleReplacementPlugin, NamedModulesPlugin} = webpack
 
 module.exports = {
@@ -76,9 +76,10 @@ module.exports = {
     new NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
-      'APP_VERSION': JSON.stringify(pkg.version)
+      'APP_VERSION': JSON.stringify(pkg.version),
+      'ALGOLIA': JSON.stringify(config.algolia)
     }),
-    new HtmlWebpackPlugin(Object.assign({}, config, {
+    new HtmlWebpackPlugin(Object.assign({}, config.meta, {
       template: path.resolve('index.ejs'),
       alwaysWriteToDisk: true,
       inject: false
