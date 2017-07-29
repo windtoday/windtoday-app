@@ -1,3 +1,17 @@
+<a name="2.0.7"></a>
+## 2.0.7 (2017-07-29)
+
+* Add cover url ([27ce3f9](https://github.com/windtoday/windtoday-app/commit/27ce3f9))
+* Add overlay for sidebar on desktop (#255) ([f9fae38](https://github.com/windtoday/windtoday-app/commit/f9fae38))
+* Add shake plugin ([dd939b7](https://github.com/windtoday/windtoday-app/commit/dd939b7))
+* Add universal config ([d006326](https://github.com/windtoday/windtoday-app/commit/d006326))
+* Adjust aside width on desktop ([318acd8](https://github.com/windtoday/windtoday-app/commit/318acd8))
+* Improve Pricing algorithm (#257) ([649b80c](https://github.com/windtoday/windtoday-app/commit/649b80c))
+* Overlay aside (#256) ([4f256c4](https://github.com/windtoday/windtoday-app/commit/4f256c4))
+* Update deps (#258) ([375d147](https://github.com/windtoday/windtoday-app/commit/375d147))
+
+
+
 <a name="2.0.6"></a>
 ## 2.0.6 (2017-07-12)
 
