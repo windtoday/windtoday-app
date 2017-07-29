@@ -1,3 +1,10 @@
+<a name="2.0.8"></a>
+## 2.0.8 (2017-07-29)
+
+* Fix CSS linter ([026d782](https://github.com/windtoday/windtoday-app/commit/026d782))
+
+
+
 <a name="2.0.7"></a>
 ## 2.0.7 (2017-07-29)
 
