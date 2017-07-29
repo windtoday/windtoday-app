@@ -1,7 +1,14 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": "stylelint-config-sass-guidelines",
   "rules": {
     "number-leading-zero": "never",
-    "value-list-max-empty-lines": 1
+    "value-list-max-empty-lines": 1,
+    "selector-class-pattern": null,
+    "order/properties-alphabetical-order": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "max-nesting-depth": null,
+    "selector-no-qualifying-type": null,
+    "selector-no-vendor-prefix": null,
+    "scss/dollar-variable-pattern": null
   }
 }

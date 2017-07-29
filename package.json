@@ -74,7 +74,7 @@
     "browser-sync-webpack-plugin": "latest",
     "standard": "latest",
     "stylelint": "latest",
-    "stylelint-config-standard": "latest",
+    "stylelint-config-sass-guidelines": "latest",
     "webpack-dashboard": "latest",
     "webpack-dev-server": "latest"
   },
