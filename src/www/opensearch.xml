@@ -1,7 +1,0 @@
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>windtoday.co</ShortName>
-  <Description>All water sports stock at one place</Description>
-  <Url type="text/html" method="get" template="https://windtoday.co/?query={searchTerms}"/>
-  <InputEncoding>UTF-8</InputEncoding>
-  <Image height="32" width="32" type="image/x-icon">https://windtoday.co/assets/img/favicon-32x32.png?v=ngGXy3wdgX</Image>
-</OpenSearchDescription>

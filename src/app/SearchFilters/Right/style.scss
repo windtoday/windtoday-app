@@ -1,9 +1,0 @@
-.search-filters-right {
-  right: 0;
-
-  @include lateral-transition(transform);
-}
-
-.search-filters-right--collapse {
-  transform: translateX(100%);
-}
