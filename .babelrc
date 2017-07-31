@@ -1,18 +1,25 @@
 {
   "presets": [
+    "next/babel"
+  ]
+  ,
+  "plugins": [
+    ["transform-define", "./env.config.js"],
     [
-      "env",
+      "module-resolver", {
+        "root": ["."],
+        "alias": {
+          "styles": "./styles",
+          "components": "./components"
+        },
+        "cwd": "babelrc"
+    }],
+    [
+      "wrap-in-js",
       {
-        "modules": false,
-        "targets": {"browsers": ["last 2 versions", "ie >= 9"]}
+        "extensions": ["css$", "scss$"]
       }
-    ],
-    "react"
+    ]
   ],
-  "plugins": ["react-hot-loader/babel", "lodash", "transform-object-rest-spread"],
-  "env": {
-    "production": {
-      "presets": ["react-optimize"]
-    }
-  }
+  "ignore": []
 }

@@ -8,6 +8,7 @@ npm-debug.log
 # tmp, editor & OS files
 ############################
 .tmp
+.next
 *.swo
 *.swp
 *.swn
@@ -30,10 +31,3 @@ coverage
 # Other
 ############################
 .node_history
-src/www/sw.js
-src/www/appcache
-src/www/assets/css
-src/www/assets/js
-src/www/index.html
-src/www/report.html
-src/www/stats.json
