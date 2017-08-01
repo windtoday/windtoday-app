@@ -1,27 +1,35 @@
-import {Menu, Search} from 'react-feather'
-import {Fixed, Heading, Drawer, Toolbar, NavLink} from 'rebass'
+import {Menu, Search, X} from 'react-feather'
+import {Input, Fixed, Heading, Drawer, Toolbar, NavLink} from 'rebass'
 import {createProvider} from 'refunk'
 
-const hoc = createProvider({open: false})
-const toggleDrawer = state => ({open: !state.open})
+const hoc = createProvider({isDrawerOpen: false, isSearchOpen: false})
+const toggleDrawer = state => ({isDrawerOpen: !state.isDrawerOpen})
+const toggleSearch = state => ({isSearchOpen: !state.isSearchOpen})
 
-const AppBar = hoc(({open, update}) =>
+const AppBar = hoc(({isDrawerOpen, isSearchOpen, update}) =>
   <div>
-    {open && <Fixed top right bottom left onClick={e => update(toggleDrawer)} />}
+    {isDrawerOpen && <Fixed top right bottom left onClick={e => update(toggleDrawer)} />}
 
-    <Drawer open={open} color='white' bg='gray9'>
+    <Drawer open={isDrawerOpen} color='white' bg='gray9'>
       <Heading>Hello</Heading>
     </Drawer>
 
-    <Toolbar py={2}>
+    <Toolbar color='blue' bg='white' py={2}>
       <NavLink>
         <Menu onClick={e => update(toggleDrawer)} />
       </NavLink>
 
-      <NavLink mx='auto' children='WINDTODAY' />
+      {!isSearchOpen
+        ? <NavLink mx='auto' children='WINDTODAY' />
+        : <Input mx={3} placeholder='What are you looking for?' autoFocus />
+      }
 
       <NavLink>
-        <Search />
+        {!isSearchOpen
+          ? <Search onClick={e => update(toggleSearch)} />
+          : <X onClick={e => update(toggleSearch)} />
+        }
+
       </NavLink>
     </Toolbar>
   </div>
