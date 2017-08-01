@@ -8,6 +8,7 @@ import App from 'components/App'
 import Router from 'next/router'
 import React from 'react'
 import qs from 'qs'
+import {Provider} from 'rebass'
 
 const updateAfter = 700
 
@@ -63,15 +64,17 @@ const searchStateToUrl = searchState =>
 
       return (
         <Layout>
-          <App
-            resultsState={this.props.resultsState}
-            onSearchStateChange={this.onSearchStateChange}
-            searchState={searchState}
-            createURL={createURL}
-            url={this.props.url}
-            isServer={this.props.isServer}
-          >
-          </App>
+          <Provider>
+            <App
+              resultsState={this.props.resultsState}
+              onSearchStateChange={this.onSearchStateChange}
+              searchState={searchState}
+              createURL={createURL}
+              url={this.props.url}
+              isServer={this.props.isServer}
+            >
+            </App>
+          </Provider>
         </Layout>
       );
     }
