@@ -1,31 +1,25 @@
 import {Highlight} from 'react-instantsearch/dom'
 import PropTypes from 'prop-types'
 
+import {
+  Card,
+  Box,
+  BackgroundImage,
+  Subhead,
+  Small
+} from 'rebass'
+
 const HitComponent = ({ hit }) =>
-  <div className='hit'>
-    <div>
-      <div className='hit-picture'>
-        <img src={`${hit.image}`} />
-      </div>
-    </div>
-    <div className='hit-content'>
-      <div>
-        <Highlight attributeName='name' hit={hit} />
-        <span>
-          {' '}- ${hit.price}
-        </span>
-        <span>
-          {' '}- {hit.rating} stars
-        </span>
-      </div>
-      <div className='hit-type'>
+  <Card width={256}>
+    <BackgroundImage src={hit.image} />
+    <Box p={2}>
+      <Subhead >
         <Highlight attributeName='type' hit={hit} />
-      </div>
-      <div className='hit-description'>
-        <Highlight attributeName='description' hit={hit} />
-      </div>
-    </div>
-  </div>
+      </Subhead>
+      <Subhead>{hit.price}</Subhead>
+      <Small>Small meta text</Small>
+    </Box>
+  </Card>
 
 HitComponent.propTypes = {
   hit: PropTypes.object

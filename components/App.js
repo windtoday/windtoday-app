@@ -10,6 +10,8 @@ import {
 
 import { InstantSearch } from './Instantsearch';
 import Hit from './Hit';
+import AppBar from './AppBar';
+import CategoryBar from './CategoryBar';
 
 export default class extends React.Component {
   static propTypes = {
@@ -31,6 +33,8 @@ export default class extends React.Component {
         createURL={this.props.createURL}
       >
         <Configure hitsPerPage={10} />
+        <AppBar></AppBar>
+        <CategoryBar></CategoryBar>
         <header>
           <h1>React InstantSearch + Next.Js</h1>
           <SearchBox />

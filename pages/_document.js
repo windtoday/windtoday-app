@@ -1,5 +1,6 @@
 import NextDocument, { Head, Main, NextScript } from 'next/document'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
+import { ServerStyleSheet } from 'styled-components'
 import stylesheet from 'styles/index.scss'
 
 export default class Document extends NextDocument {
@@ -10,6 +11,10 @@ export default class Document extends NextDocument {
   }
 
   render () {
+    const sheet = new ServerStyleSheet()
+    const main = sheet.collectStyles(<Main />)
+    const styleTags = sheet.getStyleElement()
+
     return (
       <html lang='en'>
         <Head>
@@ -32,14 +37,11 @@ export default class Document extends NextDocument {
           <meta name='msapplication-config' content='/static/favicon/browserconfig.xml' />
           <meta name='theme-color' content='#ffffff' />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-          <link
-            rel='stylesheet'
-            href='https://unpkg.com/react-instantsearch-theme-algolia@3.0.0/style.min.css'
-          />
+          {styleTags}
 
         </Head>
         <body>
-          <Main />
+          {main}
           <NextScript />
         </body>
       </html>
