@@ -26,7 +26,7 @@ const HitComponent = ({ hit }) =>
         <SecondaryContent>
           <Avatar
             size={40}
-            src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20'
+            src={`/static/img/provider/${hit.provider}.jpg`}
           />
         </SecondaryContent>
         <PrimaryContent>
@@ -45,7 +45,7 @@ const HitComponent = ({ hit }) =>
       </Flex>
     </Box>
 
-    <Divider w={1} color='gray' />
+    <Divider w={1} color='gray3' />
   </Box>
 
 HitComponent.propTypes = {
