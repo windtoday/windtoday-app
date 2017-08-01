@@ -1,16 +1,30 @@
-import { Toolbar, NavLink } from 'rebass'
+import {Menu, Search} from 'react-feather'
+import {Fixed, Heading, Drawer, Toolbar, NavLink} from 'rebass'
+import {createProvider} from 'refunk'
 
-import { Menu, Search } from 'react-feather'
+const hoc = createProvider({open: false})
+const toggleDrawer = state => ({open: !state.open})
 
-export default () =>
-  <Toolbar py={2}>
-    <NavLink>
-      <Menu />
-    </NavLink>
+const AppBar = hoc(({open, update}) =>
+  <div>
+    {open && <Fixed top right bottom left onClick={e => update(toggleDrawer)} />}
 
-    <NavLink mx='auto' children='WINDTODAY' />
+    <Drawer open={open} color='white' bg='gray9'>
+      <Heading>Hello</Heading>
+    </Drawer>
 
-    <NavLink>
-      <Search />
-    </NavLink>
-  </Toolbar>
+    <Toolbar py={2}>
+      <NavLink>
+        <Menu onClick={e => update(toggleDrawer)} />
+      </NavLink>
+
+      <NavLink mx='auto' children='WINDTODAY' />
+
+      <NavLink>
+        <Search />
+      </NavLink>
+    </Toolbar>
+  </div>
+)
+
+export default AppBar
