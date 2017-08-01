@@ -47,8 +47,11 @@
     "styled-components": "~2.1.1"
   },
   "devDependencies": {
-    "babel-eslint": "~7.2.3",
+    "babel-eslint": "latest",
     "git-dirty": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -59,10 +62,26 @@
     "build": "next build",
     "clean": "rm -rf node_modules",
     "dev": "next",
+    "prelint": "npm run pretty",
     "lint": "standard-markdown && standard",
+    "pretty": "prettier-standard components/**/*.js config/**/*.js pages/**/*.js",
     "pretest": "npm run lint",
     "start": "next start",
     "test": "exit 0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "React"
+    ]
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
   },
   "license": "MIT"
 }

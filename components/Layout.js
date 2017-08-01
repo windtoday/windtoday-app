@@ -9,10 +9,12 @@ export default ({
   image = APP_IMAGE,
   twitter = APP_TWITTER,
   url = APP_URL
-}) => (
+}) =>
   <div>
     <Head>
-      <title>{ title }</title>
+      <title>
+        {title}
+      </title>
 
       <meta itemProp='name' content={title} />
       <meta itemProp='description' content={description} />
@@ -32,9 +34,7 @@ export default ({
       <meta name='og:type' content='website' />
 
       <link rel='canonical' href={url} />
-
     </Head>
 
-    { children }
+    {children}
   </div>
-)
