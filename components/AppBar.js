@@ -1,7 +1,4 @@
-import {
-  Toolbar,
-  NavLink
-} from 'rebass'
+import { Toolbar, NavLink } from 'rebass'
 
 import { Menu, Search } from 'react-feather'
 
@@ -11,10 +8,7 @@ export default () =>
       <Menu />
     </NavLink>
 
-    <NavLink
-      mx='auto'
-      children='WINDTODAY'
-    />
+    <NavLink mx='auto' children='WINDTODAY' />
 
     <NavLink>
       <Search />

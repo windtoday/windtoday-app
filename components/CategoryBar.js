@@ -1,8 +1,4 @@
-import {
-  Tabs,
-  TabItem,
-  Flex
-} from 'rebass'
+import { Tabs, TabItem, Flex } from 'rebass'
 
 import styled from 'styled-components'
 
