@@ -1,15 +1,7 @@
 import PropTypes from 'prop-types'
-import {
-  RefinementList,
-  SearchBox,
-  Hits,
-  Configure,
-  Highlight,
-  Pagination
-} from 'react-instantsearch/dom'
-
+import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
-import Hit from './Hit'
+import Hits from './Hits'
 import AppBar from './AppBar'
 import CategoryBar from './CategoryBar'
 
@@ -24,9 +16,9 @@ export default class extends React.Component {
   render () {
     return (
       <InstantSearch
-        appId='latency'
-        apiKey='6be0576ff61c053d5f9a3225e2a90f76'
-        indexName='ikea'
+        appId='PDZK7H6PD0'
+        apiKey='911167d1e62d76e16e9cd746c0b1a684'
+        indexName='dev_windsurf'
         resultsState={this.props.resultsState}
         onSearchStateChange={this.props.onSearchStateChange}
         searchState={this.props.searchState}
@@ -35,28 +27,7 @@ export default class extends React.Component {
         <Configure hitsPerPage={10} />
         <AppBar />
         <CategoryBar />
-        <header>
-          <h1>React InstantSearch + Next.Js</h1>
-          <SearchBox />
-        </header>
-        <content>
-          <menu>
-            <RefinementList attributeName='category' />
-          </menu>
-          <results>
-            <Hits hitComponent={Hit} />
-          </results>
-        </content>
-        <footer>
-          <Pagination />
-          <div>
-            See{' '}
-            <a href='https://github.com/algolia/react-instantsearch/tree/master/packages/react-instantsearch/examples/next-app'>
-              source code
-            </a>{' '}
-            on github
-          </div>
-        </footer>
+        <Hits />
       </InstantSearch>
     )
   }
