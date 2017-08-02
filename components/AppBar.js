@@ -3,7 +3,7 @@ import { SearchBox } from 'react-instantsearch/dom'
 import {Menu, Search, X} from 'react-feather'
 import {createProvider} from 'refunk'
 
-const hoc = createProvider({isDrawerOpen: false, isSearchOpen: true})
+const hoc = createProvider({isDrawerOpen: false, isSearchOpen: false})
 const toggleDrawer = state => ({isDrawerOpen: !state.isDrawerOpen})
 const toggleSearch = state => ({isSearchOpen: !state.isSearchOpen})
 
