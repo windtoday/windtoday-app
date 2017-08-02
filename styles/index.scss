@@ -1,7 +1,16 @@
 @import 'normalize.css';
 
+$blue: #0077cc;
+$pink: #ec407a;
+$white: #fff;
+$yellow: #ccbb00;
+$w3: 212px;
+
 html {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Helvetica Neue,sans-serif;
   font-size: 14px;
   line-height: 1.3125;
 }
+
+@import './SearchBox.scss';
+@import './Highlight.scss';

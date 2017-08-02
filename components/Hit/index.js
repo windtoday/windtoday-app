@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import {ChevronDown} from 'react-feather'
-
 import { Badge, Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
+import { Highlight } from 'react-instantsearch/dom'
 import ProgressArc from 'progress-arc-component'
 import getImageUrl from 'util/get-image-url'
 import ColourMeLife from 'colour-me-life'
+import {ChevronDown} from 'react-feather'
+import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
+import PropTypes from 'prop-types'
 
 const formatter = (value, unit, suffix) => {
   if (value !== 1) unit += 's'
@@ -65,16 +65,20 @@ const HitComponent = ({ hit }) =>
         <PrimaryContent>
           <Flex direction='row' mb={1} justify='space-between' align='center'>
             <Box>
-              <Text is='span' bold>{hit.provider}</Text>{' · '}
+              <Text is='span' bold>
+                <Highlight attributeName='provider' hit={hit} />
+              </Text>{' · '}
               <Text is='span' color='gray7'>€{hit.price}</Text>{' · '}
-              <Text is='span' color='gray7'><TimeAgo formatter={formatter} date={hit.timestamp} /></Text>
+              <Text is='span' color='gray7'>
+                <TimeAgo formatter={formatter} date={hit.timestamp} />
+              </Text>
             </Box>
             <Box>
               <ChevronDown color='gray' />
             </Box>
           </Flex>
           <Box>
-            <Text>{hit.title}</Text>
+            <Text><Highlight attributeName='title' hit={hit} /></Text>
           </Box>
           <Box mt={2}>
             <CustomBackgroundImage src={getImageUrl(hit, 300)} />
