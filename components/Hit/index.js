@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {ChevronDown} from 'react-feather'
 
-import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
+import { Badge, Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
 import ProgressArc from 'progress-arc-component'
 import getImageUrl from 'util/get-image-url'
 import ColourMeLife from 'colour-me-life'
@@ -22,13 +22,11 @@ const AVATAR_SIZE = '40px'
 const Content = styled(Box)`
 margin: 0 .32813rem;
 `
-
 const SecondaryContent = styled(Content)`
 min-width: ${AVATAR_SIZE};
 max-width: 3.28125rem;
 flex-grow: 1;
 `
-
 const PrimaryContent = styled(Content)`
 flex-grow: 7;
 `
@@ -39,11 +37,21 @@ text {
   font-size: 70px !important;
 }
 `
+const CustomBackgroundImage = styled(BackgroundImage)`
+border: 1px solid #ccd6dd;
+border-radius: .35rem;
+`
 const getColor = value => `#${gradient.colourAt(value)}`
+
+const CustomBadge = styled(Badge)`
+border-radius: 1rem;
+padding-right: 8px;
+padding-left: 8px;
+`
 
 const HitComponent = ({ hit }) =>
   <Box>
-    <Box py={3} px={2}>
+    <Box pt={3} pb={2} px={2}>
       <Flex direction='row'>
         <SecondaryContent>
           <CustomProgressArc
@@ -69,7 +77,12 @@ const HitComponent = ({ hit }) =>
             <Text>{hit.title}</Text>
           </Box>
           <Box mt={2}>
-            <BackgroundImage src={getImageUrl(hit, 300)} />
+            <CustomBackgroundImage src={getImageUrl(hit, 300)} />
+          </Box>
+          <Box mt={2}>
+            {hit.brand && <CustomBadge m={1}>{hit.brand}</CustomBadge>}
+            {hit.model && <CustomBadge m={1}>{hit.model}</CustomBadge>}
+            <CustomBadge m={1}>100l to 110l</CustomBadge>
           </Box>
         </PrimaryContent>
       </Flex>
