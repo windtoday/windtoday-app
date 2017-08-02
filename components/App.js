@@ -3,7 +3,7 @@ import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
 import Hits from './Hits'
 import AppBar from './AppBar'
-import CategoryBar from './CategoryBar'
+import CategoryTabs from './CategoryTabs'
 
 export default class extends React.Component {
   static propTypes = {
@@ -26,7 +26,7 @@ export default class extends React.Component {
       >
         <Configure hitsPerPage={10} />
         <AppBar />
-        <CategoryBar />
+        <CategoryTabs attributeName='category' />
         <Hits />
       </InstantSearch>
     )
