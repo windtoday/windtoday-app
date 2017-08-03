@@ -28,7 +28,7 @@ const renderCustomTabItem = ({ type, index, active, update, ...props }) => {
 }
 
 const CategoryBar = hoc(props =>
-  <Tabs>
+  <Tabs bg='white'>
     <Flex justify='center' mx='auto'>
       {renderCustomTabItem({ type: 'all', index: 1, ...props })}
       {renderCustomTabItem({ type: 'sails', index: 2, ...props })}
