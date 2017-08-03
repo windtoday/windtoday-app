@@ -1,7 +1,4 @@
-/* global ALGOLIA */
-
 import { findResultsState } from 'components/Instantsearch'
-import createClass from 'create-react-class'
 import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
 import App from 'components/App'
@@ -29,7 +26,7 @@ export default class extends React.Component {
       ? qs.parse(asPath.substring(asPath.indexOf('?') + 1))
       : {}
     const resultsState = await findResultsState(App, { searchState })
-    const isServer = !!params.req
+    const isServer = !!req
     return { resultsState, searchState, isServer, url }
   }
 
@@ -57,11 +54,6 @@ export default class extends React.Component {
       this.state && this.state.searchState
         ? this.state.searchState
         : this.props.searchState
-
-    const childProps = {
-      url: this.props.url,
-      isServer: this.props.isServer
-    }
 
     return (
       <Layout>
