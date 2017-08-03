@@ -1,5 +1,11 @@
-title: next-boilerplatinum
-description: A Platinum React Boilerplate Powered By Next
-image: /static/img/logo.png
-twitter: '@windtodayco'
-url: https://app.windtoday.co
+meta          :
+  title       : next-boilerplatinum
+  description : A Platinum React Boilerplate Powered By Next
+  image       : /static/img/logo.png
+  twitter     : '@windtodayco'
+  url         : https://app.windtoday.co
+
+algolia       :
+  appId       : PDZK7H6PD0
+  apiKey      : 911167d1e62d76e16e9cd746c0b1a684
+  indexName   : dev_windsurf

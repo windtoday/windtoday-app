@@ -66,7 +66,7 @@
   },
   "scripts": {
     "build": "next build",
-    "clean": "rm -rf node_modules",
+    "predev": "rm -rf node_modules/.cache/babel-loader",
     "dev": "next",
     "prelint": "npm run pretty",
     "lint": "standard-markdown && standard",

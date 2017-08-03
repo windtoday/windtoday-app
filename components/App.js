@@ -1,3 +1,5 @@
+/* global APP */
+
 import PropTypes from 'prop-types'
 import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
@@ -16,9 +18,9 @@ export default class extends React.Component {
   render () {
     return (
       <InstantSearch
-        appId='PDZK7H6PD0'
-        apiKey='911167d1e62d76e16e9cd746c0b1a684'
-        indexName='dev_windsurf'
+        appId={APP.algolia.appId}
+        apiKey={APP.algolia.apiKey}
+        indexName={APP.algolia.indexName}
         resultsState={this.props.resultsState}
         onSearchStateChange={this.props.onSearchStateChange}
         searchState={this.props.searchState}
