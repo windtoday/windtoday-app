@@ -9,12 +9,13 @@ const setActive = n => state => ({ active: n })
 
 const CustomTabItem = styled(TabItem)`
 text-transform: uppercase;
-font-size: 12px;
+cursor: pointer;
 `
 
 const renderCustomTabItem = ({ type, index, active, update, ...props }) => {
   return (
     <CustomTabItem
+      fontSize={[1, 2, 2]}
       active={active === index}
       onClick={e => {
         update(setActive(index))

@@ -1,16 +1,27 @@
 @import 'normalize.css';
+@import 'breakpoint-sass/stylesheets/breakpoint';
 
-$blue: #0077cc;
-$pink: #ec407a;
-$white: #fff;
+$white : #fff;
+$blue  : #0077cc;
 $yellow: #ccbb00;
-$w3: 212px;
+
+$small : 40em;
+$medium: 52em;
+$large : 64em;
 
 html {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Helvetica Neue,sans-serif;
-  font-size: 14px;
   line-height: 1.3125;
+  font-size: 15px;
+
+  @include breakpoint($medium) {
+    font-size: 16px;
+  }
+  @include breakpoint($large) {
+    font-size: 16px;
+  }
 }
 
 @import './SearchBox.scss';
 @import './Highlight.scss';
+@import './Hits.scss';

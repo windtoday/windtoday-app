@@ -1,3 +1,5 @@
+$input-width: 212px;
+
 .ais-SearchBox__submit {
   display: none;
 }
@@ -19,10 +21,14 @@
   margin-left: 16px;
   margin-right: 16px;
   padding: 4px;
-  width: $w3;
+  width: 212px;
   font-size: inherit;
   color: inherit;
   background-color: transparent;
+
+  @include breakpoint($large) {
+    width: $input-width * 1.5;
+  }
 
   &:focus {
     outline: none;
