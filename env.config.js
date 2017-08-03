@@ -1,17 +1,23 @@
 'use strict'
 
-const config = require('config')
 const pkg = require('./package.json')
+const config = require('config')
+
+const serializedObject = (key, obj) => Object.keys(obj).reduce((acc, prop) => {
+  const value = obj[prop]
+  acc[`${key}.${prop}`] = value
+  return acc
+}, {})
 
 // we do that for removing non object properties
 const rawConfig = JSON.parse(JSON.stringify(config))
 
 const globalConfig = Object.keys(rawConfig).reduce((acc, key) => {
   const value = rawConfig[key]
-  acc[`APP_${key.toUpperCase()}`] = value
-  return acc
+  const parentKey = `APP.${key}`
+  return Object.assign({}, acc, serializedObject(parentKey, value))
 }, {})
 
-globalConfig.APP_VERSION = pkg.version
+globalConfig['APP.version'] = pkg.version
 
 module.exports = globalConfig
