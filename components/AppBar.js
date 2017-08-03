@@ -1,5 +1,5 @@
-import {Fixed, Heading, Drawer, Toolbar, NavLink} from 'rebass'
-import { SearchBox } from 'react-instantsearch/dom'
+import {Box, Fixed, Heading, Drawer, Toolbar, NavLink} from 'rebass'
+import {SearchBox} from 'react-instantsearch/dom'
 import {Menu, Search, X} from 'react-feather'
 import {createProvider} from 'refunk'
 
@@ -20,21 +20,17 @@ const AppBar = hoc(({isDrawerOpen, isSearchOpen, update}) =>
         <Menu onClick={e => update(toggleDrawer)} />
       </NavLink>
 
-      {!isSearchOpen
-        ? <NavLink mx='auto' children='WINDTODAY' />
-        : <SearchBox translations={{
-          placeholder: 'What are you looking for?'
-        }}
-          autoFocus
-        />
-      }
+      <Box mx='auto'>
+        {!isSearchOpen
+          ? <NavLink mx='auto' children='WINDTODAY' />
+          : <SearchBox translations={{placeholder: 'What are you looking for?'}} autoFocus />
+        }
+      </Box>
 
       <NavLink>
         {!isSearchOpen
           ? <Search onClick={e => update(toggleSearch)} />
-          : <X onClick={e => update(toggleSearch)} />
-        }
-
+          : <X onClick={e => update(toggleSearch)} />}
       </NavLink>
     </Toolbar>
   </div>
