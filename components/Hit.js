@@ -17,14 +17,12 @@ const gradient = new ColourMeLife()
   .setSpectrum('#6e4b46', '#9e6b64', '#1ac391')
   .setNumberRange(0, 100)
 
-const AVATAR_SIZE = '40px'
-
 const Content = styled(Box)`
 margin: 0 .32813rem;
 `
 const SecondaryContent = styled(Content)`
-min-width: ${AVATAR_SIZE};
-max-width: 3.28125rem;
+min-width: 48px;
+max-width: 3.2rem;
 flex-grow: 1;
 `
 const PrimaryContent = styled(Content)`
@@ -32,7 +30,7 @@ flex-grow: 7;
 `
 const CustomProgressArc = styled(ProgressArc)`
 margin: 0 !important;
-height: ${AVATAR_SIZE} !important;
+height: inherit !important;
 text {
   font-size: 70px !important;
 }
@@ -63,7 +61,7 @@ const HitComponent = ({ hit }) =>
           />
         </SecondaryContent>
         <PrimaryContent>
-          <Flex direction='row' mb={1} justify='space-between' align='center'>
+          <Flex direction='row' justify='space-between' align='flex-start'>
             <Box>
               <Text is='span' bold>
                 <Highlight attributeName='provider' hit={hit} />
@@ -78,7 +76,7 @@ const HitComponent = ({ hit }) =>
               </Text>
             </Box>
             <Box>
-              <ChevronDown color='gray' />
+              <ChevronDown size={20} color='gray' />
             </Box>
           </Flex>
           <Box>
