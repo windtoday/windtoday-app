@@ -61,6 +61,7 @@
     "node": ">= 8"
   },
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "build": "next build",
     "dev": "next",
     "lint": "standard-markdown && standard",
@@ -68,7 +69,7 @@
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
     "pretty": "prettier-standard components/**/*.js config/**/*.js pages/**/*.js",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "exit 0"
   },
   "license": "MIT",
