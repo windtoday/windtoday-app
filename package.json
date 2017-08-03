@@ -56,7 +56,6 @@
     "babel-eslint": "latest",
     "git-dirty": "latest",
     "husky": "latest",
-    "lint-staged": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
@@ -66,28 +65,20 @@
   },
   "scripts": {
     "build": "next build",
-    "predev": "rm -rf node_modules/.cache/babel-loader",
     "dev": "next",
-    "prelint": "npm run pretty",
     "lint": "standard-markdown && standard",
-    "pretty": "prettier-standard components/**/*.js config/**/*.js pages/**/*.js",
+    "precommit": "npm run pretty",
+    "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
+    "pretty": "prettier-standard components/**/*.js config/**/*.js pages/**/*.js",
     "start": "next start",
     "test": "exit 0"
   },
+  "license": "MIT",
   "standard": {
-    "parser": "babel-eslint",
     "globals": [
       "React"
-    ]
-  },
-  "lint-staged": {
-    "linters": {
-      "src/**/*.js": [
-        "prettier-standard",
-        "git add"
-      ]
-    }
-  },
-  "license": "MIT"
+    ],
+    "parser": "babel-eslint"
+  }
 }
