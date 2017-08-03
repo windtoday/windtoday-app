@@ -1,11 +1,12 @@
 /* global APP */
 
-import PropTypes from 'prop-types'
 import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
-import Hits from './Hits'
-import AppBar from './AppBar'
 import CategoryTabs from './CategoryTabs'
+import Headroom from 'react-headroom'
+import PropTypes from 'prop-types'
+import AppBar from './AppBar'
+import Hits from './Hits'
 
 export default class extends React.Component {
   static propTypes = {
@@ -27,8 +28,10 @@ export default class extends React.Component {
         createURL={this.props.createURL}
       >
         <Configure hitsPerPage={10} />
-        <AppBar />
-        <CategoryTabs attributeName='category' />
+        <Headroom>
+          <AppBar />
+          <CategoryTabs attributeName='category' />
+        </Headroom>
         <Hits />
       </InstantSearch>
     )
