@@ -42,6 +42,7 @@
     "react-dom": "~15.6.1",
     "react-feather": "~1.0.5",
     "react-headroom": "~2.1.6",
+    "react-infinite-scroll-component": "~2.4.0",
     "react-instantsearch": "~4.1.0-beta.3",
     "react-timeago": "~3.4.3",
     "rebass": "~1.0.3",

@@ -7,6 +7,7 @@ import Headroom from 'react-headroom'
 import PropTypes from 'prop-types'
 import AppBar from './AppBar'
 import Hits from './Hits'
+import Hit from './Hit'
 
 export default class extends React.Component {
   static propTypes = {
@@ -32,7 +33,7 @@ export default class extends React.Component {
           <AppBar />
           <CategoryTabs attributeName='category' />
         </Headroom>
-        <Hits />
+        <Hits hitComponent={Hit} />
       </InstantSearch>
     )
   }
