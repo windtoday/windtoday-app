@@ -3,7 +3,7 @@ import { Highlight } from 'react-instantsearch/dom'
 import ProgressArc from 'progress-arc-component'
 import getImageUrl from 'util/get-image-url'
 import ColourMeLife from 'colour-me-life'
-import {ChevronDown} from 'react-feather'
+import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
@@ -67,8 +67,12 @@ const HitComponent = ({ hit }) =>
             <Box>
               <Text is='span' bold>
                 <Highlight attributeName='provider' hit={hit} />
-              </Text>{' · '}
-              <Text is='span' color='gray7'>€{hit.price}</Text>{' · '}
+              </Text>
+              {' · '}
+              <Text is='span' color='gray7'>
+                €{hit.price}
+              </Text>
+              {' · '}
               <Text is='span' color='gray7'>
                 <TimeAgo formatter={formatter} date={hit.timestamp} />
               </Text>
@@ -78,14 +82,22 @@ const HitComponent = ({ hit }) =>
             </Box>
           </Flex>
           <Box>
-            <Text><Highlight attributeName='title' hit={hit} /></Text>
+            <Text>
+              <Highlight attributeName='title' hit={hit} />
+            </Text>
           </Box>
           <Box mt={2}>
             <CustomBackgroundImage src={getImageUrl(hit, 300)} />
           </Box>
           <Box mt={2}>
-            {hit.brand && <CustomBadge m={1}>{hit.brand}</CustomBadge>}
-            {hit.model && <CustomBadge m={1}>{hit.model}</CustomBadge>}
+            {hit.brand &&
+              <CustomBadge m={1}>
+                {hit.brand}
+              </CustomBadge>}
+            {hit.model &&
+              <CustomBadge m={1}>
+                {hit.model}
+              </CustomBadge>}
             <CustomBadge m={1}>100l to 110l</CustomBadge>
           </Box>
         </PrimaryContent>
