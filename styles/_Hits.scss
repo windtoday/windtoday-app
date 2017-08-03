@@ -1,5 +1,6 @@
 .ais-Hits__root {
   @include breakpoint($large) {
-    margin: 0 232px;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }

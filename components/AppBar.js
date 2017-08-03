@@ -7,6 +7,10 @@ const hoc = createProvider({ isDrawerOpen: false, isSearchOpen: false })
 const toggleDrawer = state => ({ isDrawerOpen: !state.isDrawerOpen })
 const toggleSearch = state => ({ isSearchOpen: !state.isSearchOpen })
 
+const translations = {
+  placeholder: 'What are you looking for?'
+}
+
 const AppBar = hoc(({ isDrawerOpen, isSearchOpen, update }) =>
   <div>
     {isDrawerOpen &&
@@ -24,10 +28,7 @@ const AppBar = hoc(({ isDrawerOpen, isSearchOpen, update }) =>
       <Box mx='auto' fontSize={[1, 2, 2]}>
         {!isSearchOpen
           ? <NavLink fontSize={[1, 2, 2]} mx='auto' children='WINDTODAY' />
-          : <SearchBox
-              translations={{ placeholder: 'What are you looking for?' }}
-              autoFocus
-            />}
+          : <SearchBox translations={translations} autoFocus />}
       </Box>
 
       <NavLink>
