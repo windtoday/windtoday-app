@@ -1,5 +1,5 @@
-$input-width: 250px;
-$input-height: 35px;
+$input-width: 280px;
+$input-height: 38px;
 
 .ais-SearchBox__submit {
   display: none;
@@ -9,11 +9,15 @@ $input-height: 35px;
   display: block;
 }
 
+.ais-SearchBox__input:valid {
+  font-weight: bold;
+}
+
 .ais-SearchBox__reset {
   display: none;
   position: absolute;
-  top: 3px;
-  right: 20px;
+  top: 4px;
+  right: 5px;
   margin: 0;
   border: 0;
   background: none;
@@ -34,7 +38,6 @@ $input-height: 35px;
 .ais-SearchBox__root {
   display: inline-block;
   position: relative;
-  max-width: 300px;
   width: 100%;
   white-space: nowrap;
   box-sizing: border-box;
@@ -42,6 +45,7 @@ $input-height: 35px;
 }
 
 .ais-SearchBox__wrapper {
+  margin-left: -24px; /* left icon */
   width: 100%;
   height: 100%;
 }
@@ -56,9 +60,7 @@ $input-height: 35px;
   border-radius: 1rem;
   appearance: none;
   margin: 0px;
-  margin-left: 16px;
-  margin-right: 16px;
-  padding: 4px 12px;
+  padding: 4px 30px 4px 15px;
   width: $input-width;
   height: $input-height;
 
@@ -71,11 +73,15 @@ $input-height: 35px;
   }
 
   @include breakpoint($large) {
-    width: $input-width * 1.5;
+    width: $input-width * 1.8;
   }
 
   &:focus {
     outline: none;
     box-shadow: inset 0 0 0 1px $blue;
+  }
+
+  @include placeholder {
+    font-size: 16px;
   }
 }

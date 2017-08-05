@@ -1,12 +1,11 @@
-import { Box, Fixed, Heading, Drawer, Toolbar, NavLink } from 'rebass'
+import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
-import { Menu, Search, X } from 'react-feather'
+import { Box, Toolbar, NavLink } from 'rebass'
 import { createProvider } from 'refunk'
-import { createElement } from 'react'
+import Logo from './Logo'
 
-const hoc = createProvider({ isDrawerOpen: false, isSearchOpen: false })
-const toggleDrawer = state => ({ isDrawerOpen: !state.isDrawerOpen })
-const toggleSearch = state => ({ isSearchOpen: !state.isSearchOpen })
+const hoc = createProvider({ isSearchOpen: true })
+const toggle = prop => state => ({ [prop]: !state[prop] })
 
 const translations = {
   placeholder: 'What are you looking for?'
@@ -14,29 +13,23 @@ const translations = {
 
 const AppBar = hoc(({ isDrawerOpen, isSearchOpen, update }) =>
   <div>
-    {isDrawerOpen &&
-      <Fixed top right bottom left onClick={e => update(toggleDrawer)} />}
-
-    <Drawer open={isDrawerOpen} color='white' bg='gray9'>
-      <Heading>Hello</Heading>
-    </Drawer>
-
     <Toolbar color='blue' bg='white' py={2}>
       <NavLink>
-        <Menu onClick={e => update(toggleDrawer)} />
+        {!isSearchOpen
+          ? <Logo />
+          : <ChevronLeft onClick={e => update(toggle('isSearchOpen'))} />}
       </NavLink>
 
       <Box mx='auto' fontSize={[1, 1, 1]}>
         {!isSearchOpen
-          ? <NavLink fontSize={[1, 2, 2]} mx='auto' children='WINDTODAY' />
+          ? <NavLink fontSize={2} mx='auto' children='WINDTODAY' />
           : <SearchBox translations={translations} autoFocus />}
       </Box>
 
-      <NavLink>
-        {createElement(!isSearchOpen ? Search : X, {
-          onClick: e => update(toggleSearch)
-        })}
-      </NavLink>
+      {!isSearchOpen &&
+        <NavLink>
+          <Search onClick={e => update(toggle('isSearchOpen'))} />
+        </NavLink>}
     </Toolbar>
   </div>
 )
