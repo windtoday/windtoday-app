@@ -86,8 +86,9 @@ const HitComponent = ({ hit }) =>
             <CustomBackgroundImage src={getImageUrl(hit, 600)} />
           </Box>
           <Box mt={2}>
-            <Tag bg='pink' attributeName='brand' hit={hit} />
-            <Tag bg='red' attributeName='model' hit={hit} />
+            <Tag bg='blue4' attributeName='brand' hit={hit} />
+            <Tag bg='blue4' attributeName='model' hit={hit} />
+            <Tag bg='blue4' attributeName='condition' hit={hit} />
           </Box>
         </PrimaryContent>
       </Flex>
