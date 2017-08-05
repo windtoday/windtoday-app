@@ -36,9 +36,12 @@ text {
   font-size: 70px !important;
 }
 `
-const CustomBackgroundImage = styled(BackgroundImage)`
+const CustomBackgroundImage = BackgroundImage.extend`
 border: 1px solid #ccd6dd;
 border-radius: .35rem;
+height: 48vw;
+max-height: 312px;
+padding: 0;
 `
 const getColor = value => `#${gradient.colourAt(value)}`
 
@@ -80,7 +83,7 @@ const HitComponent = ({ hit }) =>
             </Text>
           </Box>
           <Box mt={2}>
-            <CustomBackgroundImage src={getImageUrl(hit, 300)} />
+            <CustomBackgroundImage src={getImageUrl(hit, 600)} />
           </Box>
           <Box mt={2}>
             <Tag bg='pink' attributeName='brand' hit={hit} />
