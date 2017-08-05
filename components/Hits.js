@@ -55,7 +55,7 @@ InfiniteHits.propTypes = {
   refine: PropTypes.func.isRequired,
   hasMore: PropTypes.bool.isRequired,
   hasResults: PropTypes.bool.isRequired,
-  query: PropTypes.string.isRequired
+  query: PropTypes.string
 }
 
 const connectedInfiniteHits = connectInfiniteHits(InfiniteHits)

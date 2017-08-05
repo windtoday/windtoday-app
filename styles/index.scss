@@ -9,6 +9,13 @@ $small : 40em;
 $medium: 52em;
 $large : 64em;
 
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
 html {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Helvetica Neue,sans-serif;
   line-height: 1.3125;
