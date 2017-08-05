@@ -37,7 +37,7 @@ text {
 }
 `
 const CustomBackgroundImage = styled(BackgroundImage)`
-border: 1px solid #ccd6dd;
+border: 1px solid #dce2e4;
 border-radius: .35rem;
 height: 48vw;
 max-height: 312px;
@@ -93,7 +93,7 @@ const HitComponent = ({ hit }) =>
       </Flex>
     </Box>
 
-    <Divider w={1} color='gray3' />
+    <Divider w={1} color='gray2' />
   </Box>
 
 HitComponent.propTypes = {

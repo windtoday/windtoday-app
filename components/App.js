@@ -30,7 +30,7 @@ export default class extends React.Component {
         createURL={this.props.createURL}
       >
         <Configure hitsPerPage={10} />
-        <Headroom>
+        <Headroom style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}>
           <AppBar />
           <CategoryTabs attributeName='category' />
         </Headroom>
