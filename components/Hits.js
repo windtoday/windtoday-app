@@ -2,15 +2,14 @@ import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { media } from 'util/style'
 import { Component } from 'react'
 import { Box } from 'rebass'
 
-const CustomBox = styled(Box)`
-${media.large`
+const ResponsiveBox = styled(Box)`
+@media screen and (min-width: 600px) {
   max-width: 600px;
   margin: 0 auto;
-`}
+}
 `
 
 class InfiniteHits extends Component {
@@ -21,11 +20,11 @@ class InfiniteHits extends Component {
     )
 
     return (
-      <CustomBox>
+      <ResponsiveBox>
         <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
           {renderedHits}
         </InfiniteScroll>
-      </CustomBox>
+      </ResponsiveBox>
     )
   }
 }

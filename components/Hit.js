@@ -2,8 +2,8 @@ import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
 import { Highlight } from 'react-instantsearch/dom'
 import ProgressArc from 'progress-arc-component'
 import getImageUrl from 'util/get-image-url'
-import ColourMeLife from 'colour-me-life'
 import { ChevronDown } from 'react-feather'
+import ColourMeLife from 'colour-me-life'
 import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
@@ -36,7 +36,7 @@ text {
   font-size: 70px !important;
 }
 `
-const CustomBackgroundImage = BackgroundImage.extend`
+const CustomBackgroundImage = styled(BackgroundImage)`
 border: 1px solid #ccd6dd;
 border-radius: .35rem;
 height: 48vw;
