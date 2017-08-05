@@ -2,6 +2,7 @@
 
 import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
+import FloatingButton from './FloatingButton'
 import CategoryTabs from './CategoryTabs'
 import Headroom from 'react-headroom'
 import PropTypes from 'prop-types'
@@ -34,6 +35,7 @@ export default class extends React.Component {
           <CategoryTabs attributeName='category' />
         </Headroom>
         <Hits hitComponent={Hit} />
+        <FloatingButton />
       </InstantSearch>
     )
   }

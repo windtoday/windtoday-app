@@ -6,6 +6,7 @@ import Router from 'next/router'
 import React from 'react'
 import qs from 'qs'
 import { Provider } from 'rebass'
+import theme from 'config/theme'
 
 const updateAfter = 700
 
@@ -57,7 +58,7 @@ export default class extends React.Component {
 
     return (
       <Layout>
-        <Provider>
+        <Provider theme={theme}>
           <App
             resultsState={this.props.resultsState}
             onSearchStateChange={this.onSearchStateChange}
