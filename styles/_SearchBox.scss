@@ -26,6 +26,10 @@ $input-width: 212px;
   color: inherit;
   background-color: transparent;
 
+  @include breakpoint($medium) {
+    width: $input-width * 1.3;
+  }
+
   @include breakpoint($large) {
     width: $input-width * 1.5;
   }

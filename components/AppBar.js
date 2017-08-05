@@ -2,6 +2,7 @@ import { Box, Fixed, Heading, Drawer, Toolbar, NavLink } from 'rebass'
 import { SearchBox } from 'react-instantsearch/dom'
 import { Menu, Search, X } from 'react-feather'
 import { createProvider } from 'refunk'
+import {createElement} from 'react'
 
 const hoc = createProvider({ isDrawerOpen: false, isSearchOpen: false })
 const toggleDrawer = state => ({ isDrawerOpen: !state.isDrawerOpen })
@@ -32,9 +33,9 @@ const AppBar = hoc(({ isDrawerOpen, isSearchOpen, update }) =>
       </Box>
 
       <NavLink>
-        {!isSearchOpen
-          ? <Search onClick={e => update(toggleSearch)} />
-          : <X onClick={e => update(toggleSearch)} />}
+        {createElement(!isSearchOpen ? Search : X, {
+          onClick: e => update(toggleSearch)
+        })}
       </NavLink>
     </Toolbar>
   </div>

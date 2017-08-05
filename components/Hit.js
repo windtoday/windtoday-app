@@ -1,4 +1,4 @@
-import { Badge, Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
+import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
 import { Highlight } from 'react-instantsearch/dom'
 import ProgressArc from 'progress-arc-component'
 import getImageUrl from 'util/get-image-url'
@@ -7,6 +7,7 @@ import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
+import Tag from './Tag'
 
 const formatter = (value, unit, suffix) => {
   if (value !== 1) unit += 's'
@@ -40,12 +41,6 @@ border: 1px solid #ccd6dd;
 border-radius: .35rem;
 `
 const getColor = value => `#${gradient.colourAt(value)}`
-
-const CustomBadge = styled(Badge)`
-border-radius: 1rem;
-padding-right: 8px;
-padding-left: 8px;
-`
 
 const HitComponent = ({ hit }) =>
   <Box>
@@ -88,15 +83,8 @@ const HitComponent = ({ hit }) =>
             <CustomBackgroundImage src={getImageUrl(hit, 300)} />
           </Box>
           <Box mt={2}>
-            {hit.brand &&
-              <CustomBadge m={1}>
-                {hit.brand}
-              </CustomBadge>}
-            {hit.model &&
-              <CustomBadge m={1}>
-                {hit.model}
-              </CustomBadge>}
-            <CustomBadge m={1}>100l to 110l</CustomBadge>
+            <Tag bg='pink' attributeName='brand' hit={hit} />
+            <Tag bg='red' attributeName='model' hit={hit} />
           </Box>
         </PrimaryContent>
       </Flex>

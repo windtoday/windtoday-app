@@ -12,7 +12,8 @@
         "alias": {
           "styles": "./styles",
           "components": "./components",
-          "util": "./util"
+          "util": "./util",
+          "config": "./config",
         },
         "cwd": "babelrc"
     }],
