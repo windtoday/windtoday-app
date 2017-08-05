@@ -10,7 +10,6 @@ const ResponsiveFlex = styled(Flex)`
   margin: 0 auto;
 }
 `
-
 const Button = styled.a`
   ${color} height: ${props => props.size}px;
   width: ${props => props.size}px;
@@ -35,7 +34,6 @@ const FloatingButtonWrapper = styled.ul`
   right: 0;
   bottom: 0;
 `
-
 const PrimaryButtonWrapper = styled.li`
   padding: 25px;
   margin: -25px;
@@ -43,22 +41,18 @@ const PrimaryButtonWrapper = styled.li`
   flex-direction: column-reverse;
   align-items: center;
 `
-
 const SecondaryButtonWrapper = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
 `
-
 const iconstyle = css`
 min-height: 100%;
 margin: auto;
 display: block;
 `
-
 const Label = styled.label`
-  ${color} box-shadow: 1px 1px 4px rgba(101,119,134,.75);
-  padding: 4px 10px;
+  ${color} padding: 4px 10px;
   font-size: 13px;
   pointer-events: none;
   position: absolute;

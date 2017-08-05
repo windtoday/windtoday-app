@@ -26,7 +26,7 @@ const AppBar = hoc(({ isDrawerOpen, isSearchOpen, update }) =>
         <Menu onClick={e => update(toggleDrawer)} />
       </NavLink>
 
-      <Box mx='auto' fontSize={[1, 2, 2]}>
+      <Box mx='auto' fontSize={[1, 1, 1]}>
         {!isSearchOpen
           ? <NavLink fontSize={[1, 2, 2]} mx='auto' children='WINDTODAY' />
           : <SearchBox translations={translations} autoFocus />}
