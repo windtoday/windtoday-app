@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {Badge} from 'rebass'
+import { Badge } from 'rebass'
 
 const CustomBadge = styled(Badge)`
 border-radius: 1rem;
@@ -8,7 +8,7 @@ padding-right: 8px;
 padding-left: 8px;
 cursor: pointer;
 `
-const Tag = ({hit, attributeName, ...props}) => {
+const Tag = ({ hit, attributeName, ...props }) => {
   const value = hit[attributeName]
   if (value == null) return false
 

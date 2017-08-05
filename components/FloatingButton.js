@@ -1,8 +1,15 @@
 import { BarChart2, Link, X, Plus, Share2 } from 'react-feather'
 import styled, { css } from 'styled-components'
 import { color, space } from 'styled-system'
+import { Fixed, Flex, Box } from 'rebass'
 import { createProvider } from 'refunk'
-import { Box } from 'rebass'
+
+const ResponsiveFlex = styled(Flex)`
+@media screen and (min-width: 600px) {
+  max-width: 800px;
+  margin: 0 auto;
+}
+`
 
 const Button = styled.a`
   ${color} height: ${props => props.size}px;
@@ -21,8 +28,7 @@ const Button = styled.a`
   font-weight: bold;
 `
 const FloatingButtonWrapper = styled.ul`
-  ${space} position: fixed;
-  white-space: nowrap;
+  ${space} white-space: nowrap;
   z-index: 2147483647;
   list-style: none;
   padding: 0;
@@ -104,45 +110,49 @@ const hoc = createProvider({ isOpen: false })
 const toggleOpen = state => ({ isOpen: !state.isOpen })
 
 const FloatingButton = hoc(({ isOpen, update }) =>
-  <FloatingButtonWrapper mx={3} my={3}>
-    <PrimaryButtonWrapper>
-      <PrimaryButton
-        size={61}
-        isOpen={isOpen}
-        update={update}
-        iconOpen={X}
-        iconClose={Plus}
-        color='white'
-        bg='blue'
-      />
-      <SecondaryButtonWrapper>
-        <SecondaryButton
-          isOpen={isOpen}
-          size={46}
-          icon={BarChart2}
-          color='blue'
-          bg='white'
-          label='Recent First'
-        />
-        <SecondaryButton
-          isOpen={isOpen}
-          size={46}
-          icon={Link}
-          color='blue'
-          bg='white'
-          label='Copy as Link'
-        />
-        <SecondaryButton
-          isOpen={isOpen}
-          size={46}
-          icon={Share2}
-          color='blue'
-          bg='white'
-          label='Share it'
-        />
-      </SecondaryButtonWrapper>
-    </PrimaryButtonWrapper>
-  </FloatingButtonWrapper>
+  <Fixed right bottom left>
+    <ResponsiveFlex justify='flex-end'>
+      <FloatingButtonWrapper mx={3} my={3}>
+        <PrimaryButtonWrapper>
+          <PrimaryButton
+            size={61}
+            isOpen={isOpen}
+            update={update}
+            iconOpen={X}
+            iconClose={Plus}
+            color='white'
+            bg='blue'
+          />
+          <SecondaryButtonWrapper>
+            <SecondaryButton
+              isOpen={isOpen}
+              size={46}
+              icon={BarChart2}
+              color='blue'
+              bg='white'
+              label='Recent First'
+            />
+            <SecondaryButton
+              isOpen={isOpen}
+              size={46}
+              icon={Link}
+              color='blue'
+              bg='white'
+              label='Copy as Link'
+            />
+            <SecondaryButton
+              isOpen={isOpen}
+              size={46}
+              icon={Share2}
+              color='blue'
+              bg='white'
+              label='Share it'
+            />
+          </SecondaryButtonWrapper>
+        </PrimaryButtonWrapper>
+      </FloatingButtonWrapper>
+    </ResponsiveFlex>
+  </Fixed>
 )
 
 export default FloatingButton

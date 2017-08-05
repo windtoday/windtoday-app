@@ -1,8 +1,7 @@
 import { connectRefinementList } from 'react-instantsearch/connectors'
 import { Tabs, TabItem, Flex } from 'rebass'
-
-import styled from 'styled-components'
 import { createProvider } from 'refunk'
+import styled from 'styled-components'
 
 const hoc = createProvider({ active: 1 })
 const setActive = n => state => ({ active: n })
