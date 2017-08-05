@@ -1,9 +1,11 @@
 import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { createConnector } from 'react-instantsearch'
+import { color, space } from 'styled-system'
+import { CloudRain } from 'react-feather'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Component } from 'react'
-import { Box } from 'rebass'
+import { Text, Flex, Box } from 'rebass'
 
 const ResponsiveBox = styled(Box)`
 @media screen and (min-width: 600px) {
@@ -12,29 +14,59 @@ const ResponsiveBox = styled(Box)`
 }
 `
 
-class InfiniteHits extends Component {
-  render () {
-    const { hitComponent: ItemComponent, hits, hasMore, refine } = this.props
-    const renderedHits = hits.map(hit =>
-      <ItemComponent key={hit.objectID} hit={hit} />
-    )
+const CustomCloudRain = styled(CloudRain)`
+${color}
+${space}
+`
 
+const InfiniteHits = ({
+  hitComponent: ItemComponent,
+  hits,
+  hasMore,
+  hasResults,
+  query,
+  refine,
+  ...props
+}) => {
+  if (hasResults) {
     return (
       <ResponsiveBox>
         <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
-          {renderedHits}
+          {hits.map(hit => <ItemComponent key={hit.objectID} hit={hit} />)}
         </InfiniteScroll>
       </ResponsiveBox>
     )
   }
+
+  return (
+    <Flex direction='column' justify='center' align='center' mt={5}>
+      <CustomCloudRain color='blue' size={120} />
+      <Text fontSize={4} mt={4}>
+        sorry, we didn't found it.
+      </Text>
+    </Flex>
+  )
 }
 
 InfiniteHits.propTypes = {
   hits: PropTypes.array,
   hitComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     .isRequired,
+  refine: PropTypes.func.isRequired,
   hasMore: PropTypes.bool.isRequired,
-  refine: PropTypes.func.isRequired
+  hasResults: PropTypes.bool.isRequired,
+  query: PropTypes.string.isRequired
 }
 
-export default connectInfiniteHits(InfiniteHits)
+const connectedInfiniteHits = connectInfiniteHits(InfiniteHits)
+
+export default createConnector({
+  displayName: 'ConditionalResults',
+  getProvidedProps (props, searchState, searchResults) {
+    const noResults = searchResults.results
+      ? searchResults.results.nbHits === 0
+      : false
+    const hasResults = !noResults
+    return { query: searchState.query, hasResults }
+  }
+})(connectedInfiniteHits)
