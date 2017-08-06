@@ -1,4 +1,4 @@
-import { BarChart2, Link, X, Plus, Share2 } from 'react-feather'
+import { Clock, X, Award } from 'react-feather'
 import styled, { css } from 'styled-components'
 import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
@@ -53,7 +53,7 @@ display: block;
 `
 const Label = styled.label`
   ${color} padding: 4px 10px;
-  font-size: 13px;
+  font-size: 12px;
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -61,6 +61,8 @@ const Label = styled.label`
   margin: 10px 7px;
   border: 1px solid #ccd6dd;
   border-radius: .35rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 `
 
 const PrimaryButton = ({
@@ -84,6 +86,7 @@ const SecondaryButton = ({
   isOpen,
   icon: IconComponent,
   label,
+  update,
   ...props
 }) => {
   const Icon = styled(IconComponent)`${iconstyle}`
@@ -91,7 +94,13 @@ const SecondaryButton = ({
   return (
     <Box is='li' pb={2}>
       <Button size={size} {...props}>
-        <Icon size={18} />
+        <Icon
+          size={18}
+          onClick={e => {
+            update(toggleCriteriaIcon(Icon))
+            update(toggleOpen)
+          }}
+        />
         <Label {...props}>
           {label}
         </Label>
@@ -100,10 +109,11 @@ const SecondaryButton = ({
   )
 }
 
-const hoc = createProvider({ isOpen: false })
+const hoc = createProvider({ isOpen: false, criteriaIcon: Award })
 const toggleOpen = state => ({ isOpen: !state.isOpen })
+const toggleCriteriaIcon = criteriaIcon => state => ({ criteriaIcon })
 
-const FloatingButton = hoc(({ isOpen, update }) =>
+const FloatingButton = hoc(({ isOpen, update, criteriaIcon }) =>
   <Fixed right bottom left>
     <ResponsiveFlex justify='flex-end'>
       <FloatingButtonWrapper mx={3} my={3}>
@@ -113,34 +123,28 @@ const FloatingButton = hoc(({ isOpen, update }) =>
             isOpen={isOpen}
             update={update}
             iconOpen={X}
-            iconClose={Plus}
+            iconClose={criteriaIcon}
             color='white'
             bg='blue'
           />
           <SecondaryButtonWrapper>
             <SecondaryButton
               isOpen={isOpen}
+              update={update}
               size={46}
-              icon={BarChart2}
+              icon={Clock}
               color='blue'
               bg='white'
-              label='Recent First'
+              label='Recent'
             />
             <SecondaryButton
               isOpen={isOpen}
+              update={update}
               size={46}
-              icon={Link}
+              icon={Award}
               color='blue'
               bg='white'
-              label='Copy as Link'
-            />
-            <SecondaryButton
-              isOpen={isOpen}
-              size={46}
-              icon={Share2}
-              color='blue'
-              bg='white'
-              label='Share it'
+              label='Price Score'
             />
           </SecondaryButtonWrapper>
         </PrimaryButtonWrapper>
