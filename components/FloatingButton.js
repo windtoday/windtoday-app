@@ -64,10 +64,6 @@ const Label = styled.label`
   text-transform: uppercase;
   letter-spacing: .1em;
 `
-const OverlayFixed = styled(Fixed)`
-  background: rgba(255, 255, 255, 0.85);
-`
-
 const PrimaryButton = ({
   size,
   isOpen,
@@ -156,9 +152,11 @@ export default hoc(({ isOpen, update, criteriaIcon }) => {
       </ResponsiveFlex>
     </Fixed>
 
-  return !isOpen
-    ? <FloatingButtons />
-    : <OverlayFixed top right bottom left>
-        <FloatingButtons />
-      </OverlayFixed>
+  if (!isOpen) return <FloatingButtons />
+
+  return (
+    <Fixed bg='rgba(255, 255, 255, 0.85)' top right bottom left>
+      <FloatingButtons />
+    </Fixed>
+  )
 })

@@ -4,7 +4,7 @@ import { Box, Toolbar, NavLink } from 'rebass'
 import { createProvider } from 'refunk'
 import Logo from './Logo'
 
-const hoc = createProvider({ isSearchOpen: true })
+const hoc = createProvider({ isSearchOpen: false })
 const toggle = prop => state => ({ [prop]: !state[prop] })
 
 const translations = {

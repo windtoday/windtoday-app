@@ -55,7 +55,8 @@
   "devDependencies": {
     "babel-eslint": "latest",
     "git-dirty": "latest",
-    "husky": "latest",
+    "husky": "~0.14.3",
+    "lint-staged": "~4.0.2",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
@@ -66,12 +67,12 @@
   "scripts": {
     "heroku-postbuild": "npm run build",
     "build": "next build",
+    "clean": "rm -rf node_modules && rm -rf .next",
     "dev": "next",
     "lint": "standard-markdown && standard",
-    "precommit": "npm run pretty",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard components/**/*.js config/**/*.js pages/**/*.js",
+    "pretty": "prettier-standard {util,pages,config,components}/**/*.js",
     "start": "next start -p $PORT",
     "test": "exit 0"
   },
@@ -81,5 +82,13 @@
       "React"
     ],
     "parser": "babel-eslint"
+  },
+  "lint-staged": {
+    "linters": {
+      "{util,pages,config,components}/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
   }
 }
