@@ -64,6 +64,9 @@ const Label = styled.label`
   text-transform: uppercase;
   letter-spacing: .1em;
 `
+const OverlayFixed = styled(Fixed)`
+  background: rgba(255, 255, 255, 0.85);
+`
 
 const PrimaryButton = ({
   size,
@@ -92,7 +95,7 @@ const SecondaryButton = ({
   const Icon = styled(IconComponent)`${iconstyle}`
   if (!isOpen) return false
   return (
-    <Box is='li' pb={2}>
+    <Box is='li' pb={3}>
       <Button size={size} {...props}>
         <Icon
           size={18}
@@ -113,44 +116,49 @@ const hoc = createProvider({ isOpen: false, criteriaIcon: Award })
 const toggleOpen = state => ({ isOpen: !state.isOpen })
 const toggleCriteriaIcon = criteriaIcon => state => ({ criteriaIcon })
 
-const FloatingButton = hoc(({ isOpen, update, criteriaIcon }) =>
-  <Fixed right bottom left>
-    <ResponsiveFlex justify='flex-end'>
-      <FloatingButtonWrapper mx={3} my={3}>
-        <PrimaryButtonWrapper>
-          <PrimaryButton
-            size={61}
-            isOpen={isOpen}
-            update={update}
-            iconOpen={X}
-            iconClose={criteriaIcon}
-            color='white'
-            bg='blue'
-          />
-          <SecondaryButtonWrapper>
-            <SecondaryButton
+export default hoc(({ isOpen, update, criteriaIcon }) => {
+  const FloatingButtons = () =>
+    <Fixed right bottom left>
+      <ResponsiveFlex justify='flex-end'>
+        <FloatingButtonWrapper mx={3} my={3}>
+          <PrimaryButtonWrapper>
+            <PrimaryButton
+              size={61}
               isOpen={isOpen}
               update={update}
-              size={46}
-              icon={Clock}
-              color='blue'
-              bg='white'
-              label='Recent'
+              iconOpen={X}
+              iconClose={criteriaIcon}
+              color='white'
+              bg='blue'
             />
-            <SecondaryButton
-              isOpen={isOpen}
-              update={update}
-              size={46}
-              icon={Award}
-              color='blue'
-              bg='white'
-              label='Price Score'
-            />
-          </SecondaryButtonWrapper>
-        </PrimaryButtonWrapper>
-      </FloatingButtonWrapper>
-    </ResponsiveFlex>
-  </Fixed>
-)
+            <SecondaryButtonWrapper>
+              <SecondaryButton
+                isOpen={isOpen}
+                update={update}
+                size={42}
+                icon={Clock}
+                color='blue'
+                bg='white'
+                label='Recent'
+              />
+              <SecondaryButton
+                isOpen={isOpen}
+                update={update}
+                size={42}
+                icon={Award}
+                color='blue'
+                bg='white'
+                label='Price Score'
+              />
+            </SecondaryButtonWrapper>
+          </PrimaryButtonWrapper>
+        </FloatingButtonWrapper>
+      </ResponsiveFlex>
+    </Fixed>
 
-export default FloatingButton
+  return !isOpen
+    ? <FloatingButtons />
+    : <OverlayFixed top right bottom left>
+        <FloatingButtons />
+      </OverlayFixed>
+})
