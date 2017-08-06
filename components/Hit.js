@@ -33,7 +33,7 @@ const CustomProgressArc = styled(ProgressArc)`
 margin: 0 !important;
 height: inherit !important;
 text {
-  font-size: 70px !important;
+  font-size: 60px !important;
 }
 `
 const CustomBackgroundImage = styled(BackgroundImage)`
@@ -54,7 +54,7 @@ const HitComponent = ({ hit }) =>
             value={hit.priceScore}
             unit=''
             arcColor={getColor(hit.priceScore)}
-            textColor='black'
+            textColor='#3f3f3f'
             rounded
           />
         </SecondaryContent>
