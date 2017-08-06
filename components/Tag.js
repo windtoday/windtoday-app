@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Tooltip, Badge } from 'rebass'
+import { Badge } from 'rebass'
 
 const CustomBadge = styled(Badge)`
 border-radius: 1rem;
@@ -21,11 +21,9 @@ const Tag = ({ hit, attributeName, ...props }) => {
   }
 
   return (
-    <Tooltip text={`Filter by ${capitalize(attributeName)}`}>
-      <CustomBadge key={hit.objectID} onClick={onClick} m={1} {...props}>
-        {capitalize(value)}
-      </CustomBadge>
-    </Tooltip>
+    <CustomBadge key={hit.objectID} onClick={onClick} m={1} {...props}>
+      {capitalize(value)}
+    </CustomBadge>
   )
 }
 
