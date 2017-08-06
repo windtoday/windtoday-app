@@ -89,6 +89,14 @@ const HitComponent = ({ hit }) =>
             <Tag bg='blue4' attributeName='brand' hit={hit} />
             <Tag bg='blue4' attributeName='model' hit={hit} />
             <Tag bg='blue4' attributeName='condition' hit={hit} />
+            <Tag bg='blue4' attributeName='mast type' hit={hit} />
+            <Tag bg='blue4' attributeName='fin type' hit={hit} />
+            <Tag bg='blue4' attributeName='boom type' hit={hit} />
+            <Tag bg='blue4' attributeName='sail size range' hit={hit} />
+            <Tag bg='blue4' attributeName='board size range' hit={hit} />
+            <Tag bg='blue4' attributeName='mast size range' hit={hit} />
+            <Tag bg='blue4' attributeName='mast carbon range' hit={hit} />
+            <Tag bg='blue4' attributeName='boom size range' hit={hit} />
           </Box>
         </PrimaryContent>
       </Flex>
