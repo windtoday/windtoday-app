@@ -1,6 +1,5 @@
 /* global APP */
 
-import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
 import FloatingButton from './FloatingButton'
 import CategoryTabs from './CategoryTabs'
@@ -10,33 +9,32 @@ import AppBar from './AppBar'
 import Hits from './Hits'
 import Hit from './Hit'
 
-export default class extends React.Component {
-  static propTypes = {
-    searchState: PropTypes.object,
-    resultsState: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    onSearchStateChange: PropTypes.func,
-    createURL: PropTypes.func
-  }
-
-  render () {
-    return (
-      <InstantSearch
-        appId={APP.algolia.appId}
-        apiKey={APP.algolia.apiKey}
-        indexName={APP.algolia.indexName}
-        resultsState={this.props.resultsState}
-        onSearchStateChange={this.props.onSearchStateChange}
-        searchState={this.props.searchState}
-        createURL={this.props.createURL}
-      >
-        <Configure hitsPerPage={10} />
-        <Headroom style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}>
-          <AppBar />
-          <CategoryTabs attributeName='category' />
-        </Headroom>
-        <Hits hitComponent={Hit} />
-        <FloatingButton />
-      </InstantSearch>
-    )
-  }
+const App = ({ resultsState, onSearchStateChange, searchState, createURL }) => {
+  return (
+    <InstantSearch
+      appId={APP.algolia.appId}
+      apiKey={APP.algolia.apiKey}
+      indexName={APP.algolia.indexName}
+      resultsState={resultsState}
+      onSearchStateChange={onSearchStateChange}
+      searchState={searchState}
+      createURL={createURL}
+    >
+      <Headroom style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}>
+        <AppBar />
+        <CategoryTabs attributeName='category' />
+      </Headroom>
+      <Hits hitComponent={Hit} />
+      <FloatingButton />
+    </InstantSearch>
+  )
 }
+
+App.propTypes = {
+  searchState: PropTypes.object,
+  resultsState: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  onSearchStateChange: PropTypes.func,
+  createURL: PropTypes.func
+}
+
+export default App

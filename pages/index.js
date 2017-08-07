@@ -21,8 +21,7 @@ export default class extends React.Component {
     searchState: PropTypes.object
   }
 
-  static async getInitialProps (params) {
-    const { req, asPath, url } = params
+  static async getInitialProps ({ req, asPath, url }) {
     const searchState = asPath.includes('?')
       ? qs.parse(asPath.substring(asPath.indexOf('?') + 1))
       : {}
