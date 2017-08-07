@@ -63,9 +63,9 @@ const connectConditionalResults = createConnector({
   getProvidedProps (props, searchState, searchResults) {
     const { query } = searchState
     const results = searchResults.results || {}
-    const { nbHits = 0, hits = [] } = results
+    const { nbHits = 0 } = results
     const hasResults = nbHits > 0
-    return { query, hasResults, hits }
+    return { query, hasResults }
   }
 })
 
