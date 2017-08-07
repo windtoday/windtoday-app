@@ -58,15 +58,15 @@ InfiniteHits.propTypes = {
   query: PropTypes.string
 }
 
-const connectedInfiniteHits = connectInfiniteHits(InfiniteHits)
-
-export default createConnector({
+const connectConditionalResults = createConnector({
   displayName: 'ConditionalResults',
   getProvidedProps (props, searchState, searchResults) {
-    const noResults = searchResults.results
-      ? searchResults.results.nbHits === 0
-      : false
-    const hasResults = !noResults
-    return { query: searchState.query, hasResults }
+    const { query } = searchState
+    const results = searchResults.results || {}
+    const { nbHits = 0, hits = [] } = results
+    const hasResults = nbHits > 0
+    return { query, hasResults, hits }
   }
-})(connectedInfiniteHits)
+})
+
+export default connectInfiniteHits(connectConditionalResults(InfiniteHits))
