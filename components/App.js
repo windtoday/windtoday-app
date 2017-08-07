@@ -1,5 +1,6 @@
 /* global APP */
 
+import { Configure } from 'react-instantsearch/dom'
 import { InstantSearch } from './Instantsearch'
 import FloatingButton from './FloatingButton'
 import CategoryTabs from './CategoryTabs'
@@ -20,6 +21,7 @@ const App = ({ resultsState, onSearchStateChange, searchState, createURL }) => {
       searchState={searchState}
       createURL={createURL}
     >
+      <Configure hitsPerPage={10} />
       <Headroom style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}>
         <AppBar />
         <CategoryTabs attributeName='category' />
