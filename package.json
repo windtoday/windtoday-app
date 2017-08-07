@@ -65,11 +65,13 @@
     "node": ">= 8"
   },
   "scripts": {
-    "heroku-postbuild": "npm run build",
     "build": "next build",
     "clean": "rm -rf node_modules && rm -rf .next",
     "dev": "next",
+    "heroku-postbuild": "npm run build",
     "lint": "standard-markdown && standard",
+    "precommit": "lint-staged",
+    "precommit-lint": "prettier-standard",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
     "pretty": "prettier-standard {util,pages,config,components}/**/*.js",
@@ -77,18 +79,16 @@
     "test": "exit 0"
   },
   "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "git add",
+      "precommit-lint"
+    ]
+  },
   "standard": {
     "globals": [
       "React"
     ],
     "parser": "babel-eslint"
-  },
-  "lint-staged": {
-    "linters": {
-      "{util,pages,config,components}/**/*.js": [
-        "prettier-standard",
-        "git add"
-      ]
-    }
   }
 }
