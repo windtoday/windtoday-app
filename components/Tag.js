@@ -9,8 +9,6 @@ padding-left: 8px;
 cursor: pointer;
 `
 
-const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
-
 const Tag = ({ hit, attributeName, ...props }) => {
   const value = hit[attributeName]
   if (value == null) return false
@@ -22,7 +20,7 @@ const Tag = ({ hit, attributeName, ...props }) => {
 
   return (
     <CustomBadge key={hit.objectID} onClick={onClick} m={1} {...props}>
-      {capitalize(value)}
+      {value}
     </CustomBadge>
   )
 }
