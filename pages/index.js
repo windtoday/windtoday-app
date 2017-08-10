@@ -3,7 +3,7 @@ import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
 import App from 'components/App'
 import Router from 'next/router'
-import React from 'react'
+import { Component } from 'react'
 import qs from 'qs'
 import { Provider } from 'rebass'
 import theme from 'config/theme'
@@ -15,7 +15,7 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = searchState =>
   searchState ? `${window.location.pathname}?${qs.stringify(searchState)}` : ''
 
-export default class extends React.Component {
+export default class extends Component {
   static propTypes = {
     resultsState: PropTypes.object,
     searchState: PropTypes.object
