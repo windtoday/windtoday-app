@@ -2,7 +2,7 @@ import { Clock, X, Award } from 'react-feather'
 import styled, { css } from 'styled-components'
 import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
-import { createProvider } from 'refunk'
+import { Component } from 'react'
 
 const ResponsiveFlex = styled(Flex)`
 @media screen and (min-width: 600px) {
@@ -67,7 +67,7 @@ const Label = styled.label`
 const PrimaryButton = ({
   size,
   isOpen,
-  update,
+  toggleOpen,
   iconOpen,
   iconClose,
   ...props
@@ -75,7 +75,7 @@ const PrimaryButton = ({
   const Icon = styled(!isOpen ? iconClose : iconOpen)`${iconstyle}`
   return (
     <Button size={size} {...props}>
-      <Icon onClick={e => update(toggleOpen)} />
+      <Icon onClick={e => toggleOpen()} />
     </Button>
   )
 }
@@ -85,7 +85,10 @@ const SecondaryButton = ({
   isOpen,
   icon: IconComponent,
   label,
-  update,
+  setIndexName,
+  indexName,
+  toggleOpen,
+  setCriteriaIcon,
   ...props
 }) => {
   const Icon = styled(IconComponent)`${iconstyle}`
@@ -96,8 +99,9 @@ const SecondaryButton = ({
         <Icon
           size={18}
           onClick={e => {
-            update(toggleCriteriaIcon(Icon))
-            update(toggleOpen)
+            setIndexName(indexName)
+            setCriteriaIcon(Icon)
+            toggleOpen()
           }}
         />
         <Label {...props}>
@@ -108,55 +112,82 @@ const SecondaryButton = ({
   )
 }
 
-const hoc = createProvider({ isOpen: false, criteriaIcon: Award })
-const toggleOpen = state => ({ isOpen: !state.isOpen })
-const toggleCriteriaIcon = criteriaIcon => state => ({ criteriaIcon })
+export default class extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+      criteriaIcon: Award
+    }
+  }
 
-export default hoc(({ isOpen, update, criteriaIcon }) => {
-  const FloatingButtons = () =>
-    <Fixed right bottom left>
-      <ResponsiveFlex justify='flex-end'>
-        <FloatingButtonWrapper mx={3} my={3}>
-          <PrimaryButtonWrapper>
-            <PrimaryButton
-              size={61}
-              isOpen={isOpen}
-              update={update}
-              iconOpen={X}
-              iconClose={criteriaIcon}
-              color='white'
-              bg='blue'
-            />
-            <SecondaryButtonWrapper>
-              <SecondaryButton
-                isOpen={isOpen}
-                update={update}
-                size={42}
-                icon={Clock}
-                color='blue'
-                bg='white'
-                label='Recent'
+  toggleOpen = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
+
+  setCriteriaIcon = criteriaIcon => {
+    this.setState({ criteriaIcon })
+  }
+
+  renderOverlayFloatingButtons () {
+    return (
+      <Fixed bg='rgba(255, 255, 255, 0.85)' top right bottom left>
+        {this.renderFloatingButtons()}
+      </Fixed>
+    )
+  }
+
+  renderFloatingButtons () {
+    return (
+      <Fixed right bottom left>
+        <ResponsiveFlex justify='flex-end'>
+          <FloatingButtonWrapper mx={3} my={3}>
+            <PrimaryButtonWrapper>
+              <PrimaryButton
+                size={61}
+                isOpen={this.state.isOpen}
+                toggleOpen={this.toggleOpen}
+                iconOpen={X}
+                iconClose={this.state.criteriaIcon}
+                color='white'
+                bg='blue'
               />
-              <SecondaryButton
-                isOpen={isOpen}
-                update={update}
-                size={42}
-                icon={Award}
-                color='blue'
-                bg='white'
-                label='Price Score'
-              />
-            </SecondaryButtonWrapper>
-          </PrimaryButtonWrapper>
-        </FloatingButtonWrapper>
-      </ResponsiveFlex>
-    </Fixed>
+              <SecondaryButtonWrapper>
+                <SecondaryButton
+                  isOpen={this.state.isOpen}
+                  toggleOpen={this.toggleOpen}
+                  setCriteriaIcon={this.setCriteriaIcon}
+                  size={42}
+                  icon={Clock}
+                  color='blue'
+                  bg='white'
+                  label='Recent'
+                  indexName={'sort_by_timestamp'}
+                  setIndexName={this.props.setIndexName}
+                />
+                <SecondaryButton
+                  isOpen={this.state.isOpen}
+                  toggleOpen={this.toggleOpen}
+                  setCriteriaIcon={this.setCriteriaIcon}
+                  size={42}
+                  icon={Award}
+                  color='blue'
+                  bg='white'
+                  label='Price Score'
+                  indexName={'windsurf'}
+                  setIndexName={this.props.setIndexName}
+                />
+              </SecondaryButtonWrapper>
+            </PrimaryButtonWrapper>
+          </FloatingButtonWrapper>
+        </ResponsiveFlex>
+      </Fixed>
+    )
+  }
 
-  if (!isOpen) return <FloatingButtons />
-
-  return (
-    <Fixed bg='rgba(255, 255, 255, 0.85)' top right bottom left>
-      <FloatingButtons />
-    </Fixed>
-  )
-})
+  render () {
+    return !this.state.isOpen
+      ? this.renderFloatingButtons()
+      : this.renderOverlayFloatingButtons()
+  }
+}
