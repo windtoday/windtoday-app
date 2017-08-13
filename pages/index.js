@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import App from 'components/App'
 import Router from 'next/router'
 import { Component } from 'react'
-import qs from 'qs'
 import { Provider } from 'rebass'
 import theme from 'config/theme'
+import qs from 'qs'
 
 const updateAfter = 700
 

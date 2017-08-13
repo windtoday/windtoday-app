@@ -45,7 +45,7 @@ padding: 0;
 `
 const getColor = value => `#${gradient.colourAt(value)}`
 
-const HitComponent = ({ hit }) =>
+const HitComponent = ({ hit, addTag, removeTag }) =>
   <Box>
     <Box pt={3} pb={2} px={2}>
       <Flex direction='row'>
@@ -86,17 +86,83 @@ const HitComponent = ({ hit }) =>
             <CustomBackgroundImage src={getImageUrl(hit, 600)} />
           </Box>
           <Box mt={2}>
-            <Tag bg='blue4' attributeName='brand' hit={hit} />
-            <Tag bg='blue4' attributeName='model' hit={hit} />
-            <Tag bg='blue4' attributeName='condition' hit={hit} />
-            <Tag bg='blue4' attributeName='mast type' hit={hit} />
-            <Tag bg='blue4' attributeName='fin type' hit={hit} />
-            <Tag bg='blue4' attributeName='boom type' hit={hit} />
-            <Tag bg='blue4' attributeName='sail size range' hit={hit} />
-            <Tag bg='blue4' attributeName='board size range' hit={hit} />
-            <Tag bg='blue4' attributeName='mast size range' hit={hit} />
-            <Tag bg='blue4' attributeName='mast carbon range' hit={hit} />
-            <Tag bg='blue4' attributeName='boom size range' hit={hit} />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='brand'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='model'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='condition'
+              hit={hit}
+            />
+            <Tag
+              bg='red'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='mast type'
+              hit={hit}
+            />
+            <Tag
+              bg='green'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='fin type'
+              hit={hit}
+            />
+            <Tag
+              bg='yellow'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='boom type'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='sail size range'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='board size range'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='mast size range'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='mast carbon range'
+              hit={hit}
+            />
+            <Tag
+              bg='blue4'
+              addTag={addTag}
+              removeTag={removeTag}
+              attributeName='boom size range'
+              hit={hit}
+            />
           </Box>
         </PrimaryContent>
       </Flex>

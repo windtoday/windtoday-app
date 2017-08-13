@@ -5,14 +5,7 @@ import { color, space } from 'styled-system'
 import { CloudRain } from 'react-feather'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Text, Flex, Box } from 'rebass'
-
-const ResponsiveBox = styled(Box)`
-@media screen and (min-width: 600px) {
-  max-width: 600px;
-  margin: 0 auto;
-}
-`
+import { Text, Flex } from 'rebass'
 
 const CustomCloudRain = styled(CloudRain)`
 ${color}
@@ -26,15 +19,22 @@ const InfiniteHits = ({
   hasResults,
   query,
   refine,
+  addTag,
+  removeTag,
   ...props
 }) => {
   if (hasResults) {
     return (
-      <ResponsiveBox>
-        <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
-          {hits.map(hit => <ItemComponent key={hit.objectID} hit={hit} />)}
-        </InfiniteScroll>
-      </ResponsiveBox>
+      <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
+        {hits.map(hit =>
+          <ItemComponent
+            key={hit.objectID}
+            hit={hit}
+            addTag={addTag}
+            removeTag={removeTag}
+          />
+        )}
+      </InfiniteScroll>
     )
   }
 

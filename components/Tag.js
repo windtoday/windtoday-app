@@ -9,13 +9,15 @@ padding-left: 8px;
 cursor: pointer;
 `
 
-const Tag = ({ hit, attributeName, ...props }) => {
+const Tag = ({ hit, attributeName, addTag, removeTag, ...props }) => {
   const value = hit[attributeName]
   if (value == null) return false
 
+  const refine = removeTag({ attributeName, value })
+
   const onClick = e => {
     e.preventDefault()
-    props.refine([value])
+    addTag({ attributeName, value, refine })
   }
 
   return (
