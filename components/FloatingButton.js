@@ -4,12 +4,6 @@ import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
 import { Component } from 'react'
 
-const ResponsiveFlex = styled(Flex)`
-@media screen and (min-width: 600px) {
-  max-width: 800px;
-  margin: 0 auto;
-}
-`
 const Button = styled.a`
   ${color} height: ${props => props.size}px;
   width: ${props => props.size}px;
@@ -140,7 +134,7 @@ export default class extends Component {
   renderFloatingButtons () {
     return (
       <Fixed right bottom left>
-        <ResponsiveFlex justify='flex-end'>
+        <Flex justify='flex-end'>
           <FloatingButtonWrapper mx={3} my={3}>
             <PrimaryButtonWrapper>
               <PrimaryButton
@@ -180,7 +174,7 @@ export default class extends Component {
               </SecondaryButtonWrapper>
             </PrimaryButtonWrapper>
           </FloatingButtonWrapper>
-        </ResponsiveFlex>
+        </Flex>
       </Fixed>
     )
   }

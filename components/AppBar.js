@@ -11,9 +11,10 @@ const translations = {
 export default class extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      isSearchOpen: false
-    }
+    const { query } = props.searchState
+
+    const isSearchOpen = query ? query !== '' : false
+    this.state = { isSearchOpen }
   }
 
   toggle = prop => {
@@ -27,15 +28,15 @@ export default class extends Component {
       <div>
         <Toolbar color='blue' bg='white' py={2}>
           <NavLink>
-            {!isSearchOpen
-              ? <Logo />
-              : <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />}
+            {isSearchOpen
+              ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
+              : <Logo />}
           </NavLink>
 
           <Box mx='auto' fontSize={[1, 1, 1]}>
-            {!isSearchOpen
-              ? <NavLink fontSize={2} mx='auto' children='WINDTODAY' />
-              : <SearchBox translations={translations} autoFocus />}
+            {isSearchOpen
+              ? <SearchBox translations={translations} autoFocus />
+              : <NavLink fontSize={2} mx='auto' children='WINDTODAY' />}
           </Box>
 
           {!isSearchOpen &&
