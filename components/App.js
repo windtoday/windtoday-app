@@ -1,9 +1,10 @@
 /* global APP */
 
 import { Configure } from 'react-instantsearch/dom'
+import VirtualRefinementList from './VirtualRefinementList'
+import CurrentRefinements from './CurrentRefinements'
 import { InstantSearch } from './Instantsearch'
 import FloatingButton from './FloatingButton'
-import CurrentFilters from './CurrentFilters'
 import CategoryTabs from './CategoryTabs'
 import styled from 'styled-components'
 import Headroom from 'react-headroom'
@@ -20,56 +21,64 @@ const Main = styled(Box)`
   margin: 0 auto;
 }
 `
-
-const parseTags = (str, createRefine) =>
-  str.replace(new RegExp(' AND ', 'g'), ' ').split(' ').map(str => {
-    const [attributeName, value] = str.split(':')
-    const refine = createRefine({ attributeName, value })
-    return { attributeName, value, refine }
-  })
-
-const serializeTags = collection => {
-  const items = collection.map(item => `${item.attributeName}:${item.value}`)
-  const separator = items.length < 2 ? '' : ' AND '
-  return items.join(separator)
-}
-
 export default class extends Component {
   constructor (props) {
     super(props)
 
-    const { searchState } = this.props
-    const filters =
-      searchState && searchState.configure && searchState.configure.filters
-        ? parseTags(searchState.configure.filters, this.removeTag)
-        : []
-
     this.state = {
-      indexName: 'windsurf',
-      tags: filters
+      indexName: APP.algolia.indexName,
+      refinements: {
+        brand: [],
+        model: [],
+        condition: [],
+        'mast type': [],
+        'fin type': [],
+        'boom type': [],
+        'sail type': [],
+        'sail size range': [],
+        'board size range': [],
+        'mast size range': [],
+        'mast carbon range': [],
+        'boom size range': []
+      }
     }
   }
 
-  addTag = tag => {
-    const { tags } = this.state
-    const index = tags.findIndex(
-      ({ attributeName, value }) =>
-        tag.value === value && tag.attributeName === attributeName
-    )
-    const isPresent = index !== -1
-    if (!isPresent) this.setState({ tags: this.state.tags.concat(tag) })
+  refine = ({ attributeName, value }) => {
+    this.setState(state => {
+      const index = state.refinements[attributeName].indexOf(value)
+
+      if (index === -1) {
+        const oldValue = state.refinements[attributeName]
+        return {
+          ...state,
+          refinements: {
+            ...state.refinements,
+            [attributeName]: [...oldValue, value]
+          }
+        }
+      }
+
+      const newValue = state.refinements[attributeName].slice()
+      newValue.splice(index, 1)
+      return {
+        ...state,
+        refinements: {
+          ...state.refinements,
+          [attributeName]: newValue
+        }
+      }
+    })
   }
 
-  removeTag = tag => () => {
-    const { tags } = this.state
-
-    const nextTags = tags.filter(
-      ({ attributeName, value }) =>
-        tag.value !== value && tag.attributeName !== attributeName
-    )
-
-    this.setState({ tags: nextTags })
-  }
+  onRefine = ({ attributeName, value }) =>
+    this.setState(state => ({
+      ...state,
+      refinements: {
+        ...state.refinements,
+        [attributeName]: value
+      }
+    }))
 
   setIndexName = indexName => {
     this.setState({ indexName })
@@ -93,7 +102,7 @@ export default class extends Component {
         searchState={searchState}
         createURL={createURL}
       >
-        <Configure hitsPerPage={15} filters={serializeTags(this.state.tags)} />
+        <Configure hitsPerPage={APP.algolia.hitsPerPage} />
         <Headroom
           style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
           ref={node => (this.state.headroom = node)}
@@ -102,15 +111,66 @@ export default class extends Component {
           <CategoryTabs attributeName='category' />
         </Headroom>
         <Main>
-          <CurrentFilters
-            tags={this.state.tags}
+          <CurrentRefinements
             headroom={this.state.headroom}
+            refineFilter={this.refine}
           />
-          <Hits
-            hitComponent={Hit}
-            addTag={this.addTag}
-            removeTag={this.removeTag}
+          <VirtualRefinementList
+            attributeName='brand'
+            defaultRefinement={[...this.state.refinements.brand]}
+            onRefine={this.onRefine}
           />
+          <VirtualRefinementList
+            attributeName='model'
+            defaultRefinement={[...this.state.refinements.model]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='condition'
+            defaultRefinement={[...this.state.refinements.condition]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='mast type'
+            defaultRefinement={[...this.state.refinements['mast type']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='fin type'
+            defaultRefinement={[...this.state.refinements['fin type']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='boom type'
+            defaultRefinement={[...this.state.refinements['boom type']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='sail size range'
+            defaultRefinement={[...this.state.refinements['sail size range']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='board size range'
+            defaultRefinement={[...this.state.refinements['board size range']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='mast size range'
+            defaultRefinement={[...this.state.refinements['mast size range']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='mast carbon range'
+            defaultRefinement={[...this.state.refinements['mast carbon range']]}
+            onRefine={this.onRefine}
+          />
+          <VirtualRefinementList
+            attributeName='boom size range'
+            defaultRefinement={[...this.state.refinements['boom size range']]}
+            onRefine={this.onRefine}
+          />
+          <Hits hitComponent={Hit} refineFilter={this.refine} />
           <FloatingButton setIndexName={this.setIndexName} />
         </Main>
       </InstantSearch>

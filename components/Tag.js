@@ -9,19 +9,17 @@ padding-left: 8px;
 cursor: pointer;
 `
 
-const Tag = ({ hit, attributeName, addTag, removeTag, ...props }) => {
+const Tag = ({ hit, attributeName, refine, ...props }) => {
   const value = hit[attributeName]
   if (value == null) return false
 
-  const refine = removeTag({ attributeName, value })
-
-  const onClick = e => {
-    e.preventDefault()
-    addTag({ attributeName, value, refine })
-  }
-
   return (
-    <CustomBadge key={hit.objectID} onClick={onClick} m={1} {...props}>
+    <CustomBadge
+      key={hit.objectID}
+      onClick={e => refine({ attributeName, value })}
+      m={1}
+      {...props}
+    >
       {value}
     </CustomBadge>
   )
