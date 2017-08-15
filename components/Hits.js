@@ -36,7 +36,7 @@ const InfiniteHits = ({
 
   return (
     <Flex direction='column' justify='center' align='center' mt={5}>
-      <CustomCloudRain color='blue' size={120} />
+      <CustomCloudRain color='cyan' size={120} />
       <Text fontSize={4} mt={4}>
         sorry, we didn't found it.
       </Text>

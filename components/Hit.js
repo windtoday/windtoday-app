@@ -15,7 +15,7 @@ const formatter = (value, unit, suffix) => {
 }
 
 const gradient = new ColourMeLife()
-  .setSpectrum('#6e4b46', '#9e6b64', '#1ac391')
+  .setSpectrum('#740021', '#a0002d', '#00db9d')
   .setNumberRange(0, 100)
 
 const Content = styled(Box)`
@@ -87,60 +87,60 @@ const HitComponent = ({ hit, refine }) =>
             <CustomBackgroundImage src={getImageUrl(hit, 600)} />
           </Box>
           <Box mt={2}>
-            <Tag bg='blue4' refine={refine} attributeName='brand' hit={hit} />
-            <Tag bg='blue4' refine={refine} attributeName='model' hit={hit} />
+            <Tag bg='blue' refine={refine} attributeName='brand' hit={hit} />
+            <Tag bg='indigo' refine={refine} attributeName='model' hit={hit} />
             <Tag
-              bg='blue4'
+              bg='violet'
               refine={refine}
               attributeName='condition'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='fuschia'
               refine={refine}
               attributeName='mast type'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='fuschia'
               refine={refine}
               attributeName='fin type'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='fuschia'
               refine={refine}
               attributeName='boom type'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='pink'
               refine={refine}
               attributeName='sail size range'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='pink'
               refine={refine}
               attributeName='board size range'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='pink'
               refine={refine}
               attributeName='mast size range'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='pink'
               refine={refine}
-              attributeName='mast carbon range'
+              attributeName='boom size range'
               hit={hit}
             />
             <Tag
-              bg='blue4'
+              bg='red'
               refine={refine}
-              attributeName='boom size range'
+              attributeName='mast carbon range'
               hit={hit}
             />
           </Box>

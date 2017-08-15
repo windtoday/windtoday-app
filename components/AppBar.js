@@ -1,6 +1,6 @@
 import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
-import { Box, Toolbar, NavLink } from 'rebass'
+import { Box, Toolbar, NavLink, Text } from 'rebass'
 import { Component } from 'react'
 import Logo from './Logo'
 
@@ -26,7 +26,7 @@ export default class extends Component {
 
     return (
       <div>
-        <Toolbar color='blue' bg='white' py={2}>
+        <Toolbar color='cyan' bg='white' py={2}>
           <NavLink>
             {isSearchOpen
               ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
@@ -36,7 +36,7 @@ export default class extends Component {
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <NavLink fontSize={2} mx='auto' children='WINDTODAY' />}
+              : <Text fontSize={2} bold mx='auto' children='WINDTODAY' />}
           </Box>
 
           {!isSearchOpen &&

@@ -1,11 +1,14 @@
 import { connectRefinementList } from 'react-instantsearch/connectors'
 import { Tabs, TabItem, Flex } from 'rebass'
-import styled from 'styled-components'
 import { Component } from 'react'
 
-const CustomTabItem = styled(TabItem)`
-text-transform: uppercase;
-cursor: pointer;
+const CustomTabItem = TabItem.extend`
+  text-transform: uppercase;
+  cursor: pointer;
+  color: ${props => (props.active ? props.color : 'inherit')};
+  &:hover {
+    color: ${props => props.color};
+  }
 `
 
 const CategoryBar = class extends Component {
@@ -23,6 +26,7 @@ const CategoryBar = class extends Component {
   renderCustomTabItem ({ type, index }) {
     return (
       <CustomTabItem
+        color='#01bef2'
         fontSize={[1, 2, 2]}
         active={index === this.state.active}
         onClick={e => {
