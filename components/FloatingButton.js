@@ -4,6 +4,13 @@ import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
 import { Component } from 'react'
 
+const ResponsiveFixed = styled(Fixed)`
+@media screen and (min-width: 600px) {
+  max-width: 800px;
+  margin: 0 auto;
+}
+`
+
 const Button = styled.a`
   ${color} height: ${props => props.size}px;
   width: ${props => props.size}px;
@@ -133,7 +140,7 @@ export default class extends Component {
 
   renderFloatingButtons () {
     return (
-      <Fixed right bottom left>
+      <ResponsiveFixed right bottom left>
         <Flex justify='flex-end'>
           <FloatingButtonWrapper mx={3} my={3}>
             <PrimaryButtonWrapper>
@@ -144,7 +151,7 @@ export default class extends Component {
                 iconOpen={X}
                 iconClose={this.state.criteriaIcon}
                 color='white'
-                bg='blue'
+                bg='cyan'
               />
               <SecondaryButtonWrapper>
                 <SecondaryButton
@@ -153,7 +160,7 @@ export default class extends Component {
                   setCriteriaIcon={this.setCriteriaIcon}
                   size={42}
                   icon={Clock}
-                  color='blue'
+                  color='cyan'
                   bg='white'
                   label='Recent'
                   indexName={'sort_by_timestamp'}
@@ -165,7 +172,7 @@ export default class extends Component {
                   setCriteriaIcon={this.setCriteriaIcon}
                   size={42}
                   icon={Award}
-                  color='blue'
+                  color='cyan'
                   bg='white'
                   label='Price Score'
                   indexName={'windsurf'}
@@ -175,7 +182,7 @@ export default class extends Component {
             </PrimaryButtonWrapper>
           </FloatingButtonWrapper>
         </Flex>
-      </Fixed>
+      </ResponsiveFixed>
     )
   }
 
