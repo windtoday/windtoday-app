@@ -76,9 +76,11 @@ const CurrentRefinements = class extends Component {
     const { items, refineFilter } = this.props
     return (
       <CustomBox style={{ top: this.state.offset }} mx={2} mt={2} mb={1}>
-        {items.map((item, index) =>
-          <Filter key={index} refine={refineFilter} {...item} />
-        )}
+        {items
+          .filter(({ attributeName }) => attributeName !== 'category')
+          .map((item, index) =>
+            <Filter key={index} refine={refineFilter} {...item} />
+          )}
       </CustomBox>
     )
   }
