@@ -1,5 +1,6 @@
-import styled from 'styled-components'
+import { connectCurrentRefinements } from 'react-instantsearch/connectors'
 import { Text, Box, Badge } from 'rebass'
+import styled from 'styled-components'
 import { Component } from 'react'
 import { X } from 'react-feather'
 
@@ -13,23 +14,31 @@ cursor: pointer;
 `
 
 const CustomBox = styled(Box)`
-background: rgba(255, 255, 255, 0.7);
+background: rgba(255, 255, 255, .8);
 position: sticky;
 transition: top 200ms ease-in-out;
 `
 
-const Filter = ({ attributeName, value, refine, ...props }) => {
+const Filter = ({ currentRefinement, refine, ...props }) => {
+  const [value] = currentRefinement
+  const { attributeName } = props
+
   return (
     <CustomBadge mx={1} my={2} px={2} bg='white' color='blue'>
       <Text f={1} mr={1}>
         {value}
       </Text>
-      <X size={16} onClick={refine} />
+      <X
+        size={16}
+        onClick={e => {
+          refine({ attributeName, value })
+        }}
+      />
     </CustomBadge>
   )
 }
 
-export default class extends Component {
+const CurrentRefinements = class extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -54,12 +63,15 @@ export default class extends Component {
   }
 
   render () {
-    const { tags } = this.props
-
+    const { items, refineFilter } = this.props
     return (
       <CustomBox style={{ top: this.state.offset }} mx={2} mt={2} mb={1}>
-        {tags.map((tag, index) => <Filter key={index} {...tag} />)}
+        {items.map((item, index) =>
+          <Filter key={index} refine={refineFilter} {...item} />
+        )}
       </CustomBox>
     )
   }
 }
+
+export default connectCurrentRefinements(CurrentRefinements)
