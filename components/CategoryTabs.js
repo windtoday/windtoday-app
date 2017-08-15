@@ -2,6 +2,8 @@ import { connectRefinementList } from 'react-instantsearch/connectors'
 import { Tabs, TabItem, Flex } from 'rebass'
 import { Component } from 'react'
 
+const TABS = ['all', 'sails', 'boards', 'masts', 'booms', 'fins']
+
 const CustomTabItem = TabItem.extend`
   text-transform: uppercase;
   cursor: pointer;
@@ -15,7 +17,7 @@ const CategoryBar = class extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      active: 1
+      active: 0
     }
   }
 
@@ -23,18 +25,19 @@ const CategoryBar = class extends Component {
     this.setState({ active })
   }
 
-  renderCustomTabItem ({ type, index }) {
+  renderCustomTabItem ({ value, index }) {
     return (
       <CustomTabItem
+        key={index}
         color='#01bef2'
         fontSize={[1, 2, 2]}
         active={index === this.state.active}
         onClick={e => {
           this.setActive(index)
-          index === 1 ? this.props.refine([]) : this.props.refine(type)
+          index === 0 ? this.props.refine([]) : this.props.refine(value)
         }}
       >
-        {type}
+        {value}
       </CustomTabItem>
     )
   }
@@ -43,12 +46,9 @@ const CategoryBar = class extends Component {
     return (
       <Tabs bg='white' color='gray7'>
         <Flex justify='center' mx='auto'>
-          {this.renderCustomTabItem({ type: 'all', index: 1 })}
-          {this.renderCustomTabItem({ type: 'sails', index: 2 })}
-          {this.renderCustomTabItem({ type: 'boards', index: 3 })}
-          {this.renderCustomTabItem({ type: 'masts', index: 4 })}
-          {this.renderCustomTabItem({ type: 'booms', index: 5 })}
-          {this.renderCustomTabItem({ type: 'fins', index: 6 })}
+          {TABS.map((value, index) =>
+            this.renderCustomTabItem({ value, index })
+          )}
         </Flex>
       </Tabs>
     )
