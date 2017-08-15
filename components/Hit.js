@@ -45,12 +45,13 @@ padding: 0;
 `
 const getColor = value => `#${gradient.colourAt(value)}`
 
-const HitComponent = ({ hit, addTag, removeTag }) =>
+const HitComponent = ({ hit, refine }) =>
   <Box>
     <Box pt={3} pb={2} px={2}>
       <Flex direction='row'>
         <SecondaryContent>
           <CustomProgressArc
+            key={hit.objectID}
             value={hit.priceScore}
             unit=''
             arcColor={getColor(hit.priceScore)}
@@ -86,80 +87,59 @@ const HitComponent = ({ hit, addTag, removeTag }) =>
             <CustomBackgroundImage src={getImageUrl(hit, 600)} />
           </Box>
           <Box mt={2}>
+            <Tag bg='blue4' refine={refine} attributeName='brand' hit={hit} />
+            <Tag bg='blue4' refine={refine} attributeName='model' hit={hit} />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
-              attributeName='brand'
-              hit={hit}
-            />
-            <Tag
-              bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
-              attributeName='model'
-              hit={hit}
-            />
-            <Tag
-              bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='condition'
               hit={hit}
             />
             <Tag
-              bg='red'
-              addTag={addTag}
-              removeTag={removeTag}
+              bg='blue4'
+              refine={refine}
               attributeName='mast type'
               hit={hit}
             />
             <Tag
-              bg='green'
-              addTag={addTag}
-              removeTag={removeTag}
+              bg='blue4'
+              refine={refine}
               attributeName='fin type'
               hit={hit}
             />
             <Tag
-              bg='yellow'
-              addTag={addTag}
-              removeTag={removeTag}
+              bg='blue4'
+              refine={refine}
               attributeName='boom type'
               hit={hit}
             />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='sail size range'
               hit={hit}
             />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='board size range'
               hit={hit}
             />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='mast size range'
               hit={hit}
             />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='mast carbon range'
               hit={hit}
             />
             <Tag
               bg='blue4'
-              addTag={addTag}
-              removeTag={removeTag}
+              refine={refine}
               attributeName='boom size range'
               hit={hit}
             />

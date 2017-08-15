@@ -19,6 +19,7 @@ const InfiniteHits = ({
   hasResults,
   query,
   refine,
+  refineFilter,
   addTag,
   removeTag,
   ...props
@@ -27,12 +28,7 @@ const InfiniteHits = ({
     return (
       <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
         {hits.map(hit =>
-          <ItemComponent
-            key={hit.objectID}
-            hit={hit}
-            addTag={addTag}
-            removeTag={removeTag}
-          />
+          <ItemComponent key={hit.objectID} hit={hit} refine={refineFilter} />
         )}
       </InfiniteScroll>
     )
