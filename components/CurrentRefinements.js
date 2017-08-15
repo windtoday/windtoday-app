@@ -4,35 +4,45 @@ import styled from 'styled-components'
 import { Component } from 'react'
 import { X } from 'react-feather'
 
-const CustomBadge = styled(Badge)`
-display: inline-flex;
-justify-content: center;
-align-items: center;
-border: 2px solid;
-border-radius: 1rem;
-cursor: pointer;
+const CustomBadge = Badge.extend`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
 `
 
 const CustomBox = styled(Box)`
-background: rgba(255, 255, 255, .8);
+background: rgba(255, 255, 255, .85);
 position: sticky;
 transition: top 200ms ease-in-out;
 `
+
+const colorSchema = {
+  brand: 'blue',
+  condition: 'violet',
+  model: 'indigo',
+  'mast type': 'fuschia',
+  'fin type': 'fuschia',
+  'boom type': 'fuschia',
+  'sail size range': 'pink',
+  'board size range': 'pink',
+  'mast carbon range': 'pink'
+}
 
 const Filter = ({ currentRefinement, refine, ...props }) => {
   const [value] = currentRefinement
   const { attributeName } = props
 
   return (
-    <CustomBadge mx={1} my={2} px={2} bg='white' color='blue'>
-      <Text f={1} mr={1}>
+    <CustomBadge mx={1} my={2} px={2} bg={colorSchema[attributeName]}>
+      <Text bold f={1} mr={1}>
         {value}
       </Text>
       <X
         size={16}
-        onClick={e => {
-          refine({ attributeName, value })
-        }}
+        onClick={e => refine({ attributeName, value })}
+        style={{ strokeWidth: 3 }}
       />
     </CustomBadge>
   )
