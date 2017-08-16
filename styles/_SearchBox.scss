@@ -55,8 +55,7 @@ $input-height: 38px;
   line-height: inherit;
   display: inline-block;
   vertical-align: middle;
-  border: 0;
-  box-shadow: inset 0 0 0 1px #ccd4d7;
+  border: 1px solid $gray2;
   border-radius: 1rem;
   appearance: none;
   margin: 0px;
@@ -65,7 +64,7 @@ $input-height: 38px;
   height: $input-height;
 
   font-size: inherit;
-  color: inherit;
+  color: #14171a;
   background-color: $gray0;
 
   @include breakpoint($medium) {
@@ -78,10 +77,12 @@ $input-height: 38px;
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 1px $cyan;
+    border: 2px solid $cyan;
+    background-color: $white;
   }
 
   @include placeholder {
+    color: $gray5;
     font-size: 16px;
   }
 }

@@ -44,7 +44,7 @@ const CategoryBar = class extends Component {
 
   render () {
     return (
-      <Tabs bg='white' color='gray7'>
+      <Tabs bg='white' color='gray6'>
         <Flex justify='center' mx='auto'>
           {TABS.map((value, index) =>
             this.renderCustomTabItem({ value, index })

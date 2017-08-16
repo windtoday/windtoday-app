@@ -65,12 +65,14 @@ const HitComponent = ({ hit, refine }) =>
               <Text is='span' bold>
                 <Highlight attributeName='provider' hit={hit} />
               </Text>
-              {' · '}
-              <Text is='span' color='gray7'>
+
+              <Text is='span' color='gray5'>
+                {' · '}
                 €{hit.price}
               </Text>
-              {' · '}
-              <Text is='span' color='gray7'>
+
+              <Text is='span' color='gray5'>
+                {' · '}
                 <TimeAgo formatter={formatter} date={hit.timestamp} />
               </Text>
             </Box>
@@ -148,7 +150,7 @@ const HitComponent = ({ hit, refine }) =>
       </Flex>
     </Box>
 
-    <Divider w={1} color='gray2' />
+    <Divider w={1} color='gray1' />
   </Box>
 
 HitComponent.propTypes = {
