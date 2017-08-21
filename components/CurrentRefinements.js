@@ -20,14 +20,16 @@ transition: top 200ms ease-in-out;
 
 const colorSchema = {
   brand: 'blue',
-  condition: 'violet',
   model: 'indigo',
+  condition: 'violet',
   'mast type': 'fuschia',
   'fin type': 'fuschia',
   'boom type': 'fuschia',
   'sail size range': 'pink',
   'board size range': 'pink',
-  'mast carbon range': 'pink'
+  'mast size range': 'pink',
+  'boom size range': 'pink',
+  'mast carbon range': 'red'
 }
 
 const Filter = ({ currentRefinement, refine, ...props }) => {
