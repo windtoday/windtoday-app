@@ -19,13 +19,17 @@ const Button = styled.a`
   position: relative;
   border: none;
   border-radius: 50%;
-  box-shadow: 1px 1px 4px rgba(101, 119, 134, .75);
   cursor: pointer;
   outline: none;
   padding: 0;
   position: relative;
   -webkit-user-drag: none;
   font-weight: bold;
+  border: ${props => (props.primary ? '0' : '1px solid #ccd6dd')};
+  box-shadow: ${props =>
+    props.primary
+      ? '1px 1px 4px rgba(101, 119, 134, .75)'
+      : '1px 1px 4px -1px rgba(101,119,134,.75)'};
 `
 const FloatingButtonWrapper = styled.ul`
   ${space} white-space: nowrap;
@@ -55,15 +59,16 @@ display: block;
 const Label = styled.label`
   ${color} padding: 4px 10px;
   font-size: 12px;
-  pointer-events: none;
+  cursor: pointer;
   position: absolute;
   top: 0;
   right: 100%;
-  margin: 10px 7px;
+  margin: 6px 7px;
   border: 1px solid #ccd6dd;
   border-radius: .35rem;
   text-transform: uppercase;
   letter-spacing: .1em;
+  box-shadow: 1px 1px 4px -1px rgba(101, 119, 134, .75);
 `
 const PrimaryButton = ({
   size,
@@ -75,7 +80,7 @@ const PrimaryButton = ({
 }) => {
   const Icon = styled(!isOpen ? iconClose : iconOpen)`${iconstyle}`
   return (
-    <Button size={size} {...props}>
+    <Button size={size} primary {...props}>
       <Icon onClick={e => toggleOpen()} />
     </Button>
   )
@@ -94,18 +99,18 @@ const SecondaryButton = ({
 }) => {
   const Icon = styled(IconComponent)`${iconstyle}`
   if (!isOpen) return false
+
+  const onClick = e => {
+    setIndexName(indexName)
+    setCriteriaIcon(Icon)
+    toggleOpen()
+  }
+
   return (
     <Box is='li' pb={3}>
       <Button size={size} {...props}>
-        <Icon
-          size={18}
-          onClick={e => {
-            setIndexName(indexName)
-            setCriteriaIcon(Icon)
-            toggleOpen()
-          }}
-        />
-        <Label {...props}>
+        <Icon size={18} onClick={onClick} />
+        <Label onClick={onClick} {...props}>
           {label}
         </Label>
       </Button>
