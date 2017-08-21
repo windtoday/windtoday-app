@@ -12,7 +12,9 @@ const ResponsiveFixed = styled(Fixed)`
 `
 
 const Button = styled.a`
-  ${color} height: ${props => props.size}px;
+  ${color} background: ${props =>
+      props.primary ? 'linear-gradient(45deg,#19b5fe,#31d0c9)' : props.bg};
+  height: ${props => props.size}px;
   width: ${props => props.size}px;
   z-index: 20;
   display: inline-block;
