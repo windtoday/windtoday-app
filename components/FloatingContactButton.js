@@ -1,4 +1,5 @@
-import { Clock, X, Award } from 'react-feather'
+import Shop from './Icon/Shop'
+import { Phone, Share2, ExternalLink, X } from 'react-feather'
 import styled, { css } from 'styled-components'
 import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
@@ -76,11 +77,11 @@ const PrimaryButton = ({
   size,
   isOpen,
   toggleOpen,
-  iconOpen,
-  iconClose,
+  icon: IconComponent,
   ...props
 }) => {
-  const Icon = styled(!isOpen ? iconClose : iconOpen)`${iconstyle}`
+  const Icon = styled(isOpen ? X : IconComponent)`${iconstyle}`
+
   return (
     <Button size={size} primary {...props}>
       <Icon onClick={e => toggleOpen()} />
@@ -93,20 +94,12 @@ const SecondaryButton = ({
   isOpen,
   icon: IconComponent,
   label,
-  setIndexName,
-  indexName,
+  onClick,
   toggleOpen,
-  setCriteriaIcon,
   ...props
 }) => {
   const Icon = styled(IconComponent)`${iconstyle}`
   if (!isOpen) return false
-
-  const onClick = e => {
-    setIndexName(indexName)
-    setCriteriaIcon(Icon)
-    toggleOpen()
-  }
 
   return (
     <Box is='li' pb={3}>
@@ -124,17 +117,12 @@ export default class extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      isOpen: false,
-      criteriaIcon: Award
+      isOpen: false
     }
   }
 
   toggleOpen = () => {
     this.setState({ isOpen: !this.state.isOpen })
-  }
-
-  setCriteriaIcon = criteriaIcon => {
-    this.setState({ criteriaIcon })
   }
 
   renderOverlayFloatingButtons () {
@@ -155,8 +143,7 @@ export default class extends Component {
                 size={61}
                 isOpen={this.state.isOpen}
                 toggleOpen={this.toggleOpen}
-                iconOpen={X}
-                iconClose={this.state.criteriaIcon}
+                icon={Shop}
                 color='white'
                 bg='cyan'
               />
@@ -164,26 +151,29 @@ export default class extends Component {
                 <SecondaryButton
                   isOpen={this.state.isOpen}
                   toggleOpen={this.toggleOpen}
-                  setCriteriaIcon={this.setCriteriaIcon}
                   size={42}
-                  icon={Clock}
+                  icon={ExternalLink}
                   color='cyan'
                   bg='white'
-                  label='Recent'
-                  indexName={'sort_by_timestamp'}
-                  setIndexName={this.props.setIndexName}
+                  label='Go to Shop'
                 />
                 <SecondaryButton
                   isOpen={this.state.isOpen}
                   toggleOpen={this.toggleOpen}
-                  setCriteriaIcon={this.setCriteriaIcon}
                   size={42}
-                  icon={Award}
+                  icon={Phone}
                   color='cyan'
                   bg='white'
-                  label='Price Score'
-                  indexName={'windsurf'}
-                  setIndexName={this.props.setIndexName}
+                  label='Call to Shop'
+                />
+                <SecondaryButton
+                  isOpen={this.state.isOpen}
+                  toggleOpen={this.toggleOpen}
+                  size={42}
+                  icon={Share2}
+                  color='cyan'
+                  bg='white'
+                  label='Share Link'
                 />
               </SecondaryButtonWrapper>
             </PrimaryButtonWrapper>

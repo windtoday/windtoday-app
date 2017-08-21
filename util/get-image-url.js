@@ -1,13 +1,9 @@
-const IMAGE_PLACEHOLDER = ''
+const IMAGE_PLACEHOLDER = 'https://blog.windtoday.co/cover.jpg'
 
 const urlWithoutProtocol = url => url.replace(/(^\w+:|^)\/\//, '')
 
-export default (hit, width) => {
-  const { image, provider } = hit
-
-  if (!provider) return IMAGE_PLACEHOLDER
-  if (!image) return `/assets/img/provider/${provider}.jpg`
-
+export default ({ image }, width = 600) => {
+  if (!image) return IMAGE_PLACEHOLDER
   const url = urlWithoutProtocol(image)
   const baseUrl = `https://images.weserv.nl/?url=${url}&trim`
   return width ? `${baseUrl}&w=${width}` : baseUrl
