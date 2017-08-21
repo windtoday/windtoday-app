@@ -4,8 +4,8 @@ import { createConnector } from 'react-instantsearch'
 import { color, space } from 'styled-system'
 import { CloudRain } from 'react-feather'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Text, Flex } from 'rebass'
+import PropTypes from 'prop-types'
 
 const CustomCloudRain = styled(CloudRain)`
 ${color}

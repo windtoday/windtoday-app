@@ -1,8 +1,14 @@
 import { connectCurrentRefinements } from 'react-instantsearch/connectors'
-import { Text, Box, Badge } from 'rebass'
+import { Badge, Text, Box } from 'rebass'
 import styled from 'styled-components'
 import { Component } from 'react'
 import { X } from 'react-feather'
+
+const CustomBox = styled(Box)`
+background: rgba(255, 255, 255, .85);
+position: sticky;
+transition: top 200ms ease-in-out;
+`
 
 const CustomBadge = Badge.extend`
   display: inline-flex;
@@ -10,12 +16,6 @@ const CustomBadge = Badge.extend`
   align-items: center;
   border-radius: 1rem;
   cursor: pointer;
-`
-
-const CustomBox = styled(Box)`
-background: rgba(255, 255, 255, .85);
-position: sticky;
-transition: top 200ms ease-in-out;
 `
 
 const colorSchema = {

@@ -1,10 +1,10 @@
 import { findResultsState } from 'components/Instantsearch'
 import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
-import App from 'components/App'
-import Router from 'next/router'
 import { Component } from 'react'
 import { Provider } from 'rebass'
+import App from 'components/App'
+import Router from 'next/router'
 import theme from 'config/theme'
 import qs from 'qs'
 
@@ -65,6 +65,7 @@ export default class extends Component {
             createURL={createURL}
             url={this.props.url}
             isServer={this.props.isServer}
+            isPopUp={true}
           />
         </Provider>
       </Layout>

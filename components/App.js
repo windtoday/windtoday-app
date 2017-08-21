@@ -1,19 +1,19 @@
 /* global APP */
 
 import { Configure } from 'react-instantsearch/dom'
-import VirtualRefinementList from './VirtualRefinementList'
-import CurrentRefinements from './CurrentRefinements'
-import { InstantSearch } from './Instantsearch'
-import FloatingButton from './FloatingButton'
-import CategoryTabs from './CategoryTabs'
 import styled from 'styled-components'
 import Headroom from 'react-headroom'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
-import AppBar from './AppBar'
 import { Box } from 'rebass'
+
+import { InstantSearch } from './Instantsearch'
+import FloatingFilterButton from './FloatingFilterButton'
+import FloatingContactButton from './FloatingContactButton'
+import CategoryTabs from './CategoryTabs'
+import SingleHit from './SingleHit'
+import AppBar from './AppBar'
 import Hits from './Hits'
-import Hit from './Hit'
 
 const Main = styled(Box)`
 @media screen and (min-width: 600px) {
@@ -89,7 +89,8 @@ export default class extends Component {
       resultsState,
       onSearchStateChange,
       searchState,
-      createURL
+      createURL,
+      isPopUp
     } = this.props
 
     return (
@@ -107,71 +108,21 @@ export default class extends Component {
           style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
           ref={node => (this.state.headroom = node)}
         >
-          <AppBar searchState={searchState} />
-          <CategoryTabs attributeName='category' />
+          <AppBar searchState={searchState} isPopUp={isPopUp} />
+          {!isPopUp && <CategoryTabs attributeName='category' />}
         </Headroom>
         <Main>
-          <CurrentRefinements
-            headroom={this.state.headroom}
-            refineFilter={this.refine}
-          />
-          <VirtualRefinementList
-            attributeName='brand'
-            defaultRefinement={[...this.state.refinements.brand]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='model'
-            defaultRefinement={[...this.state.refinements.model]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='condition'
-            defaultRefinement={[...this.state.refinements.condition]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='mast type'
-            defaultRefinement={[...this.state.refinements['mast type']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='fin type'
-            defaultRefinement={[...this.state.refinements['fin type']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='boom type'
-            defaultRefinement={[...this.state.refinements['boom type']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='sail size range'
-            defaultRefinement={[...this.state.refinements['sail size range']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='board size range'
-            defaultRefinement={[...this.state.refinements['board size range']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='mast size range'
-            defaultRefinement={[...this.state.refinements['mast size range']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='mast carbon range'
-            defaultRefinement={[...this.state.refinements['mast carbon range']]}
-            onRefine={this.onRefine}
-          />
-          <VirtualRefinementList
-            attributeName='boom size range'
-            defaultRefinement={[...this.state.refinements['boom size range']]}
-            onRefine={this.onRefine}
-          />
-          <Hits hitComponent={Hit} refineFilter={this.refine} />
-          <FloatingButton setIndexName={this.setIndexName} />
+          {isPopUp
+            ? <SingleHit />
+            : <Hits
+                headroom={this.state.headroom}
+                refine={this.refine}
+                refinements={this.state.refinements}
+                onRefine={this.onRefine}
+              />}
+          {isPopUp
+            ? <FloatingContactButton />
+            : <FloatingFilterButton setIndexName={this.setIndexName} />}
         </Main>
       </InstantSearch>
     )
