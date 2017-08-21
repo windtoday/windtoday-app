@@ -66,12 +66,12 @@ const HitComponent = ({ hit, refine }) =>
                 <Highlight attributeName='provider' hit={hit} />
               </Text>
 
-              <Text is='span' color='gray5'>
+              <Text is='span' color='gray6'>
                 {' · '}
                 €{hit.price}
               </Text>
 
-              <Text is='span' color='gray5'>
+              <Text is='span' color='gray6'>
                 {' · '}
                 <TimeAgo formatter={formatter} date={hit.timestamp} />
               </Text>
