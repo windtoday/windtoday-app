@@ -90,7 +90,8 @@ export default class extends Component {
       onSearchStateChange,
       searchState,
       createURL,
-      isPopUp
+      isPopUp,
+      filters
     } = this.props
 
     return (
@@ -103,7 +104,7 @@ export default class extends Component {
         searchState={searchState}
         createURL={createURL}
       >
-        <Configure hitsPerPage={APP.algolia.hitsPerPage} />
+        <Configure hitsPerPage={APP.algolia.hitsPerPage} filters={filters} />
         <Headroom
           style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
           ref={node => (this.state.headroom = node)}

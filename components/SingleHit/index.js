@@ -7,42 +7,15 @@ import {
   Text,
   Flex
 } from 'rebass'
+
+import { connectHits } from 'react-instantsearch/connectors'
 import { Line } from 'react-progressbar.js'
 import styled from 'styled-components'
 
-import HitDetails from './Details'
-import getImageUrl from 'util/get-image-url'
 import { priceScoreGradientAt } from 'config/theme'
-
-const hit = {
-  isForced: true,
-  title: 'North Warp 8.6m 2014',
-  category: ['sails'],
-  seller: 'used',
-  condition: 'Used',
-  provider: 'telstarsurf',
-  path: 'sails',
-  link:
-    'http://www.telstarsurf.com/windsurf/windsurf-sails/used-sails/57644/northsails-warp-2014/?ref=windtodayco',
-  image:
-    'https://www.telstarsurf.com/cache/img/d939b30cc116/500/500/max/max/warp-2014.jpeg',
-  updatedAt: 1502661600000,
-  timestamp: 1502744825821,
-  brand: 'North',
-  model: 'Warp',
-  price: 359,
-  year: 2014,
-  'sail size': 8.6,
-  'sail type': 'Race',
-  'sail size range': '8m to 9m',
-  priceScore: 100,
-  priceScoreDetail: {
-    byCategory: 100,
-    byYear: 100,
-    byBrand: 100,
-    byModel: 100
-  }
-}
+import getFormatDate from 'util/get-format-date'
+import getImageUrl from 'util/get-image-url'
+import HitDetails from './Details'
 
 const TextUpper = styled(Text)`
   text-transform: uppercase;
@@ -53,14 +26,17 @@ const BackgroundImageGradient = BackgroundImage.extend`
     `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
 `
 
-const getFormatDate = timestamp =>
-  new Date(timestamp).toLocaleString('en-us', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
-
-export default () =>
+const SingleHit = ({
+  price,
+  title,
+  provider,
+  updatedAt,
+  priceScore,
+  brand,
+  model,
+  condition,
+  ...hit
+}) =>
   <div>
     <BackgroundImageGradient src={getImageUrl(hit)}>
       <Flex
@@ -70,23 +46,23 @@ export default () =>
       >
         <Box p={3}>
           <Badge bg='green7' color='white' bold>
-            €{hit.price}
+            €{price}
           </Badge>
         </Box>
 
         <Box p={3}>
           <Flex py={3} direction='column' align='flex-end'>
             <Text is='h2' color='white' bold>
-              {hit.title}
+              {title}
             </Text>
             <Flex align='center' direction='row-reverse'>
               <Avatar
                 size={24}
-                src={`/static/img/provider/${hit.provider}.jpg`}
+                src={`/static/img/provider/${provider}.jpg`}
                 ml={2}
               />
               <Text f={1} color='white'>
-                {getFormatDate(hit.updatedAt)} by {hit.provider}
+                {getFormatDate(updatedAt)} by {provider}
               </Text>
             </Flex>
           </Flex>
@@ -95,7 +71,7 @@ export default () =>
     </BackgroundImageGradient>
     <Box p={2}>
       <Line
-        progress={Math.round(hit.priceScore / 100)}
+        progress={Math.round(priceScore / 100)}
         options={{
           strokeWidth: 3,
           easing: 'easeOut',
@@ -112,7 +88,7 @@ export default () =>
       <Flex>
         <Flex align='center' direction='column' flex='1 1 auto' p={2}>
           <Text is='h2' m={0}>
-            {hit.brand}
+            {brand}
           </Text>
           <TextUpper is='h6' m={0}>
             brand
@@ -120,7 +96,7 @@ export default () =>
         </Flex>
         <Flex align='center' direction='column' flex='1 1 auto' p={2}>
           <Text is='h2' m={0}>
-            {hit.model}
+            {model}
           </Text>
           <TextUpper is='h6' m={0}>
             model
@@ -128,7 +104,7 @@ export default () =>
         </Flex>
         <Flex align='center' direction='column' flex='1 1 auto' p={2}>
           <Text is='h2' m={0}>
-            {hit.condition}
+            {condition}
           </Text>
           <TextUpper is='h6' m={0}>
             condition
@@ -139,3 +115,10 @@ export default () =>
       <HitDetails hit={hit} />
     </Box>
   </div>
+
+const CustomHits = ({ hits, ...props }) => {
+  const [hit] = hits
+  return <SingleHit {...hit} />
+}
+
+export default connectHits(CustomHits)

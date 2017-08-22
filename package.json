@@ -26,6 +26,7 @@
     "colour-me-life": "~2.0.0",
     "config": "~1.26.2",
     "cssnano": "~3.10.0",
+    "express": "~4.15.4",
     "glob": "~7.1.2",
     "js-yaml": "~3.9.1",
     "next": "~3.0.6",
@@ -45,6 +46,7 @@
     "react-headroom": "~2.1.6",
     "react-infinite-scroll-component": "~2.4.0",
     "react-instantsearch": "~4.1.0-beta.4",
+    "react-progressbar.js": "~0.2.0",
     "react-timeago": "~3.4.3",
     "rebass": "~1.0.4",
     "sass-loader": "~6.0.6",
@@ -54,8 +56,8 @@
   "devDependencies": {
     "babel-eslint": "latest",
     "git-dirty": "latest",
-    "husky": "~0.14.3",
-    "lint-staged": "~4.0.3",
+    "husky": "latest",
+    "lint-staged": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
