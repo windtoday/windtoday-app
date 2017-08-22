@@ -1,8 +1,15 @@
 import { Box, Toolbar, NavLink, Text } from 'rebass'
-import { Share, ChevronLeft, Search } from 'react-feather'
+import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
 import { Component } from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
 import Logo from './Logo'
+
+const CustomA = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+`
 
 const translations = {
   placeholder: 'What are you looking for?'
@@ -21,18 +28,37 @@ export default class extends Component {
     this.setState({ [prop]: !this.state[prop] })
   }
 
+  renderPopUpLeftIcon () {
+    const { currentItem } = this.props
+
+    return (
+      <Link href={`/#${currentItem}`} prefetch>
+        <NavLink>
+          <ChevronLeft />
+        </NavLink>
+      </Link>
+    )
+  }
+
+  renderLeftIcon () {
+    const { isSearchOpen } = this.state
+    return (
+      <NavLink>
+        {isSearchOpen
+          ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
+          : <Logo />}
+      </NavLink>
+    )
+  }
+
   render () {
     const { isSearchOpen } = this.state
-    const { isPopUp } = this.props
+    const { currentItem } = this.props
 
     return (
       <div>
         <Toolbar color='cyan' bg='white' py={2}>
-          <NavLink>
-            {isSearchOpen || isPopUp
-              ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
-              : <Logo />}
-          </NavLink>
+          {currentItem ? this.renderPopUpLeftIcon() : this.renderLeftIcon()}
 
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
@@ -40,12 +66,12 @@ export default class extends Component {
               : <Text
                   fontSize={2}
                   mx='auto'
-                  children={isPopUp ? 'BACK' : 'WINDTODAY'}
+                  children={currentItem ? 'BACK' : 'WINDTODAY'}
                   bold
                 />}
           </Box>
 
-          {!isPopUp &&
+          {!currentItem &&
             !isSearchOpen &&
             <NavLink>
               <Search onClick={e => this.toggle('isSearchOpen')} />

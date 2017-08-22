@@ -27,7 +27,10 @@ export default class extends Component {
       : {}
     const resultsState = await findResultsState(App, { searchState })
     const isServer = !!req
-    return { resultsState, searchState, isServer, url }
+
+    const { query: { id: currentItem } } = props
+
+    return { resultsState, searchState, isServer, url, currentItem }
   }
 
   onSearchStateChange = searchState => {
@@ -65,6 +68,7 @@ export default class extends Component {
             createURL={createURL}
             url={this.props.url}
             isServer={this.props.isServer}
+            currentItem={this.props.currentItem}
           />
         </Provider>
       </Layout>
