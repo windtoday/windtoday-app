@@ -2,14 +2,8 @@ import { Box, Toolbar, NavLink, Text } from 'rebass'
 import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
 import { Component } from 'react'
-import styled from 'styled-components'
 import Link from 'next/link'
 import Logo from './Logo'
-
-const CustomA = styled.a`
-  text-decoration: none;
-  cursor: pointer;
-`
 
 const translations = {
   placeholder: 'What are you looking for?'
