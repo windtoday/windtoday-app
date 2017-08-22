@@ -1,6 +1,4 @@
 import { Text, Flex } from 'rebass'
-import styled from 'styled-components'
-import { fontSize } from 'styled-system'
 import Tag from '../Tag'
 
 const DETAILS = [
@@ -19,7 +17,7 @@ const DETAILS = [
 const HitDetail = ({ attributeName, value, ...props }) =>
   <div>
     <Flex py={3} px={3} align='flex-start' direction='column'>
-      <Tag mx={0} f={3} attributeName={attributeName} invert>
+      <Tag mx={0} px={0} f={3} attributeName={attributeName} invert>
         {value}
       </Tag>
       <Text f={1} m={0}>
