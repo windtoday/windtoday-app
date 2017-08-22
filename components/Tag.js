@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types'
 import { createElement } from 'react'
+import styled, { css } from 'styled-components'
 import { Badge } from 'rebass'
 
-const CustomBadge = Badge.extend`
-  border-radius: ${props => (!props.invert ? '1' : '0')}rem;
-  padding-right: ${props => (!props.invert ? '8' : '0')}px;
-  padding-left: ${props => (!props.invert ? '8' : '0')}px;
-  cursor: pointer;
+const normalStyle = css`
+border-radius: 1rem;
+padding-right: 8px;
+padding-left: 8px;
+`
 
+const CustomBadge = Badge.extend`
+  cursor: pointer;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -27,11 +30,12 @@ const colorSchema = {
   'mast carbon range': 'red'
 }
 
-const Tag = ({ attributeName, ...props }) => {
+const Tag = ({ attributeName, invert, ...props }) => {
+  const CustomTag = invert ? CustomBadge : styled(CustomBadge)`${normalStyle}`
   const color = colorSchema[attributeName]
-  const colorProp = { [props.invert ? 'color' : 'bg']: color }
+  const colorProp = { [invert ? 'color' : 'bg']: color }
   const customProps = Object.assign({ bg: 'transparent' }, colorProp, props)
-  return createElement(CustomBadge, customProps)
+  return createElement(CustomTag, customProps)
 }
 
 Tag.propTypes = {
