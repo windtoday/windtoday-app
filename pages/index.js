@@ -21,13 +21,17 @@ export default class extends Component {
     searchState: PropTypes.object
   }
 
-  static async getInitialProps ({ req, asPath, url }) {
+  static async getInitialProps ({ req, asPath, url, ...props }) {
     const searchState = asPath.includes('?')
       ? qs.parse(asPath.substring(asPath.indexOf('?') + 1))
       : {}
     const resultsState = await findResultsState(App, { searchState })
     const isServer = !!req
-    return { resultsState, searchState, isServer, url }
+
+    const { objectID } = req.params
+    const filters = objectID ? `objectID:${objectID}` : ''
+
+    return { resultsState, searchState, isServer, url, filters }
   }
 
   onSearchStateChange = searchState => {
@@ -65,7 +69,8 @@ export default class extends Component {
             createURL={createURL}
             url={this.props.url}
             isServer={this.props.isServer}
-            isPopUp={true}
+            isPopUp={this.props.filters !== ''}
+            filters={this.props.filters}
           />
         </Provider>
       </Layout>
