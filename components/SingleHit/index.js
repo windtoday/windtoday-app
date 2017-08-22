@@ -10,16 +10,12 @@ import {
 
 import { connectHits } from 'react-instantsearch/connectors'
 import { Line } from 'react-progressbar.js'
-import styled from 'styled-components'
 
 import { priceScoreGradientAt } from 'config/theme'
 import getFormatDate from 'util/get-format-date'
 import getImageUrl from 'util/get-image-url'
 import HitDetails from './Details'
-
-const TextUpper = styled(Text)`
-  text-transform: uppercase;
-`
+import Tag from '../Tag'
 
 const BackgroundImageGradient = BackgroundImage.extend`
   background: ${props =>
@@ -52,10 +48,7 @@ const SingleHit = ({
 
         <Box p={3}>
           <Flex py={3} direction='column' align='flex-end'>
-            <Text is='h2' color='white' bold>
-              {title}
-            </Text>
-            <Flex align='center' direction='row-reverse'>
+            <Flex py={2} align='center' direction='row-reverse'>
               <Avatar
                 size={24}
                 src={`/static/img/provider/${provider}.jpg`}
@@ -65,6 +58,9 @@ const SingleHit = ({
                 {getFormatDate(updatedAt)} by {provider}
               </Text>
             </Flex>
+            <Text is='h2' color='white' bold>
+              {title}
+            </Text>
           </Flex>
         </Box>
       </Flex>
@@ -85,30 +81,30 @@ const SingleHit = ({
         }}
         initialAnimate
       />
-      <Flex>
-        <Flex align='center' direction='column' flex='1 1 auto' p={2}>
-          <Text is='h2' m={0}>
-            {brand}
+      <Flex align='center' justify='space-around'>
+        <Flex align='center' direction='column' p={2}>
+          <Text f={4}>
+            {brand || 'N/A'}
           </Text>
-          <TextUpper is='h6' m={0}>
+          <Tag invert f={2} mx={0} my={0} attributeName='brand'>
             brand
-          </TextUpper>
+          </Tag>
         </Flex>
-        <Flex align='center' direction='column' flex='1 1 auto' p={2}>
-          <Text is='h2' m={0}>
-            {model}
+        <Flex align='center' direction='column' p={2}>
+          <Text f={4}>
+            {model || 'N/A'}
           </Text>
-          <TextUpper is='h6' m={0}>
+          <Tag invert f={2} mx={0} my={0} attributeName='model'>
             model
-          </TextUpper>
+          </Tag>
         </Flex>
-        <Flex align='center' direction='column' flex='1 1 auto' p={2}>
-          <Text is='h2' m={0}>
-            {condition}
+        <Flex align='center' direction='column' p={2}>
+          <Text f={4}>
+            {condition || 'N/A'}
           </Text>
-          <TextUpper is='h6' m={0}>
+          <Tag invert f={2} mx={0} my={0} attributeName='condition'>
             condition
-          </TextUpper>
+          </Tag>
         </Flex>
       </Flex>
       <Divider w={1} color='gray1' />

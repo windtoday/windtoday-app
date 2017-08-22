@@ -32,7 +32,7 @@ export const radius = 4
 export const font = `-apple-system, BlinkMacSystemFont, sans-serif`
 export const monospace = '"SF Mono", "Roboto Mono", Menlo, monospace'
 
-const cx = key => colors[key] || key
+export const cx = key => colors[key] || key
 export const gradient = (n, from, to) =>
   `linear-gradient(${n}deg, ${cx(from)}, ${cx(to)})`
 

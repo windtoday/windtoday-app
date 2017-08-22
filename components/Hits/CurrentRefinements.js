@@ -1,8 +1,9 @@
 import { connectCurrentRefinements } from 'react-instantsearch/connectors'
-import { Badge, Text, Box } from 'rebass'
+import { Text, Box } from 'rebass'
 import styled from 'styled-components'
-import { Component } from 'react'
 import { X } from 'react-feather'
+import { Component } from 'react'
+import Tag from '../Tag'
 
 const CustomBox = styled(Box)`
 background: rgba(255, 255, 255, .85);
@@ -10,34 +11,12 @@ position: sticky;
 transition: top 200ms ease-in-out;
 `
 
-const CustomBadge = Badge.extend`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  cursor: pointer;
-`
-
-const colorSchema = {
-  brand: 'blue',
-  model: 'indigo',
-  condition: 'violet',
-  'mast type': 'fuschia',
-  'fin type': 'fuschia',
-  'boom type': 'fuschia',
-  'sail size range': 'pink',
-  'board size range': 'pink',
-  'mast size range': 'pink',
-  'boom size range': 'pink',
-  'mast carbon range': 'red'
-}
-
 const Filter = ({ currentRefinement, refine, ...props }) => {
   const [value] = currentRefinement
   const { attributeName } = props
 
   return (
-    <CustomBadge mx={1} my={2} px={2} bg={colorSchema[attributeName]}>
+    <Tag mx={1} my={2} px={2} attributeName={attributeName}>
       <Text bold f={1} mr={1}>
         {value}
       </Text>
@@ -46,7 +25,7 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
         onClick={e => refine({ attributeName, value })}
         style={{ strokeWidth: 3 }}
       />
-    </CustomBadge>
+    </Tag>
   )
 }
 

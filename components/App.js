@@ -90,9 +90,10 @@ export default class extends Component {
       onSearchStateChange,
       searchState,
       createURL,
-      isPopUp,
-      filters
+      currentItem
     } = this.props
+
+    const filters = currentItem ? `objectID:${currentItem}` : ''
 
     return (
       <InstantSearch
@@ -109,11 +110,11 @@ export default class extends Component {
           style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
           ref={node => (this.state.headroom = node)}
         >
-          <AppBar searchState={searchState} isPopUp={isPopUp} />
-          {!isPopUp && <CategoryTabs attributeName='category' />}
+          <AppBar searchState={searchState} currentItem={currentItem} />
+          {!currentItem && <CategoryTabs attributeName='category' />}
         </Headroom>
         <Main>
-          {isPopUp
+          {currentItem
             ? <SingleHit />
             : <Hits
                 headroom={this.state.headroom}
@@ -121,7 +122,7 @@ export default class extends Component {
                 refinements={this.state.refinements}
                 onRefine={this.onRefine}
               />}
-          {isPopUp
+          {currentItem
             ? <FloatingContactButton />
             : <FloatingFilterButton setIndexName={this.setIndexName} />}
         </Main>
