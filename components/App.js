@@ -8,8 +8,8 @@ import { Component } from 'react'
 import { Box } from 'rebass'
 
 import { InstantSearch } from './Instantsearch'
-import FloatingFilterButton from './FloatingFilterButton'
-import FloatingContactButton from './FloatingContactButton'
+import FloatingFilterButton from './FloatingButton/Filter'
+import FloatingContactButton from './FloatingButton/Contact'
 import CategoryTabs from './CategoryTabs'
 import SingleHit from './SingleHit'
 import AppBar from './AppBar'
@@ -93,7 +93,7 @@ export default class extends Component {
       currentItem
     } = this.props
 
-    const {headroom, refinements} = this.state
+    const { headroom, refinements } = this.state
     const filters = currentItem ? `objectID:${currentItem}` : ''
 
     return (
@@ -117,7 +117,12 @@ export default class extends Component {
         <Main>
           {currentItem
             ? <SingleHit />
-            : <Hits headroom={headroom} refine={this.refine} refinements={refinements} onRefine={this.onRefine} />}
+            : <Hits
+                headroom={headroom}
+                refine={this.refine}
+                refinements={refinements}
+                onRefine={this.onRefine}
+              />}
           {currentItem
             ? <FloatingContactButton />
             : <FloatingFilterButton setIndexName={this.setIndexName} />}
