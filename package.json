@@ -72,10 +72,10 @@
     "heroku-postbuild": "npm run build",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
-    "precommit-lint": "prettier-standard",
+    "precommit-lint": "prettier-standard --single-quote",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard {util,pages,config,components}/**/*.js",
+    "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
     "start": "next start -p $PORT",
     "test": "exit 0"
   },

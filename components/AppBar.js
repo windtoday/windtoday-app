@@ -57,12 +57,7 @@ export default class extends Component {
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <Text
-                  fontSize={2}
-                  mx='auto'
-                  children={currentItem ? 'BACK' : 'WINDTODAY'}
-                  bold
-                />}
+              : <Text fontSize={2} mx='auto' children={currentItem ? 'BACK' : 'WINDTODAY'} bold />}
           </Box>
 
           {!currentItem &&
