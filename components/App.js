@@ -93,6 +93,7 @@ export default class extends Component {
       currentItem
     } = this.props
 
+    const {headroom, refinements} = this.state
     const filters = currentItem ? `objectID:${currentItem}` : ''
 
     return (
@@ -116,12 +117,7 @@ export default class extends Component {
         <Main>
           {currentItem
             ? <SingleHit />
-            : <Hits
-                headroom={this.state.headroom}
-                refine={this.refine}
-                refinements={this.state.refinements}
-                onRefine={this.onRefine}
-              />}
+            : <Hits headroom={headroom} refine={this.refine} refinements={refinements} onRefine={this.onRefine} />}
           {currentItem
             ? <FloatingContactButton />
             : <FloatingFilterButton setIndexName={this.setIndexName} />}
