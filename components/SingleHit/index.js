@@ -45,7 +45,7 @@ const SingleHit = ({
         style={{ height: CARD_HEIGHT }}
       >
         <Box>
-          <Badge bg='green7' color='white' bold>
+          <Badge bg='green7' f={2} color='white' bold>
             €{price}
           </Badge>
         </Box>
@@ -62,7 +62,7 @@ const SingleHit = ({
                 {getFormatDate(updatedAt)} by {provider}
               </Text>
             </Flex>
-            <Text is='h2' color='white' bold>
+            <Text is='h2' color='white' right bold>
               {title}
             </Text>
           </Flex>
