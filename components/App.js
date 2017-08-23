@@ -125,10 +125,10 @@ export default class extends Component {
           {currentItem
             ? <SingleHit />
             : <Hits
-                headroom={headroom}
-                refine={this.refine}
-                refinements={refinements}
-                onRefine={this.onRefine}
+              headroom={headroom}
+              refine={this.refine}
+              refinements={refinements}
+              onRefine={this.onRefine}
               />}
           {currentItem
             ? <FloatingContactButton />
