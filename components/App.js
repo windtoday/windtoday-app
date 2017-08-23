@@ -15,6 +15,13 @@ import SingleHit from './SingleHit'
 import AppBar from './AppBar'
 import Hits from './Hits'
 
+import NProgress from 'nprogress'
+import Router from 'next/router'
+
+Router.onRouteChangeStart = url => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
+
 const Main = styled(Box)`
 @media screen and (min-width: 600px) {
   max-width: 600px;

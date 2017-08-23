@@ -65,6 +65,7 @@ export default class Document extends NextDocument {
           />
           <meta name='theme-color' content='#ffffff' />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
           {styleTags}
         </Head>
         <body>
