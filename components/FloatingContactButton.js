@@ -1,9 +1,11 @@
-import Shop from './Icon/Shop'
 import { Phone, Share2, ExternalLink, X } from 'react-feather'
+import { connectHits } from 'react-instantsearch/connectors'
 import styled, { css } from 'styled-components'
 import { color, space } from 'styled-system'
 import { Fixed, Flex, Box } from 'rebass'
 import { Component } from 'react'
+
+import Shop from './Icon/Shop'
 
 const ResponsiveFixed = styled(Fixed)`
 @media screen and (min-width: 600px) {
@@ -96,6 +98,7 @@ const SecondaryButton = ({
   label,
   onClick,
   toggleOpen,
+  href,
   ...props
 }) => {
   const Icon = styled(IconComponent)`${iconstyle}`
@@ -103,7 +106,7 @@ const SecondaryButton = ({
 
   return (
     <Box is='li' pb={3}>
-      <Button size={size} {...props}>
+      <Button href={href} target='_blank' size={size} {...props}>
         <Icon size={18} onClick={onClick} />
         <Label onClick={onClick} {...props}>
           {label}
@@ -113,7 +116,7 @@ const SecondaryButton = ({
   )
 }
 
-export default class extends Component {
+const FloatingContactButton = class extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -134,6 +137,8 @@ export default class extends Component {
   }
 
   renderFloatingButtons () {
+    const { hit: { link } } = this.props
+
     return (
       <ResponsiveFixed right bottom left>
         <Flex justify='flex-end'>
@@ -156,6 +161,7 @@ export default class extends Component {
                   color='cyan'
                   bg='white'
                   label='Go to Shop'
+                  href={link}
                 />
                 <SecondaryButton
                   isOpen={this.state.isOpen}
@@ -165,6 +171,7 @@ export default class extends Component {
                   color='cyan'
                   bg='white'
                   label='Call to Shop'
+                  href={link}
                 />
                 <SecondaryButton
                   isOpen={this.state.isOpen}
@@ -174,6 +181,7 @@ export default class extends Component {
                   color='cyan'
                   bg='white'
                   label='Share Link'
+                  href={link}
                 />
               </SecondaryButtonWrapper>
             </PrimaryButtonWrapper>
@@ -189,3 +197,10 @@ export default class extends Component {
       : this.renderOverlayFloatingButtons()
   }
 }
+
+const CustomHits = ({ hits, ...props }) => {
+  const [hit] = hits
+  return <FloatingContactButton hit={hit} {...props} />
+}
+
+export default connectHits(CustomHits)
