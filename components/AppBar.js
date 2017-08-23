@@ -2,7 +2,6 @@ import { Box, Toolbar, NavLink, Text } from 'rebass'
 import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
 import { Component } from 'react'
-import Link from 'next/link'
 import Logo from './Logo'
 
 const translations = {
@@ -23,14 +22,10 @@ export default class extends Component {
   }
 
   renderPopUpLeftIcon () {
-    const { currentItem } = this.props
-
     return (
-      <Link href={`/#${currentItem}`} prefetch>
-        <NavLink>
-          <ChevronLeft />
-        </NavLink>
-      </Link>
+      <NavLink onClick={e => window.history.back()}>
+        <ChevronLeft />
+      </NavLink>
     )
   }
 
@@ -57,7 +52,12 @@ export default class extends Component {
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <Text fontSize={2} mx='auto' children={currentItem ? 'BACK' : 'WINDTODAY'} bold />}
+              : <Text
+                  fontSize={2}
+                  mx='auto'
+                  children={currentItem ? 'BACK' : 'WINDTODAY'}
+                  bold
+                />}
           </Box>
 
           {!currentItem &&
