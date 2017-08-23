@@ -17,9 +17,12 @@ import getImageUrl from 'util/get-image-url'
 import HitDetails from './Details'
 import Tag from '../Tag'
 
+const CARD_HEIGHT = '292px'
+
 const BackgroundImageGradient = BackgroundImage.extend`
   background: ${props =>
     `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
+  padding-bottom: ${CARD_HEIGHT};
 `
 
 const SingleHit = ({
@@ -38,17 +41,18 @@ const SingleHit = ({
       <Flex
         direction='column'
         justify='space-between'
-        style={{ height: '292px' }}
+        p={3}
+        style={{ height: CARD_HEIGHT }}
       >
-        <Box p={3}>
+        <Box>
           <Badge bg='green7' color='white' bold>
             €{price}
           </Badge>
         </Box>
 
-        <Box p={3}>
-          <Flex py={3} direction='column' align='flex-end'>
-            <Flex py={2} align='center' direction='row-reverse'>
+        <Box>
+          <Flex direction='column' align='flex-end'>
+            <Flex pb={1} align='center' direction='row-reverse'>
               <Avatar
                 size={24}
                 src={`/static/img/provider/${provider}.jpg`}
