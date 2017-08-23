@@ -45,7 +45,7 @@ const SingleHit = ({
         style={{ height: CARD_HEIGHT }}
       >
         <Box>
-          <Badge bg='green7' f={2} color='white' bold>
+          <Badge bg='green7' f={2} px={2} color='white' bold>
             €{price}
           </Badge>
         </Box>

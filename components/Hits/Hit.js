@@ -5,7 +5,7 @@ import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
+import Router from 'next/router'
 
 import { priceScoreGradientAt } from 'config/theme'
 import getImageUrl from 'util/get-image-url'
@@ -74,38 +74,43 @@ const HitComponent = ({ hit, refine }) =>
           />
         </SecondaryContent>
         <PrimaryContent>
-          <Link href={`/item?id=${hit.objectID}`} prefetch shallow>
-            <CustomA id={`${hit.objectID}`}>
-              <Flex direction='row' justify='space-between' align='flex-start'>
-                <Box>
-                  <Text is='span' bold>
-                    <Highlight attributeName='provider' hit={hit} />
-                  </Text>
-
-                  <Text is='span' color='gray6'>
-                    {' · '}
-                    €{hit.price}
-                  </Text>
-
-                  <Text is='span' color='gray6'>
-                    {' · '}
-                    <TimeAgo formatter={formatter} date={hit.timestamp} />
-                  </Text>
-                </Box>
-                <Box>
-                  <ChevronDown size={20} color='gray' />
-                </Box>
-              </Flex>
+          <CustomA
+            onClick={e => {
+              const { objectID: id } = hit
+              const scrollPosition = window.pageYOffset
+              window.sessionStorage.setItem('scrollPosition', scrollPosition)
+              return Router.push(`/item?id=${id}`)
+            }}
+          >
+            <Flex direction='row' justify='space-between' align='flex-start'>
               <Box>
-                <Text>
-                  <Highlight attributeName='title' hit={hit} />
+                <Text is='span' bold>
+                  <Highlight attributeName='provider' hit={hit} />
+                </Text>
+
+                <Text is='span' color='gray6'>
+                  {' · '}
+                  €{hit.price}
+                </Text>
+
+                <Text is='span' color='gray6'>
+                  {' · '}
+                  <TimeAgo formatter={formatter} date={hit.timestamp} />
                 </Text>
               </Box>
-              <Box mt={2}>
-                <CustomBackgroundImage src={getImageUrl(hit, 600)} />
+              <Box>
+                <ChevronDown size={20} color='gray' />
               </Box>
-            </CustomA>
-          </Link>
+            </Flex>
+            <Box>
+              <Text>
+                <Highlight attributeName='title' hit={hit} />
+              </Text>
+            </Box>
+            <Box mt={2}>
+              <CustomBackgroundImage src={getImageUrl(hit, 600)} />
+            </Box>
+          </CustomA>
 
           <Box mt={2}>
             {renderTags(hit, refine)}
