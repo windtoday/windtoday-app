@@ -1,6 +1,7 @@
 /* global APP */
 
 import { Configure } from 'react-instantsearch/dom'
+import { Clock, Award } from 'react-feather'
 import styled from 'styled-components'
 import Headroom from 'react-headroom'
 import PropTypes from 'prop-types'
@@ -33,7 +34,6 @@ export default class extends Component {
     super(props)
 
     this.state = {
-      indexName: APP.algolia.indexName,
       refinements: {
         brand: [],
         model: [],
@@ -87,10 +87,6 @@ export default class extends Component {
       }
     }))
 
-  setIndexName = indexName => {
-    this.setState({ indexName })
-  }
-
   render () {
     const {
       resultsState,
@@ -107,7 +103,7 @@ export default class extends Component {
       <InstantSearch
         appId={APP.algolia.appId}
         apiKey={APP.algolia.apiKey}
-        indexName={this.state.indexName}
+        indexName={APP.algolia.indexName}
         resultsState={resultsState}
         onSearchStateChange={onSearchStateChange}
         searchState={searchState}
@@ -125,14 +121,20 @@ export default class extends Component {
           {currentItem
             ? <SingleHit />
             : <Hits
-              headroom={headroom}
-              refine={this.refine}
-              refinements={refinements}
-              onRefine={this.onRefine}
+                headroom={headroom}
+                refine={this.refine}
+                refinements={refinements}
+                onRefine={this.onRefine}
               />}
           {currentItem
             ? <FloatingContactButton />
-            : <FloatingFilterButton setIndexName={this.setIndexName} />}
+            : <FloatingFilterButton
+                items={[
+                  { icon: Award, value: 'sort_by_timestamp', label: 'Recent' },
+                  { icon: Clock, value: 'windsurf', label: 'Price Score' }
+                ]}
+                defaultRefinement={APP.algolia.indexName}
+              />}
         </Main>
       </InstantSearch>
     )
