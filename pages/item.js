@@ -1,4 +1,7 @@
+/* global APP */
+
 import { findResultsState } from 'components/Instantsearch'
+import algoliasearch from 'algoliasearch/lite'
 import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
@@ -15,6 +18,9 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = searchState =>
   searchState ? `${window.location.pathname}?${qs.stringify(searchState)}` : ''
 
+const algoliaClient = algoliasearch(APP.algolia.appId, APP.algolia.apiKey)
+const algoliaIndex = algoliaClient.initIndex(APP.algolia.indexName)
+
 export default class extends Component {
   static propTypes = {
     resultsState: PropTypes.object,
@@ -29,8 +35,16 @@ export default class extends Component {
     const isServer = !!req
 
     const { query: { id: currentItem } } = props
+    const item = await algoliaIndex.getObject(currentItem)
 
-    return { resultsState, searchState, isServer, url, currentItem }
+    const layout = {
+      url: item.link,
+      title: `${item.title} | Windtoday`,
+      ogImage: item.image,
+      description: `See all the information related with ${item.brand} ${item.model}. Compare with the rest of brands, search the best price and choose real deals in our windsurfing marketplace.`
+    }
+
+    return { resultsState, searchState, isServer, url, currentItem, layout }
   }
 
   onSearchStateChange = searchState => {
@@ -59,7 +73,7 @@ export default class extends Component {
         : this.props.searchState
 
     return (
-      <Layout>
+      <Layout {...this.props.layout}>
         <Provider theme={theme}>
           <App
             resultsState={this.props.resultsState}
