@@ -13,20 +13,24 @@ display: block;
 export default ({
   size,
   isOpen,
-  icon: IconComponent,
+  icon,
   label,
   setIndexName,
   indexName,
+  refine,
   toggleOpen,
-  setCriteriaIcon,
+  setActive,
+  value,
   ...props
 }) => {
-  const Icon = styled(IconComponent)`${iconstyle}`
+  const Icon = styled(icon)`${iconstyle}`
   if (!isOpen) return false
 
+  const active = {icon, label, value}
+
   const onClick = e => {
-    setIndexName(indexName)
-    setCriteriaIcon(Icon)
+    setActive(active)
+    refine(value)
     toggleOpen()
   }
 

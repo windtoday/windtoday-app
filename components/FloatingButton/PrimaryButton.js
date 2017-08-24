@@ -8,14 +8,8 @@ margin: auto;
 display: block;
 `
 
-export default ({
-  size,
-  isOpen,
-  toggleOpen,
-  icon: IconComponent,
-  ...props
-}) => {
-  const Icon = styled(isOpen ? X : IconComponent)`${iconstyle}`
+export default ({ size, isOpen, toggleOpen, icon, ...props }) => {
+  const Icon = styled(isOpen ? X : icon)`${iconstyle}`
 
   return (
     <Button size={size} primary {...props}>

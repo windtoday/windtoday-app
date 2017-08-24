@@ -1,6 +1,6 @@
-import { Clock, Award } from 'react-feather'
-import { Component } from 'react'
+import { connectSortBy } from 'react-instantsearch/connectors'
 import { Fixed, Flex } from 'rebass'
+import { Component } from 'react'
 
 import SecondaryButtonWrapper from './SecondaryButtonWrapper'
 import FloatingButtonWrapper from './FloatingButtonWrapper'
@@ -9,12 +9,16 @@ import ResponsiveFixed from './ResponsiveFixed'
 import SecondaryButton from './SecondaryButton'
 import PrimaryButton from './PrimaryButton'
 
-export default class extends Component {
+const FloatingFilterButton = class extends Component {
   constructor (props) {
     super(props)
+
+    const { items, defaultRefinement } = this.props
+    const item = items.find(({ value }) => value === defaultRefinement)
+
     this.state = {
       isOpen: false,
-      criteriaIcon: Award
+      active: item
     }
   }
 
@@ -22,8 +26,8 @@ export default class extends Component {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
-  setCriteriaIcon = criteriaIcon => {
-    this.setState({ criteriaIcon })
+  setActive = active => {
+    this.setState({ active })
   }
 
   renderOverlayFloatingButtons () {
@@ -41,7 +45,23 @@ export default class extends Component {
     )
   }
 
+  renderPrimaryButton () {
+    return (
+      <PrimaryButton
+        size={64}
+        isOpen={this.state.isOpen}
+        toggleOpen={this.toggleOpen}
+        icon={this.state.active.icon}
+        color='white'
+        bg='cyan'
+      />
+    )
+  }
+
   renderFloatingButtons () {
+    const { isOpen, active } = this.state
+    const { items, refine } = this.props
+
     return (
       <ResponsiveFixed right bottom left>
         <Flex justify='flex-end'>
@@ -49,37 +69,29 @@ export default class extends Component {
             <PrimaryButtonWrapper>
               <PrimaryButton
                 size={64}
-                isOpen={this.state.isOpen}
+                isOpen={isOpen}
                 toggleOpen={this.toggleOpen}
-                icon={this.state.criteriaIcon}
+                icon={active.icon}
                 color='white'
                 bg='cyan'
               />
+
               <SecondaryButtonWrapper>
-                <SecondaryButton
-                  isOpen={this.state.isOpen}
-                  toggleOpen={this.toggleOpen}
-                  setCriteriaIcon={this.setCriteriaIcon}
-                  size={48}
-                  icon={Clock}
-                  color='cyan'
-                  bg='white'
-                  label='Recent'
-                  indexName={'sort_by_timestamp'}
-                  setIndexName={this.props.setIndexName}
-                />
-                <SecondaryButton
-                  isOpen={this.state.isOpen}
-                  toggleOpen={this.toggleOpen}
-                  setCriteriaIcon={this.setCriteriaIcon}
-                  size={48}
-                  icon={Award}
-                  color='cyan'
-                  bg='white'
-                  label='Price Score'
-                  indexName={'windsurf'}
-                  setIndexName={this.props.setIndexName}
-                />
+                {items.map(({ icon, value, label }, index) =>
+                  <SecondaryButton
+                    size={48}
+                    key={index}
+                    value={value}
+                    label={label}
+                    isOpen={isOpen}
+                    toggleOpen={this.toggleOpen}
+                    icon={icon}
+                    color='cyan'
+                    bg='white'
+                    refine={refine}
+                    setActive={this.setActive}
+                  />
+                )}
               </SecondaryButtonWrapper>
             </PrimaryButtonWrapper>
           </FloatingButtonWrapper>
@@ -94,3 +106,5 @@ export default class extends Component {
       : this.renderOverlayFloatingButtons()
   }
 }
+
+export default connectSortBy(FloatingFilterButton)
