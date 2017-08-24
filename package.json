@@ -74,7 +74,6 @@
     "heroku-postbuild": "npm run build",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
-    "precommit-lint": "prettier-standard",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretest": "npm run lint",
     "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
@@ -84,7 +83,7 @@
   "license": "MIT",
   "lint-staged": {
     "*.js": [
-      "precommit-lint",
+      "prettier-standard --single-quote",
       "git add"
     ]
   },
