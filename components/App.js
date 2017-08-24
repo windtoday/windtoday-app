@@ -126,6 +126,7 @@ export default class extends Component {
                 refinements={refinements}
                 onRefine={this.onRefine}
               />}
+
           {currentItem
             ? <FloatingContactButton />
             : <FloatingFilterButton

@@ -26,7 +26,7 @@ export default ({
   const Icon = styled(icon)`${iconstyle}`
   if (!isOpen) return false
 
-  const active = {icon, label, value}
+  const active = { icon, label, value }
 
   const onClick = e => {
     setActive(active)
