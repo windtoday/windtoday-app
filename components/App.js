@@ -1,4 +1,5 @@
 /* global APP */
+/* eslint-disable react/jsx-indent-props */
 
 import { Configure } from 'react-instantsearch/dom'
 import { Clock, Award } from 'react-feather'
@@ -8,9 +9,9 @@ import PropTypes from 'prop-types'
 import { Component } from 'react'
 import { Box } from 'rebass'
 
-import { InstantSearch } from './Instantsearch'
 import FloatingFilterButton from './FloatingButton/Filter'
 import FloatingContactButton from './FloatingButton/Contact'
+import { InstantSearch } from './Instantsearch'
 import CategoryTabs from './CategoryTabs'
 import SingleHit from './SingleHit'
 import AppBar from './AppBar'
