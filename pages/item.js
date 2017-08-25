@@ -1,6 +1,5 @@
 /* global APP */
 
-import { findResultsState } from 'components/Instantsearch'
 import algoliasearch from 'algoliasearch/lite'
 import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
@@ -28,14 +27,18 @@ export default class extends Component {
   }
 
   static async getInitialProps ({ req, asPath, url, ...props }) {
-    const searchState = asPath.includes('?')
-      ? qs.parse(asPath.substring(asPath.indexOf('?') + 1))
-      : {}
-    const resultsState = await findResultsState(App, { searchState })
     const isServer = !!req
 
-    const { query: { id: currentItem } } = props
-    const item = await algoliaIndex.getObject(currentItem)
+    const { query: { id: objectID } } = props
+
+    let item
+
+    if (isServer) {
+      item = await algoliaIndex.getObject(objectID)
+    } else {
+      const value = window.sessionStorage.getItem('hit')
+      if (value) item = JSON.parse(value)
+    }
 
     const layout = {
       url: item.link,
@@ -44,7 +47,7 @@ export default class extends Component {
       description: `See all the information related with ${item.brand} ${item.model}. Compare with the rest of brands, search the best price and choose real deals in our windsurfing marketplace.`
     }
 
-    return { resultsState, searchState, isServer, url, currentItem, layout }
+    return { isServer, url, layout, item }
   }
 
   onSearchStateChange = searchState => {
@@ -67,22 +70,14 @@ export default class extends Component {
   }
 
   render () {
-    const searchState =
-      this.state && this.state.searchState
-        ? this.state.searchState
-        : this.props.searchState
-
     return (
       <Layout {...this.props.layout}>
         <Provider theme={theme}>
           <App
-            resultsState={this.props.resultsState}
-            onSearchStateChange={this.onSearchStateChange}
-            searchState={searchState}
+            item={this.props.item}
             createURL={createURL}
             url={this.props.url}
             isServer={this.props.isServer}
-            currentItem={this.props.currentItem}
           />
         </Provider>
       </Layout>

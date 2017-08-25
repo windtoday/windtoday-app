@@ -94,11 +94,27 @@ export default class extends Component {
       onSearchStateChange,
       searchState,
       createURL,
-      currentItem
+      item
     } = this.props
 
     const { headroom, refinements } = this.state
-    const filters = currentItem ? `objectID:${currentItem}` : ''
+
+    if (item) {
+      return (
+        <div>
+          <Headroom
+            style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
+            ref={node => (this.state.headroom = node)}
+          >
+            <AppBar hit={item} />
+          </Headroom>
+          <Main>
+            <SingleHit hit={item} />
+            <FloatingContactButton hit={item} />
+          </Main>
+        </div>
+      )
+    }
 
     return (
       <InstantSearch
@@ -110,33 +126,29 @@ export default class extends Component {
         searchState={searchState}
         createURL={createURL}
       >
-        <Configure hitsPerPage={APP.algolia.hitsPerPage} filters={filters} />
+        <Configure hitsPerPage={APP.algolia.hitsPerPage} />
         <Headroom
           style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
           ref={node => (this.state.headroom = node)}
         >
-          <AppBar searchState={searchState} currentItem={currentItem} />
-          {!currentItem && <CategoryTabs attributeName='category' />}
+          <AppBar searchState={searchState} />
+          <CategoryTabs attributeName='category' />
         </Headroom>
         <Main>
-          {currentItem
-            ? <SingleHit />
-            : <Hits
-                headroom={headroom}
-                refine={this.refine}
-                refinements={refinements}
-                onRefine={this.onRefine}
-              />}
+          <Hits
+            headroom={headroom}
+            refine={this.refine}
+            refinements={refinements}
+            onRefine={this.onRefine}
+          />
 
-          {currentItem
-            ? <FloatingContactButton />
-            : <FloatingFilterButton
-                items={[
-                  { icon: Award, value: 'sort_by_timestamp', label: 'Recent' },
-                  { icon: Clock, value: 'windsurf', label: 'Price Score' }
-                ]}
-                defaultRefinement={APP.algolia.indexName}
-              />}
+          <FloatingFilterButton
+            defaultRefinement={APP.algolia.indexName}
+            items={[
+              { icon: Award, value: 'sort_by_timestamp', label: 'Recent' },
+              { icon: Clock, value: 'windsurf', label: 'Price Score' }
+            ]}
+          />
         </Main>
       </InstantSearch>
     )

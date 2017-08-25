@@ -1,5 +1,4 @@
 import { Phone, Share2, ExternalLink } from 'react-feather'
-import { connectHits } from 'react-instantsearch/connectors'
 import { Fixed, Flex } from 'rebass'
 import { Component } from 'react'
 
@@ -11,7 +10,7 @@ import SecondaryButton from './SecondaryButton'
 import PrimaryButton from './PrimaryButton'
 import Shop from '../Icon/Shop'
 
-const FloatingContactButton = class extends Component {
+export default class extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -102,10 +101,3 @@ const FloatingContactButton = class extends Component {
       : this.renderOverlayFloatingButtons()
   }
 }
-
-const CustomHits = ({ hits, ...props }) => {
-  const [hit] = hits
-  return <FloatingContactButton hit={hit} {...props} />
-}
-
-export default connectHits(CustomHits)

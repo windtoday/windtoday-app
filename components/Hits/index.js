@@ -1,5 +1,4 @@
 import { Component } from 'react'
-
 import VirtualRefinementList from './VirtualRefinementList'
 import CurrentRefinements from './CurrentRefinements'
 import InfiniteHits from './InfiniteHits'

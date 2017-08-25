@@ -11,9 +11,11 @@ const translations = {
 export default class extends Component {
   constructor (props) {
     super(props)
-    const { query } = props.searchState
 
-    const isSearchOpen = query ? query !== '' : false
+    const {searchState = {}} = this.props
+    const {query = ''} = searchState
+    const isSearchOpen = query !== ''
+
     this.state = { isSearchOpen }
   }
 
@@ -42,25 +44,20 @@ export default class extends Component {
 
   render () {
     const { isSearchOpen } = this.state
-    const { currentItem } = this.props
+    const { hit } = this.props
 
     return (
       <div>
         <Toolbar color='cyan' bg='white' py={2}>
-          {currentItem ? this.renderPopUpLeftIcon() : this.renderLeftIcon()}
+          {hit ? this.renderPopUpLeftIcon() : this.renderLeftIcon()}
 
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <Text
-                fontSize={2}
-                mx='auto'
-                children={currentItem ? 'BACK' : 'WINDTODAY'}
-                bold
-                />}
+              : <Text fontSize={2} mx='auto' children={hit ? 'BACK' : 'WINDTODAY'} bold />}
           </Box>
 
-          {!currentItem &&
+          {!hit &&
             !isSearchOpen &&
             <NavLink>
               <Search onClick={e => this.toggle('isSearchOpen')} />
