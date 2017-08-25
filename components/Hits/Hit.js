@@ -79,6 +79,7 @@ const HitComponent = ({ hit, refine }) =>
               const { objectID: id } = hit
               const scrollPosition = window.pageYOffset
               window.sessionStorage.setItem('scrollPosition', scrollPosition)
+              window.sessionStorage.setItem('hit', JSON.stringify(hit))
               return Router.push(`/item?id=${id}`)
             }}
           >
