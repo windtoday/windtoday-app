@@ -43,10 +43,10 @@ const SingleHit = class extends Component {
             justify='space-between'
             p={3}
             style={{ height: CARD_HEIGHT }}
-            >
+          >
             <Box>
               <Badge bg='green7' f={2} px={2} color='white' bold>
-                  €{price}
+                €{price}
               </Badge>
             </Box>
 
@@ -80,6 +80,9 @@ const SingleHit = class extends Component {
             }}
             initialAnimate
           />
+          <Text f={1} bold center>
+            {priceScore} / 100
+          </Text>
           <Flex align='center' justify='space-around'>
             <Flex align='center' direction='column' p={2}>
               <Text f={4}>

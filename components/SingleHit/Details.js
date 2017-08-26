@@ -2,7 +2,6 @@ import { Text, Flex } from 'rebass'
 import Tag from '../Tag'
 
 const DETAILS = [
-  { attributeName: 'priceScore', title: value => `${value} to 100` },
   { attributeName: 'year' },
   { attributeName: 'mast type' },
   { attributeName: 'fin type' },

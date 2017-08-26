@@ -21,14 +21,15 @@ const colorSchema = {
   model: 'indigo',
   condition: 'violet',
   year: 'fuschia',
-  'mast type': 'pink',
-  'fin type': 'pink',
-  'boom type': 'pink',
-  'sail size range': 'red',
-  'board size range': 'red',
-  'mast size range': 'red',
-  'boom size range': 'red',
-  'mast carbon range': 'orange'
+  modality: 'pink',
+  'mast type': 'red',
+  'fin type': 'red',
+  'boom type': 'red',
+  'sail size range': 'orange',
+  'board size range': 'orange',
+  'mast size range': 'orange',
+  'boom size range': 'orange',
+  'mast carbon range': 'yellow'
 }
 
 const Tag = ({ attributeName, invert, ...props }) => {
