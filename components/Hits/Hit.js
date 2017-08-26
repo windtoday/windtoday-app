@@ -90,17 +90,13 @@ const HitComponent = ({ hit, refine }) =>
                 </Text>
 
                 <Text is='span' color='gray6'>
-                  {' · '}
-                  €{hit.price}
+                  {' '}€{hit.price}
                 </Text>
 
                 <Text is='span' color='gray6'>
                   {' · '}
                   <TimeAgo formatter={formatter} date={hit.timestamp} />
                 </Text>
-              </Box>
-              <Box>
-                <ChevronDown size={20} color='gray' />
               </Box>
             </Flex>
             <Box>
