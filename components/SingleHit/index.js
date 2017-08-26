@@ -8,7 +8,7 @@ import { cx, priceScoreGradientAt } from 'config/theme'
 import getFormatDate from 'util/get-format-date'
 import getImageUrl from 'util/get-image-url'
 import HitDetails from './Details'
-import Tag from '../Tag'
+import Tag from 'components/Tag'
 
 const CARD_HEIGHT = '292px'
 
@@ -43,10 +43,10 @@ const SingleHit = class extends Component {
             justify='space-between'
             p={3}
             style={{ height: CARD_HEIGHT }}
-          >
+            >
             <Box>
               <Badge bg='green7' f={2} px={2} color='white' bold>
-                €{price}
+                  €{price}
               </Badge>
             </Box>
 
@@ -68,7 +68,7 @@ const SingleHit = class extends Component {
           <Line
             progress={priceScore / 100}
             options={{
-              strokeWidth: 3,
+              strokeWidth: 2,
               easing: 'easeOut',
               duration: 1400,
               trailColor: cx('gray1'),
