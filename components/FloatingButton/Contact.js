@@ -24,14 +24,7 @@ export default class extends Component {
 
   renderOverlayFloatingButtons () {
     return (
-      <Fixed
-        onClick={this.toggleOpen}
-        bg='rgba(255, 255, 255, 0.98)'
-        top
-        right
-        bottom
-        left
-      >
+      <Fixed onClick={this.toggleOpen} bg='white95' top right bottom left>
         {this.renderFloatingButtons()}
       </Fixed>
     )
