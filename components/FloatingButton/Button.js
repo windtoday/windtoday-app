@@ -1,9 +1,10 @@
 import { color } from 'styled-system'
 import styled from 'styled-components'
+import { cx, gradient } from 'config/theme'
 
 export default styled.a`
   ${color} background: ${props =>
-      props.primary ? 'linear-gradient(45deg,#19b5fe,#31d0c9)' : props.bg};
+      props.primary ? gradient(45, 'cyan5', '#31d0c9') : props.bg};
   height: ${props => props.size}px;
   width: ${props => props.size}px;
   z-index: 20;
@@ -17,7 +18,6 @@ export default styled.a`
   position: relative;
   -webkit-user-drag: none;
   font-weight: bold;
-  border: ${props => (props.primary ? '0' : '1px solid #ccd6dd')};
-  box-shadow: ${props =>
-    props.primary && '1px 1px 4px rgba(101, 119, 134, .75)'};
+  border: ${props => (props.primary ? '0' : `1px solid ${cx('gray3')}`)};
+  box-shadow: ${props => props.primary && `1px 1px 4px ${cx('shadow1')}`};
 `

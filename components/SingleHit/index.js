@@ -1,18 +1,10 @@
 import { Component } from 'react'
 
-import {
-  Badge,
-  Box,
-  BackgroundImage,
-  Avatar,
-  Divider,
-  Text,
-  Flex
-} from 'rebass'
+import { Badge, Box, BackgroundImage, Divider, Text, Flex } from 'rebass'
 
 import { Line } from 'react-progressbar.js'
 
-import { priceScoreGradientAt } from 'config/theme'
+import { cx, priceScoreGradientAt } from 'config/theme'
 import getFormatDate from 'util/get-format-date'
 import getImageUrl from 'util/get-image-url'
 import HitDetails from './Details'
@@ -61,11 +53,6 @@ const SingleHit = class extends Component {
             <Box>
               <Flex direction='column' align='flex-end'>
                 <Flex pb={1} align='center' direction='row-reverse'>
-                  <Avatar
-                    size={24}
-                    src={`/static/img/provider/${provider}.jpg`}
-                    ml={2}
-                  />
                   <Text f={1} color='white'>
                     {getFormatDate(updatedAt)} by {provider}
                   </Text>
@@ -79,12 +66,12 @@ const SingleHit = class extends Component {
         </BackgroundImageGradient>
         <Box p={2}>
           <Line
-            progress={Math.round(priceScore / 100)}
+            progress={priceScore / 100}
             options={{
               strokeWidth: 3,
               easing: 'easeOut',
               duration: 1400,
-              trailColor: '#eee',
+              trailColor: cx('gray1'),
               svgStyle: { borderRadius: '12px' },
               step: (state, bar) => {
                 const step = 100 - state.offset

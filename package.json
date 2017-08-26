@@ -53,7 +53,7 @@
     "rebass": "~1.0.4",
     "sass-loader": "~6.0.6",
     "styled-components": "~2.1.2",
-    "styled-system": "~1.0.0-12"
+    "styled-system": "~1.0.0-13"
   },
   "devDependencies": {
     "babel-eslint": "latest",

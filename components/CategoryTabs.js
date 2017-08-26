@@ -1,6 +1,7 @@
 import { connectRefinementList } from 'react-instantsearch/connectors'
 import { Tabs, TabItem, Flex } from 'rebass'
 import { Component } from 'react'
+import { cx } from 'config/theme'
 
 const TABS = ['all', 'sails', 'boards', 'masts', 'booms', 'fins']
 
@@ -29,7 +30,7 @@ const CategoryBar = class extends Component {
     return (
       <CustomTabItem
         key={index}
-        color='#01bef2'
+        color={cx('cyan')}
         fontSize={[1, 2, 2]}
         active={index === this.state.active}
         onClick={e => {

@@ -7,7 +7,7 @@ import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 
-import { priceScoreGradientAt } from 'config/theme'
+import { cx, priceScoreGradientAt } from 'config/theme'
 import getImageUrl from 'util/get-image-url'
 import Tag, { TagKeys } from '../Tag'
 
@@ -35,7 +35,7 @@ text {
 }
 `
 const CustomBackgroundImage = styled(BackgroundImage)`
-border: 1px solid #dce2e4;
+border: 1px solid ${cx('gray2')};
 border-radius: .35rem;
 height: 48vw;
 max-height: 312px;
@@ -69,7 +69,7 @@ const HitComponent = ({ hit, refine }) =>
             value={hit.priceScore}
             unit=''
             arcColor={priceScoreGradientAt(hit.priceScore)}
-            textColor='#3f3f3f'
+            textColor={cx('gray8')}
             rounded
           />
         </SecondaryContent>
@@ -120,7 +120,7 @@ const HitComponent = ({ hit, refine }) =>
       </Flex>
     </Box>
 
-    <Divider w={1} color='gray1' />
+    <Divider w={1} color='gray2' />
   </Box>
 
 HitComponent.propTypes = {
