@@ -8,8 +8,8 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 
 import { cx, priceScoreGradientAt } from 'config/theme'
+import Tag, { TagKeys } from 'components/Tag'
 import getImageUrl from 'util/get-image-url'
-import Tag, { TagKeys } from '../Tag'
 
 const formatter = (value, unit, suffix) => {
   if (value !== 1) unit += 's'
