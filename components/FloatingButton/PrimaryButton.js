@@ -12,7 +12,7 @@ export default ({ size, isOpen, toggleOpen, icon, ...props }) => {
   const Icon = styled(isOpen ? X : icon)`${iconstyle}`
 
   return (
-    <Button size={size} primary {...props}>
+    <Button size={size} isOpen={isOpen} primary {...props}>
       <Icon onClick={e => toggleOpen()} />
     </Button>
   )

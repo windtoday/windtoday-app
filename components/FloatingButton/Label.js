@@ -9,7 +9,7 @@ export default styled.label`
   position: absolute;
   top: 0;
   right: 100%;
-  margin: 6px 7px;
+  margin: 8px 7px;
   border: 1px solid ${props => cx('gray3')};
   border-radius: .35rem;
   text-transform: uppercase;

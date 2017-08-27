@@ -8,6 +8,7 @@ import PrimaryButtonWrapper from './PrimaryButtonWrapper'
 import ResponsiveFixed from './ResponsiveFixed'
 import SecondaryButton from './SecondaryButton'
 import PrimaryButton from './PrimaryButton'
+import { gradient } from 'config/theme'
 
 const FloatingFilterButton = class extends Component {
   constructor (props) {
@@ -38,19 +39,6 @@ const FloatingFilterButton = class extends Component {
     )
   }
 
-  renderPrimaryButton () {
-    return (
-      <PrimaryButton
-        size={64}
-        isOpen={this.state.isOpen}
-        toggleOpen={this.toggleOpen}
-        icon={this.state.active.icon}
-        color='white'
-        bg='cyan'
-      />
-    )
-  }
-
   renderFloatingButtons () {
     const { isOpen, active } = this.state
     const { items, refine } = this.props
@@ -65,8 +53,8 @@ const FloatingFilterButton = class extends Component {
                 isOpen={isOpen}
                 toggleOpen={this.toggleOpen}
                 icon={active.icon}
-                color='white'
-                bg='cyan'
+                color={isOpen ? 'white' : 'cyan'}
+                bg={isOpen ? gradient(45, 'cyan5', '#31d0c9') : 'white'}
               />
 
               <SecondaryButtonWrapper>
