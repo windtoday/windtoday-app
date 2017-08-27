@@ -1,10 +1,9 @@
 import { color } from 'styled-system'
 import styled from 'styled-components'
-import { cx, gradient } from 'config/theme'
+import { cx } from 'config/theme'
 
 export default styled.a`
-  ${color} background: ${props =>
-      props.primary ? gradient(45, 'cyan5', '#31d0c9') : props.bg};
+  ${color} background: ${props => props.bg};
   height: ${props => props.size}px;
   width: ${props => props.size}px;
   z-index: 20;
