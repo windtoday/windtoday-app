@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { Badge, Box, BackgroundImage, Divider, Text, Flex } from 'rebass'
 
 import { Line } from 'react-progressbar.js'
+import styled from 'styled-components'
 
 import { cx, priceScoreGradientAt } from 'config/theme'
 import getFormatDate from 'util/get-format-date'
@@ -16,6 +17,10 @@ const BackgroundImageGradient = BackgroundImage.extend`
   background: ${props =>
     `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
   padding-bottom: ${CARD_HEIGHT};
+`
+
+const MeasureText = styled(Text)`
+max-width: 80%;
 `
 
 const SingleHit = class extends Component {
@@ -57,9 +62,9 @@ const SingleHit = class extends Component {
                     {getFormatDate(updatedAt)} by {provider}
                   </Text>
                 </Flex>
-                <Text is='h2' color='white' right bold>
+                <MeasureText is='h2' color='white' right bold>
                   {title}
-                </Text>
+                </MeasureText>
               </Flex>
             </Box>
           </Flex>
@@ -109,7 +114,7 @@ const SingleHit = class extends Component {
               </Tag>
             </Flex>
           </Flex>
-          <Divider w={1} color='gray1' />
+          <Divider w={1} my={3} color='gray1' />
           <HitDetails hit={hit} />
         </Box>
       </div>
