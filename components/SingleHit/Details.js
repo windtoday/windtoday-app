@@ -1,46 +1,64 @@
-import { Text, Flex } from 'rebass'
+import { Text, Box } from 'rebass'
 import Tag from '../Tag'
 
 const DETAILS = [
-  { attributeName: 'year' },
-  { attributeName: 'mast type' },
-  { attributeName: 'fin type' },
-  { attributeName: 'boom type' },
-  { attributeName: 'sail size range' },
-  { attributeName: 'board size range' },
-  { attributeName: 'mast size range' },
-  { attributeName: 'boom size range' },
-  { attributeName: 'mast carbon range' }
+  { nameProp: 'year' },
+  { nameProp: 'mast type' },
+  { nameProp: 'fin type' },
+  { nameProp: 'boom type' },
+  { nameProp: 'sail size', rangeProp: 'sail size range', unit: 'metres' },
+  { nameProp: 'board size', rangeProp: 'board size range', unit: ' litres' },
+  { nameProp: 'mast size', rangeProp: 'mast size range', unit: 'cm' },
+  { nameProp: 'boom size', rangeProp: 'boom size range', unit: 'cm' },
+  { nameProp: 'mast carbon', rangeProp: 'mast carbon range', unit: 'C' }
 ]
 
-const HitDetail = ({ attributeName, value, ...props }) =>
-  <div>
-    <Flex py={3} px={3} align='flex-start' direction='column'>
-      <Tag mx={0} px={0} f={3} attributeName={attributeName} invert>
-        {value}
-      </Tag>
-      <Text f={1} m={0}>
-        The sail size is measue for all the size superficie, don't confuse with
-        area.
-      </Text>
-    </Flex>
-  </div>
+const HitDetail = ({ range, name, value, ...props }) =>
+  <Box mx={3} mb={4}>
+    <Text f={4}>
+      {value}
+    </Text>
+    <Tag
+      f={1}
+      mx={0}
+      px={0}
+      py={0}
+      mt={0}
+      mb={3}
+      attributeName={range || name}
+      invert
+    >
+      {name}
+    </Tag>
+    <Text f={1}>
+      The sail size is measue for all the size superficie, don't confuse with
+      area.
+    </Text>
+  </Box>
 
 export default ({ hit }) => {
-  const details = DETAILS.map(({ attributeName, title }, index) => {
-    const prop = hit[attributeName]
-    if (prop) {
-      const value = title ? title(prop) : prop
+  const details = DETAILS.map(({ nameProp, rangeProp, unit = '' }, index) => {
+    const existProp = hit[nameProp]
+
+    if (existProp) {
+      const name = hit[nameProp]
+      const range = rangeProp && hit[rangeProp]
+      const value = range ? `${name}${unit} (${range})` : `${name}${unit}`
       return (
-        <HitDetail attributeName={attributeName} key={index} value={value} />
+        <HitDetail
+          key={index}
+          range={rangeProp}
+          name={nameProp}
+          value={value}
+        />
       )
     }
   })
 
   return (
     details.length > 0 &&
-    <div>
+    <Box>
       {details}
-    </div>
+    </Box>
   )
 }
