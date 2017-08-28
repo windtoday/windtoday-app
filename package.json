@@ -83,7 +83,7 @@
   "license": "MIT",
   "lint-staged": {
     "*.js": [
-      "prettier-standard --single-quote",
+      "prettier-standard",
       "git add"
     ]
   },
