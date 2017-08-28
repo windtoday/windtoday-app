@@ -1,13 +1,11 @@
 /* Make clicks pass-through */
 
-$gradient: linear-gradient(45deg,#19b5fe,#31d0c9);
-
 #nprogress {
   pointer-events: none;
 }
 
 #nprogress .bar {
-  background: $gradient;
+  background: $cyan;
   position: fixed;
   z-index: 1031;
   top: 0;
@@ -24,7 +22,7 @@ $gradient: linear-gradient(45deg,#19b5fe,#31d0c9);
   right: 0;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px $gradient, 0 0 5px $gradient;
+  box-shadow: 0 0 10px $cyan, 0 0 5px $cyan;
   opacity: 1;
   transform: rotate(3deg) translate(0, -4px);
 }
