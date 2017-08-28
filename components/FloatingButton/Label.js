@@ -10,7 +10,8 @@ export default styled.label`
   top: 0;
   right: 100%;
   margin: 8px 7px;
-  border: 1px solid ${props => cx('gray3')};
+  border: 1px solid ${props => cx(props.color)};
+  box-shadow: ${props => `1px 1px 4px ${cx('shadow1')}`};
   border-radius: .35rem;
   text-transform: uppercase;
   letter-spacing: .1em;

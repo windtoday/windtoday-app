@@ -1,96 +1,31 @@
-import { Phone, Share2, ExternalLink } from 'react-feather'
-import { Fixed, Flex } from 'rebass'
-import { Component } from 'react'
+import { ExternalLink } from 'react-feather'
+import { Flex } from 'rebass'
 
-import SecondaryButtonWrapper from './SecondaryButtonWrapper'
 import FloatingButtonWrapper from './FloatingButtonWrapper'
 import PrimaryButtonWrapper from './PrimaryButtonWrapper'
 import ResponsiveFixed from './ResponsiveFixed'
-import SecondaryButton from './SecondaryButton'
 import PrimaryButton from './PrimaryButton'
-import Shop from '../Icon/Shop'
 
-export default class extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      isOpen: false
-    }
-  }
+export default props => {
+  const { hit: { link } } = props
 
-  toggleOpen = () => {
-    this.setState({ isOpen: !this.state.isOpen })
-  }
-
-  renderOverlayFloatingButtons () {
-    return (
-      <Fixed onClick={this.toggleOpen} bg='white95' top right bottom left>
-        {this.renderFloatingButtons()}
-      </Fixed>
-    )
-  }
-
-  renderFloatingButtons () {
-    const { hit: { link } } = this.props
-
-    return (
-      <ResponsiveFixed right bottom left>
-        <Flex justify='flex-end'>
-          <FloatingButtonWrapper mx={3} my={3}>
-            <PrimaryButtonWrapper>
-              <PrimaryButton
-                size={64}
-                isOpen={this.state.isOpen}
-                toggleOpen={this.toggleOpen}
-                icon={Shop}
-                color='white'
-                bg='cyan'
-              />
-              <SecondaryButtonWrapper>
-                <SecondaryButton
-                  isOpen={this.state.isOpen}
-                  toggleOpen={this.toggleOpen}
-                  size={48}
-                  icon={ExternalLink}
-                  color='cyan'
-                  bg='white'
-                  label='Go to Shop'
-                  href={link}
-                  target='_blank'
-                />
-                <SecondaryButton
-                  isOpen={this.state.isOpen}
-                  toggleOpen={this.toggleOpen}
-                  size={48}
-                  icon={Phone}
-                  color='cyan'
-                  bg='white'
-                  label='Call to Shop'
-                  href={link}
-                  target='_blank'
-                />
-                <SecondaryButton
-                  isOpen={this.state.isOpen}
-                  toggleOpen={this.toggleOpen}
-                  size={48}
-                  icon={Share2}
-                  color='cyan'
-                  bg='white'
-                  label='Share Link'
-                  href={link}
-                  target='_blank'
-                />
-              </SecondaryButtonWrapper>
-            </PrimaryButtonWrapper>
-          </FloatingButtonWrapper>
-        </Flex>
-      </ResponsiveFixed>
-    )
-  }
-
-  render () {
-    return !this.state.isOpen
-      ? this.renderFloatingButtons()
-      : this.renderOverlayFloatingButtons()
-  }
+  return (
+    <ResponsiveFixed right bottom left>
+      <Flex justify='flex-end'>
+        <FloatingButtonWrapper mx={3} my={3}>
+          <PrimaryButtonWrapper>
+            <PrimaryButton
+              size={64}
+              icon={ExternalLink}
+              color='white'
+              border='#00db9d'
+              bg='#00db9d'
+              href={link}
+              target='_blank'
+            />
+          </PrimaryButtonWrapper>
+        </FloatingButtonWrapper>
+      </Flex>
+    </ResponsiveFixed>
+  )
 }

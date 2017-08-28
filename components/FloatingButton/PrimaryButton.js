@@ -13,7 +13,7 @@ export default ({ size, isOpen, toggleOpen, icon, ...props }) => {
 
   return (
     <Button size={size} isOpen={isOpen} primary {...props}>
-      <Icon onClick={e => toggleOpen()} />
+      <Icon onClick={e => toggleOpen && toggleOpen()} />
     </Button>
   )
 }
