@@ -39,15 +39,16 @@ export default class extends Component {
         brand: [],
         model: [],
         condition: [],
+        year: [],
+        modality: [],
         'mast type': [],
         'fin type': [],
         'boom type': [],
-        'sail type': [],
         'sail size range': [],
         'board size range': [],
         'mast size range': [],
-        'mast carbon range': [],
-        'boom size range': []
+        'boom size range': [],
+        'mast carbon range': []
       }
     }
   }
