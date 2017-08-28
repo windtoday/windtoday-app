@@ -1,7 +1,6 @@
-import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
+import { Text, Flex, Divider, Box, BackgroundImage, Link } from 'rebass'
 import { Highlight } from 'react-instantsearch/dom'
 import ProgressArc from 'progress-arc-component'
-import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import TimeAgo from 'react-timeago'
 import PropTypes from 'prop-types'
@@ -42,6 +41,14 @@ max-height: 312px;
 padding: 0;
 `
 
+const CustomLink = styled(Link)`
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
 const renderTags = (hit, refine) =>
   TagKeys.map((tag, index) => {
     const value = hit[tag]
@@ -54,70 +61,70 @@ const renderTags = (hit, refine) =>
     )
   })
 
-const CustomA = styled.a`
-  text-decoration: none;
-  cursor: pointer;
-`
+const HitComponent = ({ hit, refine }) => {
+  const { objectID: id } = hit
+  const itemURL = `/item?id=${id}`
 
-const HitComponent = ({ hit, refine }) =>
-  <Box>
-    <Box pt={3} pb={2} px={2}>
-      <Flex direction='row'>
-        <SecondaryContent>
-          <CustomProgressArc
-            key={hit.objectID}
-            value={hit.priceScore}
-            unit=''
-            arcColor={priceScoreGradientAt(hit.priceScore)}
-            textColor={cx('gray8')}
-            rounded
-          />
-        </SecondaryContent>
-        <PrimaryContent>
-          <CustomA
-            onClick={e => {
-              const { objectID: id } = hit
-              const scrollPosition = window.pageYOffset
-              window.sessionStorage.setItem('scrollPosition', scrollPosition)
-              window.sessionStorage.setItem('hit', JSON.stringify(hit))
-              return Router.push(`/item?id=${id}`)
-            }}
-          >
+  const onClick = e => {
+    const scrollPosition = window.pageYOffset
+    window.sessionStorage.setItem('scrollPosition', scrollPosition)
+    window.sessionStorage.setItem('hit', JSON.stringify(hit))
+    return Router.push(itemURL)
+  }
+
+  return (
+    <Box>
+      <Box pt={3} pb={2} px={2}>
+        <Flex direction='row'>
+          <SecondaryContent>
+            <CustomProgressArc
+              key={hit.objectID}
+              value={hit.priceScore}
+              unit=''
+              arcColor={priceScoreGradientAt(hit.priceScore)}
+              textColor={cx('gray8')}
+              rounded
+            />
+          </SecondaryContent>
+          <PrimaryContent>
             <Flex direction='row' justify='space-between' align='flex-start'>
               <Box>
-                <Text is='span' bold>
+                <Text is='span' bold onClick={onClick}>
                   <Highlight attributeName='provider' hit={hit} />
                 </Text>
 
-                <Text is='span' color='gray6'>
+                <Text is='span' color='gray6' onClick={onClick}>
                   {' '}€{hit.price}
                 </Text>
 
                 <Text is='span' color='gray6'>
                   {' · '}
-                  <TimeAgo formatter={formatter} date={hit.timestamp} />
+                  <CustomLink color='gray6' href={itemURL} target='blank'>
+                    <TimeAgo formatter={formatter} date={hit.timestamp} />
+                  </CustomLink>
                 </Text>
               </Box>
             </Flex>
-            <Box>
+            <Box onClick={onClick}>
               <Text>
                 <Highlight attributeName='title' hit={hit} />
               </Text>
             </Box>
-            <Box mt={2}>
+            <Box mt={2} onClick={onClick}>
               <CustomBackgroundImage src={getImageUrl(hit, 600)} />
             </Box>
-          </CustomA>
 
-          <Box mt={2}>
-            {renderTags(hit, refine)}
-          </Box>
-        </PrimaryContent>
-      </Flex>
+            <Box mt={2}>
+              {renderTags(hit, refine)}
+            </Box>
+          </PrimaryContent>
+        </Flex>
+      </Box>
+
+      <Divider w={1} color='gray2' />
     </Box>
-
-    <Divider w={1} color='gray2' />
-  </Box>
+  )
+}
 
 HitComponent.propTypes = {
   hit: PropTypes.object
