@@ -32,6 +32,16 @@ export default class extends Component {
           onRefine={onRefine}
         />
         <VirtualRefinementList
+          attributeName='modality'
+          defaultRefinement={[...refinements.modality]}
+          onRefine={onRefine}
+        />
+        <VirtualRefinementList
+          attributeName='year'
+          defaultRefinement={[...refinements.year]}
+          onRefine={onRefine}
+        />
+        <VirtualRefinementList
           attributeName='mast type'
           defaultRefinement={[...refinements['mast type']]}
           onRefine={onRefine}

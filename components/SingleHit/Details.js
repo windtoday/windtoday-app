@@ -3,6 +3,7 @@ import Tag from '../Tag'
 
 const DETAILS = [
   { nameProp: 'year' },
+  { nameProp: 'modality' },
   { nameProp: 'mast type' },
   { nameProp: 'fin type' },
   { nameProp: 'boom type' },
