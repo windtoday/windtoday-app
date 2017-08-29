@@ -1,13 +1,28 @@
 import { Component } from 'react'
+
 import VirtualRefinementList from './VirtualRefinementList'
 import CurrentRefinements from './CurrentRefinements'
 import InfiniteHits from './InfiniteHits'
 import Hit from './Hit'
 
 export default class extends Component {
-  componentDidMount () {
+  componentDidMount = () => {
     const scrollPosition = window.sessionStorage.getItem('scrollPosition')
     if (scrollPosition) window.scrollTo(0, scrollPosition)
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    clearTimeout(this.debouncedSetState)
+
+    this.debouncedSetState = setTimeout(() => {
+      const scrollPosition = window.pageYOffset
+      window.sessionStorage.setItem('scrollPosition', scrollPosition)
+    }, 150)
   }
 
   render () {
