@@ -12,8 +12,8 @@ export default class extends Component {
   constructor (props) {
     super(props)
 
-    const {searchState = {}} = this.props
-    const {query = ''} = searchState
+    const { searchState = {} } = this.props
+    const { query = '' } = searchState
     const isSearchOpen = query !== ''
 
     this.state = { isSearchOpen }
@@ -54,7 +54,12 @@ export default class extends Component {
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <Text fontSize={2} mx='auto' children={hit ? 'BACK' : 'WINDTODAY'} bold />}
+              : <Text
+                  fontSize={2}
+                  mx='auto'
+                  children={hit ? 'BACK' : 'WINDTODAY'}
+                  bold
+                />}
           </Box>
 
           {!hit &&

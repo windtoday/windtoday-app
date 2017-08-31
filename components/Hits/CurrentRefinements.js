@@ -9,6 +9,7 @@ const CustomBox = styled(Box)`
 background: rgba(255, 255, 255, .85);
 position: sticky;
 transition: top 200ms ease-in-out;
+z-index: 999;
 `
 
 const Filter = ({ currentRefinement, refine, ...props }) => {

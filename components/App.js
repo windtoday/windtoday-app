@@ -103,12 +103,6 @@ export default class extends Component {
     if (item) {
       return (
         <div>
-          <Headroom
-            style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
-            ref={node => (this.state.headroom = node)}
-          >
-            <AppBar hit={item} />
-          </Headroom>
           <Main>
             <SingleHit hit={item} />
             <FloatingContactButton hit={item} />

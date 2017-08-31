@@ -81,6 +81,7 @@ const HitComponent = ({ hit, refine }) => {
               unit=''
               arcColor={priceScoreGradientAt(hit.priceScore)}
               textColor={cx('gray8')}
+              dominantBaseline='central'
               rounded
             />
           </SecondaryContent>

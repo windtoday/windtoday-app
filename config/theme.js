@@ -6,7 +6,7 @@ export const space = [0, 4, 8, 16, 32, 64, 128]
 export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
 export const weights = [400, 700]
 
-const palette = palx('#01bdf2')
+const palette = palx('#00CFFF')
 
 const flattened = Object.keys(palette).reduce((a, key) => {
   const value = palette[key]
@@ -65,7 +65,7 @@ export const gradient = (n, from, to) =>
   `linear-gradient(${n}deg, ${cx(from)}, ${cx(to)})`
 
 const priceScoreGradient = new ColourMeLife()
-  .setSpectrum('#740021', '#a0002d', '#00db9d')
+  .setSpectrum(cx('red'), cx('orange'), cx('teal6'))
   .setNumberRange(0, 100)
 
 export const priceScoreGradientAt = value =>

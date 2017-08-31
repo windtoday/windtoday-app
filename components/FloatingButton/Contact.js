@@ -18,8 +18,8 @@ export default props => {
               size={64}
               icon={ExternalLink}
               color='white'
-              border='#00db9d'
-              bg='#00db9d'
+              border='cyan'
+              bg='cyan'
               href={link}
               target='_blank'
             />
