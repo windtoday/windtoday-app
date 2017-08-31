@@ -22,7 +22,7 @@
   right: 0;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px $cyan, 0 0 5px $cyan;
+  box-shadow: 0 0 10px rgba($cyan,0.7);
   opacity: 1;
   transform: rotate(3deg) translate(0, -4px);
 }

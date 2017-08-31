@@ -15,23 +15,27 @@ const DETAILS = [
 ]
 
 const HitDetail = ({ range, name, value, ...props }) =>
-  <Box mx={3} mb={4}>
-    <Text f={4}>
-      {value}
-    </Text>
-    <Tag
-      f={1}
-      mx={0}
-      px={0}
-      py={0}
-      mt={0}
-      mb={3}
-      attributeName={range || name}
-      invert
-    >
-      {name}
-    </Tag>
-    <Text f={1}>
+  <Box m={3}>
+    <Box mb={2} style={{ lineHeight: '1.4' }}>
+      <Tag
+        f={0}
+        mx={0}
+        px={0}
+        py={0}
+        mt={0}
+        mb={1}
+        attributeName={range || name}
+        invert
+        caps
+      >
+        {name}
+      </Tag>
+      <Text f={3}>
+        {value}
+      </Text>
+    </Box>
+
+    <Text f={1} mb={4}>
       The sail size is measue for all the size superficie, don't confuse with
       area.
     </Text>
@@ -58,7 +62,7 @@ export default ({ hit }) => {
 
   return (
     details.length > 0 &&
-    <Box>
+    <Box pb={4}>
       {details}
     </Box>
   )
