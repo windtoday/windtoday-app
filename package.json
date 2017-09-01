@@ -30,7 +30,7 @@
     "express": "~4.15.4",
     "glob": "~7.1.2",
     "js-yaml": "~3.9.1",
-    "next": "~3.0.6",
+    "next": "~3.2.1",
     "node-sass": "~4.5.3",
     "normalize.css": "~7.0.0",
     "nprogress": "~0.2.0",
