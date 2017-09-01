@@ -89,27 +89,27 @@ export default class extends Component {
       }
     }))
 
-  render () {
+  renderSingleHit () {
+    const { item } = this.props
+
+    return (
+      <Main>
+        <SingleHit hit={item} />
+        <FloatingContactButton hit={item} />
+      </Main>
+    )
+  }
+
+  renderHits () {
     const {
       resultsState,
       onSearchStateChange,
       searchState,
       createURL,
-      item
+      isServer
     } = this.props
 
     const { headroom, refinements } = this.state
-
-    if (item) {
-      return (
-        <div>
-          <Main>
-            <SingleHit hit={item} />
-            <FloatingContactButton hit={item} />
-          </Main>
-        </div>
-      )
-    }
 
     return (
       <InstantSearch
@@ -135,6 +135,7 @@ export default class extends Component {
             refine={this.refine}
             refinements={refinements}
             onRefine={this.onRefine}
+            isServer={isServer}
           />
 
           <FloatingFilterButton
@@ -147,6 +148,11 @@ export default class extends Component {
         </Main>
       </InstantSearch>
     )
+  }
+
+  render () {
+    const { item } = this.props
+    return item ? this.renderSingleHit() : this.renderHits()
   }
 
   static propTypes = {
