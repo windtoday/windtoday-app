@@ -123,7 +123,7 @@ export default class extends Component {
       >
         <Configure hitsPerPage={APP.algolia.hitsPerPage} />
         <Headroom
-          style={{ boxShadow: 'rgb(120, 140, 148) 0px -1px 4px' }}
+          style={{ boxShadow: 'rgb(120, 140, 148) 0px -2px 7px 0' }}
           ref={node => (this.state.headroom = node)}
         >
           <AppBar searchState={searchState} />
