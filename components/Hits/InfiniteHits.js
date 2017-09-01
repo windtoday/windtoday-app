@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { Text, Flex } from 'rebass'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
+import { debounce } from 'lodash'
 
 const CustomCloudRain = styled(CloudRain)`
 ${color}
@@ -22,8 +23,35 @@ const NotResults = () =>
   </Flex>
 
 const CustomInfiniteHits = class extends Component {
+  componentDidMount = () => {
+    const scrollPosition = window.sessionStorage.getItem('scrollPosition')
+    if (scrollPosition) window.scrollTo(0, scrollPosition)
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = debounce(() => {
+    const scrollPosition = window.pageYOffset
+    const { hits } = this.props
+    window.sessionStorage.setItem('scrollPosition', scrollPosition)
+    window.sessionStorage.setItem('hits', JSON.stringify(hits))
+  }, 150)
+
   render () {
-    const { ItemComponent, refine, hasMore, refineFilter, hits } = this.props
+    const {
+      ItemComponent,
+      refine,
+      hasMore,
+      refineFilter,
+      isServer
+    } = this.props
+
+    const cachedHits = !isServer && window.sessionStorage.getItem('hits')
+    const hits = cachedHits ? JSON.parse(cachedHits) : this.props.hits
+
     return (
       <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
         {hits.map(hit =>
