@@ -16,17 +16,9 @@ export default class extends Component {
 
     const { query: { id: objectID } } = props
 
-    let item
-
-    if (isServer) {
-      item = Object.assign(await algoliaIndex.getObject(objectID), {
-        isFetched: true
-      })
-    } else {
-      item = Object.assign(JSON.parse(window.sessionStorage.getItem('hit')), {
-        isFetched: false
-      })
-    }
+    const item = isServer
+      ? await algoliaIndex.getObject(objectID)
+      : JSON.parse(window.sessionStorage.getItem('hit'))
 
     const layout = {
       url: item.link,
