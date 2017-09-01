@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent-props */
+
 import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { createConnector } from 'react-instantsearch'
