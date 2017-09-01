@@ -6,25 +6,6 @@ import InfiniteHits from './InfiniteHits'
 import Hit from './Hit'
 
 export default class extends Component {
-  componentDidMount = () => {
-    const scrollPosition = window.sessionStorage.getItem('scrollPosition')
-    if (scrollPosition) window.scrollTo(0, scrollPosition)
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    clearTimeout(this.debouncedSetState)
-
-    this.debouncedSetState = setTimeout(() => {
-      const scrollPosition = window.pageYOffset
-      window.sessionStorage.setItem('scrollPosition', scrollPosition)
-    }, 150)
-  }
-
   render () {
     const { headroom, refine, refinements, onRefine, ...props } = this.props
 
