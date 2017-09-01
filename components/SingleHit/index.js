@@ -65,7 +65,6 @@ const SingleHit = class extends Component {
             <Flex align='center' justify='space-between' color='white90'>
               <NavLink
                 onClick={e => {
-                  window.sessionStorage.setItem('scrollPosition', 0)
                   return Router.push('/')
                 }}
               >
