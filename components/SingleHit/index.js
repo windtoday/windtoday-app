@@ -37,6 +37,9 @@ const SingleHit = class extends Component {
   componentDidMount () {
     window.scrollTo(0, 0)
   }
+  componentWillUnmount () {
+    window.sessionStorage.removeItem('hit')
+  }
   render () {
     const { hit } = this.props
     const {
