@@ -50,8 +50,7 @@ const SingleHit = class extends Component {
       priceScore,
       brand,
       model,
-      condition,
-      isFetched
+      condition
     } = hit
 
     return (
@@ -66,7 +65,6 @@ const SingleHit = class extends Component {
             <Flex align='center' justify='space-between' color='white90'>
               <NavLink
                 onClick={e => {
-                  if (!isFetched) return window.history.back()
                   window.sessionStorage.setItem('scrollPosition', 0)
                   return Router.push('/')
                 }}
