@@ -38,7 +38,7 @@ const CustomInfiniteHits = class extends Component {
   handleScroll = debounce(() => {
     const scrollPosition = window.pageYOffset
     const { hits } = this.props
-    window.sessionStorage.setItem('scrollPosition', scrollPosition)
+    if (scrollPosition) { window.sessionStorage.setItem('scrollPosition', scrollPosition) }
     window.sessionStorage.setItem('hits', JSON.stringify(hits))
   }, 150)
 
