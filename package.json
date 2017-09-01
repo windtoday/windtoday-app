@@ -75,7 +75,6 @@
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "predev": "rm -rf node_modules/.cache/babel-loader",
-    "pretest": "npm run lint",
     "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
     "start": "next start -p $PORT",
     "test": "exit 0"
