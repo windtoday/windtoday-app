@@ -6,7 +6,7 @@ import { Provider } from 'rebass'
 import App from 'components/App'
 import Router from 'next/router'
 import theme from 'config/theme'
-import { omit } from 'lodash'
+import { debounce, omit } from 'lodash'
 import qs from 'qs'
 
 const updateAfter = 700
@@ -34,13 +34,11 @@ export default class extends Component {
   onSearchStateChange = searchState => {
     const withoutPage = omit(searchState, 'page')
 
-    clearTimeout(this.debouncedSetState)
-    this.debouncedSetState = setTimeout(() => {
+    debounce(() => {
       const href = searchStateToUrl(withoutPage)
-      Router.push(href, href, {
-        shallow: true
-      })
+      Router.push(href, href, { shallow: true })
     }, updateAfter)
+
     this.setState({ searchState })
   }
 
