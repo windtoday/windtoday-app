@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent-props */
+
 import { Box, Toolbar, NavLink, Text } from 'rebass'
 import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
