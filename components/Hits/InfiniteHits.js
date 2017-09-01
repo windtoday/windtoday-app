@@ -6,25 +6,24 @@ import { CloudRain } from 'react-feather'
 import styled from 'styled-components'
 import { Text, Flex } from 'rebass'
 import PropTypes from 'prop-types'
+import { Component } from 'react'
 
 const CustomCloudRain = styled(CloudRain)`
 ${color}
 ${space}
 `
 
-const InfiniteHits = ({
-  hitComponent: ItemComponent,
-  hits,
-  hasMore,
-  hasResults,
-  query,
-  refine,
-  refineFilter,
-  addTag,
-  removeTag,
-  ...props
-}) => {
-  if (hasResults) {
+const NotResults = () =>
+  <Flex direction='column' justify='center' align='center' mt={5}>
+    <CustomCloudRain color='cyan' size={120} />
+    <Text fontSize={4} mt={4}>
+      sorry, we didn't found it.
+    </Text>
+  </Flex>
+
+const CustomInfiniteHits = class extends Component {
+  render () {
+    const { ItemComponent, refine, hasMore, refineFilter, hits } = this.props
     return (
       <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
         {hits.map(hit =>
@@ -33,16 +32,27 @@ const InfiniteHits = ({
       </InfiniteScroll>
     )
   }
-
-  return (
-    <Flex direction='column' justify='center' align='center' mt={5}>
-      <CustomCloudRain color='cyan' size={120} />
-      <Text fontSize={4} mt={4}>
-        sorry, we didn't found it.
-      </Text>
-    </Flex>
-  )
 }
+
+const InfiniteHits = ({
+  hitComponent: ItemComponent,
+  hits,
+  hasMore,
+  hasResults,
+  refine,
+  refineFilter,
+  ...props
+}) =>
+  hasResults
+    ? <CustomInfiniteHits
+        ItemComponent={ItemComponent}
+        hits={hits}
+        refine={refine}
+        hasMore={hasMore}
+        refineFilter={refineFilter}
+        {...props}
+      />
+    : <NotResults />
 
 InfiniteHits.propTypes = {
   hits: PropTypes.array,

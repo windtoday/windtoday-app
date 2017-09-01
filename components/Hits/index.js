@@ -26,7 +26,7 @@ export default class extends Component {
   }
 
   render () {
-    const { headroom, refine, refinements, onRefine } = this.props
+    const { headroom, refine, refinements, onRefine, ...props } = this.props
 
     return (
       <div>
@@ -96,7 +96,7 @@ export default class extends Component {
           defaultRefinement={[...refinements['boom size range']]}
           onRefine={onRefine}
         />
-        <InfiniteHits hitComponent={Hit} refineFilter={refine} />
+        <InfiniteHits hitComponent={Hit} refineFilter={refine} {...props} />
       </div>
     )
   }
