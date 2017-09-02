@@ -58,16 +58,12 @@ const SingleHit = class extends Component {
             style={{ height: CARD_HEIGHT }}
           >
             <Flex align='center' justify='space-between' color='white90'>
-              <NavLink
-                onClick={e => {
-                  return Router.push('/')
-                }}
-              >
-                <Circle bg='black80' color='white90' p={2}>
+              <NavLink pl={0} onClick={e => Router.push('/')}>
+                <Circle bg='black80' color='white90' ml={0} p={2}>
                   <ChevronLeft />
                 </Circle>
               </NavLink>
-              <Badge bg='white' f={2} px={3} py={2} ml={0} color='black'>
+              <Badge bg='white' f={2} px={3} py={2} mr={0} color='black'>
                 €{price}
               </Badge>
             </Flex>
