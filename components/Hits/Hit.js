@@ -67,7 +67,7 @@ const renderTags = (hit, refine) =>
         mr={2}
         ml={0}
         px={3}
-        py={1}
+        py={2}
         f={0}
         bg='cyan1'
         color='cyan6'
@@ -91,13 +91,8 @@ const HitComponent = ({ hit, refine }) => {
   }
 
   return (
-    <RadiusFlex mx={3} my={3} direction='column' style={{ cursor: 'pointer' }}>
-      <CardBackgroundImage
-        is='a'
-        src={getImageUrl(hit, 600)}
-        onClick={onClick}
-        style={{ cursor: 'pointer' }}
-      >
+    <RadiusFlex mx={3} my={3} direction='column'>
+      <CardBackgroundImage is='a' src={getImageUrl(hit, 600)} onClick={onClick}>
         <CardFlex direction='column' justify='space-between' p={3}>
           <Flex direction='row' justify='flex-start'>
             <Badge

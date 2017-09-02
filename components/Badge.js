@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { Badge } from 'rebass'
 
 export default Badge.extend`

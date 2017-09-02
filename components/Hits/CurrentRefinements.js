@@ -1,7 +1,7 @@
 import { connectCurrentRefinements } from 'react-instantsearch/connectors'
 import styled from 'styled-components'
 import Badge from 'components/Badge'
-import { Text, Box } from 'rebass'
+import { Box } from 'rebass'
 import { X } from 'react-feather'
 import { Component } from 'react'
 
@@ -16,14 +16,14 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
   const { attributeName } = props
 
   return (
-    <Badge my={1} ml={0} bg='cyan' color='white' caps bold>
-      <Text bold mr={1}>
+    <Badge my={2} px={3} f={0} py={2} bg='cyan1' color='cyan6' caps bold>
+      <span>
         {value}
-      </Text>
+      </span>
       <X
-        size={16}
+        size={12}
+        style={{ strokeWidth: '3', marginLeft: '4px', marginTop: '-2px' }}
         onClick={e => refine({ attributeName, value })}
-        style={{ strokeWidth: 3 }}
       />
     </Badge>
   )

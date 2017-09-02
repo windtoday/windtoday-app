@@ -24,7 +24,7 @@ export default ({ value, ...props }) =>
       />
     </Box>
     <Box>
-      <CustomLabel pl={3} m={0} f={0}>
+      <CustomLabel pl={2} m={0} f={0}>
         {value}/100
       </CustomLabel>
     </Box>
