@@ -66,6 +66,9 @@ const renderTags = (hit, refine) =>
         my={1}
         mr={2}
         ml={0}
+        px={3}
+        py={1}
+        f={0}
         bg='cyan1'
         color='cyan6'
         key={index}
@@ -88,11 +91,24 @@ const HitComponent = ({ hit, refine }) => {
   }
 
   return (
-    <RadiusFlex mx={3} my={3} direction='column'>
-      <CardBackgroundImage is='a' src={getImageUrl(hit, 600)} onClick={onClick}>
+    <RadiusFlex mx={3} my={3} direction='column' style={{ cursor: 'pointer' }}>
+      <CardBackgroundImage
+        is='a'
+        src={getImageUrl(hit, 600)}
+        onClick={onClick}
+        style={{ cursor: 'pointer' }}
+      >
         <CardFlex direction='column' justify='space-between' p={3}>
           <Flex direction='row' justify='flex-start'>
-            <Badge bg='white' f={2} px={3} py={2} ml={0} color='black'>
+            <Badge
+              bg='white'
+              f={2}
+              px={'22px'}
+              py={'6px'}
+              ml={0}
+              color='black'
+              caps
+            >
               €{hit.price}
             </Badge>
           </Flex>

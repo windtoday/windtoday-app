@@ -63,7 +63,15 @@ const SingleHit = class extends Component {
                   <ChevronLeft />
                 </Circle>
               </NavLink>
-              <Badge bg='white' f={2} px={3} py={2} mr={0} color='black'>
+              <Badge
+                bg='white'
+                f={2}
+                px={'22px'}
+                py={'6px'}
+                ml={0}
+                color='black'
+                caps
+              >
                 €{price}
               </Badge>
             </Flex>
