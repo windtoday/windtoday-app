@@ -45,7 +45,8 @@ const SingleHit = class extends Component {
       priceScore,
       brand,
       model,
-      condition
+      condition,
+      description
     } = hit
 
     return (
@@ -58,7 +59,15 @@ const SingleHit = class extends Component {
             style={{ height: CARD_HEIGHT }}
           >
             <Flex align='center' justify='space-between' color='white90'>
-              <NavLink pl={0} onClick={e => Router.push('/')}>
+              <NavLink
+                pl={0}
+                onClick={e => {
+                  const hasPreviousLink = window.sessionStorage.getItem('hits')
+                  return hasPreviousLink
+                    ? window.history.back()
+                    : Router.push('/')
+                }}
+              >
                 <Circle bg='black80' color='white90' ml={0} p={2}>
                   <ChevronLeft />
                 </Circle>
@@ -117,13 +126,15 @@ const SingleHit = class extends Component {
               </SmallCaps>
             </Flex>
           </Flex>
-          <Box mx={3}>
-            <Divider w={1} color='#f7f7f7' />
-          </Box>
-          <Text f={2} px={3} py={2}>
-            The Warp is a windsurfing sail designed by North in 2014. It's an
-            used race oriented sail, with a total of 8.6 metres of surface.
-          </Text>
+          {description &&
+            <Box>
+              <Box mx={3}>
+                <Divider w={1} color='#f7f7f7' />
+              </Box>
+              <Text f={2} px={3} py={2}>
+                {description}
+              </Text>
+            </Box>}
           <Box mx={3}>
             <Divider w={1} color='#f7f7f7' />
           </Box>

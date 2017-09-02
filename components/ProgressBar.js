@@ -6,7 +6,7 @@ const CustomLabel = Label.extend`display: inline;`
 
 export default ({ value, ...props }) =>
   <Flex direction='row' align='center' {...props}>
-    <Box>
+    <Box w={1}>
       <Line
         progress={value / 100}
         options={{
@@ -14,7 +14,7 @@ export default ({ value, ...props }) =>
           easing: 'easeOut',
           duration: 1400,
           trailColor: cx('gray1'),
-          svgStyle: { width: '100%', borderRadius: '12px' },
+          svgStyle: { borderRadius: '12px' },
           step: (state, bar) => {
             const step = 100 - state.offset
             bar.path.setAttribute('stroke', priceScoreGradientAt(step || 0))
