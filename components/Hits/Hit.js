@@ -1,63 +1,79 @@
-import { Text, Flex, Divider, Box, BackgroundImage, Link } from 'rebass'
+import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
 import { Highlight } from 'react-instantsearch/dom'
-import ProgressArc from 'progress-arc-component'
-import styled from 'styled-components'
-import TimeAgo from 'react-timeago'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 
-import { cx, priceScoreGradientAt } from 'config/theme'
-import Tag, { TagKeys } from 'components/Tag'
+import ProgressBar from 'components/ProgressBar'
+import getFormatDate from 'util/get-format-date'
+import MeasureText from 'components/MeasureText'
 import getImageUrl from 'util/get-image-url'
+import Badge from 'components/Badge'
 
-const formatter = (value, unit, suffix) => {
-  if (value !== 1) unit += 's'
-  return `${value}${unit.charAt(0)}`
-}
-
-const Content = styled(Box)`
-margin: 0 .32813rem;
-`
-const SecondaryContent = styled(Content)`
-min-width: 48px;
-max-width: 3.2rem;
-flex-grow: 1;
-`
-const PrimaryContent = styled(Content)`
-flex-grow: 7;
-`
-const CustomProgressArc = styled(ProgressArc)`
-margin: 0 !important;
-height: inherit !important;
-text {
-  font-size: 60px !important;
-}
-`
-const CustomBackgroundImage = styled(BackgroundImage)`
-border: 1px solid ${cx('gray2')};
-border-radius: .35rem;
-height: 48vw;
+const cardStyle = css`
+height: 64vw;
 max-height: 312px;
-padding: 0;
 `
 
-const CustomLink = styled(Link)`
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
+const CardBackgroundImage = styled(BackgroundImage)`
+${cardStyle}
+border-top-left-radius: .35rem;
+border-top-right-radius: .35rem;
+padding: 0;
+background: ${props =>
+  `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
 `
+
+const CardFlex = styled(Flex)`
+${cardStyle}
+`
+
+const RadiusFlex = styled(Flex)`
+border-radius: .35rem;
+box-shadow: 0 8px 16px 0 rgba(0, 2, 5, 0.04), inset 0 -1px 0 0 rgba(29, 30, 41, 0.1);
+`
+
+const CardBox = Box.extend`
+  border-bottom-left-radius: .35rem;
+  border-bottom-right-radius: .35rem;
+  background-color: white;
+`
+
+const TAGS = [
+  'brand',
+  'model',
+  'condition',
+  'year',
+  'modality',
+  'mast type',
+  'fin type',
+  'boom type',
+  'sail size range',
+  'board size range',
+  'mast size range',
+  'boom size range',
+  'mast carbon range'
+]
 
 const renderTags = (hit, refine) =>
-  TagKeys.map((tag, index) => {
+  TAGS.map((tag, index) => {
     const value = hit[tag]
     if (value == null) return null
     const onClick = e => refine({ attributeName: tag, value })
     return (
-      <Tag my={1} key={index} onClick={onClick} attributeName={tag}>
+      <Badge
+        my={1}
+        mr={2}
+        ml={0}
+        bg='cyan1'
+        color='cyan6'
+        key={index}
+        onClick={onClick}
+        caps
+        bold
+      >
         {value}
-      </Tag>
+      </Badge>
     )
   })
 
@@ -71,57 +87,32 @@ const HitComponent = ({ hit, refine }) => {
   }
 
   return (
-    <Box>
-      <Box pt={3} pb={2} px={2}>
-        <Flex direction='row'>
-          <SecondaryContent>
-            <CustomProgressArc
-              key={hit.objectID}
-              value={hit.priceScore}
-              unit=''
-              arcColor={priceScoreGradientAt(hit.priceScore)}
-              textColor={cx('gray8')}
-              dominantBaseline='central'
-              rounded
-            />
-          </SecondaryContent>
-          <PrimaryContent>
-            <Flex direction='row' justify='space-between' align='flex-start'>
-              <Box>
-                <Text is='span' bold onClick={onClick}>
-                  <Highlight attributeName='provider' hit={hit} />
-                </Text>
-
-                <Text is='span' color='gray6' onClick={onClick}>
-                  {' '}€{hit.price}
-                </Text>
-
-                <Text is='span' color='gray6'>
-                  {' · '}
-                  <CustomLink color='gray6' href={itemURL} target='blank'>
-                    <TimeAgo formatter={formatter} date={hit.timestamp} />
-                  </CustomLink>
-                </Text>
-              </Box>
-            </Flex>
-            <Box onClick={onClick}>
-              <Text>
-                <Highlight attributeName='title' hit={hit} />
-              </Text>
-            </Box>
-            <Box mt={2} onClick={onClick}>
-              <CustomBackgroundImage src={getImageUrl(hit, 600)} />
-            </Box>
-
-            <Box mt={2}>
-              {renderTags(hit, refine)}
-            </Box>
-          </PrimaryContent>
-        </Flex>
-      </Box>
-
-      <Divider w={1} color='gray2' />
-    </Box>
+    <RadiusFlex mx={3} my={3} direction='column'>
+      <CardBackgroundImage src={getImageUrl(hit, 600)} onClick={onClick}>
+        <CardFlex direction='column' justify='space-between' p={3}>
+          <Flex direction='row' justify='flex-start'>
+            <Badge bg='white' f={2} px={3} py={2} ml={0} color='black'>
+              €{hit.price}
+            </Badge>
+          </Flex>
+          <Box>
+            <MeasureText is='h2' mb={2} color='white'>
+              <Highlight attributeName='title' hit={hit} />
+            </MeasureText>
+            <Text f={1} color='white60'>
+              {getFormatDate(hit.updatedAt)} by {hit.provider}
+            </Text>
+          </Box>
+        </CardFlex>
+      </CardBackgroundImage>
+      <CardBox px={3} py={2}>
+        <ProgressBar value={hit.priceScore} mb={3} />
+        <Divider w={1} color='#f7f7f7' />
+        <Box mt={2}>
+          {renderTags(hit, refine)}
+        </Box>
+      </CardBox>
+    </RadiusFlex>
   )
 }
 

@@ -1,5 +1,5 @@
-import { Text, Box } from 'rebass'
-import Tag from '../Tag'
+import { Divider, Text, Box, Flex } from 'rebass'
+import SmallCaps from 'components/SmallCaps'
 
 const DETAILS = [
   { nameProp: 'year' },
@@ -15,30 +15,23 @@ const DETAILS = [
 ]
 
 const HitDetail = ({ range, name, value, ...props }) =>
-  <Box m={3}>
-    <Box mb={2} style={{ lineHeight: '1.4' }}>
-      <Tag
-        f={0}
-        mx={0}
-        px={0}
-        py={0}
-        mt={0}
-        mb={1}
-        attributeName={range || name}
-        invert
-        caps
-      >
-        {name}
-      </Tag>
-      <Text f={3}>
-        {value}
-      </Text>
-    </Box>
+  <Box>
+    <Flex my={3} mx={3} style={{ lineHeight: '1.4' }} justify='space-between'>
+      <Box>
+        <SmallCaps color='gray' f={0} m={0} p={0}>
+          {name}
+        </SmallCaps>
+      </Box>
 
-    <Text f={1} mb={4}>
-      The sail size is measue for all the size superficie, don't confuse with
-      area.
-    </Text>
+      <Box>
+        <Text f={2} bold>
+          {value}
+        </Text>
+      </Box>
+    </Flex>
+    <Box mx={3}>
+      <Divider w={1} color='#f7f7f7' />
+    </Box>
   </Box>
 
 export default ({ hit }) => {
@@ -61,9 +54,8 @@ export default ({ hit }) => {
   })
 
   return (
-    details.length > 0 &&
-    <Box pb={4}>
-      {details}
+    <Box pb={6}>
+      {' '}{details}
     </Box>
   )
 }

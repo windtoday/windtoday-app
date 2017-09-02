@@ -46,26 +46,25 @@ export default class extends Component {
 
   render () {
     const { isSearchOpen } = this.state
-    const { hit } = this.props
 
     return (
       <div>
-        <Toolbar color='cyan' bg='white' py={2}>
-          {hit ? this.renderPopUpLeftIcon() : this.renderLeftIcon()}
+        <Toolbar color='cyan' bg='white' pt={2}>
+          {this.renderLeftIcon()}
 
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
               : <Text
+                  color='black'
                   fontSize={2}
                   mx='auto'
-                  children={hit ? 'BACK' : 'WINDTODAY'}
+                  children='WINDTODAY'
                   bold
                 />}
           </Box>
 
-          {!hit &&
-            !isSearchOpen &&
+          {!isSearchOpen &&
             <NavLink>
               <Search onClick={e => this.toggle('isSearchOpen')} />
             </NavLink>}

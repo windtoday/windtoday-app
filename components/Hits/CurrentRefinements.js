@@ -1,12 +1,11 @@
 import { connectCurrentRefinements } from 'react-instantsearch/connectors'
-import { Text, Box } from 'rebass'
 import styled from 'styled-components'
+import Badge from 'components/Badge'
+import { Text, Box } from 'rebass'
 import { X } from 'react-feather'
 import { Component } from 'react'
-import Tag from '../Tag'
 
 const CustomBox = styled(Box)`
-background: rgba(255, 255, 255, .85);
 position: sticky;
 transition: top 200ms ease-in-out;
 z-index: 999;
@@ -17,8 +16,8 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
   const { attributeName } = props
 
   return (
-    <Tag mx={1} my={2} px={2} attributeName={attributeName}>
-      <Text bold f={1} mr={1}>
+    <Badge my={1} ml={0} bg='cyan' color='white' caps bold>
+      <Text bold mr={1}>
         {value}
       </Text>
       <X
@@ -26,7 +25,7 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
         onClick={e => refine({ attributeName, value })}
         style={{ strokeWidth: 3 }}
       />
-    </Tag>
+    </Badge>
   )
 }
 
@@ -56,8 +55,14 @@ const CurrentRefinements = class extends Component {
 
   render () {
     const { items, refineFilter } = this.props
+    const { offset } = this.state
+    const size = items.length
+    const px = size ? 3 : 0
+    const py = size ? 2 : 0
+    const background = 'rgba(247, 247, 247, 0.75)'
+
     return (
-      <CustomBox style={{ top: this.state.offset }} mx={2} mt={2} mb={1}>
+      <CustomBox style={{ top: offset, background }} px={px} py={py}>
         {items
           .filter(({ attributeName }) => attributeName !== 'category')
           .map((item, index) =>

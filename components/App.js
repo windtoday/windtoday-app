@@ -7,10 +7,10 @@ import styled from 'styled-components'
 import Headroom from 'react-headroom'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
-import { Box } from 'rebass'
+import { Box, Divider } from 'rebass'
 
 import FloatingFilterButton from './FloatingButton/Filter'
-import FloatingContactButton from './FloatingButton/Contact'
+import ContactButton from './SingleHit/ContactButton'
 import { InstantSearch } from './Instantsearch'
 import CategoryTabs from './CategoryTabs'
 import SingleHit from './SingleHit'
@@ -95,7 +95,7 @@ export default class extends Component {
     return (
       <Main>
         <SingleHit hit={item} />
-        <FloatingContactButton hit={item} />
+        <ContactButton hit={item} />
       </Main>
     )
   }
@@ -123,10 +123,11 @@ export default class extends Component {
       >
         <Configure hitsPerPage={APP.algolia.hitsPerPage} />
         <Headroom
-          style={{ boxShadow: 'rgb(120, 140, 148) 0px -2px 7px 0' }}
+          style={{ background: 'white' }}
           ref={node => (this.state.headroom = node)}
         >
           <AppBar searchState={searchState} />
+          <Divider w={1} color='#f7f7f7' />
           <CategoryTabs attributeName='category' />
         </Headroom>
         <Main>
