@@ -9,6 +9,7 @@ export default ({ value, ...props }) =>
     <Box w={1}>
       <Line
         progress={value / 100}
+        containerStyle={{ width: '100%' }}
         options={{
           strokeWidth: 3,
           easing: 'easeOut',
