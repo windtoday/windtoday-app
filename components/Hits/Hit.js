@@ -20,6 +20,7 @@ ${cardStyle}
 border-top-left-radius: .35rem;
 border-top-right-radius: .35rem;
 padding: 0;
+cursor: pointer;
 background: ${props =>
   `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
 `
