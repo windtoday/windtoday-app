@@ -142,8 +142,8 @@ export default class extends Component {
           <FloatingFilterButton
             defaultRefinement={APP.algolia.indexName}
             items={[
-              { icon: Award, value: 'sort_by_timestamp', label: 'Recent' },
-              { icon: Clock, value: 'windsurf', label: 'Price Score' }
+              { icon: Clock, value: 'sort_by_timestamp', label: 'Recent' },
+              { icon: Award, value: 'windsurf', label: 'Price Score' }
             ]}
           />
         </Main>
