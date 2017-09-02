@@ -33,8 +33,9 @@ export default class extends Component {
 
   onSearchStateChange = searchState => {
     const withoutPage = omit(searchState, 'page')
+    clearTimeout(this.debouncedSetState)
 
-    debounce(() => {
+    this.debouncedSetState = setTimeout(() => {
       const href = searchStateToUrl(withoutPage)
       Router.push(href, href, { shallow: true })
     }, updateAfter)
