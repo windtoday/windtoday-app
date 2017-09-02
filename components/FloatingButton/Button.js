@@ -16,5 +16,5 @@ export default styled.a`
   -webkit-user-drag: none;
   font-weight: bold;
   border: ${props => `1px solid ${cx(props.border)}`};
-  box-shadow: ${props => `1px 1px 4px ${cx('shadow1')}`};
+  box-shadow: 0 16px 32px 0 rgba(0, 15, 13, 0.2);
 `

@@ -5,7 +5,6 @@ $white : #fff;
 $cyan  : #00d0ff;
 $yellow: #ffae00;
 
-
 $gray0: #f8f9f9;
 $gray1: #eaeeee;
 $gray2: #dbe1e3;
@@ -21,6 +20,51 @@ $small : 40em;
 $medium: 52em;
 $large : 64em;
 
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("/static/font/Interface-Regular.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-Regular.woff?v=1.5") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 400;
+  src: url("/static/font/Interface-RegularItalic.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-RegularItalic.woff?v=1.5") format("woff");
+}
+
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 500;
+  src: url("/static/font/Interface-Medium.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-Medium.woff?v=1.5") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 500;
+  src: url("/static/font/Interface-MediumItalic.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-MediumItalic.woff?v=1.5") format("woff");
+}
+
+@font-face {
+  font-family: 'Interface';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("/static/font/Interface-Bold.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-Bold.woff?v=1.5") format("woff");
+}
+@font-face {
+  font-family: 'Interface';
+  font-style:  italic;
+  font-weight: 700;
+  src: url("/static/font/Interface-BoldItalic.woff2?v=1.5") format("woff2"),
+       url("/static/font/Interface-BoldItalic.woff?v=1.5") format("woff");
+}
+
 @mixin placeholder {
   &.placeholder { @content; }
   &:-moz-placeholder { @content; }
@@ -29,11 +73,12 @@ $large : 64em;
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Interface, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.8;
   font-size: 16px;
 }
 
 @import './SearchBox.scss';
+@import './InstantSearch.scss';
 @import './Highlight.scss';
 @import './progress.scss';

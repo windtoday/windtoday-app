@@ -6,7 +6,7 @@ const Icon = styled.svg`${color};`
 export default props =>
   <Icon
     xmlns='http://www.w3.org/2000/svg'
-    width='40'
+    width='37'
     height='24'
     viewBox='0 0 62 42'
     {...props}
