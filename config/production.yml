@@ -1,2 +1,2 @@
-algolia          :
-  indexName      : windsurf
+algolia       :
+  hitsPerPage : 5

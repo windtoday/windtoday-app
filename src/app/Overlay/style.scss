@@ -1,9 +1,0 @@
-.overlay {
-  pointer-events: none;
-
-  @include lateral-transition(opacity);
-}
-
-.overlay__active {
-  pointer-events: all;
-}

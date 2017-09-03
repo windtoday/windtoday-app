@@ -1,31 +1,21 @@
-files: [
-  'package.json'
-]
-
+files:
+  - package.json
 plugins:
-
   prerelease:
-
-    'Linting config files':
-      plugin: 'bumped-finepack'
-
-    'Performing a fresh installation':
-      plugin: 'bumped-terminal'
-      command: 'npm run clean && npm install'
-
-    'Locking dependencies':
-      plugin: 'bumped-terminal'
-      command: 'npm shrinkwrap'
-
+    Linting config files:
+      plugin: bumped-finepack
   postrelease:
-
-    'Generating CHANGELOG file':
-      plugin: 'bumped-changelog'
-
-    'Commiting new version':
-      plugin: 'bumped-terminal'
-      command: 'git add npm-shrinkwrap.json CHANGELOG.md package.json && git commit -m "Release $newVersion"'
-
-    'Publishing tag at GitHub':
-      plugin: 'bumped-terminal'
+    Generating CHANGELOG file:
+      plugin: bumped-changelog
+    Committing new version:
+      plugin: bumped-terminal
+      command: 'git add CHANGELOG.md package.json && git commit -m "Release $newVersion"'
+    Detecting problems before publish:
+      plugin: bumped-terminal
+      command: 'git-dirty && npm test'
+    Publishing tag to GitHub:
+      plugin: bumped-terminal
       command: 'git tag $newVersion && git push && git push --tags'
+    Publishing to NPM:
+      plugin: bumped-terminal
+      command: npm publish

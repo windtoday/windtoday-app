@@ -1,0 +1,88 @@
+$input-width: 280px;
+$input-height: 38px;
+
+.ais-SearchBox__submit {
+  display: none;
+}
+
+.ais-SearchBox__input:valid ~ .ais-SearchBox__reset {
+  display: block;
+}
+
+.ais-SearchBox__input:valid {
+  font-weight: bold;
+}
+
+.ais-SearchBox__reset {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  user-select: none;
+  fill: #ccd4d7;
+}
+
+.ais-SearchBox__reset svg {
+  display: block;
+  margin: 9px;
+  width: 12px;
+  height: 12px;
+}
+
+.ais-SearchBox__root {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.ais-SearchBox__wrapper {
+  margin-left: -24px; /* left icon */
+  width: 100%;
+  height: 100%;
+}
+
+.ais-SearchBox__input {
+  font-family: inherit;
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $gray2;
+  border-radius: 1rem;
+  appearance: none;
+  margin: 0px;
+  padding: 4px 30px 4px 15px;
+  width: $input-width;
+  height: $input-height;
+
+  font-size: inherit;
+  color: #14171a;
+  background-color: $gray0;
+
+  @include breakpoint($medium) {
+    width: $input-width * 1.3;
+  }
+
+  @include breakpoint($large) {
+    width: $input-width * 1.8;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $cyan;
+    background-color: $white;
+  }
+
+  @include placeholder {
+    color: $gray5;
+    font-size: 16px;
+  }
+}
