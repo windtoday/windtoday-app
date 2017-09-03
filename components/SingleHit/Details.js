@@ -2,7 +2,7 @@ import { Divider, Text, Box, Flex } from 'rebass'
 import SmallCaps from 'components/SmallCaps'
 
 const DETAILS = [
-  { nameProp: 'year' },
+  { nameProp: 'model' },
   { nameProp: 'modality' },
   { nameProp: 'mast type' },
   { nameProp: 'fin type' },

@@ -44,7 +44,7 @@ const SingleHit = class extends Component {
       updatedAt,
       priceScore,
       brand,
-      model,
+      year,
       condition,
       description
     } = hit
@@ -111,10 +111,10 @@ const SingleHit = class extends Component {
             </Flex>
             <Flex align='center' direction='column'>
               <Text f={4} bold>
-                {model || 'N/A'}
+                {year || 'N/A'}
               </Text>
               <SmallCaps color='gray' f={0} m={0} p={0}>
-                model
+                year
               </SmallCaps>
             </Flex>
             <Flex align='center' direction='column'>
