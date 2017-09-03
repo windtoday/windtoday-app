@@ -31,6 +31,20 @@ const Main = styled(Box)`
 }
 `
 export default class extends Component {
+  componentDidMount () {
+    if (!window.HW_config) {
+      window.HW_config = {
+        selector: '.changelog',
+        account: 'xd4VWx'
+      }
+    }
+
+    const script = document.createElement('script')
+    script.src = '//cdn.headwayapp.co/widget.js'
+    script.async = true
+    document.body.appendChild(script)
+  }
+
   constructor (props) {
     super(props)
 

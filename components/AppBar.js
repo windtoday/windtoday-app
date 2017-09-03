@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-indent-props */
 
-import { Box, Toolbar, NavLink, Text } from 'rebass'
+import { Box, Flex, Toolbar, NavLink, Text } from 'rebass'
 import { ChevronLeft, Search } from 'react-feather'
 import { SearchBox } from 'react-instantsearch/dom'
 import { Component } from 'react'
@@ -55,13 +55,16 @@ export default class extends Component {
           <Box mx='auto' fontSize={[1, 1, 1]}>
             {isSearchOpen
               ? <SearchBox translations={translations} autoFocus />
-              : <Text
-                  color='black'
-                  fontSize={2}
-                  mx='auto'
-                  children='WINDTODAY'
-                  bold
-                />}
+              : <Flex align='center'>
+                  <Text
+                    color='black'
+                    fontSize={2}
+                    mx='auto'
+                    children='WINDTODAY'
+                    bold
+                  />
+                  <span className='changelog' />
+                </Flex>}
           </Box>
 
           {!isSearchOpen &&

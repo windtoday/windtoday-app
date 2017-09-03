@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Icon = styled.svg`${color};`
 
-export default props =>
+export default ({ children, ...props }) =>
   <Icon
     xmlns='http://www.w3.org/2000/svg'
     width='37'
@@ -19,4 +19,5 @@ export default props =>
       strokeLinecap='round'
       strokeLinejoin='round'
     />
+    {children}
   </Icon>
