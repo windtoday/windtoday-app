@@ -27,13 +27,6 @@ $large : 64em;
   src: url("/static/font/Interface-Regular.woff2?v=1.5") format("woff2"),
        url("/static/font/Interface-Regular.woff?v=1.5") format("woff");
 }
-@font-face {
-  font-family: 'Interface';
-  font-style:  italic;
-  font-weight: 400;
-  src: url("/static/font/Interface-RegularItalic.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-RegularItalic.woff?v=1.5") format("woff");
-}
 
 @font-face {
   font-family: 'Interface';
@@ -41,28 +34,6 @@ $large : 64em;
   font-weight: 500;
   src: url("/static/font/Interface-Medium.woff2?v=1.5") format("woff2"),
        url("/static/font/Interface-Medium.woff?v=1.5") format("woff");
-}
-@font-face {
-  font-family: 'Interface';
-  font-style:  italic;
-  font-weight: 500;
-  src: url("/static/font/Interface-MediumItalic.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-MediumItalic.woff?v=1.5") format("woff");
-}
-
-@font-face {
-  font-family: 'Interface';
-  font-style:  normal;
-  font-weight: 700;
-  src: url("/static/font/Interface-Bold.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-Bold.woff?v=1.5") format("woff");
-}
-@font-face {
-  font-family: 'Interface';
-  font-style:  italic;
-  font-weight: 700;
-  src: url("/static/font/Interface-BoldItalic.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-BoldItalic.woff?v=1.5") format("woff");
 }
 
 @mixin placeholder {

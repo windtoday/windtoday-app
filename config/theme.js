@@ -4,7 +4,7 @@ import palx from 'palx'
 export const breakpoints = [32, 48, 64, 80]
 export const space = [0, 4, 8, 16, 32, 64, 128]
 export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
-export const weights = [400, 500, 700]
+export const weights = [400, 500]
 
 const palette = palx('#00CFFF')
 
