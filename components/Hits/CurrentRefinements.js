@@ -16,7 +16,18 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
   const { attributeName } = props
 
   return (
-    <Badge my={2} px={3} f={0} py={2} bg='cyan1' color='cyan6' caps bold>
+    <Badge
+      my={1}
+      mr={2}
+      ml={0}
+      px={3}
+      py={2}
+      f={0}
+      bg='cyan1'
+      color='cyan6'
+      caps
+      bold
+    >
       <span>
         {value}
       </span>
@@ -59,10 +70,11 @@ const CurrentRefinements = class extends Component {
     const size = items.length
     const px = size ? 3 : 0
     const py = size ? 2 : 0
+    const mt = size ? 3 : 0
     const background = size ? 'rgba(247, 247, 247, 0.75)' : 'transparent'
 
     return (
-      <CustomBox style={{ top: offset, background }} px={px} py={py}>
+      <CustomBox style={{ top: offset, background }} px={px} py={py} mt={mt}>
         {items
           .filter(({ attributeName }) => attributeName !== 'category')
           .map((item, index) =>

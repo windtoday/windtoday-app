@@ -118,9 +118,8 @@ const HitComponent = ({ hit, refine }) => {
         </CardFlex>
       </CardBackgroundImage>
       <CardBox px={3} py={2}>
-        <ProgressBar value={hit.priceScore} mb={3} />
-        <Divider w={1} color='#f7f7f7' />
-        <Box mt={2}>
+        <ProgressBar value={hit.priceScore} />
+        <Box my={2}>
           {renderTags(hit, refine)}
         </Box>
       </CardBox>
