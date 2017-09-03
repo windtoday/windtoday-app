@@ -3,22 +3,24 @@
 import { connectInfiniteHits } from 'react-instantsearch/connectors'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { createConnector } from 'react-instantsearch'
-import { color, space } from 'styled-system'
 import { CloudRain } from 'react-feather'
-import styled from 'styled-components'
-import { Text, Flex } from 'rebass'
+import { Box, Text, Flex } from 'rebass'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
 import { debounce } from 'lodash'
 
-const CustomCloudRain = styled(CloudRain)`
-${color}
-${space}
-`
-
 const NotResults = () =>
-  <Flex direction='column' justify='center' align='center' mt={5}>
-    <CustomCloudRain color='cyan' size={120} />
+  <Flex
+    direction='column'
+    justify='center'
+    align='center'
+    pt={5}
+    style={{ backgroundColor: 'white' }}
+  >
+    <Box color='cyan'>
+      <CloudRain size={120} />
+    </Box>
+
     <Text fontSize={4} mt={4}>
       sorry, we didn't found it.
     </Text>
@@ -38,7 +40,9 @@ const CustomInfiniteHits = class extends Component {
   handleScroll = debounce(() => {
     const scrollPosition = window.pageYOffset
     const { hits } = this.props
-    if (scrollPosition) { window.sessionStorage.setItem('scrollPosition', scrollPosition) }
+    if (scrollPosition) {
+      window.sessionStorage.setItem('scrollPosition', scrollPosition)
+    }
     window.sessionStorage.setItem('hits', JSON.stringify(hits))
   }, 150)
 
