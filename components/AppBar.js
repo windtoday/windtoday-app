@@ -6,9 +6,20 @@ import { SearchBox } from 'react-instantsearch/dom'
 import { Component } from 'react'
 import Logo from './Logo'
 
+import { connectCurrentRefinements } from 'react-instantsearch/connectors'
+
 const translations = {
   placeholder: 'What are you looking for?'
 }
+
+const LogoClearAll = connectCurrentRefinements(({ items, refine }) => {
+  const onClick = e => {
+    refine(items)
+    window.scrollTo(0, 0)
+  }
+
+  return <Logo onClick={onClick} />
+})
 
 export default class extends Component {
   constructor (props) {
@@ -39,7 +50,7 @@ export default class extends Component {
       <NavLink>
         {isSearchOpen
           ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
-          : <Logo />}
+          : <LogoClearAll />}
       </NavLink>
     )
   }
