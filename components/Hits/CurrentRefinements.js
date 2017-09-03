@@ -59,7 +59,7 @@ const CurrentRefinements = class extends Component {
     const size = items.length
     const px = size ? 3 : 0
     const py = size ? 2 : 0
-    const background = 'rgba(247, 247, 247, 0.75)'
+    const background = size ? 'rgba(247, 247, 247, 0.75)' : 'transparent'
 
     return (
       <CustomBox style={{ top: offset, background }} px={px} py={py}>
