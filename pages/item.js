@@ -10,6 +10,10 @@ import theme from 'config/theme'
 const algoliaClient = algoliasearch(APP.algolia.appId, APP.algolia.apiKey)
 const algoliaIndex = algoliaClient.initIndex(APP.algolia.indexName)
 
+const getFallbackDescription = ({ brand, model }) => `
+See all the information related with ${brand} ${model}. Compare with the rest of brands, search the best price and choose real deals in our windsurfing marketplace.
+`
+
 export default class extends Component {
   static async getInitialProps ({ req, asPath, url, ...props }) {
     const isServer = !!req
@@ -24,7 +28,7 @@ export default class extends Component {
       url: item.link,
       title: `${item.title} | Windtoday`,
       ogImage: item.image,
-      description: `See all the information related with ${item.brand} ${item.model}. Compare with the rest of brands, search the best price and choose real deals in our windsurfing marketplace.`
+      description: item.description || getFallbackDescription(item)
     }
 
     return { isServer, url, layout, item }
