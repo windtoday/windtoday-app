@@ -141,7 +141,7 @@ export default class extends Component {
           ref={node => (this.state.headroom = node)}
         >
           <AppBar searchState={searchState} />
-          <Divider w={1} color='#f7f7f7' />
+          <Divider w={1} color='gray0' />
           <CategoryTabs attributeName='category' />
         </Headroom>
         <Main>

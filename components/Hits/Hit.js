@@ -108,7 +108,7 @@ const HitComponent = ({ hit, refine }) => {
             </Badge>
           </Flex>
           <Box>
-            <MeasureText is='h2' mb={2} color='white'>
+            <MeasureText is='h2' color='white'>
               <Highlight attributeName='title' hit={hit} />
             </MeasureText>
             <Text f={1} color='white60'>

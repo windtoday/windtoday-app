@@ -30,7 +30,7 @@ const HitDetail = ({ range, name, value, ...props }) =>
       </Box>
     </Flex>
     <Box mx={3}>
-      <Divider w={1} color='#f7f7f7' />
+      <Divider w={1} color='gray0' />
     </Box>
   </Box>
 

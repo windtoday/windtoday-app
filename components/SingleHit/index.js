@@ -129,14 +129,14 @@ const SingleHit = class extends Component {
           {description &&
             <Box>
               <Box mx={3}>
-                <Divider w={1} color='#f7f7f7' />
+                <Divider w={1} color='gray0' />
               </Box>
               <Text f={2} px={3} py={2}>
                 {description}
               </Text>
             </Box>}
           <Box mx={3}>
-            <Divider w={1} color='#f7f7f7' />
+            <Divider w={1} color='gray0' />
           </Box>
           <HitDetails hit={hit} />
         </Box>

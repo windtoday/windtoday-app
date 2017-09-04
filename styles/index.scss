@@ -47,9 +47,9 @@ html {
   font-family: Interface, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.8;
   font-size: 16px;
+  background-color: $gray0;
 }
 
 @import './SearchBox.scss';
-@import './InstantSearch.scss';
 @import './Highlight.scss';
 @import './progress.scss';

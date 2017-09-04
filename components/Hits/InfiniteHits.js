@@ -15,7 +15,7 @@ const NotResults = () =>
     justify='center'
     align='center'
     pt={5}
-    style={{ backgroundColor: 'white' }}
+    style={{ backgroundColor: 'gray0' }}
   >
     <Box color='cyan'>
       <CloudRain size={120} />
