@@ -2,7 +2,7 @@
   "name": "windtoday-app",
   "description": "Intelligent water sport marketplace",
   "homepage": "https://windtoday.co",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
