@@ -127,16 +127,11 @@ const SingleHit = class extends Component {
             </Flex>
           </Flex>
           {description &&
-            <Box>
-              <Box mx={3}>
-                <Divider w={1} color='gray0' />
-              </Box>
-              <Text f={2} px={3} py={2}>
-                {description}
-              </Text>
-            </Box>}
+            <Text f={2} mx={3} py={2}>
+              {description}
+            </Text>}
           <Box mx={3}>
-            <Divider w={1} color='gray0' />
+            <Divider w={1} color='gray1' />
           </Box>
           <HitDetails hit={hit} />
         </Box>
