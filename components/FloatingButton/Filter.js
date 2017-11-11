@@ -45,7 +45,7 @@ const FloatingFilterButton = class extends Component {
     return (
       <ResponsiveFixed right bottom left>
         <Flex justify='flex-end'>
-          <FloatingButtonWrapper mx={3} my={3}>
+          <FloatingButtonWrapper mx={3} my={5}>
             <PrimaryButtonWrapper>
               <PrimaryButton
                 size={64}
@@ -58,7 +58,7 @@ const FloatingFilterButton = class extends Component {
               />
 
               <SecondaryButtonWrapper>
-                {items.map(({ icon, value, label }, index) =>
+                {items.map(({ icon, value, label }, index) => (
                   <SecondaryButton
                     size={48}
                     key={index}
@@ -73,7 +73,7 @@ const FloatingFilterButton = class extends Component {
                     refine={refine}
                     setActive={this.setActive}
                   />
-                )}
+                ))}
               </SecondaryButtonWrapper>
             </PrimaryButtonWrapper>
           </FloatingButtonWrapper>
