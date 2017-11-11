@@ -64,8 +64,8 @@ export default class Document extends NextDocument {
             content='/static/favicon/browserconfig.xml'
           />
           <meta name='theme-color' content='#ffffff' />
+          <link href='https://rsms.me/inter/inter-ui.css' rel='stylesheet' />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-
           {styleTags}
         </Head>
         <body>

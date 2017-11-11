@@ -20,22 +20,6 @@ $small : 40em;
 $medium: 52em;
 $large : 64em;
 
-@font-face {
-  font-family: 'Interface';
-  font-style:  normal;
-  font-weight: 400;
-  src: url("/static/font/Interface-Regular.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-Regular.woff?v=1.5") format("woff");
-}
-
-@font-face {
-  font-family: 'Interface';
-  font-style:  normal;
-  font-weight: 500;
-  src: url("/static/font/Interface-Medium.woff2?v=1.5") format("woff2"),
-       url("/static/font/Interface-Medium.woff?v=1.5") format("woff");
-}
-
 @mixin placeholder {
   &.placeholder { @content; }
   &:-moz-placeholder { @content; }
@@ -44,7 +28,7 @@ $large : 64em;
 }
 
 html {
-  font-family: Interface, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.8;
   font-size: 16px;
   background-color: $gray0;

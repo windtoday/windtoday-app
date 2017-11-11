@@ -6,7 +6,7 @@ import { Provider } from 'rebass'
 import App from 'components/App'
 import Router from 'next/router'
 import theme from 'config/theme'
-import { debounce, omit } from 'lodash'
+import { omit } from 'lodash'
 import qs from 'qs'
 
 const updateAfter = 700
