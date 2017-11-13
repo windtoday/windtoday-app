@@ -48,7 +48,7 @@
     "qs": "~6.5.0",
     "raw-loader": "~0.5.1",
     "react": "15",
-    "react-dom": "15",
+    "react-dom": "^16.1.1",
     "react-feather": "~1.0.7",
     "react-headroom": "~2.2.2",
     "react-infinite-scroll-component": "~2.5.0",
