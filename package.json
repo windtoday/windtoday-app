@@ -57,7 +57,7 @@
     "react-timeago": "~3.4.3",
     "rebass": "~1.0.4",
     "sass-loader": "~6.0.6",
-    "styled-components": "~2.3.0",
+    "styled-components": "~2.4.0",
     "styled-system": "~1.0.0-13"
   },
   "devDependencies": {
