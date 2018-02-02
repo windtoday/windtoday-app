@@ -42,7 +42,7 @@
     "palx": "~1.0.2",
     "postcss-easy-import": "~3.0.0",
     "postcss-focus": "~3.0.0",
-    "postcss-loader": "~2.0.6",
+    "postcss-loader": "~2.1.0",
     "progress-arc-component": "~2.5.0",
     "prop-types": "~15.6.0",
     "qs": "~6.5.0",
