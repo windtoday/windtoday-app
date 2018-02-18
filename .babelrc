@@ -13,7 +13,7 @@
           "styles": "./styles",
           "components": "./components",
           "util": "./util",
-          "config": "./config",
+          "config": "./config"
         },
         "cwd": "babelrc"
     }],
