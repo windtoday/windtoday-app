@@ -74,15 +74,15 @@
     "node": ">= 8"
   },
   "scripts": {
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "clean": "rm -rf node_modules && rm -rf .next",
     "dev": "next",
-    "heroku-postbuild": "npm run build",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
-    "start": "next start -p $PORT",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production next start -p $PORT",
     "test": "exit 0"
   },
   "private": "true",
