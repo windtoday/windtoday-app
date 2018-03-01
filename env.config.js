@@ -10,7 +10,7 @@ const serializedObject = (key, obj) => Object.keys(obj).reduce((acc, prop) => {
 }, {})
 
 // we do that for removing non object properties
-const rawConfig = JSON.parse(JSON.stringify(config))
+const rawConfig = config.util.toObject(config)
 
 const globalConfig = Object.keys(rawConfig).reduce((acc, key) => {
   const value = rawConfig[key]
