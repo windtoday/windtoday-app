@@ -53,7 +53,7 @@
     "react-feather": "~1.0.7",
     "react-headroom": "~2.2.2",
     "react-infinite-scroll-component": "~3.0.2",
-    "react-instantsearch": "~4.5.1",
+    "react-instantsearch": "~5.0.0",
     "react-progressbar.js": "squarecat/react-progressbar.js",
     "react-timeago": "~3.4.3",
     "rebass": "~1.0.4",
