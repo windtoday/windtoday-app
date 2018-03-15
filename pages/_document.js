@@ -19,10 +19,6 @@ export default class Document extends NextDocument {
       <html lang='en'>
         <Head>
           <meta charSet='utf-8' />
-          <meta
-            name='viewport'
-            content='initial-scale=1.0, width=device-width'
-          />
 
           {/* WebApp */}
           <meta name='apple-mobile-web-app-status-bar-style' content='black' />
