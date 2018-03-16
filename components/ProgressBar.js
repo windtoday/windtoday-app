@@ -1,10 +1,12 @@
 import { Label, Box, Flex } from 'rebass'
-import { Line } from 'react-progressbar.js'
+import { Line } from 'react-progress-bar.js'
 import { cx, priceScoreGradientAt } from 'config/theme'
 
-const CustomLabel = Label.extend`display: inline;`
+const CustomLabel = Label.extend`
+  display: inline;
+`
 
-export default ({ value, ...props }) =>
+export default ({ value, ...props }) => (
   <Flex direction='row' align='center' {...props}>
     <Box w={1}>
       <Line
@@ -30,3 +32,4 @@ export default ({ value, ...props }) =>
       </CustomLabel>
     </Box>
   </Flex>
+)
