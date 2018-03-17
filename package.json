@@ -5,8 +5,8 @@
   "version": "3.0.0",
   "main": "index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://github.com/Kikobeats"
   },
   "repository": {
@@ -68,11 +68,22 @@
     "lint-staged": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
-    "standard-markdown": "latest"
+    "standard-markdown": "latest",
+    "stylelint": "latest",
+    "stylelint-config-standard": "latest"
   },
   "engines": {
     "node": ">= 8"
   },
+  "files": [
+    "components",
+    "config",
+    "env.config.js",
+    "next.config.js",
+    "pages",
+    "static",
+    "util"
+  ],
   "scripts": {
     "build": "NODE_ENV=production next build",
     "clean": "rm -rf node_modules && rm -rf .next",
@@ -80,8 +91,8 @@
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "predev": "rm -rf node_modules/.cache/babel-loader",
-    "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
     "prestart": "npm run build",
+    "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
     "start": "NODE_ENV=production next start -p $PORT",
     "test": "exit 0"
   },
@@ -102,5 +113,18 @@
       "React"
     ],
     "parser": "babel-eslint"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "at-rule-no-unknown": [
+        {
+          "ignoreAtRules": [
+            "include"
+          ]
+        },
+        true
+      ]
+    }
   }
 }

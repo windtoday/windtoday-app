@@ -1,19 +1,11 @@
 $input-width: 280px;
 $input-height: 38px;
 
-.ais-SearchBox__submit {
+.ais-SearchBox-submit {
   display: none;
 }
 
-.ais-SearchBox__input:valid ~ .ais-SearchBox__reset {
-  display: block;
-}
-
-.ais-SearchBox__input:valid {
-  font-weight: bold;
-}
-
-.ais-SearchBox__reset {
+.ais-SearchBox-reset {
   display: none;
   position: absolute;
   top: 4px;
@@ -28,29 +20,11 @@ $input-height: 38px;
   fill: #ccd4d7;
 }
 
-.ais-SearchBox__reset svg {
+.ais-SearchBox-input:valid ~ .ais-SearchBox-reset {
   display: block;
-  margin: 9px;
-  width: 12px;
-  height: 12px;
 }
 
-.ais-SearchBox__root {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  white-space: nowrap;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-.ais-SearchBox__wrapper {
-  margin-left: -24px; /* left icon */
-  width: 100%;
-  height: 100%;
-}
-
-.ais-SearchBox__input {
+.ais-SearchBox-input {
   font-family: inherit;
   line-height: inherit;
   display: inline-block;
@@ -58,11 +32,10 @@ $input-height: 38px;
   border: 1px solid $gray2;
   border-radius: 1rem;
   appearance: none;
-  margin: 0px;
+  margin: 0;
   padding: 4px 30px 4px 15px;
   width: $input-width;
   height: $input-height;
-
   font-size: inherit;
   color: #14171a;
   background-color: $gray0;
@@ -85,4 +58,30 @@ $input-height: 38px;
     color: $gray5;
     font-size: 16px;
   }
+}
+
+.ais-SearchBox-input:valid {
+  font-weight: bold;
+}
+
+.ais-SearchBox-reset svg {
+  display: block;
+  margin: 9px;
+  width: 12px;
+  height: 12px;
+}
+
+.ais-SearchBox {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.ais-SearchBox.form {
+  margin-left: -24px; /* left icon */
+  width: 100%;
+  height: 100%;
 }
