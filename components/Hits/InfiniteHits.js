@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { Component } from 'react'
 import { debounce } from 'lodash'
 
-const NotResults = () =>
+const NotResults = () => (
   <Flex
     direction='column'
     justify='center'
@@ -25,6 +25,7 @@ const NotResults = () =>
       sorry, we didn't found it.
     </Text>
   </Flex>
+)
 
 const CustomInfiniteHits = class extends Component {
   componentDidMount = () => {
@@ -60,9 +61,9 @@ const CustomInfiniteHits = class extends Component {
 
     return (
       <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
-        {hits.map(hit =>
+        {hits.map(hit => (
           <ItemComponent key={hit.objectID} hit={hit} refine={refineFilter} />
-        )}
+        ))}
       </InfiniteScroll>
     )
   }
@@ -77,16 +78,18 @@ const InfiniteHits = ({
   refineFilter,
   ...props
 }) =>
-  hasResults
-    ? <CustomInfiniteHits
-        ItemComponent={ItemComponent}
-        hits={hits}
-        refine={refine}
-        hasMore={hasMore}
-        refineFilter={refineFilter}
-        {...props}
-      />
-    : <NotResults />
+  hasResults ? (
+    <CustomInfiniteHits
+      ItemComponent={ItemComponent}
+      hits={hits}
+      refine={refine}
+      hasMore={hasMore}
+      refineFilter={refineFilter}
+      {...props}
+    />
+  ) : (
+    <NotResults />
+  )
 
 InfiniteHits.propTypes = {
   hits: PropTypes.array,

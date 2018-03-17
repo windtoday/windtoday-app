@@ -13,67 +13,67 @@ export default class extends Component {
       <div>
         <CurrentRefinements headroom={headroom} refineFilter={refine} />
         <VirtualRefinementList
-          attributeName='brand'
+          attribute='brand'
           defaultRefinement={[...refinements.brand]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='model'
+          attribute='model'
           defaultRefinement={[...refinements.model]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='condition'
+          attribute='condition'
           defaultRefinement={[...refinements.condition]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='modality'
+          attribute='modality'
           defaultRefinement={[...refinements.modality]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='year'
+          attribute='year'
           defaultRefinement={[...refinements.year]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='mast type'
+          attribute='mast type'
           defaultRefinement={[...refinements['mast type']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='fin type'
+          attribute='fin type'
           defaultRefinement={[...refinements['fin type']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='boom type'
+          attribute='boom type'
           defaultRefinement={[...refinements['boom type']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='sail size range'
+          attribute='sail size range'
           defaultRefinement={[...refinements['sail size range']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='board size range'
+          attribute='board size range'
           defaultRefinement={[...refinements['board size range']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='mast size range'
+          attribute='mast size range'
           defaultRefinement={[...refinements['mast size range']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='mast carbon range'
+          attribute='mast carbon range'
           defaultRefinement={[...refinements['mast carbon range']]}
           onRefine={onRefine}
         />
         <VirtualRefinementList
-          attributeName='boom size range'
+          attribute='boom size range'
           defaultRefinement={[...refinements['boom size range']]}
           onRefine={onRefine}
         />

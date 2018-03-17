@@ -6,14 +6,14 @@ import { X } from 'react-feather'
 import { Component } from 'react'
 
 const CustomBox = styled(Box)`
-position: sticky;
-transition: top 200ms ease-in-out;
-z-index: 999;
+  position: sticky;
+  transition: top 200ms ease-in-out;
+  z-index: 999;
 `
 
 const Filter = ({ currentRefinement, refine, ...props }) => {
   const [value] = currentRefinement
-  const { attributeName } = props
+  const { attribute } = props
 
   return (
     <Badge
@@ -28,13 +28,11 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
       caps
       bold
     >
-      <span>
-        {value}
-      </span>
+      <span>{value}</span>
       <X
         size={12}
         style={{ strokeWidth: '3', marginLeft: '4px', marginTop: '-2px' }}
-        onClick={e => refine({ attributeName, value })}
+        onClick={e => refine({ attribute, value })}
       />
     </Badge>
   )
@@ -76,10 +74,10 @@ const CurrentRefinements = class extends Component {
     return (
       <CustomBox style={{ top: offset, background }} px={px} py={py} mt={mt}>
         {items
-          .filter(({ attributeName }) => attributeName !== 'category')
-          .map((item, index) =>
+          .filter(({ attribute }) => attribute !== 'category')
+          .map((item, index) => (
             <Filter key={index} refine={refineFilter} {...item} />
-          )}
+          ))}
       </CustomBox>
     )
   }

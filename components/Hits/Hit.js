@@ -11,32 +11,34 @@ import getImageUrl from 'util/get-image-url'
 import Badge from 'components/Badge'
 
 const cardStyle = css`
-height: 64vw;
-max-height: 312px;
+  height: 64vw;
+  max-height: 312px;
 `
 
 const CardBackgroundImage = styled(BackgroundImage)`
-${cardStyle}
-border-top-left-radius: .35rem;
-border-top-right-radius: .35rem;
-padding: 0;
-cursor: pointer;
-background: ${props =>
-  `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${props.src}") center center / cover no-repeat`};
+  ${cardStyle} border-top-left-radius: .35rem;
+  border-top-right-radius: 0.35rem;
+  padding: 0;
+  cursor: pointer;
+  background: ${props =>
+    `linear-gradient(rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.7) 100%), url("${
+      props.src
+    }") center center / cover no-repeat`};
 `
 
 const CardFlex = styled(Flex)`
-${cardStyle}
+  ${cardStyle};
 `
 
 const RadiusFlex = styled(Flex)`
-border-radius: .35rem;
-box-shadow: 0 8px 16px 0 rgba(0, 2, 5, 0.04), inset 0 -1px 0 0 rgba(29, 30, 41, 0.1);
+  border-radius: 0.35rem;
+  box-shadow: 0 8px 16px 0 rgba(0, 2, 5, 0.04),
+    inset 0 -1px 0 0 rgba(29, 30, 41, 0.1);
 `
 
 const CardBox = Box.extend`
-  border-bottom-left-radius: .35rem;
-  border-bottom-right-radius: .35rem;
+  border-bottom-left-radius: 0.35rem;
+  border-bottom-right-radius: 0.35rem;
   background-color: white;
 `
 
@@ -60,7 +62,7 @@ const renderTags = (hit, refine) =>
   TAGS.map((tag, index) => {
     const value = hit[tag]
     if (value == null) return null
-    const onClick = e => refine({ attributeName: tag, value })
+    const onClick = e => refine({ attribute: tag, value })
     return (
       <Badge
         my={1}
@@ -109,7 +111,7 @@ const HitComponent = ({ hit, refine }) => {
           </Flex>
           <Box>
             <MeasureText is='h2' color='white'>
-              <Highlight attributeName='title' hit={hit} />
+              <Highlight attribute='title' hit={hit} />
             </MeasureText>
             <Text f={1} color='white60'>
               {getFormatDate(hit.updatedAt)} by {hit.provider}
@@ -119,9 +121,7 @@ const HitComponent = ({ hit, refine }) => {
       </CardBackgroundImage>
       <CardBox px={3} py={2}>
         <ProgressBar value={hit.priceScore} />
-        <Box my={2}>
-          {renderTags(hit, refine)}
-        </Box>
+        <Box my={2}>{renderTags(hit, refine)}</Box>
       </CardBox>
     </RadiusFlex>
   )

@@ -25,10 +25,10 @@ Router.onRouteChangeComplete = () => NProgress.done()
 Router.onRouteChangeError = () => NProgress.done()
 
 const Main = styled(Box)`
-@media screen and (min-width: 600px) {
-  max-width: 600px;
-  margin: 0 auto;
-}
+  @media screen and (min-width: 600px) {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 `
 export default class extends Component {
   componentDidMount () {
@@ -67,39 +67,39 @@ export default class extends Component {
     }
   }
 
-  refine = ({ attributeName, value }) => {
+  refine = ({ attribute, value }) => {
     this.setState(state => {
-      const index = state.refinements[attributeName].indexOf(value)
+      const index = state.refinements[attribute].indexOf(value)
 
       if (index === -1) {
-        const oldValue = state.refinements[attributeName]
+        const oldValue = state.refinements[attribute]
         return {
           ...state,
           refinements: {
             ...state.refinements,
-            [attributeName]: [...oldValue, value]
+            [attribute]: [...oldValue, value]
           }
         }
       }
 
-      const newValue = state.refinements[attributeName].slice()
+      const newValue = state.refinements[attribute].slice()
       newValue.splice(index, 1)
       return {
         ...state,
         refinements: {
           ...state.refinements,
-          [attributeName]: newValue
+          [attribute]: newValue
         }
       }
     })
   }
 
-  onRefine = ({ attributeName, value }) =>
+  onRefine = ({ attribute, value }) =>
     this.setState(state => ({
       ...state,
       refinements: {
         ...state.refinements,
-        [attributeName]: value
+        [attribute]: value
       }
     }))
 
@@ -142,7 +142,7 @@ export default class extends Component {
         >
           <AppBar searchState={searchState} />
           <Divider w={1} color='gray0' />
-          <CategoryTabs attributeName='category' />
+          <CategoryTabs attribute='category' />
         </Headroom>
         <Main>
           <Hits

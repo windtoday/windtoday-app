@@ -10,17 +10,17 @@ class RefinementList extends Component {
     const {
       currentRefinement: oldCurrentRefinement,
       defaultRefinement: oldDefaultRefinement,
-      attributeName
+      attribute
     } = this.props
 
     if (!equals(currentRefinement, oldCurrentRefinement)) {
       refine(currentRefinement)
-      onRefine({ attributeName, value: currentRefinement })
+      onRefine({ attribute, value: currentRefinement })
     }
 
     if (!equals(defaultRefinement, oldDefaultRefinement)) {
       refine(defaultRefinement)
-      onRefine({ attributeName, value: defaultRefinement })
+      onRefine({ attribute, value: defaultRefinement })
     }
   }
 
