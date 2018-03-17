@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { cx } from 'config/theme'
 
 export default styled.a`
-  ${color} height: ${props => props.size}px;
+  ${color} pointer-events: auto;
+  height: ${props => props.size}px;
   width: ${props => props.size}px;
   z-index: 20;
   display: inline-block;
