@@ -22,7 +22,7 @@ const NotResults = () => (
     </Box>
 
     <Text fontSize={4} mt={4}>
-      sorry, we didn't found it.
+      {"sorry, we didn't found it."}
     </Text>
   </Flex>
 )
