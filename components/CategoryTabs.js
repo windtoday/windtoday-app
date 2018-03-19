@@ -1,22 +1,23 @@
 import { connectRefinementList } from 'react-instantsearch/connectors'
-import { Tabs, TabItem, Flex } from 'rebass'
+import styled from 'styled-components'
+import { Tabs, Tab, Flex } from 'rebass'
 import { Component } from 'react'
-import { cx } from 'config/theme'
+import { colors } from 'config/theme'
+import { color } from 'styled-system'
 
 const TABS = ['all', 'sails', 'boards', 'masts', 'booms', 'fins']
 
-const CustomTabs = Tabs.extend`
-  box-shadow: 0 8px 16px 0 rgba(0, 2, 5, 0.04),
-    inset 0 -1px 0 0 rgba(29, 30, 41, 0.1);
+const CustomTabs = styled(Tabs)`
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.027) 0px 2px 0px 0px;
 `
 
-const CustomTabItem = TabItem.extend`
-  text-transform: uppercase;
-  letter-spacing: .02rem;
+const CustomTab = styled(Tab)`
+  ${color} text-transform: uppercase;
+  letter-spacing: 0.02rem;
   cursor: pointer;
-  color: ${props => (props.active ? props.color : 'inherit')};
   &:hover {
-    color: ${props => props.color};
+    color: ${colors.cyan};
   }
 `
 
@@ -32,34 +33,31 @@ const CategoryBar = class extends Component {
     this.setState({ active })
   }
 
-  renderCustomTabItem ({ value, index }) {
+  renderCustomTab ({ value, index }) {
     const { active } = this.state
     const isActive = index === active
     return (
-      <CustomTabItem
+      <CustomTab
         key={index}
-        caps
-        color={cx('cyan')}
+        color={isActive ? 'cyan' : 'gray6'}
         fontSize={[1, 2, 2]}
-        active={isActive}
-        style={{ fontWeight: isActive ? 'bold' : 'normal' }}
+        fontWeight={isActive ? 'bold' : 'normal'}
+        borderColor={isActive ? 'cyan' : 'transparent'}
         onClick={e => {
           this.setActive(index)
           index === 0 ? this.props.refine([]) : this.props.refine(value)
         }}
       >
         {value}
-      </CustomTabItem>
+      </CustomTab>
     )
   }
 
   render () {
     return (
       <CustomTabs bg='white' color='gray6'>
-        <Flex justify='center' mx='auto'>
-          {TABS.map((value, index) =>
-            this.renderCustomTabItem({ value, index })
-          )}
+        <Flex justifyContent='center' mx='auto'>
+          {TABS.map((value, index) => this.renderCustomTab({ value, index }))}
         </Flex>
       </CustomTabs>
     )

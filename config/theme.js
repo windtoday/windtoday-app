@@ -1,10 +1,17 @@
 import ColourMeLife from 'colour-me-life'
 import palx from 'palx'
 
-export const breakpoints = [32, 48, 64, 80]
-export const space = [0, 4, 8, 16, 32, 64, 128]
+export const breakpoints = [32, 48, 64, 80].map(n => n + 'em')
+export const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 export const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72, 96]
-export const weights = [400, 500]
+
+export const fontWeights = {
+  normal: 400,
+  semibold: 500,
+  bold: 800
+}
+
+export const radii = [0, 2, 4]
 
 const palette = palx('#00CFFF')
 
@@ -20,8 +27,6 @@ const flattened = Object.keys(palette).reduce((a, key) => {
   }
   return a
 }, {})
-
-// todo: flatten
 
 export const colors = Object.assign({}, flattened, {
   black: '#000',
@@ -54,9 +59,25 @@ export const colors = Object.assign({}, flattened, {
   white0125: 'rgba(255,255,255,.0125)'
 })
 
-export const radius = 4
-export const font = `'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif`
-export const monospace = '"SF Mono", "Roboto Mono", Menlo, monospace'
+export const fonts = {
+  0: `'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif`,
+  sans: `'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif`,
+  mono: '"SF Mono", "Roboto Mono", Menlo, monospace'
+}
+
+export const shadows = [
+  'none',
+  `inset 0 0 0 1px ${colors.gray}`,
+  `inset 0 0 0 1px ${colors.gray}, 0 0 4px ${colors.gray}`
+]
+
+export const letterSpacings = {
+  normal: 'normal',
+  tracked: '.0.2em',
+  caps: '0.25em'
+}
+
+export const borders = [0, '1px solid', '2px solid']
 
 export const cx = key => colors[key] || key
 export const gradient = (n, from, to) =>
@@ -73,9 +94,11 @@ export default {
   breakpoints,
   space,
   fontSizes,
-  weights,
-  font,
-  monospace,
+  fontWeights,
+  fonts,
   colors,
-  radius
+  radii,
+  borders,
+  shadows,
+  letterSpacings
 }

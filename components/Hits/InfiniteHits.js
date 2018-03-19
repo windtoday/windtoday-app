@@ -11,9 +11,9 @@ import { debounce } from 'lodash'
 
 const NotResults = () => (
   <Flex
-    direction='column'
-    justify='center'
-    align='center'
+    flexDirection='column'
+    justifyContent='center'
+    alignItems='center'
     pt={5}
     style={{ backgroundColor: 'gray0' }}
   >
