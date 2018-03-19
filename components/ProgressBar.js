@@ -7,8 +7,8 @@ const CustomLabel = Label.extend`
 `
 
 export default ({ value, ...props }) => (
-  <Flex direction='row' align='center' {...props}>
-    <Box w={1}>
+  <Flex flexDirection='row' alignContent='center' {...props}>
+    <Box width={1}>
       <Line
         progress={value / 100}
         containerStyle={{ width: '100%' }}
@@ -27,7 +27,7 @@ export default ({ value, ...props }) => (
       />
     </Box>
     <Box>
-      <CustomLabel pl={2} m={0} f={0}>
+      <CustomLabel pl={2} m={0} fontSize={0}>
         {value}/100
       </CustomLabel>
     </Box>

@@ -1,4 +1,4 @@
-import { Text, Flex, Divider, Box, BackgroundImage } from 'rebass'
+import { Text, Flex, Box, BackgroundImage } from 'rebass'
 import { Highlight } from 'react-instantsearch/dom'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -70,13 +70,13 @@ const renderTags = (hit, refine) =>
         ml={0}
         px={3}
         py={2}
-        f={0}
+        fontSize={0}
         bg='cyan1'
         color='cyan6'
         key={index}
         onClick={onClick}
-        caps
-        bold
+        letterSpacing='caps'
+        fontWeight='bold'
       >
         {value}
       </Badge>
@@ -93,18 +93,19 @@ const HitComponent = ({ hit, refine }) => {
   }
 
   return (
-    <RadiusFlex mx={3} my={3} direction='column'>
+    <RadiusFlex mx={3} my={3} flexDirection='column'>
       <CardBackgroundImage is='a' src={getImageUrl(hit, 600)} onClick={onClick}>
-        <CardFlex direction='column' justify='space-between' p={3}>
-          <Flex direction='row' justify='flex-start'>
+        <CardFlex flexDirection='column' justifyContent='space-between' p={3}>
+          <Flex flexDirection='row' justifyContent='flex-start'>
             <Badge
               bg='white'
-              f={2}
+              fontSize={2}
               px={'22px'}
               py={'6px'}
               ml={0}
               color='black'
-              caps
+              fontWeight='normal'
+              letterSpacing='caps'
             >
               €{hit.price}
             </Badge>
@@ -113,7 +114,7 @@ const HitComponent = ({ hit, refine }) => {
             <MeasureText is='h2' color='white'>
               <Highlight attribute='title' hit={hit} />
             </MeasureText>
-            <Text f={1} color='white60'>
+            <Text fontSize={1} color='white60'>
               {getFormatDate(hit.updatedAt)} by {hit.provider}
             </Text>
           </Box>

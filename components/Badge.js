@@ -1,12 +1,11 @@
 import { Badge } from 'rebass'
+import { fontWeight } from 'styled-system'
 
 export default Badge.extend`
+  ${fontWeight} text-transform: ${props => props.textTransform || 'uppercase'};
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  text-transform: ${props => props.caps && 'uppercase'};
-  letter-spacing: ${props => props.caps && '.02em'};
   border-radius: 20px;
-  font-weight: ${props => (props.bold ? 'bold' : 'normal')};
 `

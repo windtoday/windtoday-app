@@ -48,9 +48,11 @@ export default class extends Component {
     const { isSearchOpen } = this.state
     return (
       <NavLink>
-        {isSearchOpen
-          ? <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
-          : <LogoClearAll />}
+        {isSearchOpen ? (
+          <ChevronLeft onClick={e => this.toggle('isSearchOpen')} />
+        ) : (
+          <LogoClearAll />
+        )}
       </NavLink>
     )
   }
@@ -64,24 +66,27 @@ export default class extends Component {
           {this.renderLeftIcon()}
 
           <Box mx='auto' fontSize={[1, 1, 1]}>
-            {isSearchOpen
-              ? <SearchBox translations={translations} autoFocus />
-              : <Flex align='center'>
-                  <Text
-                    color='black'
-                    fontSize={2}
-                    mx='auto'
-                    children='WINDTODAY'
-                    bold
-                  />
-                  <span className='changelog' />
-                </Flex>}
+            {isSearchOpen ? (
+              <SearchBox translations={translations} autoFocus />
+            ) : (
+              <Flex justifyContent='center' alignItems='center'>
+                <Text
+                  color='black'
+                  fontSize={2}
+                  mx='auto'
+                  children='WINDTODAY'
+                  fontWeight='semibold'
+                />
+                <span className='changelog' />
+              </Flex>
+            )}
           </Box>
 
-          {!isSearchOpen &&
+          {!isSearchOpen && (
             <NavLink>
               <Search onClick={e => this.toggle('isSearchOpen')} />
-            </NavLink>}
+            </NavLink>
+          )}
         </Toolbar>
       </div>
     )

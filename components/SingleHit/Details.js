@@ -1,5 +1,5 @@
 import { Divider, Text, Box, Flex } from 'rebass'
-import SmallCaps from 'components/SmallCaps'
+import Small from 'components/Small'
 
 const DETAILS = [
   { nameProp: 'model' },
@@ -14,25 +14,31 @@ const DETAILS = [
   { nameProp: 'mast carbon', rangeProp: 'mast carbon range', unit: 'C' }
 ]
 
-const HitDetail = ({ range, name, value, ...props }) =>
+const HitDetail = ({ range, name, value, ...props }) => (
   <Box>
-    <Flex my={3} mx={3} style={{ lineHeight: '1.4' }} justify='space-between'>
+    <Flex
+      my={3}
+      mx={3}
+      style={{ lineHeight: '1.4' }}
+      justifyContent='space-between'
+    >
       <Box>
-        <SmallCaps color='gray' f={0} m={0} p={0}>
+        <Small color='gray' fontSize={0} m={0} p={0}>
           {name}
-        </SmallCaps>
+        </Small>
       </Box>
 
       <Box>
-        <Text f={2} bold>
+        <Text fontSize={2} fontWeight='normal'>
           {value}
         </Text>
       </Box>
     </Flex>
     <Box mx={3}>
-      <Divider w={1} color='gray1' />
+      <Divider borderColor='gray1' />
     </Box>
   </Box>
+)
 
 export default ({ hit }) => {
   const details = DETAILS.map(({ nameProp, rangeProp, unit = '' }, index) => {
@@ -53,9 +59,5 @@ export default ({ hit }) => {
     }
   })
 
-  return (
-    <Box pb={6}>
-      {' '}{details}
-    </Box>
-  )
+  return <Box pb={6}> {details}</Box>
 }

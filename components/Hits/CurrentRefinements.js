@@ -22,11 +22,11 @@ const Filter = ({ currentRefinement, refine, ...props }) => {
       ml={0}
       px={3}
       py={2}
-      f={0}
+      fontSize={0}
       bg='cyan1'
       color='cyan6'
-      caps
-      bold
+      letterSpacing='caps'
+      fontWeight='bold'
     >
       <span>{value}</span>
       <X

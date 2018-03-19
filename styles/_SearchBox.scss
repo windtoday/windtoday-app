@@ -48,6 +48,11 @@ $input-height: 38px;
     width: $input-width * 1.8;
   }
 
+  /* Hide the cancel button */
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
   &:focus {
     outline: none;
     border: 2px solid $cyan;
@@ -61,7 +66,8 @@ $input-height: 38px;
 }
 
 .ais-SearchBox-input:valid {
-  font-weight: bold;
+  // TODO: Use css variables!
+  font-weight: 500;
 }
 
 .ais-SearchBox-reset svg {

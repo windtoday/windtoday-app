@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-indent-props */
 
-import { connectInfiniteHits } from 'react-instantsearch/connectors'
+import {
+  connectInfiniteHits,
+  connectStateResults
+} from 'react-instantsearch/connectors'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { createConnector } from 'react-instantsearch'
 import { CloudRain } from 'react-feather'
 import { Box, Text, Flex } from 'rebass'
 import PropTypes from 'prop-types'
@@ -11,9 +13,9 @@ import { debounce } from 'lodash'
 
 const NotResults = () => (
   <Flex
-    direction='column'
-    justify='center'
-    align='center'
+    flexDirection='column'
+    justifyContent='center'
+    alignItems='center'
     pt={5}
     style={{ backgroundColor: 'gray0' }}
   >
@@ -101,15 +103,12 @@ InfiniteHits.propTypes = {
   query: PropTypes.string
 }
 
-const connectConditionalResults = createConnector({
-  displayName: 'ConditionalResults',
-  getProvidedProps (props, searchState, searchResults) {
+const connectConditionalResults = WrappedComponent =>
+  connectStateResults(({ props, searchState, searchResults }) => {
     const { query } = searchState
-    const results = searchResults.results || {}
-    const { nbHits = 0 } = results
+    const nbHits = (searchResults && searchResults.nbHits) || 0
     const hasResults = nbHits > 0
-    return { query, hasResults }
-  }
-})
+    return <WrappedComponent query={query} hasResults={hasResults} {...props} />
+  })
 
 export default connectInfiniteHits(connectConditionalResults(InfiniteHits))

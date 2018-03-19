@@ -32,7 +32,14 @@ const FloatingFilterButton = class extends Component {
 
   renderOverlayFloatingButtons () {
     return (
-      <Fixed onClick={this.toggleOpen} bg='white95' top right bottom left>
+      <Fixed
+        onClick={this.toggleOpen}
+        bg='white95'
+        top={0}
+        right={0}
+        bottom={0}
+        left={0}
+      >
         {this.renderFloatingButtons()}
       </Fixed>
     )
@@ -43,8 +50,8 @@ const FloatingFilterButton = class extends Component {
     const { items, refine } = this.props
 
     return (
-      <ResponsiveFixed right bottom left>
-        <Flex justify='flex-end'>
+      <ResponsiveFixed right={0} bottom={0} left={0}>
+        <Flex justifyContent='flex-end'>
           <FloatingButtonWrapper mx={3} my={5}>
             <PrimaryButtonWrapper>
               <PrimaryButton
