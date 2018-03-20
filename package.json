@@ -52,7 +52,7 @@
     "react-dom": "~16.2.0",
     "react-feather": "~1.0.7",
     "react-headroom": "~2.2.2",
-    "react-infinite-scroll-component": "~3.0.2",
+    "react-infinite-scroll-component": "~4.0.0",
     "react-instantsearch": "~5.0.1",
     "react-progress-bar.js": "~0.2.0-dev",
     "react-timeago": "~3.4.3",
