@@ -11,7 +11,7 @@ export const fontWeights = {
   bold: 800
 }
 
-export const radii = [0, 2, 4]
+export const radii = [0, 2, 4, 8]
 
 const palette = palx('#00CFFF')
 
@@ -59,6 +59,8 @@ export const colors = Object.assign({}, flattened, {
   white0125: 'rgba(255,255,255,.0125)'
 })
 
+export const lineHeights = [1, 1.125, 1.25, 1.5]
+
 export const fonts = {
   0: `'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif`,
   sans: `'Inter UI', -apple-system, BlinkMacSystemFont, sans-serif`,
@@ -100,5 +102,6 @@ export default {
   radii,
   borders,
   shadows,
+  lineHeights,
   letterSpacings
 }
