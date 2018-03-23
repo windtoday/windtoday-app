@@ -62,7 +62,7 @@ const CustomInfiniteHits = class extends Component {
     const hits = cachedHits ? JSON.parse(cachedHits) : this.props.hits
 
     return (
-      <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.4}>
+      <InfiniteScroll next={refine} hasMore={hasMore} scrollThreshold={0.8}>
         {hits.map(hit => (
           <ItemComponent key={hit.objectID} hit={hit} refine={refineFilter} />
         ))}
