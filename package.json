@@ -50,7 +50,7 @@
     "raw-loader": "~0.5.1",
     "react": "~16.2.0",
     "react-dom": "~16.2.0",
-    "react-feather": "~1.0.7",
+    "react-feather": "~1.1.0",
     "react-headroom": "~2.2.2",
     "react-infinite-scroll-component": "~3.0.2",
     "react-instantsearch": "~5.0.1",
