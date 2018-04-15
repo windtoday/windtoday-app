@@ -55,7 +55,7 @@
     "react-infinite-scroll-component": "~3.0.2",
     "react-instantsearch": "~5.0.1",
     "react-progress-bar.js": "~0.2.0-dev",
-    "react-timeago": "~3.4.3",
+    "react-timeago": "~4.0.0",
     "rebass": "~2.0.0-0",
     "sass-loader": "~6.0.6",
     "styled-components": "~3.2.3",
