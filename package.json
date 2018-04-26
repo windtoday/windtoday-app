@@ -37,7 +37,7 @@
     "glob": "~7.1.2",
     "js-yaml": "~3.11.0",
     "next": "~5.1.0",
-    "node-sass": "~4.8.3",
+    "node-sass": "~4.9.0",
     "normalize.css": "~8.0.0",
     "nprogress": "~0.2.0",
     "palx": "~1.0.3",
