@@ -56,7 +56,7 @@
     "react-instantsearch": "~5.0.3",
     "react-progress-bar.js": "~0.2.3",
     "react-timeago": "~4.1.9",
-    "rebass": "~2.0.0-0",
+    "rebass": "~2.1.0",
     "sass-loader": "~7.0.1",
     "styled-components": "~3.2.6",
     "styled-system": "2"
