@@ -42,7 +42,7 @@
     "nprogress": "~0.2.0",
     "palx": "~1.0.3",
     "postcss-easy-import": "~3.0.0",
-    "postcss-focus": "~3.0.0",
+    "postcss-focus": "~4.0.0",
     "postcss-loader": "~2.1.4",
     "progress-arc-component": "~2.6.0",
     "prop-types": "~15.6.1",
