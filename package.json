@@ -89,7 +89,6 @@
     "clean": "rm -rf node_modules && rm -rf .next",
     "dev": "next",
     "lint": "standard-markdown && standard",
-    "precommit": "lint-staged",
     "predev": "rm -rf node_modules/.cache/babel-loader",
     "prestart": "npm run build",
     "pretty": "prettier-standard --single-quote {util,pages,config,components}/**/*.js",
@@ -98,6 +97,11 @@
   },
   "private": "true",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "package.json": [
       "finepack",
