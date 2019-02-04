@@ -51,7 +51,7 @@
     "react-dom": "16",
     "react-feather": "~1.1.4",
     "react-headroom": "~2.2.4",
-    "react-infinite-scroll-component": "3",
+    "react-infinite-scroll-component": "^4.4.0",
     "react-instantsearch": "~5.3.2",
     "react-progress-bar.js": "~0.2.3",
     "react-timeago": "~4.1.9",
