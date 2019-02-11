@@ -44,7 +44,7 @@
     "postcss-focus": "~4.0.0",
     "postcss-loader": "~3.0.0",
     "progress-arc-component": "~2.6.0",
-    "prop-types": "15",
+    "prop-types": "^15.7.1",
     "qs": "6",
     "raw-loader": "~0.5.1",
     "react": "16",
