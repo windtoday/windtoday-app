@@ -27,7 +27,7 @@
     "autoprefixer": "9",
     "babel-plugin-module-resolver": "~3.1.1",
     "babel-plugin-styled-components": "1",
-    "babel-plugin-transform-define": "1",
+    "babel-plugin-transform-define": "^2.0.0",
     "babel-plugin-wrap-in-js": "1",
     "breakpoint-sass": "~2.7.1",
     "colour-me-life": "~2.0.0",
