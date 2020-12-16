@@ -25,7 +25,7 @@
   "dependencies": {
     "algoliasearch": "3",
     "autoprefixer": "9",
-    "babel-plugin-module-resolver": "~3.1.1",
+    "babel-plugin-module-resolver": "~4.1.0",
     "babel-plugin-styled-components": "1",
     "babel-plugin-transform-define": "1",
     "babel-plugin-wrap-in-js": "1",
